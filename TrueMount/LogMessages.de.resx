@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddMountOpts" xml:space="preserve">
+    <value>Füge Mount-Optionen hinzu: {0}</value>
+  </data>
+  <data name="CheckCfgTC" xml:space="preserve">
+    <value>Überpfüfen Sie die Konfiguration, ohne TrueCrypt kann nicht fortgesetzt werden!</value>
+  </data>
+  <data name="CheckConfig" xml:space="preserve">
+    <value>Bitte prüfen Sie die Konfiguration!</value>
+  </data>
+  <data name="CheckTCConf" xml:space="preserve">
+    <value>Bitte prüfen Sie die Konfiguration, Vorgang gestoppt.</value>
+  </data>
+  <data name="DevListenerIsRun" xml:space="preserve">
+    <value>Geräte-Wächter läuft bereits.</value>
+  </data>
+  <data name="DevListenerNoRun" xml:space="preserve">
+    <value>Geräte-Wächter läuft nicht.</value>
+  </data>
+  <data name="DevListenerRun" xml:space="preserve">
+    <value>Geräte-Wächter gestartet.</value>
+  </data>
+  <data name="DevListenerStop" xml:space="preserve">
+    <value>Geräte-Wächter gestoppt.</value>
+  </data>
+  <data name="DiskConfEnabled" xml:space="preserve">
+    <value>Konfiguration von Laufwerk {0} aktiviert.</value>
+  </data>
+  <data name="DiskDeviceId" xml:space="preserve">
+    <value>Laufwerkskennnummer: {0}</value>
+  </data>
+  <data name="DiskDriveConfDisabled" xml:space="preserve">
+    <value>Konfiguration von Laufwerk {0} deaktiviert, überspringe...</value>
+  </data>
+  <data name="DiskDriveOffline" xml:space="preserve">
+    <value>Laufwerk {0} ist nicht angeschlossen, überspringe...</value>
+  </data>
+  <data name="DiskDrivePath" xml:space="preserve">
+    <value>Laufwerkspfad: {0}</value>
+  </data>
+  <data name="DiskIsOnline" xml:space="preserve">
+    <value>Laufwerk {0} ist angeschlossen.</value>
+  </data>
+  <data name="DiskPartLetter" xml:space="preserve">
+    <value>Laufwerksbuchstabe: {0}</value>
+  </data>
+  <data name="ErrCheckConfig" xml:space="preserve">
+    <value>Da ging was schief, bitte überprüfen Sie die Konfiguration!</value>
+  </data>
+  <data name="ErrDevListenerStart" xml:space="preserve">
+    <value>Fehler: Geräte-Wächter konnte nicht gestartet werden!</value>
+  </data>
+  <data name="ErrExplorerOpen" xml:space="preserve">
+    <value>Irgendwas ging schief beim Öffnen des Explorers!</value>
+  </data>
+  <data name="ErrGeneral" xml:space="preserve">
+    <value>Fehler: {0}</value>
+  </data>
+  <data name="ErrNoKeyDev" xml:space="preserve">
+    <value>Fehler: kein Schlüssel-Gerät gefunden, prüfen Sie die Einstellungen!</value>
+  </data>
+  <data name="ErrPwFileNoExist" xml:space="preserve">
+    <value>Fehler: Passwortdatei {0} existiert nicht, überspringe...</value>
+  </data>
+  <data name="ErrTCNotFound" xml:space="preserve">
+    <value>Fehler: TrueCrypt Hauptprogramm nicht gefunden, breche ab...</value>
+  </data>
+  <data name="ErrTCPathWrong" xml:space="preserve">
+    <value>Fehler: der Pfad zu TrueCrypt dürfte falsch sein, bitte prüfen Sie das!</value>
+  </data>
+  <data name="LogicalDiskOnline" xml:space="preserve">
+    <value>Logisches Laufwerk {0}:\ angeschlossen.</value>
+  </data>
+  <data name="MountedPartitions" xml:space="preserve">
+    <value>Eingebundene Partitionen: {0}</value>
+  </data>
+  <data name="MsgDone" xml:space="preserve">
+    <value>Erledigt.</value>
+  </data>
+  <data name="NoMountOpts" xml:space="preserve">
+    <value>Keine Mount-Optionen festgelegt, fahre fort...</value>
+  </data>
+  <data name="OpenExplorer" xml:space="preserve">
+    <value>Öffne {0}:\ im Explorer...</value>
+  </data>
+  <data name="PartConfEnabled" xml:space="preserve">
+    <value>Konfiguration der Partition {0} aktiviert.</value>
+  </data>
+  <data name="PasswordFile" xml:space="preserve">
+    <value>Passwortdatei: {0}</value>
+  </data>
+  <data name="PasswordReadOk" xml:space="preserve">
+    <value>Passwort erfolgreich eingelesen.</value>
+  </data>
+  <data name="PDevOnline" xml:space="preserve">
+    <value>Schlüssel-Gerät {0} angeschlossen.</value>
+  </data>
+  <data name="ProcessStarted" xml:space="preserve">
+    <value>Prozess gestartet.</value>
+  </data>
+  <data name="SAutoDi" xml:space="preserve">
+    <value>Automatischer Start in Konfiguration deaktiviert, Wächter nicht gestartet.</value>
+  </data>
+  <data name="SAutoEn" xml:space="preserve">
+    <value>Automatischer Start aktiviert, beginne Arbeit...</value>
+  </data>
+  <data name="SearchDiskLocal" xml:space="preserve">
+    <value>Suche lokale Laufwerke...</value>
+  </data>
+  <data name="StartDevListener" xml:space="preserve">
+    <value>Starte Geräte-Wächter...</value>
+  </data>
+  <data name="StartProcess" xml:space="preserve">
+    <value>Starte Prozess...</value>
+  </data>
+  <data name="StopDevListener" xml:space="preserve">
+    <value>Stoppe Geräte-Wächter...</value>
+  </data>
+  <data name="TCArgumentLine" xml:space="preserve">
+    <value>Kommandozeilenparameter: {0}</value>
+  </data>
+  <data name="TCPath" xml:space="preserve">
+    <value>TrueCrypt Pfad: {0}</value>
+  </data>
+  <data name="UnmountAll" xml:space="preserve">
+    <value>Werfe alle Laufwerke aus...</value>
+  </data>
+  <data name="USBFound" xml:space="preserve">
+    <value>Neues USB-Gerät gefunden.</value>
+  </data>
+  <data name="USBNotPw" xml:space="preserve">
+    <value>USB-Gerät ist kein Schlüssel-Gerät, warte...</value>
+  </data>
+  <data name="USBRemoved" xml:space="preserve">
+    <value>USB-Gerät entfernt.</value>
+  </data>
+  <data name="WaitDevLaunch" xml:space="preserve">
+    <value>Warte bis Laufwerk bereit...</value>
+  </data>
+  <data name="WarnGeneral" xml:space="preserve">
+    <value>Warnung: {0}</value>
+  </data>
+  <data name="WarnLetterInUse" xml:space="preserve">
+    <value>Warnung: Laufwerksbuchstabe {0} bereits in Verwendung, überspringe...</value>
+  </data>
+  <data name="WarnNoDisks" xml:space="preserve">
+    <value>Warnung: keine Laufwerke in Konfiguration gefunden, prüfen Sie die Einstellungen!</value>
+  </data>
+  <data name="WarnTCArgs" xml:space="preserve">
+    <value>Warnung: keineTrueCrypt-Schalter gesetzt, Hauptfenster könnte erscheinen!</value>
+  </data>
+</root>

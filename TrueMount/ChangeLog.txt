@@ -1,0 +1,18 @@
+﻿2.0.1.0
+  * Added multilingual support
+  * Added new language: German (Deutsch)
+  * Added language list box to settings dialog
+  * Redesigned TrueCrypt settings tab
+  * Code cleanup
+  * Performance improvements
+  * Removed unused methods and debug code
+  * Main window adjustments
+  * Settings window adjustments
+  * Splash Screen now loads non-blocking (parallel mounting works)
+  * Fixed a bug in mount option settings
+  * Fixed some warning/error messages
+  * Fixed a bug incorrect prompting free drive letters
+  * Fixed a crash caused by editing disks
+  * Fixed incorrect parsing of CLI options
+  * Fixed ignoring new inserted usb devices
+  * Fixed accidentally stopping device listener without user notice
