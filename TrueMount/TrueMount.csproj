@@ -239,9 +239,6 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <Content Include="ChangeLog.txt" />
-    <Content Include="config.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Resources\1279794104_hdd_mount.png" />
     <None Include="Resources\tc_header.png" />
     <None Include="Resources\1277903288_USB-Black.png" />
