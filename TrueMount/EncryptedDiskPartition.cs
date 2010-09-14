@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Management;
 
 namespace TrueMount
 {
@@ -17,6 +18,9 @@ namespace TrueMount
         public bool Removable { get; set; }
         public bool Timestamp { get; set; }
         public bool System { get; set; }
+        public ManagementObject DiskDrive { get; set; }
+        public ManagementObject DiskPartition { get; set; }
+
         public string MountOptions
         {
             get

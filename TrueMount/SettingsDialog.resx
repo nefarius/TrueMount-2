@@ -195,7 +195,7 @@
     <value>0</value>
   </data>
   <data name="buttonListDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 261</value>
+    <value>6, 272</value>
   </data>
   <data name="buttonListDisks.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 23</value>
@@ -218,11 +218,38 @@
   <data name="&gt;&gt;buttonListDisks.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="checkBoxIgnoreDriveLetters.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxIgnoreDriveLetters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 217</value>
+  </data>
+  <data name="checkBoxIgnoreDriveLetters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 17</value>
+  </data>
+  <data name="checkBoxIgnoreDriveLetters.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="checkBoxIgnoreDriveLetters.Text" xml:space="preserve">
+    <value>Ignore assigned drive letters</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Name" xml:space="preserve">
+    <value>checkBoxIgnoreDriveLetters</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="checkBoxWindowsStartup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxWindowsStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 33</value>
+    <value>32, 27</value>
   </data>
   <data name="checkBoxWindowsStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 17</value>
@@ -243,13 +270,13 @@
     <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;checkBoxWindowsStartup.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="checkBoxOneInstance.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxOneInstance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 189</value>
+    <value>32, 179</value>
   </data>
   <data name="checkBoxOneInstance.Size" type="System.Drawing.Size, System.Drawing">
     <value>242, 17</value>
@@ -270,13 +297,13 @@
     <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;checkBoxOneInstance.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="checkBoxAutostart.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxAutostart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 72</value>
+    <value>32, 65</value>
   </data>
   <data name="checkBoxAutostart.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 17</value>
@@ -297,13 +324,13 @@
     <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;checkBoxAutostart.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="checkBoxSplashScreen.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxSplashScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 150</value>
+    <value>32, 141</value>
   </data>
   <data name="checkBoxSplashScreen.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 17</value>
@@ -324,13 +351,13 @@
     <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;checkBoxSplashScreen.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="checkBoxHidden.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="checkBoxHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 111</value>
+    <value>32, 103</value>
   </data>
   <data name="checkBoxHidden.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 17</value>
@@ -351,13 +378,13 @@
     <value>groupBox9</value>
   </data>
   <data name="&gt;&gt;checkBoxHidden.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
   </data>
   <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 239</value>
+    <value>310, 260</value>
   </data>
   <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>

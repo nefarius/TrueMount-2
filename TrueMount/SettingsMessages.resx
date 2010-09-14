@@ -126,6 +126,9 @@
   <data name="MsgHDevDouble" xml:space="preserve">
     <value>Duplicate detected</value>
   </data>
+  <data name="MsgHDiskOff" xml:space="preserve">
+    <value>Chosen disk offline</value>
+  </data>
   <data name="MsgHNoPw" xml:space="preserve">
     <value>Password file missing</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="MsgTDevDouble" xml:space="preserve">
     <value>The selected Key Device already exists!</value>
+  </data>
+  <data name="MsgTDiskOff" xml:space="preserve">
+    <value>The chosen disk seems to be offline, please reopen this dialog!</value>
   </data>
   <data name="MsgTNoPw" xml:space="preserve">
     <value>Please select a password file!</value>

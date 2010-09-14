@@ -126,6 +126,9 @@
   <data name="MsgHDevDouble" xml:space="preserve">
     <value>Duplikat gefunden</value>
   </data>
+  <data name="MsgHDiskOff" xml:space="preserve">
+    <value>Gewähltes Laufwerk nicht verfügbar</value>
+  </data>
   <data name="MsgHNoPw" xml:space="preserve">
     <value>Passwortdatei fehlt</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="MsgTDevDouble" xml:space="preserve">
     <value>Das gewählte Schlüssel-Gerät existiert bereits!</value>
+  </data>
+  <data name="MsgTDiskOff" xml:space="preserve">
+    <value>Das gewählte Laufwerk scheint nicht mehr verfügbar zu sein, bitte öffnen Sie den Dialog erneut!</value>
   </data>
   <data name="MsgTNoPw" xml:space="preserve">
     <value>Bitte setzen Sie eine Passwort-Datei!</value>

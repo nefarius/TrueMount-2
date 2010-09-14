@@ -18,6 +18,7 @@ namespace TrueMount
         public List<UsbKeyDevice> KeyDevices { get; set; }
         public List<EncryptedDiskPartition> EncryptedDiskPartitions { get; set; }
         public CultureInfo Language { get; set; }
+        public bool IgnoreAssignedDriveLetters { get; set; }
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
@@ -28,29 +29,44 @@ namespace TrueMount
             KeyDevices = new List<UsbKeyDevice>();
             EncryptedDiskPartitions = new List<EncryptedDiskPartition>();
         }
-
+        
+        /// <summary>
+        /// Contains the path to the config database file.
+        /// </summary>
         public static String ConfigDbFile
         {
             get { return Path.GetDirectoryName(Application.ExecutablePath) + "\\config.yap"; }
         }
 
+        /// <summary>
+        /// The Name of the App.
+        /// </summary>
         public string ApplicationName
         {
             get { return VALUE_NAME; }
         }
 
+        /// <summary>
+        /// Add to windows autostart.
+        /// </summary>
         public void SetAutoStart()
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(RUN_LOCATION);
             key.SetValue(VALUE_NAME, Assembly.GetExecutingAssembly().Location);
         }
 
+        /// <summary>
+        /// Remove from windows autostart.
+        /// </summary>
         public void UnSetAutoStart()
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(RUN_LOCATION);
             key.DeleteValue(VALUE_NAME);
         }
 
+        /// <summary>
+        /// Checks if application is in autostart list.
+        /// </summary>
         public bool IsAutoStartEnabled
         {
             get
@@ -66,6 +82,9 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Checks if there is at least one valid key device.
+        /// </summary>
         public bool IsUsbDeviceConfigOk
         {
             get

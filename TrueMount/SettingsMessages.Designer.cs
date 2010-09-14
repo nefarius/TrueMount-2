@@ -88,6 +88,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chosen disk offline.
+        /// </summary>
+        internal static string MsgHDiskOff {
+            get {
+                return ResourceManager.GetString("MsgHDiskOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password file missing.
         /// </summary>
         internal static string MsgHNoPw {
@@ -120,6 +129,15 @@ namespace TrueMount {
         internal static string MsgTDevDouble {
             get {
                 return ResourceManager.GetString("MsgTDevDouble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chosen disk seems to be offline, please reopen this dialog!.
+        /// </summary>
+        internal static string MsgTDiskOff {
+            get {
+                return ResourceManager.GetString("MsgTDiskOff", resourceCulture);
             }
         }
         

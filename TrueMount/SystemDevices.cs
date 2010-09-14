@@ -9,15 +9,15 @@ namespace TrueMount
 {
     static class SystemDevices
     {
-        private static ManagementClass _LogicalDisks = new ManagementClass(Win32_LogicalDisk);
-        private static ManagementClass _DiskDrives = new ManagementClass(Win32_DiskDrive);
-        private static ManagementClass _DiskPartitions = new ManagementClass(Win32_DiskPartition);
-        private static ManagementClass _USBControllerDevices = new ManagementClass(Win32_USBControllerDevice);
-
         public const string Win32_LogicalDisk = "Win32_LogicalDisk";
         public const string Win32_DiskDrive = "Win32_DiskDrive";
         public const string Win32_DiskPartition = "Win32_DiskPartition";
         public const string Win32_USBControllerDevice = "Win32_USBControllerDevice";
+
+        private static ManagementClass _LogicalDisks = new ManagementClass(Win32_LogicalDisk);
+        private static ManagementClass _DiskDrives = new ManagementClass(Win32_DiskDrive);
+        private static ManagementClass _DiskPartitions = new ManagementClass(Win32_DiskPartition);
+        private static ManagementClass _USBControllerDevices = new ManagementClass(Win32_USBControllerDevice);
 
         /// <summary>
         /// Check if logical device is online (=plugged in and mounted with drive letter).
@@ -217,6 +217,25 @@ namespace TrueMount
         {
             get
             {
+                List<string> alphabet = AllDriveLetters;
+
+                foreach (DriveInfo drive in DriveInfo.GetDrives())
+                    alphabet.Remove(drive.Name.Substring(0, 1).ToUpper());
+
+                if (alphabet.Count > 0)
+                    return alphabet;
+                else
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Contains all drive letters.
+        /// </summary>
+        public static List<string> AllDriveLetters
+        {
+            get
+            {
                 List<string> alphabet = new List<string>();
                 int lowerBound = Convert.ToInt16('C');
                 int upperBound = Convert.ToInt16('Z');
@@ -226,18 +245,9 @@ namespace TrueMount
                 {
                     char driveLetter = (char)index;
                     alphabet.Add(driveLetter.ToString());
-
                 }
 
-                foreach (DriveInfo drive in DriveInfo.GetDrives())
-                {
-                    alphabet.Remove(drive.Name.Substring(0, 1).ToUpper());
-                }
-
-                if (alphabet.Count > 0)
-                    return alphabet;
-                else
-                    return null;
+                return alphabet;
             }
         }
     }

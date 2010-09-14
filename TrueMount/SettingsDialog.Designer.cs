@@ -37,6 +37,7 @@
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.buttonListDisks = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.checkBoxIgnoreDriveLetters = new System.Windows.Forms.CheckBox();
             this.checkBoxWindowsStartup = new System.Windows.Forms.CheckBox();
             this.checkBoxOneInstance = new System.Windows.Forms.CheckBox();
             this.checkBoxAutostart = new System.Windows.Forms.CheckBox();
@@ -180,6 +181,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.checkBoxIgnoreDriveLetters);
             this.groupBox9.Controls.Add(this.checkBoxWindowsStartup);
             this.groupBox9.Controls.Add(this.checkBoxOneInstance);
             this.groupBox9.Controls.Add(this.checkBoxAutostart);
@@ -188,6 +190,13 @@
             resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
+            // 
+            // checkBoxIgnoreDriveLetters
+            // 
+            resources.ApplyResources(this.checkBoxIgnoreDriveLetters, "checkBoxIgnoreDriveLetters");
+            this.checkBoxIgnoreDriveLetters.Name = "checkBoxIgnoreDriveLetters";
+            this.checkBoxIgnoreDriveLetters.UseVisualStyleBackColor = true;
+            this.checkBoxIgnoreDriveLetters.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreDriveLetters_CheckedChanged);
             // 
             // checkBoxWindowsStartup
             // 
@@ -797,6 +806,7 @@
         private System.Windows.Forms.GroupBox groupBoxLanguage;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox checkBoxIgnoreDriveLetters;
 
 
     }

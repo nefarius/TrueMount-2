@@ -177,6 +177,9 @@
     <Compile Include="ROOT.CIMV2.Win32_ComputerSystem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="ListDisksDialog.de.resx">
+      <DependentUpon>ListDisksDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsMessages.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SettingsMessages.de.Designer.cs</LastGenOutput>
