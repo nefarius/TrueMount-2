@@ -63,7 +63,7 @@
             this.textBoxUSBPartition = new System.Windows.Forms.TextBox();
             this.tabPageDiskDrives = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBoxLocalDiskDrives = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDiskPartitions = new System.Windows.Forms.ComboBox();
@@ -118,7 +118,7 @@
             this.panelKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPageDiskDrives.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBoxLocalDiskDrives.SuspendLayout();
             this.panelDisks.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -369,7 +369,7 @@
             // tabPageDiskDrives
             // 
             this.tabPageDiskDrives.Controls.Add(this.label5);
-            this.tabPageDiskDrives.Controls.Add(this.groupBox5);
+            this.tabPageDiskDrives.Controls.Add(this.groupBoxLocalDiskDrives);
             this.tabPageDiskDrives.Controls.Add(this.treeViewDisks);
             this.tabPageDiskDrives.Controls.Add(this.panelDisks);
             resources.ApplyResources(this.tabPageDiskDrives, "tabPageDiskDrives");
@@ -381,16 +381,16 @@
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // groupBox5
+            // groupBoxLocalDiskDrives
             // 
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.comboBoxDiskPartitions);
-            this.groupBox5.Controls.Add(this.comboBoxDiskDrives);
-            this.groupBox5.Controls.Add(this.buttonAddDisk);
-            resources.ApplyResources(this.groupBox5, "groupBox5");
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.TabStop = false;
+            this.groupBoxLocalDiskDrives.Controls.Add(this.label7);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.label6);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskPartitions);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskDrives);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.buttonAddDisk);
+            resources.ApplyResources(this.groupBoxLocalDiskDrives, "groupBoxLocalDiskDrives");
+            this.groupBoxLocalDiskDrives.Name = "groupBoxLocalDiskDrives";
+            this.groupBoxLocalDiskDrives.TabStop = false;
             // 
             // label7
             // 
@@ -709,8 +709,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPageDiskDrives.ResumeLayout(false);
             this.tabPageDiskDrives.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBoxLocalDiskDrives.ResumeLayout(false);
+            this.groupBoxLocalDiskDrives.PerformLayout();
             this.panelDisks.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -763,7 +763,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxDiskCaption;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBoxLocalDiskDrives;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxDiskPartitions;

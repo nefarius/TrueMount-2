@@ -56,16 +56,9 @@ namespace TrueMount
         private void GetConfigurationFromDb()
         {
             config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
-
-            IEnumerable<Configuration> result =
-                from Configuration c in config_db
-                select c;
-
-            if (result.Count() > 0)
-                config = (Configuration)result.First();
-            else
+            config = config_db.Query<Configuration>().FirstOrDefault();
+            if (config == null)
                 config = new Configuration();
-
             config_db.Close();
         }
 
