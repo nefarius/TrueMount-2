@@ -71,6 +71,7 @@
             this.buttonAddDisk = new System.Windows.Forms.Button();
             this.treeViewDisks = new System.Windows.Forms.TreeView();
             this.panelDisks = new System.Windows.Forms.Panel();
+            this.buttonEditKeyFiles = new System.Windows.Forms.Button();
             this.buttonSaveDisk = new System.Windows.Forms.Button();
             this.buttonDeleteDiskDrive = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -433,6 +434,7 @@
             // panelDisks
             // 
             this.panelDisks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDisks.Controls.Add(this.buttonEditKeyFiles);
             this.panelDisks.Controls.Add(this.buttonSaveDisk);
             this.panelDisks.Controls.Add(this.buttonDeleteDiskDrive);
             this.panelDisks.Controls.Add(this.groupBox6);
@@ -440,6 +442,13 @@
             this.panelDisks.Controls.Add(this.groupBox8);
             resources.ApplyResources(this.panelDisks, "panelDisks");
             this.panelDisks.Name = "panelDisks";
+            // 
+            // buttonEditKeyFiles
+            // 
+            resources.ApplyResources(this.buttonEditKeyFiles, "buttonEditKeyFiles");
+            this.buttonEditKeyFiles.Name = "buttonEditKeyFiles";
+            this.buttonEditKeyFiles.UseVisualStyleBackColor = true;
+            this.buttonEditKeyFiles.Click += new System.EventHandler(this.buttonEditKeyFiles_Click);
             // 
             // buttonSaveDisk
             // 
@@ -807,6 +816,7 @@
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBoxIgnoreDriveLetters;
+        private System.Windows.Forms.Button buttonEditKeyFiles;
 
 
     }

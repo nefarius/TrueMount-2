@@ -8,7 +8,6 @@ using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 using Db4objects.Db4o;
-using Db4objects.Db4o.Linq;
 
 namespace TrueMount
 {
@@ -573,6 +572,11 @@ namespace TrueMount
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(config_db.QueryByExample(typeof(EncryptedDiskPartition)).Count.ToString());
+        }
+
+        private void buttonEditKeyFiles_Click(object sender, EventArgs e)
+        {
+            new KeyFilesDialog().ShowDialog();
         }
     }
 }

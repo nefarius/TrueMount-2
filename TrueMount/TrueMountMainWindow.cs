@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 using Db4objects.Db4o;
-using Db4objects.Db4o.Linq;
-using System.Resources;
-using System.Globalization;
 
 namespace TrueMount
 {

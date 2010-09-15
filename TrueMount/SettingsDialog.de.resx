@@ -290,9 +290,6 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Gespeicherte Partitionen</value>
   </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Lokale Laufwerke</value>
-  </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -310,6 +307,15 @@
   </data>
   <data name="buttonAddDisk.Text" xml:space="preserve">
     <value>Hinzufügen</value>
+  </data>
+  <data name="buttonEditKeyFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 187</value>
+  </data>
+  <data name="buttonEditKeyFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 23</value>
+  </data>
+  <data name="buttonEditKeyFiles.Text" xml:space="preserve">
+    <value>Editiere Schlüssel-Dateien...</value>
   </data>
   <data name="buttonSaveDisk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
