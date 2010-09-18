@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Forms;
 using Db4objects.Db4o;
-using Db4objects.Db4o.Linq;
-using System.IO;
-using TrueMount.Properties;
 
 namespace TrueMount
 {

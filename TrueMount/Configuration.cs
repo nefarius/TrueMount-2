@@ -25,11 +25,16 @@ namespace TrueMount
 
         public Configuration()
         {
+            // initiate empty lists
             TrueCrypt = new TrueCryptConfig();
             KeyDevices = new List<UsbKeyDevice>();
             EncryptedDiskPartitions = new List<EncryptedDiskPartition>();
+
+            // set default values
+            ShowSplashScreen = true;
+            OnlyOneInstance = true;
         }
-        
+
         /// <summary>
         /// Contains the path to the config database file.
         /// </summary>

@@ -20,6 +20,7 @@ namespace TrueMount
         private ResourceManager rm = null;
         private CultureInfo culture = null;
         private const string TC_CLI_URL = "http://www.truecrypt.org/docs/?s=command-line-usage";
+        KeyFilesDialog key_files_diag = null;
 
         /// <summary>
         /// Constructor
@@ -31,6 +32,9 @@ namespace TrueMount
             // new list ob available SystemDevices
             key_device_list = new Dictionary<int, List<ManagementObject>>();
             enc_device_list = new Dictionary<int, List<ManagementObject>>();
+
+            // create new key files settings dialog
+            key_files_diag = new KeyFilesDialog();
 
             // load translation resources
             rm = new ResourceManager("TrueMount.SettingsMessages",
@@ -123,7 +127,7 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Builds the device lists.
+        /// Builds the device lists (the most evil code I ever wrote :/)
         /// </summary>
         private void BuildDeviceList()
         {
@@ -243,6 +247,8 @@ namespace TrueMount
         {
             Cursor.Current = Cursors.WaitCursor;
             groupBoxLocalDiskDrives.Enabled = false;
+            // reset the key files list
+            key_files_diag.KeyFilesList = new List<string>();
 
             // get disk and partition from linked list
             ManagementObject new_disk = enc_device_list[comboBoxDiskDrives.SelectedIndex][0];
@@ -383,6 +389,7 @@ namespace TrueMount
             new_enc_disk_partition.Removable = checkBoxRm.Checked;
             new_enc_disk_partition.System = checkBoxSm.Checked;
             new_enc_disk_partition.Timestamp = checkBoxTs.Checked;
+            new_enc_disk_partition.KeyFiles = key_files_diag.KeyFilesList;
 
             // if exactly the same object exists in the databse, delete and re-save it
             if (!config.EncryptedDiskPartitions.Contains(new_enc_disk_partition))
@@ -459,6 +466,7 @@ namespace TrueMount
             }
             else
             {
+                // this key device already exists
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show(rm.GetString("MsgTDevDouble"), rm.GetString("MsgHDevDouble"),
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -506,8 +514,8 @@ namespace TrueMount
                 config.EncryptedDiskPartitions.RemoveAt(treeViewDisks.SelectedNode.Index);
             }
 
+            panelDisks.Visible = false; // first!
             treeViewDisks.SelectedNode.Remove();
-            panelDisks.Visible = false;
             groupBoxLocalDiskDrives.Enabled = true;
         }
 
@@ -569,14 +577,11 @@ namespace TrueMount
             config.IgnoreAssignedDriveLetters = checkBoxIgnoreDriveLetters.Checked;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(config_db.QueryByExample(typeof(EncryptedDiskPartition)).Count.ToString());
-        }
-
         private void buttonEditKeyFiles_Click(object sender, EventArgs e)
         {
-            new KeyFilesDialog().ShowDialog();
+            if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
+                key_files_diag.KeyFilesList = config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index].KeyFiles;
+            key_files_diag.ShowDialog();
         }
     }
 }

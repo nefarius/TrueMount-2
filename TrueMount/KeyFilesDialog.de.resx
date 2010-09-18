@@ -117,63 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1276771048_Cloud Download On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276771048_Cloud Download On.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonRemoveAll.Text" xml:space="preserve">
+    <value>Alle entfernen</value>
   </data>
-  <data name="1277233011_window_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277233011_window_list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonSave.Text" xml:space="preserve">
+    <value>Speichern</value>
   </data>
-  <data name="1277832668_usbpendrive_mount" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277832668_usbpendrive_mount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Abbrechen</value>
   </data>
-  <data name="1277233069_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277233069_copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonAddPath.Text" xml:space="preserve">
+    <value>Ordner hinzufügen...</value>
   </data>
-  <data name="1276770923_power_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276770923_power_off.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonRemove.Text" xml:space="preserve">
+    <value>Entfernen</value>
   </data>
-  <data name="1276786893_drive_disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276786893_drive_disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonAddFile.Text" xml:space="preserve">
+    <value>Datei hinzufügen....</value>
   </data>
-  <data name="1276770921_power_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276770921_power_on.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Schlüsseldateien/Verzeichnisse</value>
   </data>
-  <data name="1276771116_dialog-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276771116_dialog-close.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Wenn Ihr verschlüsseltes Medium eine oder mehrere Schlüsseldateien verwendet, können Sie diese hier festlegen. Dazu wählen Sie 'Datei hinzufügen...' um nach Dateien zu suchen. Wenn Sie einen ganzen Ordner voller Schlüsseldateien haben, klicken Sie 'Ordner hinzufügen...' und navigieren zum entsprechenden Verzeichnis. Zum Entfernen von Einträgen wählen Sie ein oder mehrere Listenelemente mit 'Strg+Linksklick' aus und wählen den 'Entfernen'-Button. Schließlich mit 'Speichern' den Dialog schließen.</value>
   </data>
-  <data name="1277903227_Flash Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277903227_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1276786795_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276786795_remove.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1276790510_gear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276790510_gear.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1277903288_USB-Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277903288_USB-Black.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tc_header" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tc_header.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1277232971_hdd_unmount" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277232971_hdd_unmount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1279794104_hdd_mount" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1279794104_hdd_mount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1276718799_application-pgp-signature" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276718799_application-pgp-signature.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1276790845_preferences-desktop-cryptography" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276790845_preferences-desktop-cryptography.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spalsh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spalsh.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1284750160_encrypted" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1284750160_encrypted.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Hinzufügen, Ändern oder Löschen von Schlüsseldateien</value>
   </data>
 </root>

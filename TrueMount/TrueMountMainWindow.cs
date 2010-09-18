@@ -444,6 +444,15 @@ namespace TrueMount
                                 else
                                     LogAppend("NoMountOpts");
 
+                                // add key files
+                                if (!string.IsNullOrEmpty(enc_disk_partition.KeyFilesArgumentLine))
+                                {
+                                    LogAppend("AddKeyFiles", enc_disk_partition.KeyFiles.Count.ToString());
+                                    tc_args_ready += " " + enc_disk_partition.KeyFilesArgumentLine;
+                                }
+                                else
+                                    LogAppend("NoKeyFiles");
+
                                 // create new process
                                 Process truecrypt = new Process();
                                 // if not exists, exit
@@ -491,10 +500,12 @@ namespace TrueMount
                                  * 2 = removable
                                  * 3 = local (fixed)
                                  * */
+                                Cursor.Current = Cursors.WaitCursor;
                                 while (SystemDevices.GetLogicalDisk(tc_device_letter, (enc_disk_partition.Removable) ? 2 : 3) == null)
                                 {
                                     Thread.Sleep(500);
                                 }
+                                Cursor.Current = Cursors.Default;
 
                                 //LogAppend(truecrypt.StandardOutput.ReadToEnd());
                                 LogAppend("LogicalDiskOnline", tc_device_letter);

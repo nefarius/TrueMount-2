@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TrueMount")]
-[assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted disks.")]
+[assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted devices.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nefarius")]
 [assembly: AssemblyProduct("TrueMount")]

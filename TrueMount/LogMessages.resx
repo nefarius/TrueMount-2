@@ -267,4 +267,7 @@
   <data name="WarnTCArgs" xml:space="preserve">
     <value>Warning: no TrueCrypt configuration switch set, program window may show up!</value>
   </data>
+  <data name="AddKeyFiles" xml:space="preserve">
+    <value>Adding {0} key files/directories...</value>
+  </data>
 </root>

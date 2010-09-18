@@ -61,6 +61,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding {0} key files/directories....
+        /// </summary>
+        internal static string AddKeyFiles {
+            get {
+                return ResourceManager.GetString("AddKeyFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adding mount options: {0}.
         /// </summary>
         internal static string AddMountOpts {

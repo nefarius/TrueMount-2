@@ -115,9 +115,6 @@
     <Reference Include="Db4objects.Db4o">
       <HintPath>C:\Program Files (x86)\db4o\db4o-7.12\bin\net-3.5\Db4objects.Db4o.dll</HintPath>
     </Reference>
-    <Reference Include="Db4objects.Db4o.Linq">
-      <HintPath>C:\Program Files (x86)\db4o\db4o-7.12\bin\net-3.5\Db4objects.Db4o.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -135,6 +132,11 @@
     </Compile>
     <Compile Include="KeyFilesDialog.Designer.cs">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogMessages.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogMessages.de.resx</DependentUpon>
     </Compile>
     <Compile Include="SettingsMessages.de.Designer.cs">
       <DependentUpon>SettingsMessages.de.resx</DependentUpon>
@@ -184,6 +186,9 @@
     <Compile Include="ROOT.CIMV2.Win32_ComputerSystem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="KeyFilesDialog.de.resx">
+      <DependentUpon>KeyFilesDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeyFilesDialog.resx">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,7 +202,10 @@
     <EmbeddedResource Include="ListDisksDialog.resx">
       <DependentUpon>ListDisksDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogMessages.de.resx" />
+    <EmbeddedResource Include="LogMessages.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogMessages.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LogMessages.Designer.cs</LastGenOutput>
@@ -252,6 +260,7 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <Content Include="ChangeLog.txt" />
+    <None Include="Resources\1284750160_encrypted.png" />
     <None Include="Resources\1279794104_hdd_mount.png" />
     <None Include="Resources\tc_header.png" />
     <None Include="Resources\1277903288_USB-Black.png" />

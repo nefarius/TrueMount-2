@@ -1,4 +1,10 @@
-﻿2.0.1.0
+﻿2.0.1.1
+  * Disables partition box if drive has no partitions
+  * Fixed disk panel being invisible after deletion of new disk
+  * More code cleanup (all the dusty parts *cough*)
+  * Added key file support
+  * Language corrections
+2.0.1.0
   * Added multilingual support
   * Added new language: German (Deutsch)
   * Added language list box to settings dialog

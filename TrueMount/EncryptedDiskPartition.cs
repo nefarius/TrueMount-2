@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Management;
 
 namespace TrueMount
 {
@@ -19,6 +18,22 @@ namespace TrueMount
         public bool Timestamp { get; set; }
         public bool System { get; set; }
 
+        public string KeyFilesArgumentLine
+        {
+            get
+            {
+                if (this.KeyFiles.Count > 0)
+                {
+                    String args = null;
+                    foreach (string item in this.KeyFiles)
+                        args += "/k " + item + " ";
+                    return args.Trim();
+                }
+                else
+                    return null;
+            }
+        }
+
         public string MountOptions
         {
             get
@@ -32,7 +47,7 @@ namespace TrueMount
                     m_opts += "/m ts ";
                 if (System)
                     m_opts += "/m sm ";
-                return m_opts;
+                return m_opts.Trim();
             }
         }
 

@@ -46,12 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.toolTipMainWindow = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonStopWorker = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonStartWorker = new System.Windows.Forms.Button();
             this.buttonHide = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.contextMenuStripSysTray.SuspendLayout();
             this.contextMenuStripClipboard.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -166,17 +166,6 @@
             this.label3.Name = "label3";
             this.toolTipMainWindow.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonStopWorker);
-            this.groupBox3.Controls.Add(this.buttonSettings);
-            this.groupBox3.Controls.Add(this.buttonStartWorker);
-            this.groupBox3.Controls.Add(this.buttonHide);
-            this.groupBox3.Controls.Add(this.buttonClose);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
             // buttonStopWorker
             // 
             this.buttonStopWorker.BackColor = System.Drawing.Color.Silver;
@@ -226,6 +215,17 @@
             this.toolTipMainWindow.SetToolTip(this.buttonClose, resources.GetString("buttonClose.ToolTip"));
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonStopWorker);
+            this.groupBox3.Controls.Add(this.buttonSettings);
+            this.groupBox3.Controls.Add(this.buttonStartWorker);
+            this.groupBox3.Controls.Add(this.buttonHide);
+            this.groupBox3.Controls.Add(this.buttonClose);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
             // 
             // TrueMountMainWindow
             // 

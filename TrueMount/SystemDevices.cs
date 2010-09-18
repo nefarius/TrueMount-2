@@ -24,12 +24,12 @@ namespace TrueMount
         /// </summary>
         /// <param name="letter">Drive letter of the device.</param>
         /// <returns>Returns true if device with given drive letter is online, else false.</returns>
-        public static bool IsLogicalDiskOnline(String letter)
+        public static bool IsLogicalDiskOnline(String letter, int type = 2)
         {
             var ldQuery =
                 from ManagementObject ldisk in _LogicalDisks.GetInstances()
                 where ldisk["Name"].ToString() == letter &&
-                int.Parse(ldisk["DriveType"].ToString()) == 2
+                int.Parse(ldisk["DriveType"].ToString()) == type
                 select ldisk;
 
             if (ldQuery.Count() > 0)
