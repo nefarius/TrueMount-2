@@ -4,6 +4,7 @@
   * More code cleanup (all the dusty parts *cough*)
   * Added key file support
   * Language corrections
+  * Db4objects.Db4o.Linq.dll no more needed
 2.0.1.0
   * Added multilingual support
   * Added new language: German (Deutsch)
