@@ -36,6 +36,7 @@
             this.settingsToolStripMenuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unmountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.contextMenuStripClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -52,6 +53,7 @@
             this.buttonHide = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.autoUpdaterSubversion = new Conversive.AutoUpdater.AutoUpdater();
             this.contextMenuStripSysTray.SuspendLayout();
             this.contextMenuStripClipboard.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,6 +73,7 @@
             this.settingsToolStripMenuSettings,
             this.mountAllToolStripMenuItem,
             this.unmountAllToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
             this.closeToolStripMenuClose});
             this.contextMenuStripSysTray.Name = "contextMenuStripSysTray";
             resources.ApplyResources(this.contextMenuStripSysTray, "contextMenuStripSysTray");
@@ -102,6 +105,13 @@
             this.unmountAllToolStripMenuItem.Name = "unmountAllToolStripMenuItem";
             resources.ApplyResources(this.unmountAllToolStripMenuItem, "unmountAllToolStripMenuItem");
             this.unmountAllToolStripMenuItem.Click += new System.EventHandler(this.unmountAllToolStripMenuItem_Click);
+            // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1284820964_system_software_update;
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            resources.ApplyResources(this.checkForUpdatesToolStripMenuItem, "checkForUpdatesToolStripMenuItem");
+            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // closeToolStripMenuClose
             // 
@@ -227,6 +237,16 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
+            // autoUpdaterSubversion
+            // 
+            this.autoUpdaterSubversion.AutoDownload = false;
+            this.autoUpdaterSubversion.ConfigURL = "https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount/UpdateVersion.xml";
+            this.autoUpdaterSubversion.DownloadForm = null;
+            this.autoUpdaterSubversion.LoginUserName = null;
+            this.autoUpdaterSubversion.LoginUserPass = null;
+            this.autoUpdaterSubversion.ProxyURL = null;
+            this.autoUpdaterSubversion.RestartForm = this;
+            // 
             // TrueMountMainWindow
             // 
             resources.ApplyResources(this, "$this");
@@ -278,6 +298,8 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ToolStripMenuItem mountAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuSettings;
+        private Conversive.AutoUpdater.AutoUpdater autoUpdaterSubversion;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
     }
 }
 

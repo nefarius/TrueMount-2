@@ -727,5 +727,11 @@ namespace TrueMount
         {
             new SettingsDialog().ShowDialog();
         }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.autoUpdaterSubversion.TryUpdate();
+            MessageBox.Show(this.autoUpdaterSubversion.NewVersionAvailable.ToString());
+        }
     }
 }

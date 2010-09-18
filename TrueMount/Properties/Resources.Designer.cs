@@ -179,6 +179,13 @@ namespace TrueMount.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1284820964_system_software_update {
+            get {
+                object obj = ResourceManager.GetObject("1284820964_system-software-update", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap spalsh {
             get {
                 object obj = ResourceManager.GetObject("spalsh", resourceCulture);

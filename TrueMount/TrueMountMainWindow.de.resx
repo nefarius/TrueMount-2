@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="contextMenuStripSysTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 114</value>
+    <value>199, 136</value>
   </data>
   <data name="notifyIconSysTray.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1787,36 +1787,65 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="showToolStripMenuShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="showToolStripMenuShow.Text" xml:space="preserve">
+    <value>Hauptfenster</value>
+  </data>
+  <data name="settingsToolStripMenuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="settingsToolStripMenuSettings.Text" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="mountAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="mountAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alle Einbinden</value>
+  </data>
+  <data name="unmountAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="unmountAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alle Auswerfen</value>
+  </data>
+  <data name="checkForUpdatesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="checkForUpdatesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Suche Aktualisierungen</value>
+  </data>
+  <data name="closeToolStripMenuClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="closeToolStripMenuClose.Text" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
   <data name="contextMenuStripClipboard.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 26</value>
+  </data>
+  <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="copyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Kopieren</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Meldungen</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="linkLabelNefarius.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="linkLabelNefarius.ToolTip" xml:space="preserve">
     <value>Guggt mal auf meine Webseite für mehr tolles Zeug! :)</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="label1.ToolTip" xml:space="preserve">
     <value>Meine Wenigkeit :)</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>304, 22</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>TrueMount - komfortable Sicherheit</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 25</value>
@@ -1826,18 +1855,6 @@
   </data>
   <data name="label3.ToolTip" xml:space="preserve">
     <value>Dies ist eine Testversion, Fehler könnten auftreten!</value>
-  </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 359</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>561, 67</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Aktionen</value>
-  </data>
-  <data name="buttonStopWorker.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="buttonStopWorker.Location" type="System.Drawing.Point, System.Drawing">
     <value>125, 19</value>
@@ -1851,9 +1868,6 @@
   <data name="buttonStopWorker.ToolTip" xml:space="preserve">
     <value>Lausche nicht mehr auf das Anschließen eines USB-Gerätes</value>
   </data>
-  <data name="buttonSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="buttonSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>246, 19</value>
   </data>
@@ -1866,12 +1880,6 @@
   <data name="buttonSettings.ToolTip" xml:space="preserve">
     <value>Ändere Programmeinstellungen</value>
   </data>
-  <data name="buttonStartWorker.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonStartWorker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 19</value>
-  </data>
   <data name="buttonStartWorker.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 35</value>
   </data>
@@ -1880,9 +1888,6 @@
   </data>
   <data name="buttonStartWorker.ToolTip" xml:space="preserve">
     <value>Lausche auf das Anschließen eines neuen USB-Gerätes</value>
-  </data>
-  <data name="buttonHide.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="buttonHide.Location" type="System.Drawing.Point, System.Drawing">
     <value>350, 19</value>
@@ -1896,9 +1901,6 @@
   <data name="buttonHide.ToolTip" xml:space="preserve">
     <value>Verstecke das Fenster</value>
   </data>
-  <data name="buttonClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>463, 19</value>
   </data>
@@ -1911,41 +1913,14 @@
   <data name="buttonClose.ToolTip" xml:space="preserve">
     <value>Schließe das Programm</value>
   </data>
-  <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 359</value>
   </data>
-  <data name="copyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Kopieren</value>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>561, 67</value>
   </data>
-  <data name="showToolStripMenuShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
-  </data>
-  <data name="showToolStripMenuShow.Text" xml:space="preserve">
-    <value>Hauptfenster</value>
-  </data>
-  <data name="settingsToolStripMenuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
-  </data>
-  <data name="settingsToolStripMenuSettings.Text" xml:space="preserve">
-    <value>Einstellungen</value>
-  </data>
-  <data name="mountAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
-  </data>
-  <data name="mountAllToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alle Einbinden</value>
-  </data>
-  <data name="unmountAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
-  </data>
-  <data name="unmountAllToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alle Auswerfen</value>
-  </data>
-  <data name="closeToolStripMenuClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
-  </data>
-  <data name="closeToolStripMenuClose.Text" xml:space="preserve">
-    <value>Schließen</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Aktionen</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3612,5 +3587,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

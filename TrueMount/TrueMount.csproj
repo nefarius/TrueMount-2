@@ -232,6 +232,9 @@
     <EmbeddedResource Include="TrueMountMainWindow.en.resx">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrueMountMainWindow.gl.resx">
+      <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrueMountMainWindow.resx">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +263,8 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <Content Include="ChangeLog.txt" />
+    <None Include="Resources\1284820964_system-software-update.png" />
+    <Content Include="UpdateVersion.xml" />
     <None Include="Resources\1284750160_encrypted.png" />
     <None Include="Resources\1279794104_hdd_mount.png" />
     <None Include="Resources\tc_header.png" />
@@ -296,6 +301,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AutoUpdater\AutoUpdater\AutoUpdater\AutoUpdater.csproj">
+      <Project>{0DD02626-0121-43C6-980C-5084850DE835}</Project>
+      <Name>AutoUpdater</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
