@@ -730,8 +730,7 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.autoUpdaterSubversion.TryUpdate();
-            MessageBox.Show(this.autoUpdaterSubversion.NewVersionAvailable.ToString());
+            throw new NotImplementedException();
         }
     }
 }
