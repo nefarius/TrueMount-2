@@ -304,6 +304,33 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mount error.
+        /// </summary>
+        internal static string MsgHDiskTimeout {
+            get {
+                return ResourceManager.GetString("MsgHDiskTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The mount process of {0} seems to hang, skip this device?.
+        /// </summary>
+        internal static string MsgTDiskTimeout {
+            get {
+                return ResourceManager.GetString("MsgTDiskTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No key files set, continuing....
+        /// </summary>
+        internal static string NoKeyFiles {
+            get {
+                return ResourceManager.GetString("NoKeyFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No mount options set, continuing....
         /// </summary>
         internal static string NoMountOpts {

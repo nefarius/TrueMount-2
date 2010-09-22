@@ -117,34 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="buttonCleanDb.Text" xml:space="preserve">
+    <value>Säubere Inhalt</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelKeyDevs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 81</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Schlüsselgeräte:</value>
+  </data>
+  <data name="labelConfigCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 29</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Konfigurationen:</value>
+  </data>
+  <data name="labelEncDisks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 55</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 13</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Verschlüsselte Laufwerke:</value>
+  </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>322, 98</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Datenbankstatistiken</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 46</value>
+  </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Eine Änderung der Sprache wird erst nach einem Neustart der Anwendung in Kraft treten!</value>
   </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxLanguage.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBoxLanguage.Text" xml:space="preserve">
     <value>Sprache</value>
-  </data>
-  <data name="groupBoxLanguage.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonListDisks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonListDisks.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 269</value>
   </data>
   <data name="buttonListDisks.Text" xml:space="preserve">
     <value>Zeige Laufwerkliste</value>
-  </data>
-  <data name="buttonListDisks.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxIgnoreDriveLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 17</value>
@@ -152,17 +179,11 @@
   <data name="checkBoxIgnoreDriveLetters.Text" xml:space="preserve">
     <value>Ignoriere bereits vergebene Laufwerksbuchstaben</value>
   </data>
-  <data name="checkBoxIgnoreDriveLetters.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxWindowsStartup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="checkBoxWindowsStartup.Text" xml:space="preserve">
     <value>Starte TrueMount mit Windows</value>
-  </data>
-  <data name="checkBoxWindowsStartup.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxOneInstance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -173,9 +194,6 @@
   <data name="checkBoxOneInstance.Text" xml:space="preserve">
     <value>Erlaube nur eine Instanz von TrueMount</value>
   </data>
-  <data name="checkBoxOneInstance.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxAutostart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -184,9 +202,6 @@
   </data>
   <data name="checkBoxAutostart.Text" xml:space="preserve">
     <value>Starte Wächter automatisch nach Programmstart</value>
-  </data>
-  <data name="checkBoxAutostart.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxSplashScreen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -197,9 +212,6 @@
   <data name="checkBoxSplashScreen.Text" xml:space="preserve">
     <value>Zeige Splash Screen während Programmstart</value>
   </data>
-  <data name="checkBoxSplashScreen.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxHidden.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -209,29 +221,17 @@
   <data name="checkBoxHidden.Text" xml:space="preserve">
     <value>Verstecke Hauptfenster beim Start</value>
   </data>
-  <data name="checkBoxHidden.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 257</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Verhalten</value>
   </data>
-  <data name="groupBox9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPageApplication.Text" xml:space="preserve">
     <value>Anwendung</value>
   </data>
-  <data name="tabPageApplication.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="pictureBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -242,35 +242,17 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Eine Liste der gefundenen logischen Laufwerke. Ein Schlüssel-Gerät darf nicht selbst verschlüsselt sein und muss einen Laufwerksbuchstaben besitzen. Sollte Ihr Gerät nicht aufscheinen, schließen Sie es an und öffnen den Dialog erneut. Klicken Sie auf 'Hinzufügen' um das Laufwerk als Schlüssel-Gerät zu verwenden.</value>
   </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonAddKeyDevice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonAddKeyDevice.Text" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
-  <data name="buttonAddKeyDevice.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxUSBKeyDevice.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Gefundene Laufwerke</value>
   </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="treeViewKeyDevices.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="pictureBox2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxKeyDeviceActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -284,20 +266,11 @@
   <data name="checkBoxKeyDeviceActive.Text" xml:space="preserve">
     <value>Aktiviert:</value>
   </data>
-  <data name="checkBoxKeyDeviceActive.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxUSBSignature.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonDeleteKeyDevice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteKeyDevice.Text" xml:space="preserve">
     <value>Entfernen</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -311,9 +284,6 @@
   <data name="label3.Text" xml:space="preserve">
     <value>Partitions Nr.:</value>
   </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -325,9 +295,6 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Signatur:</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -341,29 +308,11 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Titel:</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxUSBCaption.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxUSBPartition.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panelKeyDevice.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Identifikation des Schlüssel-Geräts</value>
   </data>
-  <data name="groupBox4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tabPageKeyDevice.Text" xml:space="preserve">
     <value>Schlüssel-Gerät</value>
-  </data>
-  <data name="tabPageKeyDevice.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -377,14 +326,8 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Gespeicherte Partitionen</value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -395,29 +338,11 @@
   <data name="label6.Text" xml:space="preserve">
     <value>Festplatte</value>
   </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxDiskPartitions.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxDiskDrives.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonAddDisk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonAddDisk.Text" xml:space="preserve">
     <value>Hinzufügen</value>
-  </data>
-  <data name="buttonAddDisk.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBoxLocalDiskDrives.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="treeViewDisks.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="buttonEditKeyFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>287, 187</value>
@@ -428,26 +353,17 @@
   <data name="buttonEditKeyFiles.Text" xml:space="preserve">
     <value>Editiere Schlüssel-Dateien...</value>
   </data>
-  <data name="buttonEditKeyFiles.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonSaveDisk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSaveDisk.Text" xml:space="preserve">
     <value>Speichern</value>
   </data>
-  <data name="buttonSaveDisk.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonDeleteDiskDrive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteDiskDrive.Text" xml:space="preserve">
     <value>Entfernen</value>
-  </data>
-  <data name="buttonDeleteDiskDrive.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxSm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -461,9 +377,6 @@
   <data name="checkBoxSm.Text" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="checkBoxSm.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxTs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -472,9 +385,6 @@
   </data>
   <data name="checkBoxTs.Text" xml:space="preserve">
     <value>Zeitstempel</value>
-  </data>
-  <data name="checkBoxTs.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxRm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -488,9 +398,6 @@
   <data name="checkBoxRm.Text" xml:space="preserve">
     <value>auswerfbar</value>
   </data>
-  <data name="checkBoxRm.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxRo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -500,23 +407,11 @@
   <data name="checkBoxRo.Text" xml:space="preserve">
     <value>schreibgeschützt</value>
   </data>
-  <data name="checkBoxRo.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>255, 64</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
-  </data>
-  <data name="groupBox6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxDiskSignature.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxDiskCaption.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -527,9 +422,6 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Titel</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -539,23 +431,11 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Signatur</value>
   </data>
-  <data name="label10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxDiskPartition.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label11.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Laufwerksinformationen</value>
-  </data>
-  <data name="groupBox7.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxDiskOpenExplorer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -569,20 +449,11 @@
   <data name="checkBoxDiskOpenExplorer.Text" xml:space="preserve">
     <value>Öffne Explorer nach Einbinden</value>
   </data>
-  <data name="checkBoxDiskOpenExplorer.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxPasswordFile.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonSearchPasswordFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSearchPasswordFile.Text" xml:space="preserve">
     <value>Suche Passwort-Datei...</value>
-  </data>
-  <data name="buttonSearchPasswordFile.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -593,12 +464,6 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Pfad zur Passwort-Datei</value>
   </data>
-  <data name="label8.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxDriveLetter.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxDiskActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -607,9 +472,6 @@
   </data>
   <data name="checkBoxDiskActive.Text" xml:space="preserve">
     <value>Aktiviert</value>
-  </data>
-  <data name="checkBoxDiskActive.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -623,29 +485,14 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Laufwerksbuchstabe:</value>
   </data>
-  <data name="label12.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Passwort-Optionen</value>
-  </data>
-  <data name="groupBox8.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panelDisks.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="tabPageDiskDrives.Text" xml:space="preserve">
     <value>Laufwerke</value>
   </data>
-  <data name="tabPageDiskDrives.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="pictureBox3.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxCache.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -656,9 +503,6 @@
   <data name="checkBoxCache.Text" xml:space="preserve">
     <value>Benutze Passwort-Zwischenspeicher</value>
   </data>
-  <data name="checkBoxCache.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxBackground.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -667,9 +511,6 @@
   </data>
   <data name="checkBoxBackground.Text" xml:space="preserve">
     <value>Starte TrueCrypt im Hintergrund (Tray Icon) wenn möglich.</value>
-  </data>
-  <data name="checkBoxBackground.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxBeep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -680,9 +521,6 @@
   <data name="checkBoxBeep.Text" xml:space="preserve">
     <value>Piepse nach jedem erfolgreichen Einbinden.</value>
   </data>
-  <data name="checkBoxBeep.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="checkBoxExplorer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -691,9 +529,6 @@
   </data>
   <data name="checkBoxExplorer.Text" xml:space="preserve">
     <value>Öffne Explorer nach jedem erfolgreichen Einbinden.</value>
-  </data>
-  <data name="checkBoxExplorer.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="checkBoxSilent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -704,17 +539,8 @@
   <data name="checkBoxSilent.Text" xml:space="preserve">
     <value>Unterdrücke alle (Fehler-)Meldungen und Dialogfenster.</value>
   </data>
-  <data name="checkBoxSilent.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>TrueCrypt Konfigurationsschalter</value>
-  </data>
-  <data name="groupBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="textBoxTrueCryptExec.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="buttonSearchTrueCrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -722,25 +548,10 @@
   <data name="buttonSearchTrueCrypt.Text" xml:space="preserve">
     <value>Suche TrueCrypt...</value>
   </data>
-  <data name="buttonSearchTrueCrypt.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>TrueCrypt Programmdatei</value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPageTrueCrypt.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabControl1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>

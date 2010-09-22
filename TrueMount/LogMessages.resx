@@ -270,4 +270,13 @@
   <data name="AddKeyFiles" xml:space="preserve">
     <value>Adding {0} key files/directories...</value>
   </data>
+  <data name="NoKeyFiles" xml:space="preserve">
+    <value>No key files set, continuing...</value>
+  </data>
+  <data name="MsgHDiskTimeout" xml:space="preserve">
+    <value>Mount error</value>
+  </data>
+  <data name="MsgTDiskTimeout" xml:space="preserve">
+    <value>The mount process of {0} seems to hang, skip this device?</value>
+  </data>
 </root>

@@ -32,6 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialog));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageApplication = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonCleanDb = new System.Windows.Forms.Button();
+            this.labelKeyDevs = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.labelConfigCount = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelEncDisks = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
@@ -110,6 +118,7 @@
             this.toolTipSettings = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageApplication.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPageKeyDevice.SuspendLayout();
@@ -144,12 +153,71 @@
             // tabPageApplication
             // 
             resources.ApplyResources(this.tabPageApplication, "tabPageApplication");
+            this.tabPageApplication.Controls.Add(this.groupBox5);
             this.tabPageApplication.Controls.Add(this.groupBoxLanguage);
             this.tabPageApplication.Controls.Add(this.buttonListDisks);
             this.tabPageApplication.Controls.Add(this.groupBox9);
             this.tabPageApplication.Name = "tabPageApplication";
             this.toolTipSettings.SetToolTip(this.tabPageApplication, resources.GetString("tabPageApplication.ToolTip"));
             this.tabPageApplication.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.buttonCleanDb);
+            this.groupBox5.Controls.Add(this.labelKeyDevs);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.labelConfigCount);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.labelEncDisks);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
+            // 
+            // buttonCleanDb
+            // 
+            resources.ApplyResources(this.buttonCleanDb, "buttonCleanDb");
+            this.buttonCleanDb.Name = "buttonCleanDb";
+            this.toolTipSettings.SetToolTip(this.buttonCleanDb, resources.GetString("buttonCleanDb.ToolTip"));
+            this.buttonCleanDb.UseVisualStyleBackColor = true;
+            this.buttonCleanDb.Click += new System.EventHandler(this.buttonCleanDb_Click);
+            // 
+            // labelKeyDevs
+            // 
+            resources.ApplyResources(this.labelKeyDevs, "labelKeyDevs");
+            this.labelKeyDevs.Name = "labelKeyDevs";
+            this.toolTipSettings.SetToolTip(this.labelKeyDevs, resources.GetString("labelKeyDevs.ToolTip"));
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            this.toolTipSettings.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
+            // 
+            // labelConfigCount
+            // 
+            resources.ApplyResources(this.labelConfigCount, "labelConfigCount");
+            this.labelConfigCount.Name = "labelConfigCount";
+            this.toolTipSettings.SetToolTip(this.labelConfigCount, resources.GetString("labelConfigCount.ToolTip"));
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            this.toolTipSettings.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
+            // 
+            // labelEncDisks
+            // 
+            resources.ApplyResources(this.labelEncDisks, "labelEncDisks");
+            this.labelEncDisks.Name = "labelEncDisks";
+            this.toolTipSettings.SetToolTip(this.labelEncDisks, resources.GetString("labelEncDisks.ToolTip"));
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            this.toolTipSettings.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // groupBoxLanguage
             // 
@@ -781,6 +849,8 @@
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageApplication.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -892,6 +962,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBoxIgnoreDriveLetters;
         private System.Windows.Forms.Button buttonEditKeyFiles;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label labelKeyDevs;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelConfigCount;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelEncDisks;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonCleanDb;
 
 
     }

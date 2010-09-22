@@ -47,7 +47,10 @@ namespace TrueMount
                     m_opts += "/m ts ";
                 if (System)
                     m_opts += "/m sm ";
-                return m_opts.Trim();
+
+                if (!string.IsNullOrEmpty(m_opts))
+                    return m_opts.Trim();
+                return m_opts;
             }
         }
 

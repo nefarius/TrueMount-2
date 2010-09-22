@@ -270,4 +270,13 @@
   <data name="AddKeyFiles" xml:space="preserve">
     <value>Füge {0} Schlüsseldateien/Verzeichnisse hinzu...</value>
   </data>
+  <data name="NoKeyFiles" xml:space="preserve">
+    <value>Keine Schlüsseldateien gesetzt, fahre fort...</value>
+  </data>
+  <data name="MsgHDiskTimeout" xml:space="preserve">
+    <value>Fehler beim Einbinden</value>
+  </data>
+  <data name="MsgTDiskTimeout" xml:space="preserve">
+    <value>Das Einbinden von {0} scheint zu hängen, überspringen?</value>
+  </data>
 </root>

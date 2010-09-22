@@ -8,12 +8,13 @@ using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 using Db4objects.Db4o;
+using System.IO;
 
 namespace TrueMount
 {
-    public partial class SettingsDialog : Form
+    partial class SettingsDialog : Form
     {
-        IObjectContainer config_db = null;
+        private IObjectContainer config_db = null;
         private Configuration config = null;
         private Dictionary<int, List<ManagementObject>> key_device_list = null;
         private Dictionary<int, List<ManagementObject>> enc_device_list = null;
@@ -25,9 +26,10 @@ namespace TrueMount
         /// <summary>
         /// Constructor
         /// </summary>
-        public SettingsDialog()
+        public SettingsDialog(ref IObjectContainer config_db, ref Configuration config)
         {
-            GetConfigFromDb();
+            this.config_db = config_db;
+            this.config = config;
 
             // new list ob available SystemDevices
             key_device_list = new Dictionary<int, List<ManagementObject>>();
@@ -49,29 +51,12 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Load the configuration from the database.
-        /// </summary>
-        private void GetConfigFromDb()
-        {
-            // update settings
-            Db4oFactory.Configure().ObjectClass(typeof(Configuration)).CascadeOnUpdate(true);
-            Db4oFactory.Configure().ObjectClass(typeof(EncryptedDiskPartition)).CascadeOnUpdate(true);
-            Db4oFactory.Configure().ObjectClass(typeof(UsbKeyDevice)).CascadeOnUpdate(true);
-            // load database
-            config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
-
-            config = config_db.Query<Configuration>().FirstOrDefault();
-
-            if (config == null)
-                config = new Configuration();
-        }
-
-        /// <summary>
         /// Gets executed on form load
         /// </summary>
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            GetDbStatistics();
 
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;
@@ -124,6 +109,13 @@ namespace TrueMount
             BuildDeviceList();
 
             Cursor.Current = Cursors.Default;
+        }
+
+        private void GetDbStatistics()
+        {
+            labelConfigCount.Text = config_db.Query<Configuration>().Count.ToString();
+            labelEncDisks.Text = config_db.Query<EncryptedDiskPartition>().Count.ToString();
+            labelKeyDevs.Text = config_db.Query<UsbKeyDevice>().Count.ToString();
         }
 
         /// <summary>
@@ -409,17 +401,6 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Closes the Settings Dialog and save the configuration in the database.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            config_db.Store(this.config);
-            config_db.Close();
-        }
-
-        /// <summary>
         /// Gets called after every selection change of the key device tree.
         /// </summary>
         /// <param name="sender"></param>
@@ -491,6 +472,7 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonDeleteKeyDevice_Click(object sender, EventArgs e)
         {
+            config_db.Delete(config.KeyDevices[treeViewKeyDevices.SelectedNode.Index]);
             config.KeyDevices.RemoveAt(treeViewKeyDevices.SelectedNode.Index);
             treeViewKeyDevices.SelectedNode.Remove();
 
@@ -511,6 +493,7 @@ namespace TrueMount
             // we need disks to delete
             if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
             {
+                config_db.Delete(config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index]);
                 config.EncryptedDiskPartitions.RemoveAt(treeViewDisks.SelectedNode.Index);
             }
 
@@ -534,7 +517,7 @@ namespace TrueMount
             config.TrueCrypt.Background = checkBoxBackground.Checked;
             if (checkBoxBackground.Checked)
             {
-                checkBoxSilent.Checked = true;
+                //checkBoxSilent.Checked = true;
                 checkBoxSilent.Enabled = true;
             }
             else
@@ -582,6 +565,27 @@ namespace TrueMount
             if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
                 key_files_diag.KeyFilesList = config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index].KeyFiles;
             key_files_diag.ShowDialog();
+        }
+
+        private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            config_db.Store(config);
+        }
+
+        private void buttonCleanDb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                config_db.Close();
+                File.Delete(Configuration.ConfigDbFile);
+                config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
+                config_db.Store(config);
+                GetDbStatistics();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Unexpected error occured, please inform the developer!");
+            }
         }
     }
 }
