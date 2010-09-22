@@ -33,13 +33,17 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageApplication = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonCleanDb = new System.Windows.Forms.Button();
-            this.labelKeyDevs = new System.Windows.Forms.Label();
+            this.labelOverhead = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
-            this.labelConfigCount = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.labelEncDisks = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labelKeyDevs = new System.Windows.Forms.Label();
+            this.labelEncDisks = new System.Windows.Forms.Label();
+            this.labelConfigCount = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.buttonCleanDb = new System.Windows.Forms.Button();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
@@ -119,6 +123,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPageApplication.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPageKeyDevice.SuspendLayout();
@@ -164,16 +169,81 @@
             // groupBox5
             // 
             resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.labelOverhead);
+            this.groupBox5.Controls.Add(this.tableLayoutPanel1);
             this.groupBox5.Controls.Add(this.buttonCleanDb);
-            this.groupBox5.Controls.Add(this.labelKeyDevs);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.labelConfigCount);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.labelEncDisks);
-            this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             this.toolTipSettings.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
+            // 
+            // labelOverhead
+            // 
+            resources.ApplyResources(this.labelOverhead, "labelOverhead");
+            this.labelOverhead.ForeColor = System.Drawing.Color.Maroon;
+            this.labelOverhead.Name = "labelOverhead";
+            this.toolTipSettings.SetToolTip(this.labelOverhead, resources.GetString("labelOverhead.ToolTip"));
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.label18, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelKeyDevs, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.labelEncDisks, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelConfigCount, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label17, 1, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.toolTipSettings.SetToolTip(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.ToolTip"));
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            this.toolTipSettings.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            this.toolTipSettings.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            this.toolTipSettings.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
+            // 
+            // labelKeyDevs
+            // 
+            resources.ApplyResources(this.labelKeyDevs, "labelKeyDevs");
+            this.labelKeyDevs.Name = "labelKeyDevs";
+            this.toolTipSettings.SetToolTip(this.labelKeyDevs, resources.GetString("labelKeyDevs.ToolTip"));
+            // 
+            // labelEncDisks
+            // 
+            resources.ApplyResources(this.labelEncDisks, "labelEncDisks");
+            this.labelEncDisks.Name = "labelEncDisks";
+            this.toolTipSettings.SetToolTip(this.labelEncDisks, resources.GetString("labelEncDisks.ToolTip"));
+            // 
+            // labelConfigCount
+            // 
+            resources.ApplyResources(this.labelConfigCount, "labelConfigCount");
+            this.labelConfigCount.Name = "labelConfigCount";
+            this.toolTipSettings.SetToolTip(this.labelConfigCount, resources.GetString("labelConfigCount.ToolTip"));
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            this.toolTipSettings.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            this.toolTipSettings.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
             // 
             // buttonCleanDb
             // 
@@ -182,42 +252,6 @@
             this.toolTipSettings.SetToolTip(this.buttonCleanDb, resources.GetString("buttonCleanDb.ToolTip"));
             this.buttonCleanDb.UseVisualStyleBackColor = true;
             this.buttonCleanDb.Click += new System.EventHandler(this.buttonCleanDb_Click);
-            // 
-            // labelKeyDevs
-            // 
-            resources.ApplyResources(this.labelKeyDevs, "labelKeyDevs");
-            this.labelKeyDevs.Name = "labelKeyDevs";
-            this.toolTipSettings.SetToolTip(this.labelKeyDevs, resources.GetString("labelKeyDevs.ToolTip"));
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            this.toolTipSettings.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
-            // 
-            // labelConfigCount
-            // 
-            resources.ApplyResources(this.labelConfigCount, "labelConfigCount");
-            this.labelConfigCount.Name = "labelConfigCount";
-            this.toolTipSettings.SetToolTip(this.labelConfigCount, resources.GetString("labelConfigCount.ToolTip"));
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            this.toolTipSettings.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
-            // 
-            // labelEncDisks
-            // 
-            resources.ApplyResources(this.labelEncDisks, "labelEncDisks");
-            this.labelEncDisks.Name = "labelEncDisks";
-            this.toolTipSettings.SetToolTip(this.labelEncDisks, resources.GetString("labelEncDisks.ToolTip"));
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            this.toolTipSettings.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // groupBoxLanguage
             // 
@@ -851,6 +885,8 @@
             this.tabPageApplication.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -970,6 +1006,10 @@
         private System.Windows.Forms.Label labelEncDisks;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button buttonCleanDb;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labelOverhead;
 
 
     }

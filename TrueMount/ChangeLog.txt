@@ -5,8 +5,8 @@
   * Fixed a possible crash caused by empty mount options
   * Fixed a checkbox event bug in TrueCrypt settings dialog
   * Added database defragment/clean function to shrink config file size rapidly
+  * Added database usage statistics to settings dialog
   * Added missing key file log messages
-  * Added more comments to source
   * Added temporary workaround against program crash caused by failed mounts
 2.0.1.1
   * Disables partition box if drive has no partitions

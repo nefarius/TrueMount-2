@@ -21,7 +21,7 @@ namespace TrueMount
         private ResourceManager rm = null;
         private CultureInfo culture = null;
         private const string TC_CLI_URL = "http://www.truecrypt.org/docs/?s=command-line-usage";
-        KeyFilesDialog key_files_diag = null;
+        private KeyFilesDialog key_files_diag = null;
 
         /// <summary>
         /// Constructor
@@ -50,13 +50,19 @@ namespace TrueMount
             InitializeComponent();
         }
 
+        public void UpdateConfiguration(ref IObjectContainer config_db, ref Configuration config)
+        {
+            config_db = this.config_db;
+            config = this.config;
+        }
+
         /// <summary>
         /// Gets executed on form load
         /// </summary>
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            GetDbStatistics();
+            FetchDbStatistics();
 
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;
@@ -111,11 +117,28 @@ namespace TrueMount
             Cursor.Current = Cursors.Default;
         }
 
-        private void GetDbStatistics()
+        /// <summary>
+        /// Calculates database objects overhead.
+        /// </summary>
+        private void FetchDbStatistics()
         {
-            labelConfigCount.Text = config_db.Query<Configuration>().Count.ToString();
-            labelEncDisks.Text = config_db.Query<EncryptedDiskPartition>().Count.ToString();
-            labelKeyDevs.Text = config_db.Query<UsbKeyDevice>().Count.ToString();
+            int config_percent = 100 - ((1 * 100) / config_db.Query<Configuration>().Count);
+            labelConfigCount.Text = config_percent.ToString();
+            int disk_percent = 100 - ((config.EncryptedDiskPartitions.Count * 100) / config_db.Query<EncryptedDiskPartition>().Count);
+            labelEncDisks.Text = disk_percent.ToString();
+            int key_percent = 100 - ((config.KeyDevices.Count * 100) / config_db.Query<UsbKeyDevice>().Count);
+            labelKeyDevs.Text = key_percent.ToString();
+
+            if (config_percent != 0 || disk_percent != 0 || key_percent != 0)
+            {
+                labelOverhead.Visible = true;
+                buttonCleanDb.Enabled = true;
+            }
+            else
+            {
+                labelOverhead.Visible = false;
+                buttonCleanDb.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -567,11 +590,21 @@ namespace TrueMount
             key_files_diag.ShowDialog();
         }
 
+        /// <summary>
+        /// Saves configuration on dialog close.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             config_db.Store(config);
         }
 
+        /// <summary>
+        /// Re-creates configuration database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCleanDb_Click(object sender, EventArgs e)
         {
             try
@@ -580,7 +613,7 @@ namespace TrueMount
                 File.Delete(Configuration.ConfigDbFile);
                 config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
                 config_db.Store(config);
-                GetDbStatistics();
+                FetchDbStatistics();
             }
             catch (Exception ex)
             {

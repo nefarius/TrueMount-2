@@ -685,8 +685,13 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            // open settings dialog
-            new SettingsDialog(ref config_db, ref config).ShowDialog();
+            // create settings dialog and feed with configuration references
+            SettingsDialog settings = new SettingsDialog(ref config_db, ref config);
+            // bring dialog to front and await user actions
+            settings.ShowDialog();
+            // get new configuration and set it program wide
+            settings.UpdateConfiguration(ref config_db, ref config);
+            settings = null;
         }
 
         /// <summary>
