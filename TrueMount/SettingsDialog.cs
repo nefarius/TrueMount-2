@@ -21,7 +21,7 @@ namespace TrueMount
         private ResourceManager rm = null;
         private CultureInfo culture = null;
         private const string TC_CLI_URL = "http://www.truecrypt.org/docs/?s=command-line-usage";
-        private KeyFilesDialog key_files_diag = null;
+        private List<string> current_key_files = null;
 
         /// <summary>
         /// Constructor
@@ -35,8 +35,7 @@ namespace TrueMount
             key_device_list = new Dictionary<int, List<ManagementObject>>();
             enc_device_list = new Dictionary<int, List<ManagementObject>>();
 
-            // create new key files settings dialog
-            key_files_diag = new KeyFilesDialog();
+            current_key_files = new List<string>();
 
             // load translation resources
             rm = new ResourceManager("TrueMount.SettingsMessages",
@@ -127,6 +126,12 @@ namespace TrueMount
         /// </summary>
         private void FetchDbStatistics()
         {
+            String format = "DB: {0}, RAM: {1}";
+            labelConfigCount.Text = string.Format(format, config_db.Query<Configuration>().Count, 1);
+            labelEncDisks.Text = string.Format(format, config_db.Query<EncryptedDiskPartition>().Count, config.EncryptedDiskPartitions.Count);
+            labelKeyDevs.Text = string.Format(format, config_db.Query<UsbKeyDevice>().Count, config.KeyDevices.Count);
+            labelStringCount.Text = string.Format(format, config_db.Query<List<string>>().Count, "N/A");
+            /*
             int config_percent = 0, config_count = config_db.Query<Configuration>().Count;
             if (config_count > 0)
                 config_percent = 100 - ((1 * 100) / config_count);
@@ -152,6 +157,7 @@ namespace TrueMount
                 labelOverhead.Visible = false;
                 buttonCleanDb.Enabled = false;
             }
+             * */
         }
 
         /// <summary>
@@ -276,7 +282,7 @@ namespace TrueMount
             Cursor.Current = Cursors.WaitCursor;
             groupBoxLocalDiskDrives.Enabled = false;
             // reset the key files list
-            key_files_diag.KeyFilesList = new List<string>();
+            current_key_files = new List<string>();
 
             // get disk and partition from linked list
             ManagementObject new_disk = enc_device_list[comboBoxDiskDrives.SelectedIndex][0];
@@ -301,10 +307,8 @@ namespace TrueMount
             treeViewDisks.Nodes.Add(disk_node);
             treeViewDisks.SelectedNode = disk_node;
 
-            // view and enable new disk node
-            treeViewDisks.Focus();
-            treeViewDisks.Enabled = true;
             panelDisks.Visible = true;
+            treeViewDisks.Enabled = false;
             Cursor.Current = Cursors.Default;
         }
 
@@ -353,7 +357,7 @@ namespace TrueMount
 
                     // if key files available, store them in dialog list
                     if (enc_disk_partition.KeyFiles.Count > 0)
-                        this.key_files_diag.KeyFilesList = enc_disk_partition.KeyFiles;
+                        current_key_files = enc_disk_partition.KeyFiles;
 
                     // after everything is filled with data, make panel visible
                     panelDisks.Visible = true;
@@ -403,18 +407,8 @@ namespace TrueMount
             EncryptedDiskPartition new_enc_disk_partition = new EncryptedDiskPartition(textBoxDiskCaption.Text,
                 uint.Parse(textBoxDiskSignature.Text), uint.Parse(textBoxDiskPartition.Text));
 
-            if (!string.IsNullOrEmpty(textBoxPasswordFile.Text))
-            {
-                new_enc_disk_partition.PasswordFile = textBoxPasswordFile.Text;
-            }
-            else
-            {
-                MessageBox.Show(rm.GetString("MsgTNoPw"), rm.GetString("MsgHNoPw"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             // save all the params in the new object
+            new_enc_disk_partition.PasswordFile = textBoxPasswordFile.Text;
             new_enc_disk_partition.DriveLetter = comboBoxDriveLetter.Text;
             new_enc_disk_partition.IsActive = checkBoxDiskActive.Checked;
             new_enc_disk_partition.OpenExplorer = checkBoxDiskOpenExplorer.Checked;
@@ -422,7 +416,7 @@ namespace TrueMount
             new_enc_disk_partition.Removable = checkBoxRm.Checked;
             new_enc_disk_partition.System = checkBoxSm.Checked;
             new_enc_disk_partition.Timestamp = checkBoxTs.Checked;
-            new_enc_disk_partition.KeyFiles = key_files_diag.KeyFilesList;
+            new_enc_disk_partition.KeyFiles = current_key_files;
 
             // if exactly the same object exists in the databse, delete and re-save it
             if (!config.EncryptedDiskPartitions.Contains(new_enc_disk_partition))
@@ -431,6 +425,7 @@ namespace TrueMount
             }
             else
             {
+                config_db.Delete(new_enc_disk_partition);
                 config.EncryptedDiskPartitions.Remove(new_enc_disk_partition);
                 config.EncryptedDiskPartitions.Add(new_enc_disk_partition);
             }
@@ -439,6 +434,7 @@ namespace TrueMount
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             groupBoxLocalDiskDrives.Enabled = true;
+            treeViewDisks.Enabled = true;
         }
 
         /// <summary>
@@ -540,7 +536,9 @@ namespace TrueMount
 
             panelDisks.Visible = false; // first!
             treeViewDisks.SelectedNode.Remove();
+
             groupBoxLocalDiskDrives.Enabled = true;
+            treeViewDisks.Enabled = true;
         }
 
         private void checkBoxKeyDeviceActive_CheckedChanged(object sender, EventArgs e)
@@ -604,8 +602,13 @@ namespace TrueMount
         private void buttonEditKeyFiles_Click(object sender, EventArgs e)
         {
             if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
-                key_files_diag.KeyFilesList = config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index].KeyFiles;
-            key_files_diag.ShowDialog();
+                current_key_files = config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index].KeyFiles;
+
+            KeyFilesDialog kfd = new KeyFilesDialog();
+            kfd.KeyFiles = current_key_files;
+            kfd.ShowDialog();
+            current_key_files = kfd.KeyFiles;
+            kfd = null;
         }
 
         /// <summary>

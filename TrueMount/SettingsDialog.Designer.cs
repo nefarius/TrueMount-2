@@ -33,7 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageApplication = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.labelOverhead = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -43,6 +42,8 @@
             this.labelConfigCount = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.labelStringCount = new System.Windows.Forms.Label();
             this.buttonCleanDb = new System.Windows.Forms.Button();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -166,18 +167,11 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.labelOverhead);
             this.groupBox5.Controls.Add(this.tableLayoutPanel1);
             this.groupBox5.Controls.Add(this.buttonCleanDb);
             resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
-            // 
-            // labelOverhead
-            // 
-            resources.ApplyResources(this.labelOverhead, "labelOverhead");
-            this.labelOverhead.ForeColor = System.Drawing.Color.Maroon;
-            this.labelOverhead.Name = "labelOverhead";
             // 
             // tableLayoutPanel1
             // 
@@ -190,6 +184,8 @@
             this.tableLayoutPanel1.Controls.Add(this.labelConfigCount, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label17, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.labelStringCount, 1, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // label18
@@ -231,6 +227,16 @@
             // 
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // labelStringCount
+            // 
+            resources.ApplyResources(this.labelStringCount, "labelStringCount");
+            this.labelStringCount.Name = "labelStringCount";
             // 
             // buttonCleanDb
             // 
@@ -602,13 +608,17 @@
             // 
             // textBoxDiskSignature
             // 
+            this.textBoxDiskSignature.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxDiskSignature, "textBoxDiskSignature");
             this.textBoxDiskSignature.Name = "textBoxDiskSignature";
+            this.textBoxDiskSignature.ReadOnly = true;
             // 
             // textBoxDiskCaption
             // 
+            this.textBoxDiskCaption.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxDiskCaption, "textBoxDiskCaption");
             this.textBoxDiskCaption.Name = "textBoxDiskCaption";
+            this.textBoxDiskCaption.ReadOnly = true;
             // 
             // label9
             // 
@@ -622,8 +632,10 @@
             // 
             // textBoxDiskPartition
             // 
+            this.textBoxDiskPartition.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.textBoxDiskPartition, "textBoxDiskPartition");
             this.textBoxDiskPartition.Name = "textBoxDiskPartition";
+            this.textBoxDiskPartition.ReadOnly = true;
             // 
             // label11
             // 
@@ -796,7 +808,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageApplication.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBoxLanguage.ResumeLayout(false);
@@ -921,7 +932,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label labelOverhead;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelStringCount;
 
 
     }

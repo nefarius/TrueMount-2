@@ -415,23 +415,25 @@ namespace TrueMount
                     // local drive letter must not be assigned!
                     if (SystemDevices.GetLogicalDisk(tc_device_letter) == null)
                     {
-                        // get the password file
-                        String pw_file = enc_disk_partition.PasswordFile;
-                        LogAppend("PasswordFile", pw_file);
-
                         // we store the password here
-                        String password = null;
-                        // file must exist, else skip and continue
-                        if (File.Exists(pw_file))
+                        String password = String.Empty;
+                        // file must exist or path is empty, else skip and continue
+                        if (File.Exists(enc_disk_partition.PasswordFile) || string.IsNullOrEmpty(enc_disk_partition.PasswordFile))
                         {
-                            // file must be utf-8 encoded
-                            StreamReader pw_file_stream = new StreamReader(pw_file, System.Text.Encoding.UTF8);
-                            /* only FIRST LINE will be read!
-                             * you may fill up the file with 500kB crap and name it .dll :)
-                             * */
-                            password = pw_file_stream.ReadLine();
-                            pw_file_stream.Close();
-                            LogAppend("PasswordReadOk");
+                            if (!string.IsNullOrEmpty(enc_disk_partition.PasswordFile))
+                            {
+                                LogAppend("PasswordFile", enc_disk_partition.PasswordFile);
+                                // file must be utf-8 encoded
+                                StreamReader pw_file_stream = new StreamReader(enc_disk_partition.PasswordFile, System.Text.Encoding.UTF8);
+                                /* only FIRST LINE will be read!
+                                 * you may fill up the file with 500kB crap and name it .dll :)
+                                 * */
+                                password = pw_file_stream.ReadLine();
+                                pw_file_stream.Close();
+                                LogAppend("PasswordReadOk");
+                            }
+                            else
+                                LogAppend("PasswordEmptyOk");
 
                             if (string.IsNullOrEmpty(config.TrueCrypt.CommandLineArguments))
                                 LogAppend("WarnTCArgs");
@@ -563,7 +565,7 @@ namespace TrueMount
                         else
                         {
                             // no password file found, but we can still continue to the next one
-                            LogAppend("ErrPwFileNoExist", pw_file);
+                            LogAppend("ErrPwFileNoExist", enc_disk_partition.PasswordFile);
                         }
                     }
                     else

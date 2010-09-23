@@ -117,22 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tabPageApplication.Text" xml:space="preserve">
-    <value>Anwendung</value>
-  </data>
-  <data name="tabPageKeyDevice.Text" xml:space="preserve">
-    <value>Schlüssel-Gerät</value>
-  </data>
-  <data name="tabPageDiskDrives.Text" xml:space="preserve">
-    <value>Laufwerke</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 98</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Datenbankstatistiken</value>
-  </data>
   <data name="labelOverhead.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 117</value>
   </data>
@@ -141,12 +126,6 @@
   </data>
   <data name="labelOverhead.Text" xml:space="preserve">
     <value>Überladung entdeckt! Säuberung empfohlen!</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 19</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 95</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 13</value>
@@ -166,41 +145,35 @@
   <data name="label15.Text" xml:space="preserve">
     <value>Konfigurationen:</value>
   </data>
-  <data name="labelKeyDevs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 60</value>
-  </data>
-  <data name="labelEncDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 40</value>
-  </data>
-  <data name="labelConfigCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 20</value>
-  </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Objekte</value>
   </data>
-  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 0</value>
-  </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 13</value>
+    <value>45, 13</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
-    <value>Überladung (%)</value>
+    <value>Anzahl</value>
   </data>
   <data name="buttonCleanDb.Text" xml:space="preserve">
     <value>Säubere Inhalt</value>
   </data>
-  <data name="groupBoxLanguage.Text" xml:space="preserve">
-    <value>Sprache</value>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 98</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Datenbankstatistiken</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>244, 46</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Eine Änderung der Sprache wird erst nach einem Neustart der Anwendung in Kraft treten!</value>
+  </data>
+  <data name="groupBoxLanguage.Text" xml:space="preserve">
+    <value>Sprache</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonListDisks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -211,12 +184,6 @@
   </data>
   <data name="buttonListDisks.Text" xml:space="preserve">
     <value>Zeige Laufwerkliste</value>
-  </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 257</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Verhalten</value>
   </data>
   <data name="checkBoxIgnoreDriveLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 17</value>
@@ -266,11 +233,17 @@
   <data name="checkBoxHidden.Text" xml:space="preserve">
     <value>Verstecke Hauptfenster beim Start</value>
   </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 257</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Verhalten</value>
+  </data>
+  <data name="tabPageApplication.Text" xml:space="preserve">
+    <value>Anwendung</value>
+  </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Gefundene Laufwerke</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -287,8 +260,8 @@
   <data name="buttonAddKeyDevice.Text" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Identifikation des Schlüssel-Geräts</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Gefundene Laufwerke</value>
   </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -347,6 +320,12 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Titel:</value>
   </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Identifikation des Schlüssel-Geräts</value>
+  </data>
+  <data name="tabPageKeyDevice.Text" xml:space="preserve">
+    <value>Schlüssel-Gerät</value>
+  </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -398,12 +377,6 @@
   <data name="buttonDeleteDiskDrive.Text" xml:space="preserve">
     <value>Entfernen</value>
   </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 64</value>
-  </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Mount-Optionen</value>
-  </data>
   <data name="checkBoxSm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -446,8 +419,11 @@
   <data name="checkBoxRo.Text" xml:space="preserve">
     <value>schreibgeschützt</value>
   </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Laufwerksinformationen</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 64</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Mount-Optionen</value>
   </data>
   <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -470,8 +446,8 @@
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Passwort-Optionen</value>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Laufwerksinformationen</value>
   </data>
   <data name="checkBoxDiskOpenExplorer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -521,11 +497,14 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Laufwerksbuchstabe:</value>
   </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Passwort-Optionen</value>
+  </data>
+  <data name="tabPageDiskDrives.Text" xml:space="preserve">
+    <value>Laufwerke</value>
+  </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>TrueCrypt Konfigurationsschalter</value>
   </data>
   <data name="checkBoxCache.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -572,14 +551,17 @@
   <data name="checkBoxSilent.Text" xml:space="preserve">
     <value>Unterdrücke alle (Fehler-)Meldungen und Dialogfenster.</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>TrueCrypt Programmdatei</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>TrueCrypt Konfigurationsschalter</value>
   </data>
   <data name="buttonSearchTrueCrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSearchTrueCrypt.Text" xml:space="preserve">
     <value>Suche TrueCrypt...</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>TrueCrypt Programmdatei</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

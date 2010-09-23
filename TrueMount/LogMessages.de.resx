@@ -282,4 +282,7 @@
   <data name="RawArgLine" xml:space="preserve">
     <value>DEBUG: CLI: {0}</value>
   </data>
+  <data name="PasswordEmptyOk" xml:space="preserve">
+    <value>Information: kein Passwort gesetzt.</value>
+  </data>
 </root>

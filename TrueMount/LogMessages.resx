@@ -282,4 +282,7 @@
   <data name="RawArgLine" xml:space="preserve">
     <value>DEBUG: Raw argument line: {0}</value>
   </data>
+  <data name="PasswordEmptyOk" xml:space="preserve">
+    <value>Info: No password set.</value>
+  </data>
 </root>

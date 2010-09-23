@@ -358,6 +358,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Info: No password set..
+        /// </summary>
+        internal static string PasswordEmptyOk {
+            get {
+                return ResourceManager.GetString("PasswordEmptyOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password file: {0}.
         /// </summary>
         internal static string PasswordFile {

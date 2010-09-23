@@ -11,11 +11,11 @@ namespace TrueMount
 {
     public partial class KeyFilesDialog : Form
     {
-        public List<string> KeyFilesList { get; set; }
+        public List<string> KeyFiles { get; set; }
 
         public KeyFilesDialog()
         {
-            this.KeyFilesList = new List<string>();
+            this.KeyFiles = new List<string>();
 
             InitializeComponent();
         }
@@ -84,7 +84,7 @@ namespace TrueMount
 
             // clear the listbox and build it new
             listBoxKeyFiles.Items.Clear(); // important!
-            foreach (string item in this.KeyFilesList)
+            foreach (string item in this.KeyFiles)
                 listBoxKeyFiles.Items.Add(item);
         }
 
@@ -134,9 +134,9 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            this.KeyFilesList.Clear();
+            this.KeyFiles.Clear();
             foreach (string item in listBoxKeyFiles.Items)
-                this.KeyFilesList.Add(item);
+                this.KeyFiles.Add(item);
             this.Close();
         }
     }
