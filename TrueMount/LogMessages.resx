@@ -279,4 +279,7 @@
   <data name="MsgTDiskTimeout" xml:space="preserve">
     <value>The mount process of {0} seems to hang, skip this device?</value>
   </data>
+  <data name="RawArgLine" xml:space="preserve">
+    <value>DEBUG: Raw argument line: {0}</value>
+  </data>
 </root>

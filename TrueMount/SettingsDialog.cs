@@ -50,6 +50,11 @@ namespace TrueMount
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Returns the changed configuration references.
+        /// </summary>
+        /// <param name="config_db">The db40 database reference.</param>
+        /// <param name="config">The Configuration object.</param>
         public void UpdateConfiguration(ref IObjectContainer config_db, ref Configuration config)
         {
             config_db = this.config_db;
@@ -57,7 +62,7 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Gets executed on form load
+        /// Gets executed on form load.
         /// </summary>
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
@@ -122,11 +127,19 @@ namespace TrueMount
         /// </summary>
         private void FetchDbStatistics()
         {
-            int config_percent = 100 - ((1 * 100) / config_db.Query<Configuration>().Count);
+            int config_percent = 0, config_count = config_db.Query<Configuration>().Count;
+            if (config_count > 0)
+                config_percent = 100 - ((1 * 100) / config_count);
             labelConfigCount.Text = config_percent.ToString();
-            int disk_percent = 100 - ((config.EncryptedDiskPartitions.Count * 100) / config_db.Query<EncryptedDiskPartition>().Count);
+
+            int disk_percent = 0, disk_count = config_db.Query<EncryptedDiskPartition>().Count;
+            if (disk_count > 0)
+                disk_percent = 100 - ((config.EncryptedDiskPartitions.Count * 100) / disk_count);
             labelEncDisks.Text = disk_percent.ToString();
-            int key_percent = 100 - ((config.KeyDevices.Count * 100) / config_db.Query<UsbKeyDevice>().Count);
+
+            int key_percent = 0, key_count = config_db.Query<UsbKeyDevice>().Count;
+            if (key_count > 0)
+                key_percent = 100 - ((config.KeyDevices.Count * 100) / key_count);
             labelKeyDevs.Text = key_percent.ToString();
 
             if (config_percent != 0 || disk_percent != 0 || key_percent != 0)
@@ -267,12 +280,18 @@ namespace TrueMount
 
             // get disk and partition from linked list
             ManagementObject new_disk = enc_device_list[comboBoxDiskDrives.SelectedIndex][0];
-            ManagementObject new_part = enc_device_list[comboBoxDiskDrives.SelectedIndex][int.Parse(comboBoxDiskPartitions.SelectedItem.ToString())];
+
+            ManagementObject new_part = null;
+            if (int.Parse(comboBoxDiskPartitions.SelectedItem.ToString()) > 0)
+                new_part = enc_device_list[comboBoxDiskDrives.SelectedIndex][int.Parse(comboBoxDiskPartitions.SelectedItem.ToString())];
 
             // fill information into form elements
             textBoxDiskCaption.Text = (string)new_disk["Caption"];
             textBoxDiskSignature.Text = ((uint)new_disk["Signature"]).ToString();
-            textBoxDiskPartition.Text = ((uint)new_part["Index"] + 1).ToString();
+            if (new_part != null)
+                textBoxDiskPartition.Text = ((uint)new_part["Index"] + 1).ToString();
+            else
+                textBoxDiskPartition.Text = comboBoxDiskPartitions.SelectedItem.ToString();
             textBoxPasswordFile.Text = null;
             checkBoxDiskActive.Checked = true;
             checkBoxDiskOpenExplorer.Checked = false;
@@ -332,6 +351,10 @@ namespace TrueMount
                         comboBoxDriveLetter.Items.Insert(0, enc_disk_partition.DriveLetter);
                     comboBoxDriveLetter.SelectedItem = enc_disk_partition.DriveLetter;
 
+                    // if key files available, store them in dialog list
+                    if (enc_disk_partition.KeyFiles.Count > 0)
+                        this.key_files_diag.KeyFilesList = enc_disk_partition.KeyFiles;
+
                     // after everything is filled with data, make panel visible
                     panelDisks.Visible = true;
                 }
@@ -362,15 +385,10 @@ namespace TrueMount
             // add them to partition dropdown list
             comboBoxDiskPartitions.BeginUpdate();
             comboBoxDiskPartitions.Items.Clear();
+            comboBoxDiskPartitions.Items.Add("0");
             foreach (ManagementObject partition in enc_device_list[comboBoxDiskDrives.SelectedIndex][0].GetRelated(SystemDevices.Win32_DiskPartition))
                 comboBoxDiskPartitions.Items.Add(((uint)partition["Index"] + 1).ToString());
-            if (comboBoxDiskPartitions.Items.Count > 0)
-            {
-                comboBoxDiskPartitions.SelectedIndex = 0;
-                comboBoxDiskPartitions.Enabled = true;
-            }
-            else
-                comboBoxDiskPartitions.Enabled = false;
+            comboBoxDiskPartitions.SelectedIndex = 0;
             comboBoxDiskPartitions.EndUpdate();
             Cursor.Current = Cursors.Default;
         }

@@ -22,15 +22,15 @@ namespace TrueMount
         {
             get
             {
+                String args = null;
                 if (this.KeyFiles.Count > 0)
                 {
-                    String args = null;
                     foreach (string item in this.KeyFiles)
-                        args += "/k " + item + " ";
+                        args += "/k \"" + item + "\" ";
                     return args.Trim();
                 }
                 else
-                    return null;
+                    return args;
             }
         }
 

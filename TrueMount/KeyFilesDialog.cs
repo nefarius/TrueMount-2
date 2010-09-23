@@ -20,6 +20,11 @@ namespace TrueMount
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Opens file search dialog and adds selected files to the list. Doubles will be ignored.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddFile_Click(object sender, EventArgs e)
         {
             if (openFileDialogKeyFile.ShowDialog() == DialogResult.OK)
@@ -31,6 +36,11 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Disables buttons it their actions are impossible.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxKeyFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxKeyFiles.Items.Count > 0)
@@ -45,6 +55,11 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Removes selected items from list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             ListBox.SelectedObjectCollection Obj = new ListBox.SelectedObjectCollection(listBoxKeyFiles);
@@ -57,16 +72,27 @@ namespace TrueMount
                 buttonRemove.Enabled = false;
         }
 
+        /// <summary>
+        /// Gets executed on form load.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyFilesDialog_Load(object sender, EventArgs e)
         {
             buttonRemove.Enabled = false;
             buttonRemoveAll.Enabled = false;
 
+            // clear the listbox and build it new
             listBoxKeyFiles.Items.Clear(); // important!
             foreach (string item in this.KeyFilesList)
                 listBoxKeyFiles.Items.Add(item);
         }
 
+        /// <summary>
+        /// Opens path searcher and adds selected path to list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddPath_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialogKeyDir.ShowDialog() == DialogResult.OK)
@@ -74,21 +100,38 @@ namespace TrueMount
                 if (!listBoxKeyFiles.Items.Contains(folderBrowserDialogKeyDir.SelectedPath))
                     listBoxKeyFiles.Items.Add(folderBrowserDialogKeyDir.SelectedPath);
                 else
-                    throw new NotImplementedException();
+                {
+                    // FIXME: Implement this!
+                }
             }
         }
 
+        /// <summary>
+        /// Removes all items from list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRemoveAll_Click(object sender, EventArgs e)
         {
             listBoxKeyFiles.Items.Clear();
             listBoxKeyFiles_SelectedIndexChanged(this, null);
         }
 
+        /// <summary>
+        /// Closes form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Saves items in key files list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             this.KeyFilesList.Clear();

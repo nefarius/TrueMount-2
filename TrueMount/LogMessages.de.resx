@@ -279,4 +279,7 @@
   <data name="MsgTDiskTimeout" xml:space="preserve">
     <value>Das Einbinden von {0} scheint zu hängen, überspringen?</value>
   </data>
+  <data name="RawArgLine" xml:space="preserve">
+    <value>DEBUG: CLI: {0}</value>
+  </data>
 </root>

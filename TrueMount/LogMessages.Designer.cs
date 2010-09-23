@@ -394,6 +394,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DEBUG: Raw argument line: {0}.
+        /// </summary>
+        internal static string RawArgLine {
+            get {
+                return ResourceManager.GetString("RawArgLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Autostart in config disabled, Listener not started..
         /// </summary>
         internal static string SAutoDi {

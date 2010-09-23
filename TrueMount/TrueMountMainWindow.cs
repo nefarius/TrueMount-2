@@ -397,7 +397,11 @@ namespace TrueMount
                     uint part_index = enc_disk_partition.PartitionIndex - 1;
 
                     // get original device id from local disk
-                    String device_id = SystemDevices.GetPartitionByIndex(disk_index, part_index)["DeviceID"].ToString();
+                    String device_id = null;
+                    if (enc_disk_partition.PartitionIndex > 0)
+                        device_id = SystemDevices.GetPartitionByIndex(disk_index, part_index)["DeviceID"].ToString();
+                    else
+                        device_id = SystemDevices.GetTCCompatibleDiskPath(disk_index);
                     LogAppend("DiskDeviceId", device_id);
 
                     // convert device id in truecrypt compatible name
@@ -448,8 +452,6 @@ namespace TrueMount
                             {
                                 LogAppend("AddMountOpts", enc_disk_partition.MountOptions);
                                 tc_args_ready += " " + enc_disk_partition.MountOptions;
-                                // DEBUG
-                                //LogAppend("Argument line: " + tc_args_ready);
                             }
                             else
                                 LogAppend("NoMountOpts");
@@ -462,6 +464,9 @@ namespace TrueMount
                             }
                             else
                                 LogAppend("NoKeyFiles");
+
+                            // DEBUG
+                            LogAppend("RawArgLine", tc_args_ready);
 
                             // create new process
                             Process truecrypt = new Process();

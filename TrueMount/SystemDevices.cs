@@ -210,6 +210,11 @@ namespace TrueMount
                 (int.Parse(m.Groups[2].Value) + 1).ToString();
         }
 
+        public static string GetTCCompatibleDiskPath(uint index)
+        {
+            return string.Format(@"\Device\Harddisk{0}\Partition0", index.ToString());
+        }
+
         /// <summary>
         /// Contains all available drive letters (gets refreshed every call).
         /// </summary>
