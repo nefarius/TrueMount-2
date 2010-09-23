@@ -21,7 +21,7 @@ namespace TrueMount
         private ResourceManager rm = null;
         private CultureInfo culture = null;
         private const string TC_CLI_URL = "http://www.truecrypt.org/docs/?s=command-line-usage";
-        private List<string> current_key_files = null;
+        private List<List<string>> key_files_list = null;
 
         /// <summary>
         /// Constructor
@@ -35,7 +35,7 @@ namespace TrueMount
             key_device_list = new Dictionary<int, List<ManagementObject>>();
             enc_device_list = new Dictionary<int, List<ManagementObject>>();
 
-            current_key_files = new List<string>();
+            key_files_list = new List<List<string>>();
 
             // load translation resources
             rm = new ResourceManager("TrueMount.SettingsMessages",
@@ -108,6 +108,7 @@ namespace TrueMount
             // read disk drives and create nodes
             foreach (EncryptedDiskPartition enc_disk_partition in config.EncryptedDiskPartitions)
             {
+                key_files_list.Add(enc_disk_partition.KeyFiles);
                 TreeNode enc_device_node = new TreeNode(enc_disk_partition.DiskCaption +
                     ", Partition: " + enc_disk_partition.PartitionIndex.ToString());
                 treeViewDisks.Nodes.Add(enc_device_node);
@@ -127,37 +128,22 @@ namespace TrueMount
         private void FetchDbStatistics()
         {
             String format = "DB: {0}, RAM: {1}";
-            labelConfigCount.Text = string.Format(format, config_db.Query<Configuration>().Count, 1);
-            labelEncDisks.Text = string.Format(format, config_db.Query<EncryptedDiskPartition>().Count, config.EncryptedDiskPartitions.Count);
-            labelKeyDevs.Text = string.Format(format, config_db.Query<UsbKeyDevice>().Count, config.KeyDevices.Count);
-            labelStringCount.Text = string.Format(format, config_db.Query<List<string>>().Count, "N/A");
-            /*
-            int config_percent = 0, config_count = config_db.Query<Configuration>().Count;
-            if (config_count > 0)
-                config_percent = 100 - ((1 * 100) / config_count);
-            labelConfigCount.Text = config_percent.ToString();
 
-            int disk_percent = 0, disk_count = config_db.Query<EncryptedDiskPartition>().Count;
-            if (disk_count > 0)
-                disk_percent = 100 - ((config.EncryptedDiskPartitions.Count * 100) / disk_count);
-            labelEncDisks.Text = disk_percent.ToString();
+            int db_config_count = config_db.Query<Configuration>().Count, ram_config_count = 1;
+            labelConfigCount.Text = string.Format(format, db_config_count, ram_config_count);
 
-            int key_percent = 0, key_count = config_db.Query<UsbKeyDevice>().Count;
-            if (key_count > 0)
-                key_percent = 100 - ((config.KeyDevices.Count * 100) / key_count);
-            labelKeyDevs.Text = key_percent.ToString();
+            int db_enc_count = config_db.Query<EncryptedDiskPartition>().Count, ram_enc_count = config.EncryptedDiskPartitions.Count;
+            labelEncDisks.Text = string.Format(format, db_enc_count, ram_enc_count);
 
-            if (config_percent != 0 || disk_percent != 0 || key_percent != 0)
-            {
-                labelOverhead.Visible = true;
-                buttonCleanDb.Enabled = true;
-            }
+            int db_key_count = config_db.Query<UsbKeyDevice>().Count, ram_key_count = config.KeyDevices.Count;
+            labelKeyDevs.Text = string.Format(format, db_key_count, ram_key_count);
+
+            if (db_config_count != ram_config_count ||
+                db_enc_count != ram_enc_count ||
+                db_key_count != ram_key_count)
+                buttonCleanDb.Visible = true;
             else
-            {
-                labelOverhead.Visible = false;
-                buttonCleanDb.Enabled = false;
-            }
-             * */
+                buttonCleanDb.Visible = false;
         }
 
         /// <summary>
@@ -281,8 +267,6 @@ namespace TrueMount
         {
             Cursor.Current = Cursors.WaitCursor;
             groupBoxLocalDiskDrives.Enabled = false;
-            // reset the key files list
-            current_key_files = new List<string>();
 
             // get disk and partition from linked list
             ManagementObject new_disk = enc_device_list[comboBoxDiskDrives.SelectedIndex][0];
@@ -306,6 +290,9 @@ namespace TrueMount
             TreeNode disk_node = new TreeNode(comboBoxDiskDrives.Text);
             treeViewDisks.Nodes.Add(disk_node);
             treeViewDisks.SelectedNode = disk_node;
+
+            // new key files list
+            key_files_list.Add(new List<string>());
 
             panelDisks.Visible = true;
             treeViewDisks.Enabled = false;
@@ -354,10 +341,6 @@ namespace TrueMount
                     if (!comboBoxDriveLetter.Items.Contains(enc_disk_partition.DriveLetter))
                         comboBoxDriveLetter.Items.Insert(0, enc_disk_partition.DriveLetter);
                     comboBoxDriveLetter.SelectedItem = enc_disk_partition.DriveLetter;
-
-                    // if key files available, store them in dialog list
-                    if (enc_disk_partition.KeyFiles.Count > 0)
-                        current_key_files = enc_disk_partition.KeyFiles;
 
                     // after everything is filled with data, make panel visible
                     panelDisks.Visible = true;
@@ -416,7 +399,7 @@ namespace TrueMount
             new_enc_disk_partition.Removable = checkBoxRm.Checked;
             new_enc_disk_partition.System = checkBoxSm.Checked;
             new_enc_disk_partition.Timestamp = checkBoxTs.Checked;
-            new_enc_disk_partition.KeyFiles = current_key_files;
+            new_enc_disk_partition.KeyFiles = key_files_list[treeViewDisks.SelectedNode.Index];
 
             // if exactly the same object exists in the databse, delete and re-save it
             if (!config.EncryptedDiskPartitions.Contains(new_enc_disk_partition))
@@ -527,11 +510,14 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonDeleteDiskDrive_Click(object sender, EventArgs e)
         {
+            int index = treeViewDisks.SelectedNode.Index;
             // we need disks to delete
-            if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
+            if (config.EncryptedDiskPartitions.Count > index)
             {
-                config_db.Delete(config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index]);
-                config.EncryptedDiskPartitions.RemoveAt(treeViewDisks.SelectedNode.Index);
+                config_db.Delete(config.EncryptedDiskPartitions[index]);
+                config.EncryptedDiskPartitions.RemoveAt(index);
+                config_db.Delete(key_files_list[index]);
+                key_files_list.RemoveAt(index);
             }
 
             panelDisks.Visible = false; // first!
@@ -601,13 +587,11 @@ namespace TrueMount
 
         private void buttonEditKeyFiles_Click(object sender, EventArgs e)
         {
-            if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
-                current_key_files = config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index].KeyFiles;
-
+            int index = treeViewDisks.SelectedNode.Index;
             KeyFilesDialog kfd = new KeyFilesDialog();
-            kfd.KeyFiles = current_key_files;
-            kfd.ShowDialog();
-            current_key_files = kfd.KeyFiles;
+            kfd.KeyFiles = key_files_list[index];
+            if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                key_files_list[index] = kfd.KeyFiles;
             kfd = null;
         }
 

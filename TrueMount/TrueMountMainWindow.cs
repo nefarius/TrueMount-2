@@ -468,7 +468,7 @@ namespace TrueMount
                                 LogAppend("NoKeyFiles");
 
                             // DEBUG
-                            LogAppend("RawArgLine", tc_args_ready);
+                            //LogAppend("RawArgLine", tc_args_ready);
 
                             // create new process
                             Process truecrypt = new Process();

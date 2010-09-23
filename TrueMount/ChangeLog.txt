@@ -1,8 +1,11 @@
-﻿2.1.2.0
-  * Huge performance improvements (settings dialog loads much faster)
-  * Fixed uncontrolled database growing, removed items now will be deleted
+﻿2.1.3.22
+  * Performance improvements (settings dialog loads faster)
+  * Mounting devices with empty passwords now works
+  * Fixed uncontrolled database growing, removed items now will be deleted (partially)
   * Fixed incorrect parsing of key file paths
   * Fixed key files being saved to wrong device
+  * Fixed key files being not saved
+  * Fixed key files... argh, fixed all the key file bugs I caused. Hope so...
   * Fixed empty log entry if disk is inactive
   * Fixed a possible crash caused by empty mount options
   * Fixed a checkbox event bug in TrueCrypt settings dialog

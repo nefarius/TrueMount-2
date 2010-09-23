@@ -11,12 +11,24 @@ namespace TrueMount
 {
     public partial class KeyFilesDialog : Form
     {
-        public List<string> KeyFiles { get; set; }
+        public List<string> KeyFiles
+        {
+            get
+            {
+                List<string> temp = new List<string>();
+                foreach (string item in listBoxKeyFiles.Items)
+                    temp.Add(item);
+                return temp;
+            }
+            set
+            {
+                this.listBoxKeyFiles.Items.Clear();
+                this.listBoxKeyFiles.Items.AddRange(value.ToArray<string>());
+            }
+        }
 
         public KeyFilesDialog()
         {
-            this.KeyFiles = new List<string>();
-
             InitializeComponent();
         }
 
@@ -80,12 +92,8 @@ namespace TrueMount
         private void KeyFilesDialog_Load(object sender, EventArgs e)
         {
             buttonRemove.Enabled = false;
-            buttonRemoveAll.Enabled = false;
-
-            // clear the listbox and build it new
-            listBoxKeyFiles.Items.Clear(); // important!
-            foreach (string item in this.KeyFiles)
-                listBoxKeyFiles.Items.Add(item);
+            if (listBoxKeyFiles.Items.Count == 0)
+                buttonRemoveAll.Enabled = false;
         }
 
         /// <summary>
@@ -124,6 +132,7 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
         }
 
@@ -134,9 +143,7 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            this.KeyFiles.Clear();
-            foreach (string item in listBoxKeyFiles.Items)
-                this.KeyFiles.Add(item);
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }
     }
