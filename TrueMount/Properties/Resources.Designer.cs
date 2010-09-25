@@ -186,6 +186,13 @@ namespace TrueMount.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1285440550_Radioactive {
+            get {
+                object obj = ResourceManager.GetObject("1285440550_Radioactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap spalsh {
             get {
                 object obj = ResourceManager.GetObject("spalsh", resourceCulture);

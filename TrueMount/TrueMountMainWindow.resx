@@ -136,6 +136,16 @@
   <data name="settingsToolStripMenuSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mountDeviceToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="mountDeviceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="mountDeviceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mount device</value>
+  </data>
   <data name="mountAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
@@ -161,7 +171,7 @@
     <value>Close</value>
   </data>
   <data name="contextMenuStripSysTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 136</value>
+    <value>171, 180</value>
   </data>
   <data name="&gt;&gt;contextMenuStripSysTray.Name" xml:space="preserve">
     <value>contextMenuStripSysTray</value>
@@ -1838,7 +1848,6 @@
   <data name="notifyIconSysTray.Text" xml:space="preserve">
     <value>TrueMount by Nefarius</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="notifyIconSysTray.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3978,6 +3987,12 @@
     <value>settingsToolStripMenuSettings</value>
   </data>
   <data name="&gt;&gt;settingsToolStripMenuSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mountDeviceToolStripMenuItem.Name" xml:space="preserve">
+    <value>mountDeviceToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;mountDeviceToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mountAllToolStripMenuItem.Name" xml:space="preserve">

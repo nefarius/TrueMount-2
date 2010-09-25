@@ -130,6 +130,11 @@
     <Compile Include="KeyFilesDialog.Designer.cs">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="LanguageDictionary.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageDictionary.de.resx</DependentUpon>
+    </Compile>
     <Compile Include="LanguageDictionary.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,7 +176,10 @@
     <EmbeddedResource Include="KeyFilesDialog.resx">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LanguageDictionary.de.resx" />
+    <EmbeddedResource Include="LanguageDictionary.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageDictionary.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="LanguageDictionary.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageDictionary.Designer.cs</LastGenOutput>
@@ -228,6 +236,7 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <Content Include="ChangeLog.txt" />
+    <None Include="Resources\1285440550_Radioactive.png" />
     <None Include="Resources\1284820964_system-software-update.png" />
     <None Include="Resources\1284750160_encrypted.png" />
     <None Include="Resources\1279794104_hdd_mount.png" />

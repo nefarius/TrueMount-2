@@ -87,6 +87,34 @@ namespace TrueMount
                 notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
                 notifyIconSysTray.ShowBalloonTip(3000);
             }
+
+            BuildMountMenu();
+        }
+
+        private void BuildMountMenu()
+        {
+            mountDeviceToolStripMenuItem.DropDownItems.Clear();
+            int index = 0;
+            foreach (EncryptedDiskPartition item in config.EncryptedDiskPartitions)
+            {
+                ToolStripMenuItem menuItemEncDisk = new ToolStripMenuItem(item.DiskCaption +
+                    langRes.GetString("CBoxPartition") +
+                    item.PartitionIndex +
+                    langRes.GetString("CBoxLetter") +
+                    item.DriveLetter);
+                menuItemEncDisk.Name = index++.ToString();
+                menuItemEncDisk.Image = Properties.Resources._1276786893_drive_disk;
+                menuItemEncDisk.Click += new EventHandler(menuItemEncDisk_Click);
+                mountDeviceToolStripMenuItem.DropDownItems.Add(menuItemEncDisk);
+            }
+
+            mountDeviceToolStripMenuItem.Enabled = true;
+        }
+
+        void menuItemEncDisk_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            MountEncPartition(config.EncryptedDiskPartitions[int.Parse(item.Name)]);
         }
 
         /// <summary>
@@ -686,6 +714,7 @@ namespace TrueMount
             settings.UpdateConfiguration(ref config);
             Configuration.SaveConfiguration(config);
             settings = null;
+            BuildMountMenu();
         }
 
         /// <summary>

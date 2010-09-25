@@ -346,7 +346,7 @@
     <value>1</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>If your encrypted device needs one or more key files to mount successfully set them here. Click 'Add file...' to add one or more selected files to the list of key files. You may also choose a complete folder with key files included, just hit 'Add path...' to open the directory searcher dialog. To delete one or multiple files, mark them with 'Strg+Left click' and hit 'Remove' (this will only remove the files from this list, not the file system). Finish your actions with 'Save'.</value>
+    <value>If your encrypted device needs one or more key files to mount successfully set them here. Click 'Add file...' to add one or more selected files to the list of key files. You may also choose a complete folder with key files included, just hit 'Add path...' to open the directory searcher dialog. To delete one or multiple files, mark them with 'Ctrl+Left click' and hit 'Remove' (this will only remove the files from this list, not the file system). Finish your actions with 'Save'.</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>

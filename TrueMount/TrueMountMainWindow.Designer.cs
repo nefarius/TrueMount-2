@@ -34,6 +34,7 @@
             this.contextMenuStripSysTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuShow = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.mountDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unmountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,7 @@
             this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuShow,
             this.settingsToolStripMenuSettings,
+            this.mountDeviceToolStripMenuItem,
             this.mountAllToolStripMenuItem,
             this.unmountAllToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem,
@@ -90,6 +92,12 @@
             this.settingsToolStripMenuSettings.Name = "settingsToolStripMenuSettings";
             resources.ApplyResources(this.settingsToolStripMenuSettings, "settingsToolStripMenuSettings");
             this.settingsToolStripMenuSettings.Click += new System.EventHandler(this.settingsToolStripMenuSettings_Click);
+            // 
+            // mountDeviceToolStripMenuItem
+            // 
+            resources.ApplyResources(this.mountDeviceToolStripMenuItem, "mountDeviceToolStripMenuItem");
+            this.mountDeviceToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1285440550_Radioactive;
+            this.mountDeviceToolStripMenuItem.Name = "mountDeviceToolStripMenuItem";
             // 
             // mountAllToolStripMenuItem
             // 
@@ -286,6 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem mountAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuSettings;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mountDeviceToolStripMenuItem;
     }
 }
 

@@ -1,4 +1,6 @@
-﻿2.2.4.--
+﻿  * Added tray menu item for seperadly mounting devices
+  * Fixed language mistakes
+2.2.4.--
   * Next version will be stable!
   * Added multiuser support
     * New configuration file location: C:\Users\<Username>\AppData\Roaming\TrueMount\config.dat
