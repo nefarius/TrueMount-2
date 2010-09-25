@@ -2,43 +2,39 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
-using Db4objects.Db4o;
-using System.IO;
 
 namespace TrueMount
 {
     partial class SettingsDialog : Form
     {
-        private IObjectContainer config_db = null;
         private Configuration config = null;
-        private Dictionary<int, List<ManagementObject>> key_device_list = null;
-        private Dictionary<int, List<ManagementObject>> enc_device_list = null;
-        private ResourceManager rm = null;
+        private Dictionary<int, List<ManagementObject>> keyDeviceList = null;
+        private Dictionary<int, List<ManagementObject>> encDeviceList = null;
+        private ResourceManager langRes = null;
         private CultureInfo culture = null;
-        private const string TC_CLI_URL = "http://www.truecrypt.org/docs/?s=command-line-usage";
-        private List<List<string>> key_files_list = null;
+        private List<List<string>> keyFilesList = null;
+        private bool editInProgress = false;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public SettingsDialog(ref IObjectContainer config_db, ref Configuration config)
+        public SettingsDialog(ref Configuration config)
         {
-            this.config_db = config_db;
             this.config = config;
 
             // new list ob available SystemDevices
-            key_device_list = new Dictionary<int, List<ManagementObject>>();
-            enc_device_list = new Dictionary<int, List<ManagementObject>>();
+            keyDeviceList = new Dictionary<int, List<ManagementObject>>();
+            encDeviceList = new Dictionary<int, List<ManagementObject>>();
 
-            key_files_list = new List<List<string>>();
+            // list of key files
+            keyFilesList = new List<List<string>>();
 
             // load translation resources
-            rm = new ResourceManager("TrueMount.SettingsMessages",
+            langRes = new ResourceManager("TrueMount.LanguageDictionary",
                 typeof(TrueMountMainWindow).Assembly);
 
             // set language from config or system default
@@ -52,11 +48,9 @@ namespace TrueMount
         /// <summary>
         /// Returns the changed configuration references.
         /// </summary>
-        /// <param name="config_db">The db40 database reference.</param>
         /// <param name="config">The Configuration object.</param>
-        public void UpdateConfiguration(ref IObjectContainer config_db, ref Configuration config)
+        public void UpdateConfiguration(ref Configuration config)
         {
-            config_db = this.config_db;
             config = this.config;
         }
 
@@ -66,7 +60,6 @@ namespace TrueMount
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            FetchDbStatistics();
 
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;
@@ -75,6 +68,9 @@ namespace TrueMount
             checkBoxSplashScreen.Checked = config.ShowSplashScreen;
             checkBoxOneInstance.Checked = config.OnlyOneInstance;
             checkBoxIgnoreDriveLetters.Checked = config.IgnoreAssignedDriveLetters;
+            checkBoxForceUnmountAll.Checked = config.ForceUnmount;
+            checkBoxWarnUnmountAll.Checked = config.UnmountWarning;
+            checkBoxDisableBalloons.Checked = config.DisableBalloons;
 
             // load available languages
             if (config.Language != null)
@@ -97,21 +93,21 @@ namespace TrueMount
             checkBoxSilent.Checked = config.TrueCrypt.Silent;
 
             // read key SystemDevices and create nodes
-            foreach (UsbKeyDevice key_device in config.KeyDevices)
+            foreach (UsbKeyDevice keyDevice in config.KeyDevices)
             {
-                TreeNode key_device_node = new TreeNode(key_device.Caption);
-                treeViewKeyDevices.Nodes.Add(key_device_node);
+                TreeNode keyDeviceNode = new TreeNode(keyDevice.Caption);
+                treeViewKeyDevices.Nodes.Add(keyDeviceNode);
                 treeViewKeyDevices.Enabled = true;
             }
             treeViewKeyDevices.ExpandAll();
 
             // read disk drives and create nodes
-            foreach (EncryptedDiskPartition enc_disk_partition in config.EncryptedDiskPartitions)
+            foreach (EncryptedDiskPartition encDiskPartition in config.EncryptedDiskPartitions)
             {
-                key_files_list.Add(enc_disk_partition.KeyFiles);
-                TreeNode enc_device_node = new TreeNode(enc_disk_partition.DiskCaption +
-                    ", Partition: " + enc_disk_partition.PartitionIndex.ToString());
-                treeViewDisks.Nodes.Add(enc_device_node);
+                keyFilesList.Add(encDiskPartition.KeyFiles);
+                TreeNode encDeviceNode = new TreeNode(encDiskPartition.DiskCaption +
+                    ", Partition: " + encDiskPartition.PartitionIndex.ToString());
+                treeViewDisks.Nodes.Add(encDeviceNode);
                 treeViewDisks.Enabled = true;
             }
             treeViewDisks.ExpandAll();
@@ -123,72 +119,48 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Calculates database objects overhead.
-        /// </summary>
-        private void FetchDbStatistics()
-        {
-            String format = "DB: {0}, RAM: {1}";
-
-            int db_config_count = config_db.Query<Configuration>().Count, ram_config_count = 1;
-            labelConfigCount.Text = string.Format(format, db_config_count, ram_config_count);
-
-            int db_enc_count = config_db.Query<EncryptedDiskPartition>().Count, ram_enc_count = config.EncryptedDiskPartitions.Count;
-            labelEncDisks.Text = string.Format(format, db_enc_count, ram_enc_count);
-
-            int db_key_count = config_db.Query<UsbKeyDevice>().Count, ram_key_count = config.KeyDevices.Count;
-            labelKeyDevs.Text = string.Format(format, db_key_count, ram_key_count);
-
-            if (db_config_count != ram_config_count ||
-                db_enc_count != ram_enc_count ||
-                db_key_count != ram_key_count)
-                buttonCleanDb.Visible = true;
-            else
-                buttonCleanDb.Visible = false;
-        }
-
-        /// <summary>
         /// Builds the device lists (the most evil code I ever wrote :/)
         /// </summary>
         private void BuildDeviceList()
         {
             // fill up device list
-            int key_index = 0, enc_index = 0;
-            List<ManagementObject> key_device_mobjects = null, enc_device_mobjects = null;
+            int keyIndex = 0, encIndex = 0;
+            List<ManagementObject> keyDeviceMobjects = null, encDeviceMobjects = null;
             comboBoxUSBKeyDevice.BeginUpdate();
             comboBoxDiskDrives.BeginUpdate();
             // walk through every physical disk
-            foreach (ManagementObject ddrive in SystemDevices.DiskDrives)
+            foreach (ManagementObject dDrive in SystemDevices.DiskDrives)
             {
-                enc_device_mobjects = new List<ManagementObject>();
-                enc_device_mobjects.Add(ddrive);
+                encDeviceMobjects = new List<ManagementObject>();
+                encDeviceMobjects.Add(dDrive);
                 // add disk caption to dropdown list
-                comboBoxDiskDrives.Items.Add(ddrive["Caption"].ToString());
+                comboBoxDiskDrives.Items.Add(dDrive["Caption"].ToString());
                 // walk through every partition
-                foreach (ManagementObject partition in ddrive.GetRelated(SystemDevices.Win32_DiskPartition))
+                foreach (ManagementObject dPartition in dDrive.GetRelated(SystemDevices.Win32_DiskPartition))
                 {
-                    enc_device_mobjects.Add(partition);
+                    encDeviceMobjects.Add(dPartition);
                     // get the logical disk
-                    foreach (ManagementObject ldisk in partition.GetRelated(SystemDevices.Win32_LogicalDisk))
+                    foreach (ManagementObject lDisk in dPartition.GetRelated(SystemDevices.Win32_LogicalDisk))
                     {
                         // create title of key device and add it to dropdown list
-                        comboBoxUSBKeyDevice.Items.Add(ddrive["Caption"].ToString() +
-                            rm.GetString("CBoxPartition") +
-                            ((uint)partition["Index"] + 1).ToString() +
-                            rm.GetString("CBoxLetter") +
-                            ldisk["Name"].ToString());
+                        comboBoxUSBKeyDevice.Items.Add(dDrive["Caption"].ToString() +
+                            langRes.GetString("CBoxPartition") +
+                            ((uint)dPartition["Index"] + 1).ToString() +
+                            langRes.GetString("CBoxLetter") +
+                            lDisk["Name"].ToString());
                         // we have all the information, let's save it
-                        key_device_mobjects = new List<ManagementObject>();
+                        keyDeviceMobjects = new List<ManagementObject>();
                         // add disk
-                        key_device_mobjects.Add(ddrive);
+                        keyDeviceMobjects.Add(dDrive);
                         // add partition
-                        key_device_mobjects.Add(partition);
+                        keyDeviceMobjects.Add(dPartition);
                         // add logical disk
-                        key_device_mobjects.Add(ldisk);
+                        keyDeviceMobjects.Add(lDisk);
                         // save it in list
-                        key_device_list.Add(key_index++, key_device_mobjects);
+                        keyDeviceList.Add(keyIndex++, keyDeviceMobjects);
                     }
                 }
-                enc_device_list.Add(enc_index++, enc_device_mobjects);
+                encDeviceList.Add(encIndex++, encDeviceMobjects);
             }
             comboBoxUSBKeyDevice.EndUpdate();
             comboBoxDiskDrives.EndUpdate();
@@ -243,14 +215,9 @@ namespace TrueMount
             else
             {
                 if (string.IsNullOrEmpty(textBoxTrueCryptExec.Text))
-                    MessageBox.Show(rm.GetString("MsgTNoTCSet"), rm.GetString("MsgHNoTCSet"),
+                    MessageBox.Show(langRes.GetString("MsgTNoTCSet"), langRes.GetString("MsgHNoTCSet"),
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(TC_CLI_URL);
         }
 
         private void checkBoxOneInstance_CheckedChanged(object sender, EventArgs e)
@@ -269,17 +236,17 @@ namespace TrueMount
             groupBoxLocalDiskDrives.Enabled = false;
 
             // get disk and partition from linked list
-            ManagementObject new_disk = enc_device_list[comboBoxDiskDrives.SelectedIndex][0];
+            ManagementObject newDisk = encDeviceList[comboBoxDiskDrives.SelectedIndex][0];
 
-            ManagementObject new_part = null;
+            ManagementObject newPart = null;
             if (int.Parse(comboBoxDiskPartitions.SelectedItem.ToString()) > 0)
-                new_part = enc_device_list[comboBoxDiskDrives.SelectedIndex][int.Parse(comboBoxDiskPartitions.SelectedItem.ToString())];
+                newPart = encDeviceList[comboBoxDiskDrives.SelectedIndex][int.Parse(comboBoxDiskPartitions.SelectedItem.ToString())];
 
             // fill information into form elements
-            textBoxDiskCaption.Text = (string)new_disk["Caption"];
-            textBoxDiskSignature.Text = ((uint)new_disk["Signature"]).ToString();
-            if (new_part != null)
-                textBoxDiskPartition.Text = ((uint)new_part["Index"] + 1).ToString();
+            textBoxDiskCaption.Text = (string)newDisk["Caption"];
+            textBoxDiskSignature.Text = ((uint)newDisk["Signature"]).ToString();
+            if (newPart != null)
+                textBoxDiskPartition.Text = ((uint)newPart["Index"] + 1).ToString();
             else
                 textBoxDiskPartition.Text = comboBoxDiskPartitions.SelectedItem.ToString();
             textBoxPasswordFile.Text = null;
@@ -287,13 +254,14 @@ namespace TrueMount
             checkBoxDiskOpenExplorer.Checked = false;
 
             // new disk, new node in tree
-            TreeNode disk_node = new TreeNode(comboBoxDiskDrives.Text);
-            treeViewDisks.Nodes.Add(disk_node);
-            treeViewDisks.SelectedNode = disk_node;
+            TreeNode diskNode = new TreeNode(comboBoxDiskDrives.Text);
+            treeViewDisks.Nodes.Add(diskNode);
+            treeViewDisks.SelectedNode = diskNode;
 
             // new key files list
-            key_files_list.Add(new List<string>());
+            keyFilesList.Add(new List<string>());
 
+            editInProgress = true;
             panelDisks.Visible = true;
             treeViewDisks.Enabled = false;
             Cursor.Current = Cursors.Default;
@@ -322,25 +290,25 @@ namespace TrueMount
             {
                 if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
                 {
-                    EncryptedDiskPartition enc_disk_partition =
+                    EncryptedDiskPartition encDiskPartition =
                         config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index];
 
                     // fill up informations
-                    textBoxDiskCaption.Text = enc_disk_partition.DiskCaption;
-                    textBoxDiskSignature.Text = enc_disk_partition.DiskSignature.ToString();
-                    textBoxDiskPartition.Text = enc_disk_partition.PartitionIndex.ToString();
-                    textBoxPasswordFile.Text = enc_disk_partition.PasswordFile;
-                    checkBoxDiskActive.Checked = enc_disk_partition.IsActive;
-                    checkBoxDiskOpenExplorer.Checked = enc_disk_partition.OpenExplorer;
-                    checkBoxRo.Checked = enc_disk_partition.Readonly;
-                    checkBoxRm.Checked = enc_disk_partition.Removable;
-                    checkBoxTs.Checked = enc_disk_partition.Timestamp;
-                    checkBoxSm.Checked = enc_disk_partition.System;
+                    textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
+                    textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
+                    textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
+                    textBoxPasswordFile.Text = encDiskPartition.PasswordFile;
+                    checkBoxDiskActive.Checked = encDiskPartition.IsActive;
+                    checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
+                    checkBoxRo.Checked = encDiskPartition.Readonly;
+                    checkBoxRm.Checked = encDiskPartition.Removable;
+                    checkBoxTs.Checked = encDiskPartition.Timestamp;
+                    checkBoxSm.Checked = encDiskPartition.System;
 
                     // if the letter of the drive is not in the list, add it an first position
-                    if (!comboBoxDriveLetter.Items.Contains(enc_disk_partition.DriveLetter))
-                        comboBoxDriveLetter.Items.Insert(0, enc_disk_partition.DriveLetter);
-                    comboBoxDriveLetter.SelectedItem = enc_disk_partition.DriveLetter;
+                    if (!comboBoxDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
+                        comboBoxDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
+                    comboBoxDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
 
                     // after everything is filled with data, make panel visible
                     panelDisks.Visible = true;
@@ -373,8 +341,8 @@ namespace TrueMount
             comboBoxDiskPartitions.BeginUpdate();
             comboBoxDiskPartitions.Items.Clear();
             comboBoxDiskPartitions.Items.Add("0");
-            foreach (ManagementObject partition in enc_device_list[comboBoxDiskDrives.SelectedIndex][0].GetRelated(SystemDevices.Win32_DiskPartition))
-                comboBoxDiskPartitions.Items.Add(((uint)partition["Index"] + 1).ToString());
+            foreach (ManagementObject dPartition in encDeviceList[comboBoxDiskDrives.SelectedIndex][0].GetRelated(SystemDevices.Win32_DiskPartition))
+                comboBoxDiskPartitions.Items.Add(((uint)dPartition["Index"] + 1).ToString());
             comboBoxDiskPartitions.SelectedIndex = 0;
             comboBoxDiskPartitions.EndUpdate();
             Cursor.Current = Cursors.Default;
@@ -387,35 +355,35 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonSaveDisk_Click(object sender, EventArgs e)
         {
-            EncryptedDiskPartition new_enc_disk_partition = new EncryptedDiskPartition(textBoxDiskCaption.Text,
+            EncryptedDiskPartition newEncDiskPartition = new EncryptedDiskPartition(textBoxDiskCaption.Text,
                 uint.Parse(textBoxDiskSignature.Text), uint.Parse(textBoxDiskPartition.Text));
 
             // save all the params in the new object
-            new_enc_disk_partition.PasswordFile = textBoxPasswordFile.Text;
-            new_enc_disk_partition.DriveLetter = comboBoxDriveLetter.Text;
-            new_enc_disk_partition.IsActive = checkBoxDiskActive.Checked;
-            new_enc_disk_partition.OpenExplorer = checkBoxDiskOpenExplorer.Checked;
-            new_enc_disk_partition.Readonly = checkBoxRo.Checked;
-            new_enc_disk_partition.Removable = checkBoxRm.Checked;
-            new_enc_disk_partition.System = checkBoxSm.Checked;
-            new_enc_disk_partition.Timestamp = checkBoxTs.Checked;
-            new_enc_disk_partition.KeyFiles = key_files_list[treeViewDisks.SelectedNode.Index];
+            newEncDiskPartition.PasswordFile = textBoxPasswordFile.Text;
+            newEncDiskPartition.DriveLetter = comboBoxDriveLetter.Text;
+            newEncDiskPartition.IsActive = checkBoxDiskActive.Checked;
+            newEncDiskPartition.OpenExplorer = checkBoxDiskOpenExplorer.Checked;
+            newEncDiskPartition.Readonly = checkBoxRo.Checked;
+            newEncDiskPartition.Removable = checkBoxRm.Checked;
+            newEncDiskPartition.System = checkBoxSm.Checked;
+            newEncDiskPartition.Timestamp = checkBoxTs.Checked;
+            newEncDiskPartition.KeyFiles = keyFilesList[treeViewDisks.SelectedNode.Index];
 
             // if exactly the same object exists in the databse, delete and re-save it
-            if (!config.EncryptedDiskPartitions.Contains(new_enc_disk_partition))
+            if (!config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
             {
-                config.EncryptedDiskPartitions.Add(new_enc_disk_partition);
+                config.EncryptedDiskPartitions.Add(newEncDiskPartition);
             }
             else
             {
-                config_db.Delete(new_enc_disk_partition);
-                config.EncryptedDiskPartitions.Remove(new_enc_disk_partition);
-                config.EncryptedDiskPartitions.Add(new_enc_disk_partition);
+                config.EncryptedDiskPartitions.Remove(newEncDiskPartition);
+                config.EncryptedDiskPartitions.Add(newEncDiskPartition);
             }
 
-            MessageBox.Show(rm.GetString("MsgTSaved"), rm.GetString("MsgHSaved"),
+            MessageBox.Show(langRes.GetString("MsgTSaved"), langRes.GetString("MsgHSaved"),
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            editInProgress = false;
             groupBoxLocalDiskDrives.Enabled = true;
             treeViewDisks.Enabled = true;
         }
@@ -431,11 +399,11 @@ namespace TrueMount
             {
                 if (config.KeyDevices.Count > treeViewKeyDevices.SelectedNode.Index)
                 {
-                    UsbKeyDevice key_device = config.KeyDevices[treeViewKeyDevices.SelectedNode.Index];
-                    textBoxUSBCaption.Text = key_device.Caption;
-                    textBoxUSBSignature.Text = key_device.Signature.ToString();
-                    textBoxUSBPartition.Text = key_device.PartitionIndex.ToString();
-                    checkBoxKeyDeviceActive.Checked = key_device.IsActive;
+                    UsbKeyDevice keyDevice = config.KeyDevices[treeViewKeyDevices.SelectedNode.Index];
+                    textBoxUSBCaption.Text = keyDevice.Caption;
+                    textBoxUSBSignature.Text = keyDevice.Signature.ToString();
+                    textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
+                    checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
                     panelKeyDevice.Visible = true;
                     return;
                 }
@@ -451,33 +419,33 @@ namespace TrueMount
         private void buttonAddKeyDevice_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            ManagementObject disk_drive = key_device_list[comboBoxUSBKeyDevice.SelectedIndex][0];
-            ManagementObject disk_partition = key_device_list[comboBoxUSBKeyDevice.SelectedIndex][1];
+            ManagementObject diskDrive = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][0];
+            ManagementObject diskPartition = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][1];
 
-            UsbKeyDevice new_key_device = new UsbKeyDevice();
-            new_key_device.Caption = disk_drive["Caption"].ToString();
-            new_key_device.Signature = (uint)disk_drive["Signature"];
-            new_key_device.PartitionIndex = ((uint)disk_partition["Index"] + 1);
-            new_key_device.IsActive = checkBoxKeyDeviceActive.Checked;
+            UsbKeyDevice newKeyDevice = new UsbKeyDevice();
+            newKeyDevice.Caption = diskDrive["Caption"].ToString();
+            newKeyDevice.Signature = (uint)diskDrive["Signature"];
+            newKeyDevice.PartitionIndex = ((uint)diskPartition["Index"] + 1);
+            newKeyDevice.IsActive = checkBoxKeyDeviceActive.Checked;
 
             // detect if disk is already configured
-            if (!config.KeyDevices.Contains(new_key_device))
+            if (!config.KeyDevices.Contains(newKeyDevice))
             {
-                config.KeyDevices.Add(new_key_device);
+                config.KeyDevices.Add(newKeyDevice);
             }
             else
             {
                 // this key device already exists
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(rm.GetString("MsgTDevDouble"), rm.GetString("MsgHDevDouble"),
+                MessageBox.Show(langRes.GetString("MsgTDevDouble"), langRes.GetString("MsgHDevDouble"),
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             // if everything went well, build the node and view it
-            TreeNode new_key_device_node = new TreeNode(new_key_device.Caption);
-            treeViewKeyDevices.Nodes.Add(new_key_device_node);
-            treeViewKeyDevices.SelectedNode = new_key_device_node;
+            TreeNode newKeyDeviceNode = new TreeNode(newKeyDevice.Caption);
+            treeViewKeyDevices.Nodes.Add(newKeyDeviceNode);
+            treeViewKeyDevices.SelectedNode = newKeyDeviceNode;
             treeViewKeyDevices.ExpandAll();
             treeViewKeyDevices.Focus();
             treeViewKeyDevices.Enabled = true;
@@ -492,7 +460,6 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonDeleteKeyDevice_Click(object sender, EventArgs e)
         {
-            config_db.Delete(config.KeyDevices[treeViewKeyDevices.SelectedNode.Index]);
             config.KeyDevices.RemoveAt(treeViewKeyDevices.SelectedNode.Index);
             treeViewKeyDevices.SelectedNode.Remove();
 
@@ -514,15 +481,13 @@ namespace TrueMount
             // we need disks to delete
             if (config.EncryptedDiskPartitions.Count > index)
             {
-                config_db.Delete(config.EncryptedDiskPartitions[index]);
                 config.EncryptedDiskPartitions.RemoveAt(index);
-                config_db.Delete(key_files_list[index]);
-                key_files_list.RemoveAt(index);
+                keyFilesList.RemoveAt(index);
             }
 
+            editInProgress = false;
             panelDisks.Visible = false; // first!
             treeViewDisks.SelectedNode.Remove();
-
             groupBoxLocalDiskDrives.Enabled = true;
             treeViewDisks.Enabled = true;
         }
@@ -589,41 +554,38 @@ namespace TrueMount
         {
             int index = treeViewDisks.SelectedNode.Index;
             KeyFilesDialog kfd = new KeyFilesDialog();
-            kfd.KeyFiles = key_files_list[index];
+            kfd.KeyFiles = keyFilesList[index];
             if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                key_files_list[index] = kfd.KeyFiles;
+                keyFilesList[index] = kfd.KeyFiles;
             kfd = null;
         }
 
-        /// <summary>
-        /// Saves configuration on dialog close.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            config_db.Store(config);
+            if (editInProgress)
+                if (MessageBox.Show(langRes.GetString("MsgTWarnNotSaved"), langRes.GetString("MsgHWarnNotSaved"),
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                    e.Cancel = true;
         }
 
-        /// <summary>
-        /// Re-creates configuration database.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonCleanDb_Click(object sender, EventArgs e)
+        private void checkBoxForceUnmountAll_CheckedChanged(object sender, EventArgs e)
         {
-            try
-            {
-                config_db.Close();
-                File.Delete(Configuration.ConfigDbFile);
-                config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
-                config_db.Store(config);
-                FetchDbStatistics();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Unexpected error occured, please inform the developer!");
-            }
+            config.ForceUnmount = checkBoxForceUnmountAll.Checked;
+        }
+
+        private void checkBoxWarnUnmountAll_CheckedChanged(object sender, EventArgs e)
+        {
+            config.UnmountWarning = checkBoxWarnUnmountAll.Checked;
+        }
+
+        private void checkBoxDisableBallons_CheckedChanged(object sender, EventArgs e)
+        {
+            config.DisableBalloons = checkBoxDisableBalloons.Checked;
+        }
+
+        private void pictureBoxTrueCryptHeader_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.truecrypt.org/");
         }
     }
 }

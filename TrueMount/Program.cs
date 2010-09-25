@@ -2,25 +2,22 @@
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using Db4objects.Db4o;
+using System.Resources;
 
 namespace TrueMount
 {
     static class Program
     {
-        private static Configuration config = null;
-        private static IObjectContainer config_db = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
-            config = config_db.Query<Configuration>().FirstOrDefault();
-            if (config == null)
-                config = new Configuration();
-            config_db.Close();
+            // load configuration
+            Configuration config = Configuration.OpenConfiguration();
+            // load languages
+            ResourceManager langRes = new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly);
 
             // use mutex to test, if application has been started bevore
             bool createdNew = true;
@@ -31,7 +28,7 @@ namespace TrueMount
                     if (!createdNew)
                     {
                         // only one application is usefull, inform the user and exit
-                        MessageBox.Show("There is already an instance of me running!", "Secound start",
+                        MessageBox.Show(langRes.GetString("MsgTInsranceInfo"), langRes.GetString("MsgHInsranceInfo"),
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }

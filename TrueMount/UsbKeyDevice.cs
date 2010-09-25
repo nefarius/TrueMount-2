@@ -1,6 +1,8 @@
-﻿
+﻿using System;
+
 namespace TrueMount
 {
+    [Serializable()]
     class UsbKeyDevice
     {
         public string Caption { get; set; }

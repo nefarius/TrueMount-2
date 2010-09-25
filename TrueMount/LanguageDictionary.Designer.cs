@@ -22,14 +22,14 @@ namespace TrueMount {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class LogMessages {
+    internal class LanguageDictionary {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LogMessages() {
+        internal LanguageDictionary() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TrueMount {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TrueMount.LogMessages", typeof(LogMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TrueMount.LanguageDictionary", typeof(LanguageDictionary).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -75,6 +75,24 @@ namespace TrueMount {
         internal static string AddMountOpts {
             get {
                 return ResourceManager.GetString("AddMountOpts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , Letter .
+        /// </summary>
+        internal static string CBoxLetter {
+            get {
+                return ResourceManager.GetString("CBoxLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , Partition .
+        /// </summary>
+        internal static string CBoxPartition {
+            get {
+                return ResourceManager.GetString("CBoxPartition", resourceCulture);
             }
         }
         
@@ -304,6 +322,24 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duplicate detected.
+        /// </summary>
+        internal static string MsgHDevDouble {
+            get {
+                return ResourceManager.GetString("MsgHDevDouble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chosen disk offline.
+        /// </summary>
+        internal static string MsgHDiskOff {
+            get {
+                return ResourceManager.GetString("MsgHDiskOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mount error.
         /// </summary>
         internal static string MsgHDiskTimeout {
@@ -313,11 +349,137 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Secound start.
+        /// </summary>
+        internal static string MsgHInsranceInfo {
+            get {
+                return ResourceManager.GetString("MsgHInsranceInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password file missing.
+        /// </summary>
+        internal static string MsgHNoPw {
+            get {
+                return ResourceManager.GetString("MsgHNoPw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string MsgHNoTCSet {
+            get {
+                return ResourceManager.GetString("MsgHNoTCSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string MsgHSaved {
+            get {
+                return ResourceManager.GetString("MsgHSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings unsaved.
+        /// </summary>
+        internal static string MsgHWarnNotSaved {
+            get {
+                return ResourceManager.GetString("MsgHWarnNotSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unmount of all devices.
+        /// </summary>
+        internal static string MsgHWarnUmount {
+            get {
+                return ResourceManager.GetString("MsgHWarnUmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected Key Device already exists!.
+        /// </summary>
+        internal static string MsgTDevDouble {
+            get {
+                return ResourceManager.GetString("MsgTDevDouble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chosen disk seems to be offline, please reopen this dialog!.
+        /// </summary>
+        internal static string MsgTDiskOff {
+            get {
+                return ResourceManager.GetString("MsgTDiskOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The mount process of {0} seems to hang, skip this device?.
         /// </summary>
         internal static string MsgTDiskTimeout {
             get {
                 return ResourceManager.GetString("MsgTDiskTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is already an instance of TrueMount running!.
+        /// </summary>
+        internal static string MsgTInsranceInfo {
+            get {
+                return ResourceManager.GetString("MsgTInsranceInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a password file!.
+        /// </summary>
+        internal static string MsgTNoPw {
+            get {
+                return ResourceManager.GetString("MsgTNoPw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You did not set a valid TrueCrypt path, TrueMount will not work!.
+        /// </summary>
+        internal static string MsgTNoTCSet {
+            get {
+                return ResourceManager.GetString("MsgTNoTCSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved successfully!.
+        /// </summary>
+        internal static string MsgTSaved {
+            get {
+                return ResourceManager.GetString("MsgTSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You did not save your changed settings, really close?.
+        /// </summary>
+        internal static string MsgTWarnNotSaved {
+            get {
+                return ResourceManager.GetString("MsgTWarnNotSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to unmount all of your encrypted devices, data loss may be possible! Continue?.
+        /// </summary>
+        internal static string MsgTWarnUmount {
+            get {
+                return ResourceManager.GetString("MsgTWarnUmount", resourceCulture);
             }
         }
         

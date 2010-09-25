@@ -250,8 +250,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "TrueMountMainWindow";
-            this.ShowInTaskbar = false;
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrueMountMainWindow_FormClosing);
             this.Load += new System.EventHandler(this.TrueMountMainWindow_Load);
             this.contextMenuStripSysTray.ResumeLayout(false);

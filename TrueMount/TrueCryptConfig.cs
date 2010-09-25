@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TrueMount
 {
+    [Serializable()]
     class TrueCryptConfig
     {
         public string ExecutablePath { get; set; }
@@ -35,7 +36,7 @@ namespace TrueMount
         public TrueCryptConfig()
         {
             Background = true;
-            Silent = true;
+            Silent = false;
             Cache = true;
         }
     }

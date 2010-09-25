@@ -117,172 +117,226 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddKeyFiles" xml:space="preserve">
+    <value>Adding {0} key files/directories...</value>
+  </data>
   <data name="AddMountOpts" xml:space="preserve">
-    <value>Füge Mount-Optionen hinzu: {0}</value>
+    <value>Adding mount options: {0}</value>
+  </data>
+  <data name="CBoxLetter" xml:space="preserve">
+    <value>, Letter </value>
+  </data>
+  <data name="CBoxPartition" xml:space="preserve">
+    <value>, Partition </value>
   </data>
   <data name="CheckCfgTC" xml:space="preserve">
-    <value>Überpfüfen Sie die Konfiguration, ohne TrueCrypt kann nicht fortgesetzt werden!</value>
+    <value>Please check configuration, I can't work without truecrypt :(</value>
   </data>
   <data name="CheckConfig" xml:space="preserve">
-    <value>Bitte prüfen Sie die Konfiguration!</value>
+    <value>Please check your configuration!</value>
   </data>
   <data name="CheckTCConf" xml:space="preserve">
-    <value>Bitte prüfen Sie die Konfiguration, Vorgang gestoppt.</value>
+    <value>Please adjust your configuration, I can't go on :(</value>
   </data>
   <data name="DevListenerIsRun" xml:space="preserve">
-    <value>Geräte-Wächter läuft bereits.</value>
+    <value>Device Listener already running.</value>
   </data>
   <data name="DevListenerNoRun" xml:space="preserve">
-    <value>Geräte-Wächter läuft nicht.</value>
+    <value>Device Listener not running.</value>
   </data>
   <data name="DevListenerRun" xml:space="preserve">
-    <value>Geräte-Wächter gestartet.</value>
+    <value>Device Listener running.</value>
   </data>
   <data name="DevListenerStop" xml:space="preserve">
-    <value>Geräte-Wächter gestoppt.</value>
+    <value>Device Listener stopped.</value>
   </data>
   <data name="DiskConfEnabled" xml:space="preserve">
-    <value>Konfiguration von Laufwerk {0} aktiviert.</value>
+    <value>DiskDevice {0} config enabled.</value>
   </data>
   <data name="DiskDeviceId" xml:space="preserve">
-    <value>Laufwerkskennnummer: {0}</value>
+    <value>DiskDrive DeviceID: {0}</value>
   </data>
   <data name="DiskDriveConfDisabled" xml:space="preserve">
-    <value>Konfiguration von Laufwerk {0} deaktiviert, überspringe...</value>
+    <value>DiskDrive {0} config disabled, skipping...</value>
   </data>
   <data name="DiskDriveOffline" xml:space="preserve">
-    <value>Laufwerk {0} ist nicht angeschlossen, überspringe...</value>
+    <value>DiskDrive {0} is offline, skipping...</value>
   </data>
   <data name="DiskDrivePath" xml:space="preserve">
-    <value>Laufwerkspfad: {0}</value>
+    <value>DiskDrive Path: {0}</value>
   </data>
   <data name="DiskIsOnline" xml:space="preserve">
-    <value>Laufwerk {0} ist angeschlossen.</value>
+    <value>DiskDrive {0} is online.</value>
   </data>
   <data name="DiskPartLetter" xml:space="preserve">
-    <value>Laufwerksbuchstabe: {0}</value>
+    <value>DiskPartition letter: {0}</value>
   </data>
   <data name="ErrCheckConfig" xml:space="preserve">
-    <value>Da ging was schief, bitte überprüfen Sie die Konfiguration!</value>
+    <value>Something went wrong, please check the config!</value>
   </data>
   <data name="ErrDevListenerStart" xml:space="preserve">
-    <value>Fehler: Geräte-Wächter konnte nicht gestartet werden!</value>
+    <value>Error: Device Listener could not be started!</value>
   </data>
   <data name="ErrExplorerOpen" xml:space="preserve">
-    <value>Irgendwas ging schief beim Öffnen des Explorers!</value>
+    <value>Something went wrong while opening the explorer!</value>
   </data>
   <data name="ErrGeneral" xml:space="preserve">
-    <value>Fehler: {0}</value>
+    <value>Error: {0}</value>
   </data>
   <data name="ErrNoKeyDev" xml:space="preserve">
-    <value>Fehler: kein Schlüssel-Gerät gefunden, prüfen Sie die Einstellungen!</value>
+    <value>Error: key device configuration incorrect/incomplete, check the settings!</value>
   </data>
   <data name="ErrPwFileNoExist" xml:space="preserve">
-    <value>Fehler: Passwortdatei {0} existiert nicht, überspringe...</value>
+    <value>Error: password file {0} does not exist, skipping...</value>
   </data>
   <data name="ErrTCNotFound" xml:space="preserve">
-    <value>Fehler: TrueCrypt Hauptprogramm nicht gefunden, breche ab...</value>
+    <value>Error: truecrypt executable not found, stopping jobs...</value>
   </data>
   <data name="ErrTCPathWrong" xml:space="preserve">
-    <value>Fehler: der Pfad zu TrueCrypt dürfte falsch sein, bitte prüfen Sie das!</value>
+    <value>Error: your path to TrueCrypt seems wrong, please check the configuration!</value>
   </data>
   <data name="LogicalDiskOnline" xml:space="preserve">
-    <value>Logisches Laufwerk {0}:\ angeschlossen.</value>
+    <value>LogicalDisk {0}:\ online.</value>
   </data>
   <data name="MountedPartitions" xml:space="preserve">
-    <value>Eingebundene Partitionen: {0}</value>
+    <value>Mounted partitions: {0}</value>
   </data>
   <data name="MsgDone" xml:space="preserve">
-    <value>Erledigt.</value>
+    <value>Done.</value>
   </data>
-  <data name="NoMountOpts" xml:space="preserve">
-    <value>Keine Mount-Optionen festgelegt, fahre fort...</value>
+  <data name="MsgHDevDouble" xml:space="preserve">
+    <value>Duplicate detected</value>
   </data>
-  <data name="OpenExplorer" xml:space="preserve">
-    <value>Öffne {0}:\ im Explorer...</value>
-  </data>
-  <data name="PartConfEnabled" xml:space="preserve">
-    <value>Konfiguration der Partition {0} aktiviert.</value>
-  </data>
-  <data name="PasswordFile" xml:space="preserve">
-    <value>Passwortdatei: {0}</value>
-  </data>
-  <data name="PasswordReadOk" xml:space="preserve">
-    <value>Passwort erfolgreich eingelesen.</value>
-  </data>
-  <data name="PDevOnline" xml:space="preserve">
-    <value>Schlüssel-Gerät {0} angeschlossen.</value>
-  </data>
-  <data name="ProcessStarted" xml:space="preserve">
-    <value>Prozess gestartet.</value>
-  </data>
-  <data name="SAutoDi" xml:space="preserve">
-    <value>Automatischer Start in Konfiguration deaktiviert, Wächter nicht gestartet.</value>
-  </data>
-  <data name="SAutoEn" xml:space="preserve">
-    <value>Automatischer Start aktiviert, beginne Arbeit...</value>
-  </data>
-  <data name="SearchDiskLocal" xml:space="preserve">
-    <value>Suche lokale Laufwerke...</value>
-  </data>
-  <data name="StartDevListener" xml:space="preserve">
-    <value>Starte Geräte-Wächter...</value>
-  </data>
-  <data name="StartProcess" xml:space="preserve">
-    <value>Starte Prozess...</value>
-  </data>
-  <data name="StopDevListener" xml:space="preserve">
-    <value>Stoppe Geräte-Wächter...</value>
-  </data>
-  <data name="TCArgumentLine" xml:space="preserve">
-    <value>Kommandozeilenparameter: {0}</value>
-  </data>
-  <data name="TCPath" xml:space="preserve">
-    <value>TrueCrypt Pfad: {0}</value>
-  </data>
-  <data name="UnmountAll" xml:space="preserve">
-    <value>Werfe alle Laufwerke aus...</value>
-  </data>
-  <data name="USBFound" xml:space="preserve">
-    <value>Neues USB-Gerät gefunden.</value>
-  </data>
-  <data name="USBNotPw" xml:space="preserve">
-    <value>USB-Gerät ist kein Schlüssel-Gerät, warte...</value>
-  </data>
-  <data name="USBRemoved" xml:space="preserve">
-    <value>USB-Gerät entfernt.</value>
-  </data>
-  <data name="WaitDevLaunch" xml:space="preserve">
-    <value>Warte bis Laufwerk bereit...</value>
-  </data>
-  <data name="WarnGeneral" xml:space="preserve">
-    <value>Warnung: {0}</value>
-  </data>
-  <data name="WarnLetterInUse" xml:space="preserve">
-    <value>Warnung: Laufwerksbuchstabe {0} bereits in Verwendung, überspringe...</value>
-  </data>
-  <data name="WarnNoDisks" xml:space="preserve">
-    <value>Warnung: keine Laufwerke in Konfiguration gefunden, prüfen Sie die Einstellungen!</value>
-  </data>
-  <data name="WarnTCArgs" xml:space="preserve">
-    <value>Warnung: keineTrueCrypt-Schalter gesetzt, Hauptfenster könnte erscheinen!</value>
-  </data>
-  <data name="AddKeyFiles" xml:space="preserve">
-    <value>Füge {0} Schlüsseldateien/Verzeichnisse hinzu...</value>
-  </data>
-  <data name="NoKeyFiles" xml:space="preserve">
-    <value>Keine Schlüsseldateien gesetzt, fahre fort...</value>
+  <data name="MsgHDiskOff" xml:space="preserve">
+    <value>Chosen disk offline</value>
   </data>
   <data name="MsgHDiskTimeout" xml:space="preserve">
-    <value>Fehler beim Einbinden</value>
+    <value>Mount error</value>
+  </data>
+  <data name="MsgHInsranceInfo" xml:space="preserve">
+    <value>Secound start</value>
+  </data>
+  <data name="MsgHNoPw" xml:space="preserve">
+    <value>Password file missing</value>
+  </data>
+  <data name="MsgHNoTCSet" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="MsgHSaved" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="MsgHWarnNotSaved" xml:space="preserve">
+    <value>Settings unsaved</value>
+  </data>
+  <data name="MsgTDevDouble" xml:space="preserve">
+    <value>The selected Key Device already exists!</value>
+  </data>
+  <data name="MsgTDiskOff" xml:space="preserve">
+    <value>The chosen disk seems to be offline, please reopen this dialog!</value>
   </data>
   <data name="MsgTDiskTimeout" xml:space="preserve">
-    <value>Das Einbinden von {0} scheint zu hängen, überspringen?</value>
+    <value>The mount process of {0} seems to hang, skip this device?</value>
   </data>
-  <data name="RawArgLine" xml:space="preserve">
-    <value>DEBUG: CLI: {0}</value>
+  <data name="MsgTInsranceInfo" xml:space="preserve">
+    <value>There is already an instance of TrueMount running!</value>
+  </data>
+  <data name="MsgTNoPw" xml:space="preserve">
+    <value>Please select a password file!</value>
+  </data>
+  <data name="MsgTNoTCSet" xml:space="preserve">
+    <value>You did not set a valid TrueCrypt path, TrueMount will not work!</value>
+  </data>
+  <data name="MsgTSaved" xml:space="preserve">
+    <value>Settings saved successfully!</value>
+  </data>
+  <data name="MsgTWarnNotSaved" xml:space="preserve">
+    <value>You did not save your changed settings, really close?</value>
+  </data>
+  <data name="NoKeyFiles" xml:space="preserve">
+    <value>No key files set, continuing...</value>
+  </data>
+  <data name="NoMountOpts" xml:space="preserve">
+    <value>No mount options set, continuing...</value>
+  </data>
+  <data name="OpenExplorer" xml:space="preserve">
+    <value>Opening {0}:\ in explorer...</value>
+  </data>
+  <data name="PartConfEnabled" xml:space="preserve">
+    <value>DiskPartition {0} config enabled.</value>
   </data>
   <data name="PasswordEmptyOk" xml:space="preserve">
-    <value>Information: kein Passwort gesetzt.</value>
+    <value>Info: No password set.</value>
+  </data>
+  <data name="PasswordFile" xml:space="preserve">
+    <value>Password file: {0}</value>
+  </data>
+  <data name="PasswordReadOk" xml:space="preserve">
+    <value>Password read successfully.</value>
+  </data>
+  <data name="PDevOnline" xml:space="preserve">
+    <value>Password Device {0} online.</value>
+  </data>
+  <data name="ProcessStarted" xml:space="preserve">
+    <value>Process started.</value>
+  </data>
+  <data name="RawArgLine" xml:space="preserve">
+    <value>DEBUG: Raw argument line: {0}</value>
+  </data>
+  <data name="SAutoDi" xml:space="preserve">
+    <value>Autostart in config disabled, Listener not started.</value>
+  </data>
+  <data name="SAutoEn" xml:space="preserve">
+    <value>Service Autostart enabled, starting work...</value>
+  </data>
+  <data name="SearchDiskLocal" xml:space="preserve">
+    <value>Searching for local disk...</value>
+  </data>
+  <data name="StartDevListener" xml:space="preserve">
+    <value>Starting Device Listener...</value>
+  </data>
+  <data name="StartProcess" xml:space="preserve">
+    <value>Starting process...</value>
+  </data>
+  <data name="StopDevListener" xml:space="preserve">
+    <value>Stopping device listener...</value>
+  </data>
+  <data name="TCArgumentLine" xml:space="preserve">
+    <value>Argument line: {0}</value>
+  </data>
+  <data name="TCPath" xml:space="preserve">
+    <value>TrueCrypt path: {0}</value>
+  </data>
+  <data name="UnmountAll" xml:space="preserve">
+    <value>Unmounting all LogicalDisks...</value>
+  </data>
+  <data name="USBFound" xml:space="preserve">
+    <value>New USB Device found.</value>
+  </data>
+  <data name="USBNotPw" xml:space="preserve">
+    <value>USB Device is not the password device, waiting...</value>
+  </data>
+  <data name="USBRemoved" xml:space="preserve">
+    <value>USB Device removed.</value>
+  </data>
+  <data name="WaitDevLaunch" xml:space="preserve">
+    <value>Waiting for device to come up...</value>
+  </data>
+  <data name="WarnGeneral" xml:space="preserve">
+    <value>Warning: {0}</value>
+  </data>
+  <data name="WarnLetterInUse" xml:space="preserve">
+    <value>Warning: DiskPartition letter {0} is already in use, skipping...</value>
+  </data>
+  <data name="WarnNoDisks" xml:space="preserve">
+    <value>Warning: no disks found in configuration, check the settings!</value>
+  </data>
+  <data name="WarnTCArgs" xml:space="preserve">
+    <value>Warning: no TrueCrypt configuration switch set, program window may show up!</value>
+  </data>
+  <data name="MsgHWarnUmount" xml:space="preserve">
+    <value>Unmount of all devices</value>
+  </data>
+  <data name="MsgTWarnUmount" xml:space="preserve">
+    <value>You are about to unmount all of your encrypted devices, data loss may be possible! Continue?</value>
   </data>
 </root>

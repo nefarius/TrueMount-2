@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace TrueMount
 {
+    [Serializable()]
     class EncryptedDiskPartition
     {
         public string DiskCaption { get; set; }

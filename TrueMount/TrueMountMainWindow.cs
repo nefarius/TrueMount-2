@@ -8,18 +8,16 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
-using Db4objects.Db4o;
 
 namespace TrueMount
 {
     public partial class TrueMountMainWindow : Form
     {
-        private IObjectContainer config_db = null;
         private Configuration config = null;
         private ManagementScope scope = null;
         private ManagementEventWatcher usb_insert_event = null;
         private ManagementEventWatcher usb_remove_event = null;
-        private ResourceManager rm = null;
+        private ResourceManager langRes = null;
         private CultureInfo culture = null;
 
         // make LogAppend thread safe
@@ -33,19 +31,10 @@ namespace TrueMount
             scope = new ManagementScope(@"root\CIMv2");
             scope.Options.EnablePrivileges = true;
             // load log output languages
-            rm = new ResourceManager("TrueMount.LogMessages",
-                typeof(TrueMountMainWindow).Assembly);
+            langRes = Configuration.LanguageDictionary;
 
-            // database update settings
-            Db4oFactory.Configure().ObjectClass(typeof(Configuration)).CascadeOnUpdate(true);
-            Db4oFactory.Configure().ObjectClass(typeof(EncryptedDiskPartition)).CascadeOnUpdate(true);
-            Db4oFactory.Configure().ObjectClass(typeof(UsbKeyDevice)).CascadeOnUpdate(true);
-
-            // load configuration from database
-            config_db = Db4oFactory.OpenFile(Configuration.ConfigDbFile);
-            config = config_db.Query<Configuration>().FirstOrDefault();
-            if (config == null)
-                config = new Configuration();
+            // open or create configuration objects
+            this.config = Configuration.OpenConfiguration();
 
             // if first start and no language available, use the systems default
             if (config.Language != null)
@@ -61,28 +50,17 @@ namespace TrueMount
         /// </summary>
         private void TrueMountMainWindow_Load(object sender, EventArgs e)
         {
-            /* if reading the configuration has failed, close
-             * SIDE EFFECT: do not put code in TrueMountMainWindow_FormClosing
-             * which depends on valid data from configuration!
-             * */
-            if (config == null)
-            {
-                this.Close();
-                return;
-            }
+            // start silent?
+            if (config.StartSilent)
+                HideMainWindow();
 
             // show splash screen
             if (config.ShowSplashScreen)
             {
+                HideMainWindow();
                 SplashScreen sp_screen = new SplashScreen();
                 sp_screen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(sp_screen_OnSplashFinished);
                 sp_screen.Show();
-            }
-            else
-            {
-                // start silent?
-                if (!config.StartSilent)
-                    ShowMainWindow();
             }
 
             // are we allowed to start the listener on our own?
@@ -100,6 +78,15 @@ namespace TrueMount
 
             // register the event handler
             this.RegisterRemoveUSBHandler();
+
+            if (!config.DisableBalloons)
+            {
+                // final start notification
+                notifyIconSysTray.BalloonTipTitle = "TrueMount by Nefarius";
+                notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
+                notifyIconSysTray.ShowBalloonTip(3000);
+            }
         }
 
         /// <summary>
@@ -526,8 +513,8 @@ namespace TrueMount
                                 loop++;
                                 if (loop == 10)
                                 {
-                                    if (MessageBox.Show(string.Format(rm.GetString("MsgTDiskTimeout"), enc_disk_partition.DiskCaption),
-                                        rm.GetString("MsgHDiskTimeout"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), enc_disk_partition.DiskCaption),
+                                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                                         System.Windows.Forms.DialogResult.Yes)
                                     {
                                         Cursor.Current = Cursors.Default;
@@ -597,7 +584,6 @@ namespace TrueMount
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopDeviceListener();
-            config_db.Close();
         }
 
         /// <summary>
@@ -662,9 +648,9 @@ namespace TrueMount
                  * */
                 String log_line = DateTime.Now.ToLongTimeString() + " - ";
                 if (text.Count() == 0)
-                    log_line += rm.GetString(conv_var, culture);
+                    log_line += langRes.GetString(conv_var, culture);
                 else
-                    log_line += string.Format(rm.GetString(conv_var, culture), text);
+                    log_line += string.Format(langRes.GetString(conv_var, culture), text);
                 log_line += Environment.NewLine;
 
                 richTextBoxLog.AppendText(log_line);
@@ -693,11 +679,12 @@ namespace TrueMount
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             // create settings dialog and feed with configuration references
-            SettingsDialog settings = new SettingsDialog(ref config_db, ref config);
+            SettingsDialog settings = new SettingsDialog(ref config);
             // bring dialog to front and await user actions
             settings.ShowDialog();
             // get new configuration and set it program wide
-            settings.UpdateConfiguration(ref config_db, ref config);
+            settings.UpdateConfiguration(ref config);
+            Configuration.SaveConfiguration(config);
             settings = null;
         }
 
@@ -718,16 +705,24 @@ namespace TrueMount
         /// <param name="e"></param>
         private void unmountAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process tc_unmount = new Process();
+            if (config.UnmountWarning)
+                if (MessageBox.Show(langRes.GetString("MsgTWarnUmount"), langRes.GetString("MsgHWarnUmount"),
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                    return;
+
+            Process tcUnmount = new Process();
 
             if (config.TrueCrypt.ExecutablePath != null)
             {
-                tc_unmount.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
-                tc_unmount.StartInfo.Arguments = "/d /q background";
+                tcUnmount.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
+                tcUnmount.StartInfo.Arguments = "/d /q background";
+                if (config.ForceUnmount)
+                    tcUnmount.StartInfo.Arguments += " /f";
+
                 LogAppend("UnmountAll");
                 try
                 {
-                    tc_unmount.Start();
+                    tcUnmount.Start();
                 }
                 catch (InvalidOperationException ioex)
                 {
@@ -767,7 +762,7 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Process.Start(@"http://nefarius.darkhosters.net/windows/truemount2#download");
         }
     }
 }

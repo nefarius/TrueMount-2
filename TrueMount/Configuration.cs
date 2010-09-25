@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
+using System.Resources;
 
 namespace TrueMount
 {
+    [Serializable()]
     class Configuration
     {
         public bool AutostartService { get; set; }
@@ -19,6 +21,9 @@ namespace TrueMount
         public List<EncryptedDiskPartition> EncryptedDiskPartitions { get; set; }
         public CultureInfo Language { get; set; }
         public bool IgnoreAssignedDriveLetters { get; set; }
+        public bool ForceUnmount { get; set; }
+        public bool UnmountWarning { get; set; }
+        public bool DisableBalloons { get; set; }
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
@@ -35,12 +40,26 @@ namespace TrueMount
             OnlyOneInstance = true;
         }
 
-        /// <summary>
-        /// Contains the path to the config database file.
-        /// </summary>
-        public static String ConfigDbFile
+        public static ResourceManager LanguageDictionary
         {
-            get { return Path.GetDirectoryName(Application.ExecutablePath) + "\\config.yap"; }
+            get { return new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly); }
+        }
+
+        /// <summary>
+        /// Contains the path of the configuration file.
+        /// </summary>
+        public static string ConfigurationFile
+        {
+            get
+            {
+                string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\TrueMount";
+                string configFileName = @"\config.dat";
+
+                if (!Directory.Exists(appDataDir))
+                    Directory.CreateDirectory(appDataDir);
+
+                return appDataDir + configFileName;
+            }
         }
 
         /// <summary>
@@ -99,6 +118,27 @@ namespace TrueMount
                 else
                     return false;
             }
+        }
+
+        public static void SaveConfiguration(Configuration current)
+        {
+            FileStream fsSave = new FileStream(ConfigurationFile, FileMode.Create);
+            BinaryFormatter binFormat = new BinaryFormatter();
+            binFormat.Serialize(fsSave, current);
+            fsSave.Close();
+        }
+
+        public static Configuration OpenConfiguration()
+        {
+            if (File.Exists(ConfigurationFile))
+            {
+                FileStream fsFetch = new FileStream(ConfigurationFile, FileMode.Open);
+                BinaryFormatter binFormat = new BinaryFormatter();
+                Configuration stored = (Configuration)binFormat.Deserialize(fsFetch);
+                fsFetch.Close();
+                return stored;
+            }
+            return new Configuration();
         }
     }
 }
