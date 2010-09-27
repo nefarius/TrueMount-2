@@ -249,7 +249,7 @@ namespace TrueMount
                 textBoxDiskPartition.Text = ((uint)newPart["Index"] + 1).ToString();
             else
                 textBoxDiskPartition.Text = comboBoxDiskPartitions.SelectedItem.ToString();
-            textBoxPasswordFile.Text = null;
+            textBoxDiskPasswordFile.Text = null;
             checkBoxDiskActive.Checked = true;
             checkBoxDiskOpenExplorer.Checked = false;
 
@@ -275,15 +275,15 @@ namespace TrueMount
         private void treeViewDisks_AfterSelect(object sender, TreeViewEventArgs e)
         {
             // re-create the list of available drive letters
-            comboBoxDriveLetter.BeginUpdate();
-            comboBoxDriveLetter.Items.Clear();
+            comboBoxDiskDriveLetter.BeginUpdate();
+            comboBoxDiskDriveLetter.Items.Clear();
             if (!config.IgnoreAssignedDriveLetters)
-                comboBoxDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
             else
-                comboBoxDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
-            if (comboBoxDriveLetter.Items.Count > 0)
-                comboBoxDriveLetter.SelectedIndex = 0;
-            comboBoxDriveLetter.EndUpdate();
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
+            if (comboBoxDiskDriveLetter.Items.Count > 0)
+                comboBoxDiskDriveLetter.SelectedIndex = 0;
+            comboBoxDiskDriveLetter.EndUpdate();
 
             // we must have disks available to display it
             if (config.EncryptedDiskPartitions.Count > 0)
@@ -297,18 +297,18 @@ namespace TrueMount
                     textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
                     textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
                     textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
-                    textBoxPasswordFile.Text = encDiskPartition.PasswordFile;
+                    textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
                     checkBoxDiskActive.Checked = encDiskPartition.IsActive;
                     checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
-                    checkBoxRo.Checked = encDiskPartition.Readonly;
-                    checkBoxRm.Checked = encDiskPartition.Removable;
-                    checkBoxTs.Checked = encDiskPartition.Timestamp;
-                    checkBoxSm.Checked = encDiskPartition.System;
+                    checkBoxDiskRo.Checked = encDiskPartition.Readonly;
+                    checkBoxDiskRm.Checked = encDiskPartition.Removable;
+                    checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
+                    checkBoxDiskSm.Checked = encDiskPartition.System;
 
                     // if the letter of the drive is not in the list, add it an first position
-                    if (!comboBoxDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
-                        comboBoxDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
-                    comboBoxDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
+                    if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
+                        comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
+                    comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
 
                     // after everything is filled with data, make panel visible
                     panelDisks.Visible = true;
@@ -325,7 +325,7 @@ namespace TrueMount
         {
             // search for password file, no error handling needed here
             if (openFileDialogPassword.ShowDialog() == DialogResult.OK)
-                textBoxPasswordFile.Text = openFileDialogPassword.FileName;
+                textBoxDiskPasswordFile.Text = openFileDialogPassword.FileName;
         }
 
         /// <summary>
@@ -359,14 +359,14 @@ namespace TrueMount
                 uint.Parse(textBoxDiskSignature.Text), uint.Parse(textBoxDiskPartition.Text));
 
             // save all the params in the new object
-            newEncDiskPartition.PasswordFile = textBoxPasswordFile.Text;
-            newEncDiskPartition.DriveLetter = comboBoxDriveLetter.Text;
+            newEncDiskPartition.PasswordFile = textBoxDiskPasswordFile.Text;
+            newEncDiskPartition.DriveLetter = comboBoxDiskDriveLetter.Text;
             newEncDiskPartition.IsActive = checkBoxDiskActive.Checked;
             newEncDiskPartition.OpenExplorer = checkBoxDiskOpenExplorer.Checked;
-            newEncDiskPartition.Readonly = checkBoxRo.Checked;
-            newEncDiskPartition.Removable = checkBoxRm.Checked;
-            newEncDiskPartition.System = checkBoxSm.Checked;
-            newEncDiskPartition.Timestamp = checkBoxTs.Checked;
+            newEncDiskPartition.Readonly = checkBoxDiskRo.Checked;
+            newEncDiskPartition.Removable = checkBoxDiskRm.Checked;
+            newEncDiskPartition.System = checkBoxDiskSm.Checked;
+            newEncDiskPartition.Timestamp = checkBoxDiskTs.Checked;
             newEncDiskPartition.KeyFiles = keyFilesList[treeViewDisks.SelectedNode.Index];
 
             // if exactly the same object exists in the databse, delete and re-save it

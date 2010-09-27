@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="ContainerFile.cs" />
     <Compile Include="KeyFilesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +237,11 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <Content Include="ChangeLog.txt" />
+    <None Include="Resources\1285602715_page_white_edit.png" />
+    <None Include="Resources\1285602621_095.png" />
+    <None Include="Resources\1285602519_delete.png" />
+    <None Include="Resources\1285602514_add_small.png" />
+    <None Include="Resources\1285602206_switch.png" />
     <None Include="Resources\1285440550_Radioactive.png" />
     <None Include="Resources\1284820964_system-software-update.png" />
     <None Include="Resources\1284750160_encrypted.png" />

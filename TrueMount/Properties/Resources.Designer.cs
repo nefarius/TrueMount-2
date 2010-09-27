@@ -193,6 +193,41 @@ namespace TrueMount.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1285602206_switch {
+            get {
+                object obj = ResourceManager.GetObject("1285602206_switch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1285602514_add_small {
+            get {
+                object obj = ResourceManager.GetObject("1285602514_add_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1285602519_delete {
+            get {
+                object obj = ResourceManager.GetObject("1285602519_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1285602621_095 {
+            get {
+                object obj = ResourceManager.GetObject("1285602621_095", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _1285602715_page_white_edit {
+            get {
+                object obj = ResourceManager.GetObject("1285602715_page_white_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap spalsh {
             get {
                 object obj = ResourceManager.GetObject("spalsh", resourceCulture);
