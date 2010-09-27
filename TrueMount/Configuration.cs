@@ -19,6 +19,7 @@ namespace TrueMount
         public TrueCryptConfig TrueCrypt { get; set; }
         public List<UsbKeyDevice> KeyDevices { get; set; }
         public List<EncryptedDiskPartition> EncryptedDiskPartitions { get; set; }
+        public List<EncryptedContainerFile> EncryptedContainerFiles { get; set; }
         public CultureInfo Language { get; set; }
         public bool IgnoreAssignedDriveLetters { get; set; }
         public bool ForceUnmount { get; set; }
@@ -34,6 +35,7 @@ namespace TrueMount
             TrueCrypt = new TrueCryptConfig();
             KeyDevices = new List<UsbKeyDevice>();
             EncryptedDiskPartitions = new List<EncryptedDiskPartition>();
+            EncryptedContainerFiles = new List<EncryptedContainerFile>();
 
             // set default values
             ShowSplashScreen = true;

@@ -1,4 +1,5 @@
-﻿  * Added tray menu item for seperadly mounting devices
+﻿  * Added container file support
+  * Added tray menu item for seperadly mounting devices
   * Fixed language mistakes
 2.2.4.--
   * Next version will be stable!

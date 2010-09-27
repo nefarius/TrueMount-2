@@ -129,10 +129,31 @@
   <data name="tabPageContainerFiles.Text" xml:space="preserve">
     <value>Container-Dateien</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 98</value>
+  </data>
+  <data name="groupBox11.Text" xml:space="preserve">
+    <value>Test-Hinweise!</value>
+  </data>
+  <data name="buttonDeleteConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 135</value>
+  </data>
+  <data name="buttonDeleteConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 24</value>
+  </data>
+  <data name="buttonDeleteConfig.Text" xml:space="preserve">
+    <value>&gt; Lösche Konfigurationsdatei &lt;</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 105</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Dieses Programm befindet sich derzeit noch in der Testphase d.h. es ist mit plötzlichen Abstürzen, Fehlverhalten oder fehlenden Funktionen zu rechnen. Wenn Sie von einer früheren Version aktualisiert haben sollten Sie auf das Knöpfchen drücken (entschuldigung):</value>
+  </data>
   <data name="groupBoxLanguage.Text" xml:space="preserve">
     <value>Sprache</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>244, 46</value>
   </data>
@@ -301,15 +322,6 @@
   <data name="buttonAddDisk.Text" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
-  <data name="buttonEditKeyFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 187</value>
-  </data>
-  <data name="buttonEditKeyFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 23</value>
-  </data>
-  <data name="buttonEditKeyFiles.Text" xml:space="preserve">
-    <value>Editiere Schlüssel-Dateien...</value>
-  </data>
   <data name="buttonSaveDisk.Text" xml:space="preserve">
     <value>Speichern</value>
   </data>
@@ -321,36 +333,6 @@
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
-  </data>
-  <data name="checkBoxSm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 42</value>
-  </data>
-  <data name="checkBoxSm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
-  </data>
-  <data name="checkBoxSm.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="checkBoxTs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 17</value>
-  </data>
-  <data name="checkBoxTs.Text" xml:space="preserve">
-    <value>Zeitstempel</value>
-  </data>
-  <data name="checkBoxRm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>142, 19</value>
-  </data>
-  <data name="checkBoxRm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 17</value>
-  </data>
-  <data name="checkBoxRm.Text" xml:space="preserve">
-    <value>auswerfbar</value>
-  </data>
-  <data name="checkBoxRo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 17</value>
-  </data>
-  <data name="checkBoxRo.Text" xml:space="preserve">
-    <value>schreibgeschützt</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Laufwerksinformationen</value>
@@ -403,47 +385,29 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Laufwerksbuchstabe:</value>
   </data>
-  <data name="groupBox11.Text" xml:space="preserve">
-    <value>Container -Einstellungen</value>
-  </data>
-  <data name="checkBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 90</value>
-  </data>
-  <data name="checkBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 17</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="checkBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="checkBox5.Text" xml:space="preserve">
-    <value>Öffne Explorer nach Einbinden</value>
-  </data>
-  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 88</value>
-  </data>
-  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="groupBoxConSettings.Text" xml:space="preserve">
+    <value>Container-Einstellungen</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 91</value>
+    <value>258, 93</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 13</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label16.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Laufwerksbuchstabe:</value>
   </data>
-  <data name="checkBox7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="checkBoxConActive.Location" type="System.Drawing.Point, System.Drawing">
     <value>340, 122</value>
   </data>
-  <data name="checkBox7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkBoxConActive.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 42</value>
   </data>
-  <data name="checkBox7.Text" xml:space="preserve">
+  <data name="checkBoxConActive.Text" xml:space="preserve">
     <value>Aktiviert</value>
   </data>
   <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
@@ -452,40 +416,37 @@
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
   </data>
-  <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>259, 18</value>
+  <data name="checkBoxConSm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 18</value>
   </data>
-  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkBoxConSm.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
   </data>
-  <data name="checkBox1.Text" xml:space="preserve">
+  <data name="checkBoxConSm.Text" xml:space="preserve">
     <value>System</value>
   </data>
-  <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>179, 18</value>
+  <data name="checkBoxConTs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 18</value>
   </data>
-  <data name="checkBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkBoxConTs.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 17</value>
   </data>
-  <data name="checkBox2.Text" xml:space="preserve">
+  <data name="checkBoxConTs.Text" xml:space="preserve">
     <value>Zeitstempel</value>
   </data>
-  <data name="checkBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 18</value>
+  <data name="checkBoxConRm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 18</value>
   </data>
-  <data name="checkBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkBoxConRm.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
   </data>
-  <data name="checkBox3.Text" xml:space="preserve">
+  <data name="checkBoxConRm.Text" xml:space="preserve">
     <value>auswerfbar</value>
   </data>
-  <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 18</value>
-  </data>
-  <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkBoxConRo.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 17</value>
   </data>
-  <data name="checkBox4.Text" xml:space="preserve">
+  <data name="checkBoxConRo.Text" xml:space="preserve">
     <value>schreibgesch.</value>
   </data>
   <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
@@ -494,7 +455,7 @@
   <data name="groupBox13.Text" xml:space="preserve">
     <value>Passwort-Optionen</value>
   </data>
-  <data name="button2.Text" xml:space="preserve">
+  <data name="buttonSearchConPassword.Text" xml:space="preserve">
     <value>Suche Passwort-Datei...</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
@@ -503,23 +464,17 @@
   <data name="label15.Text" xml:space="preserve">
     <value>Pfad zur Passwort-Datei</value>
   </data>
-  <data name="buttonEditCKeyFiles.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Container-Aktionen</value>
   </data>
-  <data name="buttonEditCKeyFiles.Text" xml:space="preserve">
+  <data name="buttonEditContainerKeyFiles.Text" xml:space="preserve">
     <value>Schlüsseldateien...</value>
   </data>
-  <data name="buttonEditCKeyFiles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="buttonEditContainerKeyFiles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
-  </data>
-  <data name="buttonSaveContainer.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="buttonSaveContainer.Text" xml:space="preserve">
     <value>Speichern</value>
-  </data>
-  <data name="buttonRemoveContainer.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="buttonRemoveContainer.Text" xml:space="preserve">
     <value>Entfernen</value>
@@ -568,10 +523,6 @@
   </data>
   <data name="buttonSearchTrueCrypt.Text" xml:space="preserve">
     <value>Suche TrueCrypt...</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

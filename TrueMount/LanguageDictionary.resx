@@ -339,4 +339,10 @@
   <data name="MsgTWarnUmount" xml:space="preserve">
     <value>You are about to unmount all of your encrypted devices, data loss may be possible! Continue?</value>
   </data>
+  <data name="MsgHDiskDouble" xml:space="preserve">
+    <value>Disk already chosen</value>
+  </data>
+  <data name="MsgTDiskDouble" xml:space="preserve">
+    <value>The selected disk/partition already exists!</value>
+  </data>
 </root>

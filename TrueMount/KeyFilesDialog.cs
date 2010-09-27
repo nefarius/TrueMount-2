@@ -19,7 +19,8 @@ namespace TrueMount
             set
             {
                 this.listBoxKeyFiles.Items.Clear();
-                this.listBoxKeyFiles.Items.AddRange(value.ToArray<string>());
+                if (value != null)
+                    this.listBoxKeyFiles.Items.AddRange(value.ToArray<string>());
             }
         }
 

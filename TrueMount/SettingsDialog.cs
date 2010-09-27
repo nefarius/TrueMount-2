@@ -6,6 +6,8 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using System.Linq;
+using System.IO;
 
 namespace TrueMount
 {
@@ -16,7 +18,8 @@ namespace TrueMount
         private Dictionary<int, List<ManagementObject>> encDeviceList = null;
         private ResourceManager langRes = null;
         private CultureInfo culture = null;
-        private List<List<string>> keyFilesList = null;
+        private List<List<string>> diskKeyFilesList = null;
+        private List<List<string>> containerKeyFilesList = null;
         private bool editInProgress = false;
 
         /// <summary>
@@ -31,7 +34,8 @@ namespace TrueMount
             encDeviceList = new Dictionary<int, List<ManagementObject>>();
 
             // list of key files
-            keyFilesList = new List<List<string>>();
+            diskKeyFilesList = new List<List<string>>();
+            containerKeyFilesList = new List<List<string>>();
 
             // load translation resources
             langRes = new ResourceManager("TrueMount.LanguageDictionary",
@@ -92,25 +96,24 @@ namespace TrueMount
             checkBoxExplorer.Checked = config.TrueCrypt.Explorer;
             checkBoxSilent.Checked = config.TrueCrypt.Silent;
 
-            // read key SystemDevices and create nodes
-            foreach (UsbKeyDevice keyDevice in config.KeyDevices)
-            {
-                TreeNode keyDeviceNode = new TreeNode(keyDevice.Caption);
-                treeViewKeyDevices.Nodes.Add(keyDeviceNode);
-                treeViewKeyDevices.Enabled = true;
-            }
-            treeViewKeyDevices.ExpandAll();
+            // read key devices and add them to the list
+            listBoxKeyDevices.Items.AddRange(config.KeyDevices.ToArray());
 
-            // read disk drives and create nodes
-            foreach (EncryptedDiskPartition encDiskPartition in config.EncryptedDiskPartitions)
+            // read disk drives and add them to their list
+            foreach (EncryptedDiskPartition encDisk in config.EncryptedDiskPartitions)
             {
-                keyFilesList.Add(encDiskPartition.KeyFiles);
-                TreeNode encDeviceNode = new TreeNode(encDiskPartition.DiskCaption +
-                    ", Partition: " + encDiskPartition.PartitionIndex.ToString());
-                treeViewDisks.Nodes.Add(encDeviceNode);
-                treeViewDisks.Enabled = true;
+                diskKeyFilesList.Add(encDisk.KeyFiles);
+                listBoxDisks.Items.Add(encDisk);
+                listBoxDisks.Enabled = true;
             }
-            treeViewDisks.ExpandAll();
+
+            // insert available container files
+            foreach (EncryptedContainerFile conFile in config.EncryptedContainerFiles)
+            {
+                containerKeyFilesList.Add(conFile.KeyFiles);
+                listBoxContainerFiles.Items.Add(conFile);
+                listBoxContainerFiles.Enabled = true;
+            }
 
             // create dictionary with indexd management objects (disks, partitions, ...)
             BuildDeviceList();
@@ -233,14 +236,30 @@ namespace TrueMount
         private void buttonAddDisk_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            // no new disk until new disk is removed or saved
             groupBoxLocalDiskDrives.Enabled = false;
 
             // get disk and partition from linked list
             ManagementObject newDisk = encDeviceList[comboBoxDiskDrives.SelectedIndex][0];
-
+            // if the entire disk is encrypted there is no partition
             ManagementObject newPart = null;
+            // if there is no partition, the partition index is 0
             if (int.Parse(comboBoxDiskPartitions.SelectedItem.ToString()) > 0)
                 newPart = encDeviceList[comboBoxDiskDrives.SelectedIndex][int.Parse(comboBoxDiskPartitions.SelectedItem.ToString())];
+
+            // temporary encrypted disk object to check for doubles
+            EncryptedDiskPartition temp =
+                new EncryptedDiskPartition((string)newDisk["Caption"],
+                    (uint)newDisk["Signature"],
+                    (newPart != null) ? (uint)newPart["Index"] : 0);
+
+            if (config.EncryptedDiskPartitions.Contains(temp))
+            {
+                MessageBox.Show(langRes.GetString("MsgTDiskDouble"), langRes.GetString("MsgHDiskDouble"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                groupBoxLocalDiskDrives.Enabled = true;
+                return;
+            }
 
             // fill information into form elements
             textBoxDiskCaption.Text = (string)newDisk["Caption"];
@@ -254,66 +273,16 @@ namespace TrueMount
             checkBoxDiskOpenExplorer.Checked = false;
 
             // new disk, new node in tree
-            TreeNode diskNode = new TreeNode(comboBoxDiskDrives.Text);
-            treeViewDisks.Nodes.Add(diskNode);
-            treeViewDisks.SelectedNode = diskNode;
+            listBoxDisks.Items.Add(comboBoxDiskDrives.Text);
+            listBoxDisks.SelectedItem = comboBoxDiskDrives.Text;
 
             // new key files list
-            keyFilesList.Add(new List<string>());
+            diskKeyFilesList.Add(new List<string>());
 
             editInProgress = true;
             panelDisks.Visible = true;
-            treeViewDisks.Enabled = false;
+            listBoxDisks.Enabled = true;
             Cursor.Current = Cursors.Default;
-        }
-
-        /// <summary>
-        /// Event after something in the disk tree has been changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeViewDisks_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            // re-create the list of available drive letters
-            comboBoxDiskDriveLetter.BeginUpdate();
-            comboBoxDiskDriveLetter.Items.Clear();
-            if (!config.IgnoreAssignedDriveLetters)
-                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
-            else
-                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
-            if (comboBoxDiskDriveLetter.Items.Count > 0)
-                comboBoxDiskDriveLetter.SelectedIndex = 0;
-            comboBoxDiskDriveLetter.EndUpdate();
-
-            // we must have disks available to display it
-            if (config.EncryptedDiskPartitions.Count > 0)
-            {
-                if (config.EncryptedDiskPartitions.Count > treeViewDisks.SelectedNode.Index)
-                {
-                    EncryptedDiskPartition encDiskPartition =
-                        config.EncryptedDiskPartitions[treeViewDisks.SelectedNode.Index];
-
-                    // fill up informations
-                    textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
-                    textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
-                    textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
-                    textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
-                    checkBoxDiskActive.Checked = encDiskPartition.IsActive;
-                    checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
-                    checkBoxDiskRo.Checked = encDiskPartition.Readonly;
-                    checkBoxDiskRm.Checked = encDiskPartition.Removable;
-                    checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
-                    checkBoxDiskSm.Checked = encDiskPartition.System;
-
-                    // if the letter of the drive is not in the list, add it an first position
-                    if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
-                        comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
-                    comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
-
-                    // after everything is filled with data, make panel visible
-                    panelDisks.Visible = true;
-                }
-            }
         }
 
         /// <summary>
@@ -324,8 +293,8 @@ namespace TrueMount
         private void buttonSearchPasswordFile_Click(object sender, EventArgs e)
         {
             // search for password file, no error handling needed here
-            if (openFileDialogPassword.ShowDialog() == DialogResult.OK)
-                textBoxDiskPasswordFile.Text = openFileDialogPassword.FileName;
+            if (openFileDialogGeneral.ShowDialog() == DialogResult.OK)
+                textBoxDiskPasswordFile.Text = openFileDialogGeneral.FileName;
         }
 
         /// <summary>
@@ -367,53 +336,20 @@ namespace TrueMount
             newEncDiskPartition.Removable = checkBoxDiskRm.Checked;
             newEncDiskPartition.System = checkBoxDiskSm.Checked;
             newEncDiskPartition.Timestamp = checkBoxDiskTs.Checked;
-            newEncDiskPartition.KeyFiles = keyFilesList[treeViewDisks.SelectedNode.Index];
+            newEncDiskPartition.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
 
-            // if exactly the same object exists in the databse, delete and re-save it
-            if (!config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
-            {
-                config.EncryptedDiskPartitions.Add(newEncDiskPartition);
-            }
+            // replace the disk with the new settings
+            if (config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
+                config.EncryptedDiskPartitions[config.EncryptedDiskPartitions.IndexOf(newEncDiskPartition)] = newEncDiskPartition;
             else
-            {
-                config.EncryptedDiskPartitions.Remove(newEncDiskPartition);
                 config.EncryptedDiskPartitions.Add(newEncDiskPartition);
-            }
 
             MessageBox.Show(langRes.GetString("MsgTSaved"), langRes.GetString("MsgHSaved"),
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             editInProgress = false;
             groupBoxLocalDiskDrives.Enabled = true;
-            treeViewDisks.Enabled = true;
-        }
-
-        /// <summary>
-        /// Gets called after every selection change of the key device tree.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeViewKeyDevices_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if (config.KeyDevices.Count > 0)
-            {
-                if (config.KeyDevices.Count > treeViewKeyDevices.SelectedNode.Index)
-                {
-                    UsbKeyDevice keyDevice = config.KeyDevices[treeViewKeyDevices.SelectedNode.Index];
-                    textBoxUSBCaption.Text = keyDevice.Caption;
-                    textBoxUSBSignature.Text = keyDevice.Signature.ToString();
-                    textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
-                    checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
-                    panelKeyDevice.Visible = true;
-                    return;
-                }
-            }
-
-            // if nothing to do, reset components and return
-            textBoxUSBCaption.Text = null;
-            textBoxUSBSignature.Text = null;
-            textBoxUSBPartition.Text = null;
-            panelKeyDevice.Visible = false;
+            listBoxDisks.Enabled = true;
         }
 
         private void buttonAddKeyDevice_Click(object sender, EventArgs e)
@@ -442,13 +378,9 @@ namespace TrueMount
                 return;
             }
 
-            // if everything went well, build the node and view it
-            TreeNode newKeyDeviceNode = new TreeNode(newKeyDevice.Caption);
-            treeViewKeyDevices.Nodes.Add(newKeyDeviceNode);
-            treeViewKeyDevices.SelectedNode = newKeyDeviceNode;
-            treeViewKeyDevices.ExpandAll();
-            treeViewKeyDevices.Focus();
-            treeViewKeyDevices.Enabled = true;
+            listBoxKeyDevices.Items.Add(newKeyDevice);
+            listBoxKeyDevices.SelectedItem = newKeyDevice;
+            listBoxKeyDevices.Enabled = true;
             panelKeyDevice.Visible = true;
             Cursor.Current = Cursors.Default;
         }
@@ -460,13 +392,13 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonDeleteKeyDevice_Click(object sender, EventArgs e)
         {
-            config.KeyDevices.RemoveAt(treeViewKeyDevices.SelectedNode.Index);
-            treeViewKeyDevices.SelectedNode.Remove();
+            config.KeyDevices.RemoveAt(listBoxKeyDevices.SelectedIndex);
+            listBoxKeyDevices.Items.Remove(listBoxKeyDevices.SelectedItem);
 
             if (config.KeyDevices.Count <= 0)
             {
                 panelKeyDevice.Visible = false;
-                treeViewKeyDevices.Enabled = false;
+                listBoxKeyDevices.Enabled = false;
             }
         }
 
@@ -477,24 +409,24 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonDeleteDiskDrive_Click(object sender, EventArgs e)
         {
-            int index = treeViewDisks.SelectedNode.Index;
             // we need disks to delete
-            if (config.EncryptedDiskPartitions.Count > index)
+            if (config.EncryptedDiskPartitions.Count > listBoxDisks.SelectedIndex)
             {
-                config.EncryptedDiskPartitions.RemoveAt(index);
-                keyFilesList.RemoveAt(index);
+                config.EncryptedDiskPartitions.RemoveAt(listBoxDisks.SelectedIndex);
+                diskKeyFilesList.RemoveAt(listBoxDisks.SelectedIndex);
             }
+
+            listBoxDisks.Items.Remove(listBoxDisks.SelectedItem);
 
             editInProgress = false;
             panelDisks.Visible = false; // first!
-            treeViewDisks.SelectedNode.Remove();
             groupBoxLocalDiskDrives.Enabled = true;
-            treeViewDisks.Enabled = true;
+            listBoxDisks.Enabled = true;
         }
 
         private void checkBoxKeyDeviceActive_CheckedChanged(object sender, EventArgs e)
         {
-            config.KeyDevices[treeViewKeyDevices.SelectedNode.Index].IsActive = checkBoxKeyDeviceActive.Checked;
+            config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
         }
 
         private void buttonListDisks_Click(object sender, EventArgs e)
@@ -552,11 +484,10 @@ namespace TrueMount
 
         private void buttonEditKeyFiles_Click(object sender, EventArgs e)
         {
-            int index = treeViewDisks.SelectedNode.Index;
             KeyFilesDialog kfd = new KeyFilesDialog();
-            kfd.KeyFiles = keyFilesList[index];
+            kfd.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
             if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                keyFilesList[index] = kfd.KeyFiles;
+                diskKeyFilesList[listBoxDisks.SelectedIndex] = kfd.KeyFiles;
             kfd = null;
         }
 
@@ -586,6 +517,233 @@ namespace TrueMount
         private void pictureBoxTrueCryptHeader_Click(object sender, EventArgs e)
         {
             Process.Start("http://www.truecrypt.org/");
+        }
+
+        private void buttonAddContainer_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogGeneral.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (!listBoxContainerFiles.Items.Contains(openFileDialogGeneral.FileName))
+                    listBoxContainerFiles.Items.Add(openFileDialogGeneral.FileName);
+
+            textBoxConPasswordFile.Text = null;
+            checkBoxOpenConExplorer.Checked = false;
+            checkBoxConActive.Checked = true;
+            checkBoxConRo.Checked = false;
+            checkBoxConRm.Checked = false;
+            checkBoxConSm.Checked = false;
+            checkBoxConTs.Checked = false;
+
+            listBoxContainerFiles.SelectedItem = openFileDialogGeneral.FileName;
+
+            // new empty key files list
+            containerKeyFilesList.Add(new List<string>());
+
+            buttonAddContainer.Enabled = false;
+            listBoxContainerFiles.Enabled = false;
+            groupBoxConSettings.Enabled = true;
+        }
+
+        private void listBoxContainerFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxContainerFiles.Items.Count == 0)
+            {
+                buttonRemoveContainer.Enabled = false;
+                buttonSaveContainer.Enabled = false;
+                buttonEditContainerKeyFiles.Enabled = false;
+                groupBoxConSettings.Enabled = false;
+            }
+            else
+            {
+                buttonRemoveContainer.Enabled = true;
+                buttonSaveContainer.Enabled = true;
+                buttonEditContainerKeyFiles.Enabled = true;
+            }
+
+            // insert free or all drive letters
+            comboBoxConLetter.BeginUpdate();
+            comboBoxConLetter.Items.Clear();
+            if (!config.IgnoreAssignedDriveLetters)
+                comboBoxConLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
+            else
+                comboBoxConLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
+            if (comboBoxConLetter.Items.Count > 0)
+                comboBoxConLetter.SelectedIndex = 0;
+            comboBoxConLetter.EndUpdate();
+
+            // we must have files available to display it
+            if (config.EncryptedContainerFiles.Count > 0 &&
+                config.EncryptedContainerFiles.Count >= listBoxContainerFiles.Items.Count &&
+                listBoxContainerFiles.SelectedIndex != -1)
+            {
+                EncryptedContainerFile encContainerFiles =
+                    config.EncryptedContainerFiles[listBoxContainerFiles.SelectedIndex];
+
+                // fill up informations
+                textBoxConPasswordFile.Text = encContainerFiles.PasswordFile;
+                checkBoxConActive.Checked = encContainerFiles.IsActive;
+                checkBoxOpenConExplorer.Checked = encContainerFiles.OpenExplorer;
+                checkBoxConRo.Checked = encContainerFiles.Readonly;
+                checkBoxConRm.Checked = encContainerFiles.Removable;
+                checkBoxConTs.Checked = encContainerFiles.Timestamp;
+                checkBoxConSm.Checked = encContainerFiles.System;
+
+                if (encContainerFiles.DriveLetter != null)
+                {
+                    // if the letter of the drive is not in the list, add it an first position
+                    if (!comboBoxConLetter.Items.Contains(encContainerFiles.DriveLetter))
+                        comboBoxConLetter.Items.Insert(0, encContainerFiles.DriveLetter);
+                    comboBoxConLetter.SelectedItem = encContainerFiles.DriveLetter;
+                }
+
+                groupBoxConSettings.Enabled = true;
+            }
+        }
+
+        private void listBoxKeyDevices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxKeyDevices.SelectedIndex != -1 &&
+                config.KeyDevices.Count > 0 &&
+                config.KeyDevices.Count >= listBoxKeyDevices.Items.Count)
+            {
+                UsbKeyDevice keyDevice = config.KeyDevices[listBoxKeyDevices.SelectedIndex];
+                textBoxUSBCaption.Text = keyDevice.Caption;
+                textBoxUSBSignature.Text = keyDevice.Signature.ToString();
+                textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
+                checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
+                panelKeyDevice.Visible = true;
+                return;
+            }
+
+            if (listBoxKeyDevices.Items.Count > 0 && config.KeyDevices.Count > 0)
+            {
+                listBoxKeyDevices.SelectedItem = config.KeyDevices.First();
+                panelKeyDevice.Visible = true;
+                return;
+            }
+
+            // if nothing to do, reset components and return
+            textBoxUSBCaption.Text = null;
+            textBoxUSBSignature.Text = null;
+            textBoxUSBPartition.Text = null;
+            panelKeyDevice.Visible = false;
+        }
+
+        private void listBoxDisks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // re-create the list of available drive letters
+            comboBoxDiskDriveLetter.BeginUpdate();
+            comboBoxDiskDriveLetter.Items.Clear();
+            if (!config.IgnoreAssignedDriveLetters)
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
+            else
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
+            if (comboBoxDiskDriveLetter.Items.Count > 0)
+                comboBoxDiskDriveLetter.SelectedIndex = 0;
+            comboBoxDiskDriveLetter.EndUpdate();
+
+            // we must have disks available to display it
+            if (config.EncryptedDiskPartitions.Count > 0 &&
+                config.EncryptedDiskPartitions.Count >= listBoxDisks.Items.Count &&
+                listBoxDisks.SelectedIndex != -1)
+            {
+                EncryptedDiskPartition encDiskPartition =
+                    config.EncryptedDiskPartitions[listBoxDisks.SelectedIndex];
+
+                // fill up informations
+                textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
+                textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
+                textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
+                textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
+                checkBoxDiskActive.Checked = encDiskPartition.IsActive;
+                checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
+                checkBoxDiskRo.Checked = encDiskPartition.Readonly;
+                checkBoxDiskRm.Checked = encDiskPartition.Removable;
+                checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
+                checkBoxDiskSm.Checked = encDiskPartition.System;
+
+                if (encDiskPartition.DriveLetter != null)
+                {
+                    // if the letter of the drive is not in the list, add it an first position
+                    if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
+                        comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
+                    comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
+                }
+
+                // after everything is filled with data, make panel visible
+                panelDisks.Visible = true;
+            }
+        }
+
+        private void buttonRemoveContainer_Click(object sender, EventArgs e)
+        {
+            // we need container files to delete
+            if (config.EncryptedContainerFiles.Count > listBoxContainerFiles.SelectedIndex)
+            {
+                config.EncryptedContainerFiles.RemoveAt(listBoxContainerFiles.SelectedIndex);
+                containerKeyFilesList.RemoveAt(listBoxContainerFiles.SelectedIndex);
+            }
+
+            listBoxContainerFiles.Items.Remove(listBoxContainerFiles.SelectedItem);
+
+            if (listBoxContainerFiles.Items.Count > 0)
+                listBoxContainerFiles.SelectedIndex = 0;
+
+            editInProgress = false;
+            buttonAddContainer.Enabled = true;
+        }
+
+        private void buttonSearchConPassword_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogGeneral.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                textBoxConPasswordFile.Text = openFileDialogGeneral.FileName;
+        }
+
+        private void buttonSaveContainer_Click(object sender, EventArgs e)
+        {
+            EncryptedContainerFile newContainerFile =
+                new EncryptedContainerFile(listBoxContainerFiles.SelectedItem.ToString());
+
+            newContainerFile.DriveLetter = comboBoxConLetter.Text;
+            newContainerFile.IsActive = checkBoxConActive.Checked;
+            newContainerFile.KeyFiles = containerKeyFilesList[listBoxContainerFiles.SelectedIndex];
+            newContainerFile.OpenExplorer = checkBoxOpenConExplorer.Checked;
+            newContainerFile.PasswordFile = textBoxConPasswordFile.Text;
+            newContainerFile.Readonly = checkBoxConRo.Checked;
+            newContainerFile.Removable = checkBoxConRm.Checked;
+            newContainerFile.System = checkBoxConSm.Checked;
+            newContainerFile.Timestamp = checkBoxConTs.Checked;
+
+            if (config.EncryptedContainerFiles.Contains(newContainerFile))
+                config.EncryptedContainerFiles[config.EncryptedContainerFiles.IndexOf(newContainerFile)] = newContainerFile;
+            else
+                config.EncryptedContainerFiles.Add(newContainerFile);
+
+            MessageBox.Show(langRes.GetString("MsgTSaved"), langRes.GetString("MsgHSaved"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            editInProgress = false;
+            listBoxContainerFiles.Enabled = true;
+            buttonAddContainer.Enabled = true;
+        }
+
+        private void buttonEditContainerKeyFiles_Click(object sender, EventArgs e)
+        {
+            KeyFilesDialog kfd = new KeyFilesDialog();
+            kfd.KeyFiles = containerKeyFilesList[listBoxContainerFiles.SelectedIndex];
+            if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                containerKeyFilesList[listBoxContainerFiles.SelectedIndex] = kfd.KeyFiles;
+            kfd = null;
+        }
+
+        private void buttonDeleteConfig_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(Configuration.ConfigurationFile))
+                    File.Delete(Configuration.ConfigurationFile);
+            }
+            catch {/* tja... */}
+            finally { Environment.Exit(1); }
         }
     }
 }

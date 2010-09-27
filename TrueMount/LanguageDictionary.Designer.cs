@@ -331,6 +331,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disk already chosen.
+        /// </summary>
+        internal static string MsgHDiskDouble {
+            get {
+                return ResourceManager.GetString("MsgHDiskDouble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chosen disk offline.
         /// </summary>
         internal static string MsgHDiskOff {
@@ -408,6 +417,15 @@ namespace TrueMount {
         internal static string MsgTDevDouble {
             get {
                 return ResourceManager.GetString("MsgTDevDouble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected disk/partition already exists!.
+        /// </summary>
+        internal static string MsgTDiskDouble {
+            get {
+                return ResourceManager.GetString("MsgTDiskDouble", resourceCulture);
             }
         }
         

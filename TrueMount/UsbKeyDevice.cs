@@ -12,17 +12,25 @@ namespace TrueMount
 
         public override bool Equals(object obj)
         {
-            UsbKeyDevice kd = (UsbKeyDevice)obj;
-            if (Caption == kd.Caption &&
-                Signature == kd.Signature &&
-                PartitionIndex == kd.PartitionIndex)
-                return true;
+            if (obj.GetType() != typeof(System.DBNull))
+            {
+                UsbKeyDevice kd = (UsbKeyDevice)obj;
+                if (Caption == kd.Caption &&
+                    Signature == kd.Signature &&
+                    PartitionIndex == kd.PartitionIndex)
+                    return true;
+            }
             return false;
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return this.Caption;
         }
     }
 }

@@ -117,11 +117,95 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonDeleteConfig.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="buttonDeleteConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 129</value>
+  </data>
+  <data name="buttonDeleteConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 30</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonDeleteConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonDeleteConfig.Text" xml:space="preserve">
+    <value>&gt; Delete configuration file &lt;</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Name" xml:space="preserve">
+    <value>buttonDeleteConfig</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label17.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 27</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 99</value>
+  </data>
+  <data name="label17.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>This software is still in its beta stadium, which means that sudden crashes, missing features or strange behavior are possible! If you updated from a previous version you may have to re-create your configuration (I'm sorry). Hit this button!</value>
+  </data>
+  <data name="label17.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Monotype Corsiva, 15.75pt, style=Italic</value>
+  </data>
+  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 101</value>
+  </data>
+  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 165</value>
+  </data>
+  <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="groupBox11.Text" xml:space="preserve">
+    <value>Beta notes!</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt, style=Italic</value>
   </data>
@@ -151,7 +235,7 @@
     <value>tabPageApplication</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -229,7 +313,7 @@
     <value>tabPageApplication</value>
   </data>
   <data name="&gt;&gt;groupBoxLanguage.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="buttonListDisks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -256,7 +340,7 @@
     <value>tabPageApplication</value>
   </data>
   <data name="&gt;&gt;buttonListDisks.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="checkBoxDisableBalloons.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -553,7 +637,7 @@
     <value>tabPageApplication</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="tabPageApplication.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -708,28 +792,25 @@
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="treeViewKeyDevices.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="treeViewKeyDevices.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="listBoxKeyDevices.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="treeViewKeyDevices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 170</value>
+  <data name="listBoxKeyDevices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 160</value>
   </data>
-  <data name="treeViewKeyDevices.TabIndex" type="System.Int32, mscorlib">
+  <data name="listBoxKeyDevices.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;treeViewKeyDevices.Name" xml:space="preserve">
-    <value>treeViewKeyDevices</value>
+  <data name="&gt;&gt;listBoxKeyDevices.Name" xml:space="preserve">
+    <value>listBoxKeyDevices</value>
   </data>
-  <data name="&gt;&gt;treeViewKeyDevices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;listBoxKeyDevices.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;treeViewKeyDevices.Parent" xml:space="preserve">
+  <data name="&gt;&gt;listBoxKeyDevices.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;treeViewKeyDevices.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;listBoxKeyDevices.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="pictureBox2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -739,7 +820,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 71</value>
+    <value>221, 61</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 94</value>
@@ -823,7 +904,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 142</value>
+    <value>3, 132</value>
   </data>
   <data name="buttonDeleteKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 23</value>
@@ -991,7 +1072,7 @@
     <value>200, 19</value>
   </data>
   <data name="panelKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 170</value>
+    <value>366, 160</value>
   </data>
   <data name="panelKeyDevice.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1062,6 +1143,30 @@
   <data name="&gt;&gt;tabPageKeyDevice.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="listBoxDisks.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="listBoxDisks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 22</value>
+  </data>
+  <data name="listBoxDisks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 303</value>
+  </data>
+  <data name="listBoxDisks.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Name" xml:space="preserve">
+    <value>listBoxDisks</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1090,7 +1195,7 @@
     <value>tabPageDiskDrives</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1225,7 +1330,7 @@
     <value>130, 6</value>
   </data>
   <data name="groupBoxLocalDiskDrives.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 73</value>
+    <value>448, 69</value>
   </data>
   <data name="groupBoxLocalDiskDrives.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1243,30 +1348,6 @@
     <value>tabPageDiskDrives</value>
   </data>
   <data name="&gt;&gt;groupBoxLocalDiskDrives.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="treeViewDisks.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="treeViewDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 22</value>
-  </data>
-  <data name="treeViewDisks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 307</value>
-  </data>
-  <data name="treeViewDisks.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;treeViewDisks.Name" xml:space="preserve">
-    <value>treeViewDisks</value>
-  </data>
-  <data name="&gt;&gt;treeViewDisks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;treeViewDisks.Parent" xml:space="preserve">
-    <value>tabPageDiskDrives</value>
-  </data>
-  <data name="&gt;&gt;treeViewDisks.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="buttonEditDiskKeyFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1897,7 +1978,7 @@
     <value>5</value>
   </data>
   <data name="panelDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 85</value>
+    <value>130, 81</value>
   </data>
   <data name="panelDisks.Size" type="System.Drawing.Size, System.Drawing">
     <value>448, 244</value>
@@ -2490,15 +2571,6 @@
   <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="listBoxContainerFiles.Items" xml:space="preserve">
-    <value>c:\owen.tmp</value>
-  </data>
-  <data name="listBoxContainerFiles.Items1" xml:space="preserve">
-    <value>d:\maggots.img</value>
-  </data>
-  <data name="listBoxContainerFiles.Items2" xml:space="preserve">
-    <value>e:\flandre.zip</value>
-  </data>
   <data name="listBoxContainerFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
@@ -2901,10 +2973,10 @@
   <data name="openFileDialogTrueCrypt.Filter" xml:space="preserve">
     <value>TrueCrypt executable|TrueCrypt.exe</value>
   </data>
-  <metadata name="openFileDialogPassword.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="openFileDialogGeneral.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>204, 17</value>
   </metadata>
-  <data name="openFileDialogPassword.Filter" xml:space="preserve">
+  <data name="openFileDialogGeneral.Filter" xml:space="preserve">
     <value>All files (*.*)|*.*</value>
   </data>
   <metadata name="toolTipSettings.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -2931,10 +3003,10 @@
   <data name="&gt;&gt;openFileDialogTrueCrypt.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;openFileDialogPassword.Name" xml:space="preserve">
-    <value>openFileDialogPassword</value>
+  <data name="&gt;&gt;openFileDialogGeneral.Name" xml:space="preserve">
+    <value>openFileDialogGeneral</value>
   </data>
-  <data name="&gt;&gt;openFileDialogPassword.Type" xml:space="preserve">
+  <data name="&gt;&gt;openFileDialogGeneral.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolTipSettings.Name" xml:space="preserve">

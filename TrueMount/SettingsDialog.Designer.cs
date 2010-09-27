@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialog));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPageApplication = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.buttonDeleteConfig = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -54,7 +57,7 @@
             this.buttonAddKeyDevice = new System.Windows.Forms.Button();
             this.comboBoxUSBKeyDevice = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.treeViewKeyDevices = new System.Windows.Forms.TreeView();
+            this.listBoxKeyDevices = new System.Windows.Forms.ListBox();
             this.panelKeyDevice = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.checkBoxKeyDeviceActive = new System.Windows.Forms.CheckBox();
@@ -66,6 +69,7 @@
             this.textBoxUSBCaption = new System.Windows.Forms.TextBox();
             this.textBoxUSBPartition = new System.Windows.Forms.TextBox();
             this.tabPageDiskDrives = new System.Windows.Forms.TabPage();
+            this.listBoxDisks = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxLocalDiskDrives = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,7 +77,6 @@
             this.comboBoxDiskPartitions = new System.Windows.Forms.ComboBox();
             this.comboBoxDiskDrives = new System.Windows.Forms.ComboBox();
             this.buttonAddDisk = new System.Windows.Forms.Button();
-            this.treeViewDisks = new System.Windows.Forms.TreeView();
             this.panelDisks = new System.Windows.Forms.Panel();
             this.buttonEditDiskKeyFiles = new System.Windows.Forms.Button();
             this.buttonSaveDisk = new System.Windows.Forms.Button();
@@ -132,10 +135,11 @@
             this.textBoxTrueCryptExec = new System.Windows.Forms.TextBox();
             this.buttonSearchTrueCrypt = new System.Windows.Forms.Button();
             this.openFileDialogTrueCrypt = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialogPassword = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogGeneral = new System.Windows.Forms.OpenFileDialog();
             this.toolTipSettings = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlSettings.SuspendLayout();
             this.tabPageApplication.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPageKeyDevice.SuspendLayout();
@@ -175,6 +179,7 @@
             // 
             // tabPageApplication
             // 
+            this.tabPageApplication.Controls.Add(this.groupBox11);
             this.tabPageApplication.Controls.Add(this.label14);
             this.tabPageApplication.Controls.Add(this.groupBoxLanguage);
             this.tabPageApplication.Controls.Add(this.buttonListDisks);
@@ -182,6 +187,28 @@
             resources.ApplyResources(this.tabPageApplication, "tabPageApplication");
             this.tabPageApplication.Name = "tabPageApplication";
             this.tabPageApplication.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.buttonDeleteConfig);
+            this.groupBox11.Controls.Add(this.label17);
+            resources.ApplyResources(this.groupBox11, "groupBox11");
+            this.groupBox11.ForeColor = System.Drawing.Color.Maroon;
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.TabStop = false;
+            // 
+            // buttonDeleteConfig
+            // 
+            resources.ApplyResources(this.buttonDeleteConfig, "buttonDeleteConfig");
+            this.buttonDeleteConfig.Name = "buttonDeleteConfig";
+            this.buttonDeleteConfig.UseVisualStyleBackColor = true;
+            this.buttonDeleteConfig.Click += new System.EventHandler(this.buttonDeleteConfig_Click);
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Name = "label17";
             // 
             // label14
             // 
@@ -343,18 +370,18 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.treeViewKeyDevices);
+            this.groupBox4.Controls.Add(this.listBoxKeyDevices);
             this.groupBox4.Controls.Add(this.panelKeyDevice);
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
-            // treeViewKeyDevices
+            // listBoxKeyDevices
             // 
-            this.treeViewKeyDevices.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.treeViewKeyDevices, "treeViewKeyDevices");
-            this.treeViewKeyDevices.Name = "treeViewKeyDevices";
-            this.treeViewKeyDevices.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewKeyDevices_AfterSelect);
+            this.listBoxKeyDevices.FormattingEnabled = true;
+            resources.ApplyResources(this.listBoxKeyDevices, "listBoxKeyDevices");
+            this.listBoxKeyDevices.Name = "listBoxKeyDevices";
+            this.listBoxKeyDevices.SelectedIndexChanged += new System.EventHandler(this.listBoxKeyDevices_SelectedIndexChanged);
             // 
             // panelKeyDevice
             // 
@@ -432,13 +459,20 @@
             // 
             // tabPageDiskDrives
             // 
+            this.tabPageDiskDrives.Controls.Add(this.listBoxDisks);
             this.tabPageDiskDrives.Controls.Add(this.label5);
             this.tabPageDiskDrives.Controls.Add(this.groupBoxLocalDiskDrives);
-            this.tabPageDiskDrives.Controls.Add(this.treeViewDisks);
             this.tabPageDiskDrives.Controls.Add(this.panelDisks);
             resources.ApplyResources(this.tabPageDiskDrives, "tabPageDiskDrives");
             this.tabPageDiskDrives.Name = "tabPageDiskDrives";
             this.tabPageDiskDrives.UseVisualStyleBackColor = true;
+            // 
+            // listBoxDisks
+            // 
+            this.listBoxDisks.FormattingEnabled = true;
+            resources.ApplyResources(this.listBoxDisks, "listBoxDisks");
+            this.listBoxDisks.Name = "listBoxDisks";
+            this.listBoxDisks.SelectedIndexChanged += new System.EventHandler(this.listBoxDisks_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -487,12 +521,6 @@
             this.buttonAddDisk.Name = "buttonAddDisk";
             this.buttonAddDisk.UseVisualStyleBackColor = true;
             this.buttonAddDisk.Click += new System.EventHandler(this.buttonAddDisk_Click);
-            // 
-            // treeViewDisks
-            // 
-            resources.ApplyResources(this.treeViewDisks, "treeViewDisks");
-            this.treeViewDisks.Name = "treeViewDisks";
-            this.treeViewDisks.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewDisks_AfterSelect);
             // 
             // panelDisks
             // 
@@ -770,6 +798,7 @@
             resources.ApplyResources(this.buttonSearchConPassword, "buttonSearchConPassword");
             this.buttonSearchConPassword.Name = "buttonSearchConPassword";
             this.buttonSearchConPassword.UseVisualStyleBackColor = true;
+            this.buttonSearchConPassword.Click += new System.EventHandler(this.buttonSearchConPassword_Click);
             // 
             // label15
             // 
@@ -792,6 +821,7 @@
             this.buttonEditContainerKeyFiles.Image = global::TrueMount.Properties.Resources._1285602715_page_white_edit;
             this.buttonEditContainerKeyFiles.Name = "buttonEditContainerKeyFiles";
             this.buttonEditContainerKeyFiles.UseVisualStyleBackColor = true;
+            this.buttonEditContainerKeyFiles.Click += new System.EventHandler(this.buttonEditContainerKeyFiles_Click);
             // 
             // buttonSaveContainer
             // 
@@ -799,6 +829,7 @@
             this.buttonSaveContainer.Image = global::TrueMount.Properties.Resources._1285602621_095;
             this.buttonSaveContainer.Name = "buttonSaveContainer";
             this.buttonSaveContainer.UseVisualStyleBackColor = true;
+            this.buttonSaveContainer.Click += new System.EventHandler(this.buttonSaveContainer_Click);
             // 
             // buttonRemoveContainer
             // 
@@ -806,6 +837,7 @@
             this.buttonRemoveContainer.Image = global::TrueMount.Properties.Resources._1285602519_delete;
             this.buttonRemoveContainer.Name = "buttonRemoveContainer";
             this.buttonRemoveContainer.UseVisualStyleBackColor = true;
+            this.buttonRemoveContainer.Click += new System.EventHandler(this.buttonRemoveContainer_Click);
             // 
             // buttonAddContainer
             // 
@@ -813,6 +845,7 @@
             resources.ApplyResources(this.buttonAddContainer, "buttonAddContainer");
             this.buttonAddContainer.Name = "buttonAddContainer";
             this.buttonAddContainer.UseVisualStyleBackColor = true;
+            this.buttonAddContainer.Click += new System.EventHandler(this.buttonAddContainer_Click);
             // 
             // groupBox5
             // 
@@ -824,12 +857,9 @@
             // listBoxContainerFiles
             // 
             this.listBoxContainerFiles.FormattingEnabled = true;
-            this.listBoxContainerFiles.Items.AddRange(new object[] {
-            resources.GetString("listBoxContainerFiles.Items"),
-            resources.GetString("listBoxContainerFiles.Items1"),
-            resources.GetString("listBoxContainerFiles.Items2")});
             resources.ApplyResources(this.listBoxContainerFiles, "listBoxContainerFiles");
             this.listBoxContainerFiles.Name = "listBoxContainerFiles";
+            this.listBoxContainerFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxContainerFiles_SelectedIndexChanged);
             // 
             // tabPageTrueCrypt
             // 
@@ -923,9 +953,9 @@
             this.openFileDialogTrueCrypt.FileName = "TrueCrypt.exe";
             resources.ApplyResources(this.openFileDialogTrueCrypt, "openFileDialogTrueCrypt");
             // 
-            // openFileDialogPassword
+            // openFileDialogGeneral
             // 
-            resources.ApplyResources(this.openFileDialogPassword, "openFileDialogPassword");
+            resources.ApplyResources(this.openFileDialogGeneral, "openFileDialogGeneral");
             // 
             // SettingsDialog
             // 
@@ -941,6 +971,7 @@
             this.tabControlSettings.ResumeLayout(false);
             this.tabPageApplication.ResumeLayout(false);
             this.tabPageApplication.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -1002,12 +1033,11 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBoxOneInstance;
-        private System.Windows.Forms.TreeView treeViewDisks;
         private System.Windows.Forms.Button buttonAddDisk;
         private System.Windows.Forms.Panel panelDisks;
         private System.Windows.Forms.Button buttonSearchPasswordFile;
         private System.Windows.Forms.TextBox textBoxDiskPasswordFile;
-        private System.Windows.Forms.OpenFileDialog openFileDialogPassword;
+        private System.Windows.Forms.OpenFileDialog openFileDialogGeneral;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxDiskDriveLetter;
         private System.Windows.Forms.CheckBox checkBoxDiskActive;
@@ -1029,7 +1059,6 @@
         private System.Windows.Forms.CheckBox checkBoxDiskSm;
         private System.Windows.Forms.Button buttonSaveDisk;
         private System.Windows.Forms.Button buttonAddKeyDevice;
-        private System.Windows.Forms.TreeView treeViewKeyDevices;
         private System.Windows.Forms.Panel panelKeyDevice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -1087,6 +1116,11 @@
         private System.Windows.Forms.ComboBox comboBoxConLetter;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox checkBoxConActive;
+        private System.Windows.Forms.ListBox listBoxKeyDevices;
+        private System.Windows.Forms.ListBox listBoxDisks;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button buttonDeleteConfig;
+        private System.Windows.Forms.Label label17;
 
 
     }

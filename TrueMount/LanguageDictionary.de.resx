@@ -339,4 +339,10 @@
   <data name="MsgTWarnUmount" xml:space="preserve">
     <value>Sie sind dabei alle eingebundenen Laufwerke auszuwerfen, Datenverlust ist möglich, fortfahren?</value>
   </data>
+  <data name="MsgHDiskDouble" xml:space="preserve">
+    <value>Laufwerk bereits gewählt</value>
+  </data>
+  <data name="MsgTDiskDouble" xml:space="preserve">
+    <value>Die gewählte Festplatte/Partition ist bereits vorhanden!</value>
+  </data>
 </root>
