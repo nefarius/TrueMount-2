@@ -61,7 +61,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adding {0} key files/directories....
+        ///   Looks up a localized string similar to Adding {0} key files/directories..
         /// </summary>
         internal static string AddKeyFiles {
             get {
@@ -75,6 +75,15 @@ namespace TrueMount {
         internal static string AddMountOpts {
             get {
                 return ResourceManager.GetString("AddMountOpts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} has been mounted as {1}:.
+        /// </summary>
+        internal static string BalloonVolMounted {
+            get {
+                return ResourceManager.GetString("BalloonVolMounted", resourceCulture);
             }
         }
         
@@ -93,6 +102,15 @@ namespace TrueMount {
         internal static string CBoxPartition {
             get {
                 return ResourceManager.GetString("CBoxPartition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates daily!.
+        /// </summary>
+        internal static string Check4Updates {
+            get {
+                return ResourceManager.GetString("Check4Updates", resourceCulture);
             }
         }
         
@@ -120,6 +138,33 @@ namespace TrueMount {
         internal static string CheckTCConf {
             get {
                 return ResourceManager.GetString("CheckTCConf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Container file {0} disabled, skipped..
+        /// </summary>
+        internal static string ConConfDisabled {
+            get {
+                return ResourceManager.GetString("ConConfDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Container file {0} enabled..
+        /// </summary>
+        internal static string ConConfEnabled {
+            get {
+                return ResourceManager.GetString("ConConfEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Container file {0} found..
+        /// </summary>
+        internal static string ConFileFound {
+            get {
+                return ResourceManager.GetString("ConFileFound", resourceCulture);
             }
         }
         
@@ -178,7 +223,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive {0} config disabled, skipping....
+        ///   Looks up a localized string similar to Disk drive {0} config disabled, skipped..
         /// </summary>
         internal static string DiskDriveConfDisabled {
             get {
@@ -187,7 +232,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive {0} is offline, skipping....
+        ///   Looks up a localized string similar to DiskDrive {0} is offline, skipped..
         /// </summary>
         internal static string DiskDriveOffline {
             get {
@@ -223,11 +268,29 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Drive letter: {0}.
+        /// </summary>
+        internal static string DriveLetter {
+            get {
+                return ResourceManager.GetString("DriveLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Something went wrong, please check the config!.
         /// </summary>
         internal static string ErrCheckConfig {
             get {
                 return ResourceManager.GetString("ErrCheckConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error: container file {0} could not be found!.
+        /// </summary>
+        internal static string ErrConFileNotExists {
+            get {
+                return ResourceManager.GetString("ErrConFileNotExists", resourceCulture);
             }
         }
         
@@ -259,6 +322,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: drive letter {0} already in use!.
+        /// </summary>
+        internal static string ErrLetterInUse {
+            get {
+                return ResourceManager.GetString("ErrLetterInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error: key device configuration incorrect/incomplete, check the settings!.
         /// </summary>
         internal static string ErrNoKeyDev {
@@ -268,7 +340,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error: password file {0} does not exist, skipping....
+        ///   Looks up a localized string similar to Error: password file {0} does not exist, skipped..
         /// </summary>
         internal static string ErrPwFileNoExist {
             get {
@@ -277,7 +349,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error: truecrypt executable not found, stopping jobs....
+        ///   Looks up a localized string similar to Error: truecrypt executable not found, jobs stopped..
         /// </summary>
         internal static string ErrTCNotFound {
             get {
@@ -295,11 +367,20 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogicalDisk {0}:\ online..
+        ///   Looks up a localized string similar to Logical disk {0}:\ online..
         /// </summary>
         internal static string LogicalDiskOnline {
             get {
                 return ResourceManager.GetString("LogicalDiskOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mount of {0} canceled!.
+        /// </summary>
+        internal static string MountCanceled {
+            get {
+                return ResourceManager.GetString("MountCanceled", resourceCulture);
             }
         }
         
@@ -502,7 +583,16 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No key files set, continuing....
+        ///   Looks up a localized string similar to New volume mounted.
+        /// </summary>
+        internal static string NewVolumeMounted {
+            get {
+                return ResourceManager.GetString("NewVolumeMounted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info: No key files set..
         /// </summary>
         internal static string NoKeyFiles {
             get {
@@ -511,7 +601,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No mount options set, continuing....
+        ///   Looks up a localized string similar to Info: No mount options set..
         /// </summary>
         internal static string NoMountOpts {
             get {
@@ -520,20 +610,11 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Opening {0}:\ in explorer....
+        ///   Looks up a localized string similar to Opening {0}:\ in explorer..
         /// </summary>
         internal static string OpenExplorer {
             get {
                 return ResourceManager.GetString("OpenExplorer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DiskPartition {0} config enabled..
-        /// </summary>
-        internal static string PartConfEnabled {
-            get {
-                return ResourceManager.GetString("PartConfEnabled", resourceCulture);
             }
         }
         
@@ -583,15 +664,6 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DEBUG: Raw argument line: {0}.
-        /// </summary>
-        internal static string RawArgLine {
-            get {
-                return ResourceManager.GetString("RawArgLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Autostart in config disabled, Listener not started..
         /// </summary>
         internal static string SAutoDi {
@@ -601,7 +673,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Service Autostart enabled, starting work....
+        ///   Looks up a localized string similar to Service Autostart enabled, starting work..
         /// </summary>
         internal static string SAutoEn {
             get {
@@ -610,7 +682,16 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Searching for local disk....
+        ///   Looks up a localized string similar to Searching for new container file..
+        /// </summary>
+        internal static string SearchConFile {
+            get {
+                return ResourceManager.GetString("SearchConFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching for local disk..
         /// </summary>
         internal static string SearchDiskLocal {
             get {
@@ -619,7 +700,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting Device Listener....
+        ///   Looks up a localized string similar to Starting Device Listener..
         /// </summary>
         internal static string StartDevListener {
             get {
@@ -628,7 +709,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting process....
+        ///   Looks up a localized string similar to Starting process..
         /// </summary>
         internal static string StartProcess {
             get {
@@ -637,7 +718,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stopping device listener....
+        ///   Looks up a localized string similar to Stopping device listener..
         /// </summary>
         internal static string StopDevListener {
             get {
@@ -664,7 +745,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unmounting all LogicalDisks....
+        ///   Looks up a localized string similar to Unmounting all LogicalDisks..
         /// </summary>
         internal static string UnmountAll {
             get {
@@ -682,7 +763,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to USB Device is not the password device, waiting....
+        ///   Looks up a localized string similar to USB Device is not the password device, waiting..
         /// </summary>
         internal static string USBNotPw {
             get {
@@ -714,15 +795,6 @@ namespace TrueMount {
         internal static string WarnGeneral {
             get {
                 return ResourceManager.GetString("WarnGeneral", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Warning: DiskPartition letter {0} is already in use, skipping....
-        /// </summary>
-        internal static string WarnLetterInUse {
-            get {
-                return ResourceManager.GetString("WarnLetterInUse", resourceCulture);
             }
         }
         

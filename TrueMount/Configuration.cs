@@ -12,6 +12,7 @@ namespace TrueMount
     [Serializable()]
     class Configuration
     {
+        public bool FirstStart { get; set; }
         public bool AutostartService { get; set; }
         public bool StartSilent { get; set; }
         public bool ShowSplashScreen { get; set; }
@@ -25,6 +26,7 @@ namespace TrueMount
         public bool ForceUnmount { get; set; }
         public bool UnmountWarning { get; set; }
         public bool DisableBalloons { get; set; }
+        public int BalloonTimePeriod { get; set; }
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
@@ -40,6 +42,13 @@ namespace TrueMount
             // set default values
             ShowSplashScreen = true;
             OnlyOneInstance = true;
+            BalloonTimePeriod = 3000;
+            FirstStart = true;
+        }
+
+        public static string ProjectLocation
+        {
+            get { return "http://nefarius.darkhosters.net/windows/truemount2#beta"; }
         }
 
         public static ResourceManager LanguageDictionary

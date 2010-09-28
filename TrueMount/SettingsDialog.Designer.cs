@@ -41,6 +41,9 @@
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.buttonListDisks = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericUpDownBalloonTime = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
             this.checkBoxDisableBalloons = new System.Windows.Forms.CheckBox();
             this.checkBoxForceUnmountAll = new System.Windows.Forms.CheckBox();
             this.checkBoxWarnUnmountAll = new System.Windows.Forms.CheckBox();
@@ -142,6 +145,7 @@
             this.groupBox11.SuspendLayout();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).BeginInit();
             this.tabPageKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -248,6 +252,9 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.label19);
+            this.groupBox9.Controls.Add(this.numericUpDownBalloonTime);
+            this.groupBox9.Controls.Add(this.label18);
             this.groupBox9.Controls.Add(this.checkBoxDisableBalloons);
             this.groupBox9.Controls.Add(this.checkBoxForceUnmountAll);
             this.groupBox9.Controls.Add(this.checkBoxWarnUnmountAll);
@@ -260,6 +267,37 @@
             resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // numericUpDownBalloonTime
+            // 
+            resources.ApplyResources(this.numericUpDownBalloonTime, "numericUpDownBalloonTime");
+            this.numericUpDownBalloonTime.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownBalloonTime.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownBalloonTime.Name = "numericUpDownBalloonTime";
+            this.numericUpDownBalloonTime.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownBalloonTime.ValueChanged += new System.EventHandler(this.numericUpDownBalloonTime_ValueChanged);
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
             // 
             // checkBoxDisableBalloons
             // 
@@ -966,6 +1004,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingsDialog";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsDialog_FormClosing);
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
             this.tabControlSettings.ResumeLayout(false);
@@ -975,6 +1015,7 @@
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).EndInit();
             this.tabPageKeyDevice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -1121,6 +1162,9 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Button buttonDeleteConfig;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.NumericUpDown numericUpDownBalloonTime;
 
 
     }

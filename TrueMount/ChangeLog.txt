@@ -1,6 +1,15 @@
-﻿  * Added container file support
+﻿2.3.6.28
+  * Added container file support
   * Added tray menu item for seperadly mounting devices
+  * Added button to delete configuration
+    * Important: hit this button if it fires Exceptions after an update!
+  * Added balloon tips
   * Fixed language mistakes
+  * Extended and corrected language dictionary
+  * Fixed deserialization bug
+  * Fixed main window not visible after splash screen finished
+  * Added TrueCrypt banner link
+  * Added first-start detection
 2.2.4.--
   * Next version will be stable!
   * Added multiuser support

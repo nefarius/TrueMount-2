@@ -75,6 +75,7 @@ namespace TrueMount
             checkBoxForceUnmountAll.Checked = config.ForceUnmount;
             checkBoxWarnUnmountAll.Checked = config.UnmountWarning;
             checkBoxDisableBalloons.Checked = config.DisableBalloons;
+            numericUpDownBalloonTime.Value = config.BalloonTimePeriod;
 
             // load available languages
             if (config.Language != null)
@@ -744,6 +745,11 @@ namespace TrueMount
             }
             catch {/* tja... */}
             finally { Environment.Exit(1); }
+        }
+
+        private void numericUpDownBalloonTime_ValueChanged(object sender, EventArgs e)
+        {
+            config.BalloonTimePeriod = (int)numericUpDownBalloonTime.Value;
         }
     }
 }

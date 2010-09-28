@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddKeyFiles" xml:space="preserve">
-    <value>Füge {0} Schlüsseldateien/Verzeichnisse hinzu...</value>
+    <value>Füge {0} Schlüsseldateien/Verzeichnisse hinzu.</value>
   </data>
   <data name="AddMountOpts" xml:space="preserve">
     <value>Füge Mount-Optionen hinzu: {0}</value>
@@ -157,10 +157,10 @@
     <value>Laufwerkskennnummer: {0}</value>
   </data>
   <data name="DiskDriveConfDisabled" xml:space="preserve">
-    <value>Konfiguration von Laufwerk {0} deaktiviert, überspringe...</value>
+    <value>Konfiguration von Laufwerk {0} deaktiviert, übersprungen.</value>
   </data>
   <data name="DiskDriveOffline" xml:space="preserve">
-    <value>Laufwerk {0} ist nicht angeschlossen, überspringe...</value>
+    <value>Laufwerk {0} ist nicht angeschlossen, übersprungen.</value>
   </data>
   <data name="DiskDrivePath" xml:space="preserve">
     <value>Laufwerkspfad: {0}</value>
@@ -187,16 +187,16 @@
     <value>Fehler: kein Schlüssel-Gerät gefunden, prüfen Sie die Einstellungen!</value>
   </data>
   <data name="ErrPwFileNoExist" xml:space="preserve">
-    <value>Fehler: Passwortdatei {0} existiert nicht, überspringe...</value>
+    <value>Fehler: Passwortdatei {0} existiert nicht, übersprungen.</value>
   </data>
   <data name="ErrTCNotFound" xml:space="preserve">
-    <value>Fehler: TrueCrypt Hauptprogramm nicht gefunden, breche ab...</value>
+    <value>Fehler: TrueCrypt Hauptprogramm nicht gefunden, alle Aktionen abgebrochen.</value>
   </data>
   <data name="ErrTCPathWrong" xml:space="preserve">
     <value>Fehler: der Pfad zu TrueCrypt dürfte falsch sein, bitte prüfen Sie das!</value>
   </data>
   <data name="LogicalDiskOnline" xml:space="preserve">
-    <value>Logisches Laufwerk {0}:\ angeschlossen.</value>
+    <value>Logisches Laufwerk {0}:\ eingebunden.</value>
   </data>
   <data name="MountedPartitions" xml:space="preserve">
     <value>Eingebundene Partitionen: {0}</value>
@@ -253,16 +253,13 @@
     <value>Sie haben Ihre neuen Einstellungen nicht gespeichert, trotzdem schließen?</value>
   </data>
   <data name="NoKeyFiles" xml:space="preserve">
-    <value>Keine Schlüsseldateien gesetzt, fahre fort...</value>
+    <value>Information: Keine Schlüsseldateien gesetzt.</value>
   </data>
   <data name="NoMountOpts" xml:space="preserve">
-    <value>Keine Mount-Optionen festgelegt, fahre fort...</value>
+    <value>Information: Keine Mount-Optionen festgelegt.</value>
   </data>
   <data name="OpenExplorer" xml:space="preserve">
-    <value>Öffne {0}:\ im Explorer...</value>
-  </data>
-  <data name="PartConfEnabled" xml:space="preserve">
-    <value>Konfiguration der Partition {0} aktiviert.</value>
+    <value>Öffne {0}:\ im Explorer.</value>
   </data>
   <data name="PasswordEmptyOk" xml:space="preserve">
     <value>Information: kein Passwort gesetzt.</value>
@@ -279,26 +276,23 @@
   <data name="ProcessStarted" xml:space="preserve">
     <value>Prozess gestartet.</value>
   </data>
-  <data name="RawArgLine" xml:space="preserve">
-    <value>DEBUG: CLI: {0}</value>
-  </data>
   <data name="SAutoDi" xml:space="preserve">
     <value>Automatischer Start in Konfiguration deaktiviert, Wächter nicht gestartet.</value>
   </data>
   <data name="SAutoEn" xml:space="preserve">
-    <value>Automatischer Start aktiviert, beginne Arbeit...</value>
+    <value>Automatischer Start aktiviert, beginne Arbeit.</value>
   </data>
   <data name="SearchDiskLocal" xml:space="preserve">
-    <value>Suche lokale Laufwerke...</value>
+    <value>Suche lokale Laufwerke.</value>
   </data>
   <data name="StartDevListener" xml:space="preserve">
-    <value>Starte Geräte-Wächter...</value>
+    <value>Starte Geräte-Wächter.</value>
   </data>
   <data name="StartProcess" xml:space="preserve">
-    <value>Starte Prozess...</value>
+    <value>Starte Prozess.</value>
   </data>
   <data name="StopDevListener" xml:space="preserve">
-    <value>Stoppe Geräte-Wächter...</value>
+    <value>Stoppe Geräte-Wächter.</value>
   </data>
   <data name="TCArgumentLine" xml:space="preserve">
     <value>Kommandozeilenparameter: {0}</value>
@@ -307,13 +301,13 @@
     <value>TrueCrypt Pfad: {0}</value>
   </data>
   <data name="UnmountAll" xml:space="preserve">
-    <value>Werfe alle Laufwerke aus...</value>
+    <value>Werfe alle Laufwerke aus.</value>
   </data>
   <data name="USBFound" xml:space="preserve">
     <value>Neues USB-Gerät gefunden.</value>
   </data>
   <data name="USBNotPw" xml:space="preserve">
-    <value>USB-Gerät ist kein Schlüssel-Gerät, warte...</value>
+    <value>USB-Gerät ist kein Schlüssel-Gerät, warte.</value>
   </data>
   <data name="USBRemoved" xml:space="preserve">
     <value>USB-Gerät entfernt.</value>
@@ -323,9 +317,6 @@
   </data>
   <data name="WarnGeneral" xml:space="preserve">
     <value>Warnung: {0}</value>
-  </data>
-  <data name="WarnLetterInUse" xml:space="preserve">
-    <value>Warnung: Laufwerksbuchstabe {0} bereits in Verwendung, überspringe...</value>
   </data>
   <data name="WarnNoDisks" xml:space="preserve">
     <value>Warnung: keine Laufwerke in Konfiguration gefunden, prüfen Sie die Einstellungen!</value>
@@ -344,5 +335,38 @@
   </data>
   <data name="MsgTDiskDouble" xml:space="preserve">
     <value>Die gewählte Festplatte/Partition ist bereits vorhanden!</value>
+  </data>
+  <data name="BalloonVolMounted" xml:space="preserve">
+    <value>{0} wurde als Laufwerk {1}: eingebunden.</value>
+  </data>
+  <data name="Check4Updates" xml:space="preserve">
+    <value>Suchen Sie täglich nach Aktualisierungen!</value>
+  </data>
+  <data name="ConConfDisabled" xml:space="preserve">
+    <value>Container-Datei {0} deaktiviert, übersprungen.</value>
+  </data>
+  <data name="ConConfEnabled" xml:space="preserve">
+    <value>Container-Datei {0} aktiviert.</value>
+  </data>
+  <data name="ConFileFound" xml:space="preserve">
+    <value>Container-Datei {0} gefunden.</value>
+  </data>
+  <data name="DriveLetter" xml:space="preserve">
+    <value>Laufwerksbuchstabe: {0}</value>
+  </data>
+  <data name="ErrConFileNotExists" xml:space="preserve">
+    <value>Fehler: Container-Datei {0} konnte nicht gefunden werden!</value>
+  </data>
+  <data name="ErrLetterInUse" xml:space="preserve">
+    <value>Fehler: Laufwerksbuchstabe {0} bereits vergeben!</value>
+  </data>
+  <data name="MountCanceled" xml:space="preserve">
+    <value>Einbinden von {0} abgebrochen!</value>
+  </data>
+  <data name="NewVolumeMounted" xml:space="preserve">
+    <value>Neues Laufwerk eingebunden</value>
+  </data>
+  <data name="SearchConFile" xml:space="preserve">
+    <value>Suche nach neuer Container-Datei.</value>
   </data>
 </root>

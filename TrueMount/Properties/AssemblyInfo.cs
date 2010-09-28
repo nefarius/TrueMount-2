@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("TrueMount")]
 [assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted devices.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Nefarius")]
+[assembly: AssemblyCompany("Benjamin Höglinger")]
 [assembly: AssemblyProduct("TrueMount")]
-[assembly: AssemblyCopyright("Copyright © Nefarius 2010")]
+[assembly: AssemblyCopyright("Copyright © Benjamin Höglinger 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.2.4.23")]
-[assembly: AssemblyFileVersion("2.2.4.23")]
+[assembly: AssemblyVersion("2.3.6.28")]
+[assembly: AssemblyFileVersion("2.3.6.28")]
 [assembly: NeutralResourcesLanguageAttribute("en")]

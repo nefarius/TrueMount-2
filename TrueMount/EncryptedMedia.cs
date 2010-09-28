@@ -57,6 +57,7 @@ namespace TrueMount
         public EncryptedMedia()
         {
             this.KeyFiles = new List<string>();
+            this.PasswordFile = String.Empty;
         }
     }
 }

@@ -161,16 +161,28 @@
     <value>Eine Änderung der Sprache wird erst nach einem Neustart der Anwendung in Kraft treten!</value>
   </data>
   <data name="buttonListDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 269</value>
+    <value>3, 306</value>
   </data>
   <data name="buttonListDisks.Text" xml:space="preserve">
     <value>Zeige Laufwerkliste</value>
   </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 257</value>
-  </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Verhalten</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>209, 250</value>
+  </data>
+  <data name="numericUpDownBalloonTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 248</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 250</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 13</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Ballon-Tipp Anzeigezeit:</value>
   </data>
   <data name="checkBoxDisableBalloons.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 225</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddKeyFiles" xml:space="preserve">
-    <value>Adding {0} key files/directories...</value>
+    <value>Adding {0} key files/directories.</value>
   </data>
   <data name="AddMountOpts" xml:space="preserve">
     <value>Adding mount options: {0}</value>
@@ -157,10 +157,10 @@
     <value>DiskDrive DeviceID: {0}</value>
   </data>
   <data name="DiskDriveConfDisabled" xml:space="preserve">
-    <value>DiskDrive {0} config disabled, skipping...</value>
+    <value>Disk drive {0} config disabled, skipped.</value>
   </data>
   <data name="DiskDriveOffline" xml:space="preserve">
-    <value>DiskDrive {0} is offline, skipping...</value>
+    <value>DiskDrive {0} is offline, skipped.</value>
   </data>
   <data name="DiskDrivePath" xml:space="preserve">
     <value>DiskDrive Path: {0}</value>
@@ -187,16 +187,16 @@
     <value>Error: key device configuration incorrect/incomplete, check the settings!</value>
   </data>
   <data name="ErrPwFileNoExist" xml:space="preserve">
-    <value>Error: password file {0} does not exist, skipping...</value>
+    <value>Error: password file {0} does not exist, skipped.</value>
   </data>
   <data name="ErrTCNotFound" xml:space="preserve">
-    <value>Error: truecrypt executable not found, stopping jobs...</value>
+    <value>Error: truecrypt executable not found, jobs stopped.</value>
   </data>
   <data name="ErrTCPathWrong" xml:space="preserve">
     <value>Error: your path to TrueCrypt seems wrong, please check the configuration!</value>
   </data>
   <data name="LogicalDiskOnline" xml:space="preserve">
-    <value>LogicalDisk {0}:\ online.</value>
+    <value>Logical disk {0}:\ online.</value>
   </data>
   <data name="MountedPartitions" xml:space="preserve">
     <value>Mounted partitions: {0}</value>
@@ -253,16 +253,13 @@
     <value>You did not save your changed settings, really close?</value>
   </data>
   <data name="NoKeyFiles" xml:space="preserve">
-    <value>No key files set, continuing...</value>
+    <value>Info: No key files set.</value>
   </data>
   <data name="NoMountOpts" xml:space="preserve">
-    <value>No mount options set, continuing...</value>
+    <value>Info: No mount options set.</value>
   </data>
   <data name="OpenExplorer" xml:space="preserve">
-    <value>Opening {0}:\ in explorer...</value>
-  </data>
-  <data name="PartConfEnabled" xml:space="preserve">
-    <value>DiskPartition {0} config enabled.</value>
+    <value>Opening {0}:\ in explorer.</value>
   </data>
   <data name="PasswordEmptyOk" xml:space="preserve">
     <value>Info: No password set.</value>
@@ -279,26 +276,23 @@
   <data name="ProcessStarted" xml:space="preserve">
     <value>Process started.</value>
   </data>
-  <data name="RawArgLine" xml:space="preserve">
-    <value>DEBUG: Raw argument line: {0}</value>
-  </data>
   <data name="SAutoDi" xml:space="preserve">
     <value>Autostart in config disabled, Listener not started.</value>
   </data>
   <data name="SAutoEn" xml:space="preserve">
-    <value>Service Autostart enabled, starting work...</value>
+    <value>Service Autostart enabled, starting work.</value>
   </data>
   <data name="SearchDiskLocal" xml:space="preserve">
-    <value>Searching for local disk...</value>
+    <value>Searching for local disk.</value>
   </data>
   <data name="StartDevListener" xml:space="preserve">
-    <value>Starting Device Listener...</value>
+    <value>Starting Device Listener.</value>
   </data>
   <data name="StartProcess" xml:space="preserve">
-    <value>Starting process...</value>
+    <value>Starting process.</value>
   </data>
   <data name="StopDevListener" xml:space="preserve">
-    <value>Stopping device listener...</value>
+    <value>Stopping device listener.</value>
   </data>
   <data name="TCArgumentLine" xml:space="preserve">
     <value>Argument line: {0}</value>
@@ -307,13 +301,13 @@
     <value>TrueCrypt path: {0}</value>
   </data>
   <data name="UnmountAll" xml:space="preserve">
-    <value>Unmounting all LogicalDisks...</value>
+    <value>Unmounting all LogicalDisks.</value>
   </data>
   <data name="USBFound" xml:space="preserve">
     <value>New USB Device found.</value>
   </data>
   <data name="USBNotPw" xml:space="preserve">
-    <value>USB Device is not the password device, waiting...</value>
+    <value>USB Device is not the password device, waiting.</value>
   </data>
   <data name="USBRemoved" xml:space="preserve">
     <value>USB Device removed.</value>
@@ -323,9 +317,6 @@
   </data>
   <data name="WarnGeneral" xml:space="preserve">
     <value>Warning: {0}</value>
-  </data>
-  <data name="WarnLetterInUse" xml:space="preserve">
-    <value>Warning: DiskPartition letter {0} is already in use, skipping...</value>
   </data>
   <data name="WarnNoDisks" xml:space="preserve">
     <value>Warning: no disks found in configuration, check the settings!</value>
@@ -344,5 +335,38 @@
   </data>
   <data name="MsgTDiskDouble" xml:space="preserve">
     <value>The selected disk/partition already exists!</value>
+  </data>
+  <data name="BalloonVolMounted" xml:space="preserve">
+    <value>{0} has been mounted as {1}:</value>
+  </data>
+  <data name="Check4Updates" xml:space="preserve">
+    <value>Check for updates daily!</value>
+  </data>
+  <data name="ConConfDisabled" xml:space="preserve">
+    <value>Container file {0} disabled, skipped.</value>
+  </data>
+  <data name="ConConfEnabled" xml:space="preserve">
+    <value>Container file {0} enabled.</value>
+  </data>
+  <data name="ConFileFound" xml:space="preserve">
+    <value>Container file {0} found.</value>
+  </data>
+  <data name="DriveLetter" xml:space="preserve">
+    <value>Drive letter: {0}</value>
+  </data>
+  <data name="ErrConFileNotExists" xml:space="preserve">
+    <value>Error: container file {0} could not be found!</value>
+  </data>
+  <data name="ErrLetterInUse" xml:space="preserve">
+    <value>Error: drive letter {0} already in use!</value>
+  </data>
+  <data name="MountCanceled" xml:space="preserve">
+    <value>Mount of {0} canceled!</value>
+  </data>
+  <data name="NewVolumeMounted" xml:space="preserve">
+    <value>New volume mounted</value>
+  </data>
+  <data name="SearchConFile" xml:space="preserve">
+    <value>Searching for new container file.</value>
   </data>
 </root>

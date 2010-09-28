@@ -15,10 +15,11 @@ namespace TrueMount
     {
         private Configuration config = null;
         private ManagementScope scope = null;
-        private ManagementEventWatcher usb_insert_event = null;
-        private ManagementEventWatcher usb_remove_event = null;
+        private ManagementEventWatcher keyInsertEvent = null;
+        private ManagementEventWatcher keyRemoveEvent = null;
         private ResourceManager langRes = null;
         private CultureInfo culture = null;
+        SplashScreen splashScreen = null;
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
@@ -58,9 +59,9 @@ namespace TrueMount
             if (config.ShowSplashScreen)
             {
                 HideMainWindow();
-                SplashScreen sp_screen = new SplashScreen();
-                sp_screen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(sp_screen_OnSplashFinished);
-                sp_screen.Show();
+                splashScreen = new SplashScreen();
+                splashScreen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(splashScreen_OnSplashFinished);
+                splashScreen.Show();
             }
 
             // are we allowed to start the listener on our own?
@@ -84,17 +85,23 @@ namespace TrueMount
                 // final start notification
                 notifyIconSysTray.BalloonTipTitle = "TrueMount by Nefarius";
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
-                notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
-                notifyIconSysTray.ShowBalloonTip(3000);
+                notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion +
+                    Environment.NewLine + langRes.GetString("Check4Updates");
+                notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
 
             BuildMountMenu();
         }
 
+        /// <summary>
+        /// Adds encrypted device items dynamically to the tray menu.
+        /// </summary>
         private void BuildMountMenu()
         {
             mountDeviceToolStripMenuItem.DropDownItems.Clear();
             int index = 0;
+
+            // add encrypted partitions
             foreach (EncryptedDiskPartition item in config.EncryptedDiskPartitions)
             {
                 ToolStripMenuItem menuItemEncDisk = new ToolStripMenuItem(item.DiskCaption +
@@ -108,13 +115,64 @@ namespace TrueMount
                 mountDeviceToolStripMenuItem.DropDownItems.Add(menuItemEncDisk);
             }
 
+            // add container files
+            foreach (EncryptedContainerFile item in config.EncryptedContainerFiles)
+            {
+                ToolStripMenuItem menuItemConFile = new ToolStripMenuItem(item.FileName +
+                    langRes.GetString("CBoxLetter") +
+                    item.DriveLetter);
+                menuItemConFile.Name = index++.ToString();
+                menuItemConFile.Image = Properties.Resources._1276786893_drive_disk;
+                menuItemConFile.Click += new EventHandler(menuItemEncDisk_Click);
+                mountDeviceToolStripMenuItem.DropDownItems.Add(menuItemConFile);
+            }
+
             mountDeviceToolStripMenuItem.Enabled = true;
         }
 
+        /// <summary>
+        /// Event after an encrypted media item has been leftclicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void menuItemEncDisk_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            MountEncPartition(config.EncryptedDiskPartitions[int.Parse(item.Name)]);
+            int index = int.Parse(item.Name);
+            bool result = false;
+            EncryptedMedia encMedia = null;
+
+            // try to mount the partition or container file
+            if (config.EncryptedDiskPartitions.Count > index)
+            {
+                encMedia = config.EncryptedDiskPartitions[index];
+                result = MountPartition((EncryptedDiskPartition)encMedia);
+            }
+            else
+            {
+                encMedia = config.EncryptedContainerFiles[index - config.EncryptedDiskPartitions.Count];
+                result = MountContainerFile((EncryptedContainerFile)encMedia);
+            }
+
+            if (result)
+                MountBalloonTip(encMedia);
+        }
+
+        /// <summary>
+        /// Displayes a balloon tip on mount success.
+        /// </summary>
+        /// <param name="result">The result of the last mount process.</param>
+        /// <param name="encMedia">The mounted media.</param>
+        private void MountBalloonTip(EncryptedMedia encMedia)
+        {
+            // display ballon tip on success
+            if (!config.DisableBalloons)
+            {
+                notifyIconSysTray.BalloonTipTitle = langRes.GetString("NewVolumeMounted");
+                notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIconSysTray.BalloonTipText = string.Format(langRes.GetString("BalloonVolMounted"), encMedia, encMedia.DriveLetter);
+                notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
+            }
         }
 
         /// <summary>
@@ -125,7 +183,10 @@ namespace TrueMount
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
             this.Show();
+            this.TopMost = true;
             this.BringToFront();
+            this.Focus();
+            this.TopMost = false;
         }
 
         /// <summary>
@@ -141,8 +202,17 @@ namespace TrueMount
         /// <summary>
         /// When splash screen closes and silent start is disabled, bring main window to front.
         /// </summary>
-        void sp_screen_OnSplashFinished()
+        void splashScreen_OnSplashFinished()
         {
+            // on first start show settings dialog
+            if (config.FirstStart)
+            {
+                splashScreen.Hide();
+                Process.Start(Configuration.ProjectLocation);
+                buttonSettings_Click(this, null);
+                config.FirstStart = false;
+            }
+
             if (!config.StartSilent)
                 ShowMainWindow();
         }
@@ -153,29 +223,29 @@ namespace TrueMount
         /// <returns>Return true on success.</returns>
         private bool RegisterInsetUSBHandler()
         {
-            WqlEventQuery insert_qery;
+            WqlEventQuery insertQery;
 
             try
             {
-                insert_qery = new WqlEventQuery();
-                insert_qery.EventClassName = "__InstanceCreationEvent";
-                insert_qery.WithinInterval = new TimeSpan(0, 0, 3);
+                insertQery = new WqlEventQuery();
+                insertQery.EventClassName = "__InstanceCreationEvent";
+                insertQery.WithinInterval = new TimeSpan(0, 0, 3);
                 /*
                  * Win32_DiskDrive - detects all new disks
                  * Win32_LogicalDisk - detects all new logical disks WITH drive letter!
                  * Win32_USBControllerDevice - detects all new usb SystemDevices (keyboard, mp3-player...)
                  * Win32_DiskPartition - best option, detects all new accessible partitions
                  * */
-                insert_qery.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
-                usb_insert_event = new ManagementEventWatcher(scope, insert_qery);
-                usb_insert_event.EventArrived += new EventArrivedEventHandler(USBLogicalDiskAdded);
-                usb_insert_event.Start();
+                insertQery.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
+                keyInsertEvent = new ManagementEventWatcher(scope, insertQery);
+                keyInsertEvent.EventArrived += new EventArrivedEventHandler(USBLogicalDiskAdded);
+                keyInsertEvent.Start();
             }
             catch (Exception e)
             {
                 LogAppend(e.Message);
-                if (usb_insert_event != null)
-                    usb_insert_event.Stop();
+                if (keyInsertEvent != null)
+                    keyInsertEvent.Stop();
                 return false;
             }
 
@@ -188,23 +258,23 @@ namespace TrueMount
         /// <returns>Return true on success.</returns>
         private bool RegisterRemoveUSBHandler()
         {
-            WqlEventQuery remove_query;
+            WqlEventQuery removeQuery;
 
             try
             {
-                remove_query = new WqlEventQuery();
-                remove_query.EventClassName = "__InstanceDeletionEvent";
-                remove_query.WithinInterval = new TimeSpan(0, 0, 3);
-                remove_query.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
-                usb_remove_event = new ManagementEventWatcher(scope, remove_query);
-                usb_remove_event.EventArrived += new EventArrivedEventHandler(USBLogicalDiskRemoved);
-                usb_remove_event.Start();
+                removeQuery = new WqlEventQuery();
+                removeQuery.EventClassName = "__InstanceDeletionEvent";
+                removeQuery.WithinInterval = new TimeSpan(0, 0, 3);
+                removeQuery.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
+                keyRemoveEvent = new ManagementEventWatcher(scope, removeQuery);
+                keyRemoveEvent.EventArrived += new EventArrivedEventHandler(USBLogicalDiskRemoved);
+                keyRemoveEvent.Start();
             }
             catch (Exception e)
             {
                 LogAppend(e.Message);
-                if (usb_remove_event != null)
-                    usb_remove_event.Stop();
+                if (keyRemoveEvent != null)
+                    keyRemoveEvent.Stop();
                 return false;
             }
 
@@ -284,7 +354,7 @@ namespace TrueMount
             this.IsUsbKeyDeviceOnline();
 
             LogAppend("StartDevListener");
-            if (usb_insert_event == null)
+            if (keyInsertEvent == null)
             {
                 if (!this.RegisterInsetUSBHandler())
                     LogAppend("ErrDevListenerStart");
@@ -305,10 +375,10 @@ namespace TrueMount
         private void StopDeviceListener()
         {
             LogAppend("StopDevListener");
-            if (usb_insert_event != null)
+            if (keyInsertEvent != null)
             {
-                usb_insert_event.Stop();
-                usb_insert_event = null;
+                keyInsertEvent.Stop();
+                keyInsertEvent = null;
                 LogAppend("DevListenerStop");
                 buttonStopWorker.Enabled = false;
                 buttonStartWorker.Enabled = true;
@@ -316,10 +386,10 @@ namespace TrueMount
             else
                 LogAppend("DevListenerNoRun");
 
-            if (usb_remove_event != null)
+            if (keyRemoveEvent != null)
             {
-                usb_remove_event.Stop();
-                usb_remove_event = null;
+                keyRemoveEvent.Stop();
+                keyRemoveEvent = null;
             }
         }
 
@@ -353,255 +423,288 @@ namespace TrueMount
         /// <returns>Returns count of mounted SystemDevices, if none returns zero.</returns>
         private int MountAllDevices()
         {
-            int mounted_partitions = 0;
+            int mountedPartitions = 0;
 
             // this method can't do very much without partitions
             if (config.EncryptedDiskPartitions.Count <= 0)
             {
                 LogAppend("WarnNoDisks");
-                return mounted_partitions;
+                return mountedPartitions;
             }
 
-            // walk through every disk partition in configuration
+            // walk through every partition in configuration
             foreach (EncryptedDiskPartition enc_disk_partition in config.EncryptedDiskPartitions)
-            {
-                if (MountEncPartition(enc_disk_partition))
-                    mounted_partitions++;
-            }
+                if (MountPartition(enc_disk_partition))
+                    mountedPartitions++;
 
-            LogAppend("MountedPartitions", mounted_partitions.ToString());
-            return mounted_partitions;
+            // walk through every container file in configuration
+            foreach (EncryptedContainerFile encContainerFile in config.EncryptedContainerFiles)
+                if (MountContainerFile(encContainerFile))
+                    mountedPartitions++;
+
+            LogAppend("MountedPartitions", mountedPartitions.ToString());
+            return mountedPartitions;
         }
 
-        private bool MountEncPartition(EncryptedDiskPartition enc_disk_partition)
+        /// <summary>
+        /// Mount a specific encrypted partition.
+        /// </summary>
+        /// <param name="encDiskPartition">The encrypted partition to mount.</param>
+        /// <returns>Returns true on successfull mount, else false.</returns>
+        private bool MountPartition(EncryptedDiskPartition encDiskPartition)
         {
-            bool mount_success = false;
+            bool mountSuccess = false;
 
             LogAppend("SearchDiskLocal");
 
             // is the partition marked as active?
-            if (enc_disk_partition.IsActive)
+            if (!encDiskPartition.IsActive)
             {
-                LogAppend("DiskConfEnabled", enc_disk_partition.DiskCaption);
+                // log and skip disk if marked as inactive
+                LogAppend("DiskDriveConfDisabled", encDiskPartition.DiskCaption);
+                return mountSuccess;
+            }
+            else
+                LogAppend("DiskConfEnabled", encDiskPartition.DiskCaption);
 
-                // find local disk
-                ManagementObject disk_physical = null;
-                try
+            // find local disk
+            ManagementObject diskPhysical =
+                SystemDevices.GetDiskDriveBySignature(encDiskPartition.DiskCaption,
+                    encDiskPartition.DiskSignature);
+
+            // is the disk online? if not, skip it
+            if (diskPhysical == null)
+            {
+                // disk is offline, log and skip
+                LogAppend("DiskDriveOffline", encDiskPartition.DiskCaption);
+                return mountSuccess;
+            }
+            else
+                LogAppend("DiskIsOnline", diskPhysical["Caption"].ToString());
+
+            // get the index of the parent disk
+            uint diskIndex = uint.Parse(diskPhysical["Index"].ToString());
+            // get the index of this partition ("real" index is zero-based)
+            uint partIndex = encDiskPartition.PartitionIndex - 1;
+
+            // get original device id from local disk
+            String deviceId = null;
+            if (encDiskPartition.PartitionIndex > 0)
+                deviceId = SystemDevices.GetPartitionByIndex(diskIndex, partIndex)["DeviceID"].ToString();
+            else
+                deviceId = SystemDevices.GetTCCompatibleDiskPath(diskIndex);
+            LogAppend("DiskDeviceId", deviceId);
+
+            // convert device id in truecrypt compatible name
+            String tcDevicePath = SystemDevices.GetTCCompatibleName(deviceId);
+            LogAppend("DiskDrivePath", tcDevicePath);
+
+            // try to mount and return true on success
+            return MountEncryptedMedia(encDiskPartition, tcDevicePath);
+        }
+
+        /// <summary>
+        /// Mount a specific container file.
+        /// </summary>
+        /// <param name="containerFile">The container file to mount.</param>
+        /// <returns>Returns true on successfull mount, else false.</returns>
+        private bool MountContainerFile(EncryptedContainerFile containerFile)
+        {
+            bool mountSuccess = false;
+
+            LogAppend("SearchConFile");
+
+            // skip the file if inactive
+            if (!containerFile.IsActive)
+            {
+                LogAppend("ConConfDisabled", containerFile.FileName);
+                return mountSuccess;
+            }
+            else
+                LogAppend("ConConfEnabled", containerFile.FileName);
+
+            // check if file exists on local system
+            if (!File.Exists(containerFile.FileName))
+            {
+                LogAppend("ErrConFileNotExists", containerFile.FileName);
+                return mountSuccess;
+            }
+            else
+                LogAppend("ConFileFound", containerFile.FileName);
+
+            // try to mount the volume and return true on success
+            return MountEncryptedMedia(containerFile, containerFile.FileName);
+        }
+
+        /// <summary>
+        /// Mounts a specific media.
+        /// </summary>
+        /// <param name="encMedia">The ecnrypted media to mount.</param>
+        /// <param name="encVolume">The device path or file name to mount.</param>
+        /// <returns>Returns true on successfull mount, else false.</returns>
+        private bool MountEncryptedMedia(EncryptedMedia encMedia, String encVolume)
+        {
+            String password = string.Empty;
+            bool mountSuccess = false;
+
+            // letter we want to assign
+            LogAppend("DriveLetter", encMedia.DriveLetter);
+
+            // local drive letter must not be assigned!
+            if (SystemDevices.GetLogicalDisk(encMedia.DriveLetter) != null)
+            {
+                LogAppend("ErrLetterInUse", encMedia.DriveLetter);
+                return mountSuccess;
+            }
+
+            // read password or let it empty
+            if (!string.IsNullOrEmpty(encMedia.PasswordFile))
+            {
+                // if we have a password file it must exist
+                if (File.Exists(encMedia.PasswordFile))
                 {
-                    // well, we try to find it
-                    disk_physical = SystemDevices.GetDiskDriveBySignature(enc_disk_partition.DiskCaption,
-                        enc_disk_partition.DiskSignature);
-                }
-                catch (FormatException fex)
-                {
-                    // if something is wrong, inform the user and skip this device
-                    LogAppend("WarnGeneral", fex.Message);
-                    LogAppend("CheckConfig");
-                    disk_physical = null;
-                }
-
-                // is the disk online? if not, skip it
-                if (disk_physical != null)
-                {
-                    LogAppend("DiskIsOnline", disk_physical["Caption"].ToString());
-
-                    LogAppend("PartConfEnabled", enc_disk_partition.PartitionIndex.ToString());
-                    // get the index of the parent disk
-                    uint disk_index = uint.Parse(disk_physical["Index"].ToString());
-                    // get the index of this partition ("real" index is zero-based)
-                    uint part_index = enc_disk_partition.PartitionIndex - 1;
-
-                    // get original device id from local disk
-                    String device_id = null;
-                    if (enc_disk_partition.PartitionIndex > 0)
-                        device_id = SystemDevices.GetPartitionByIndex(disk_index, part_index)["DeviceID"].ToString();
-                    else
-                        device_id = SystemDevices.GetTCCompatibleDiskPath(disk_index);
-                    LogAppend("DiskDeviceId", device_id);
-
-                    // convert device id in truecrypt compatible name
-                    String tc_device_path = SystemDevices.GetTCCompatibleName(device_id);
-                    LogAppend("DiskDrivePath", tc_device_path);
-
-                    // letter we want to assign
-                    String tc_device_letter = enc_disk_partition.DriveLetter;
-                    LogAppend("DiskPartLetter", tc_device_letter);
-
-                    // local drive letter must not be assigned!
-                    if (SystemDevices.GetLogicalDisk(tc_device_letter) == null)
-                    {
-                        // we store the password here
-                        String password = String.Empty;
-                        // file must exist or path is empty, else skip and continue
-                        if (File.Exists(enc_disk_partition.PasswordFile) || string.IsNullOrEmpty(enc_disk_partition.PasswordFile))
-                        {
-                            if (!string.IsNullOrEmpty(enc_disk_partition.PasswordFile))
-                            {
-                                LogAppend("PasswordFile", enc_disk_partition.PasswordFile);
-                                // file must be utf-8 encoded
-                                StreamReader pw_file_stream = new StreamReader(enc_disk_partition.PasswordFile, System.Text.Encoding.UTF8);
-                                /* only FIRST LINE will be read!
-                                 * you may fill up the file with 500kB crap and name it .dll :)
-                                 * */
-                                password = pw_file_stream.ReadLine();
-                                pw_file_stream.Close();
-                                LogAppend("PasswordReadOk");
-                            }
-                            else
-                                LogAppend("PasswordEmptyOk");
-
-                            if (string.IsNullOrEmpty(config.TrueCrypt.CommandLineArguments))
-                                LogAppend("WarnTCArgs");
-
-                            // log what I read
-                            LogAppend("TCArgumentLine", config.TrueCrypt.CommandLineArguments);
-
-                            // fill in the attributes we got above
-                            String tc_args_ready = config.TrueCrypt.CommandLineArguments +
-                                "/l" + tc_device_letter +
-                                " /v " + tc_device_path +
-                                " /p \"" + password + "\"";
-                            // unset password (it's now in the argument line)
-                            password = null;
-
-                            // add specified mount options to argument line
-                            if (!string.IsNullOrEmpty(enc_disk_partition.MountOptions))
-                            {
-                                LogAppend("AddMountOpts", enc_disk_partition.MountOptions);
-                                tc_args_ready += " " + enc_disk_partition.MountOptions;
-                            }
-                            else
-                                LogAppend("NoMountOpts");
-
-                            // add key files
-                            if (!string.IsNullOrEmpty(enc_disk_partition.KeyFilesArgumentLine))
-                            {
-                                LogAppend("AddKeyFiles", enc_disk_partition.KeyFiles.Count.ToString());
-                                tc_args_ready += " " + enc_disk_partition.KeyFilesArgumentLine;
-                            }
-                            else
-                                LogAppend("NoKeyFiles");
-
-                            // DEBUG
-                            //LogAppend("RawArgLine", tc_args_ready);
-
-                            // create new process
-                            Process truecrypt = new Process();
-                            // if not exists, exit
-                            if (string.IsNullOrEmpty(config.TrueCrypt.ExecutablePath))
-                            {
-                                // password is in here, so free it
-                                tc_args_ready = null;
-                                // damn just a few more steps! -.-
-                                LogAppend("ErrTCNotFound");
-                                buttonStartWorker.Enabled = false;
-                                buttonStopWorker.Enabled = false;
-                                LogAppend("CheckCfgTC");
-                                return mount_success;
-                            }
-                            LogAppend("TCPath", config.TrueCrypt.ExecutablePath);
-
-                            // set exec name
-                            truecrypt.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
-                            // set arguments
-                            truecrypt.StartInfo.Arguments = tc_args_ready;
-                            // no need for shell
-                            truecrypt.StartInfo.UseShellExecute = false;
-
-                            // arrr, fire the canon! - well, try it...
-                            try
-                            {
-                                LogAppend("StartProcess");
-                                truecrypt.Start();
-                            }
-                            catch (Win32Exception ex)
-                            {
-                                // dammit, dammit, dammit! something went wrong at the very end...
-                                LogAppend("ErrGeneral", ex.Message);
-                                buttonStartWorker.Enabled = false;
-                                buttonStopWorker.Enabled = false;
-                                LogAppend("CheckTCConf");
-                                return mount_success;
-                            }
-                            LogAppend("ProcessStarted");
-
-                            // wait for device to be mounted
-                            LogAppend("WaitDevLaunch");
-
-                            /* we must distinguish between local and removable device!
-                             * 2 = removable
-                             * 3 = local (fixed)
-                             * */
-                            Cursor.Current = Cursors.WaitCursor;
-                            int loop = 0;
-                            // note to myself and every other reader: this loop is crap, we have to do this better :-S
-                            while (SystemDevices.GetLogicalDisk(tc_device_letter, (enc_disk_partition.Removable) ? 2 : 3) == null)
-                            {
-                                Thread.Sleep(1000);
-                                loop++;
-                                if (loop == 10)
-                                {
-                                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), enc_disk_partition.DiskCaption),
-                                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                                        System.Windows.Forms.DialogResult.Yes)
-                                    {
-                                        Cursor.Current = Cursors.Default;
-                                        return mount_success;
-                                    }
-                                    else
-                                    {
-                                        loop = 0;
-                                    }
-                                }
-                            }
-                            Cursor.Current = Cursors.Default;
-
-                            //LogAppend(truecrypt.StandardOutput.ReadToEnd());
-                            LogAppend("LogicalDiskOnline", tc_device_letter);
-                            // mount was successfull
-                            mount_success = true;
-
-                            // if set, open device content in windows explorer
-                            if (enc_disk_partition.OpenExplorer)
-                            {
-                                LogAppend("OpenExplorer", tc_device_letter);
-                                try
-                                {
-                                    Process.Start("explorer.exe", tc_device_letter + @":\");
-                                }
-                                catch (Exception eex)
-                                {
-                                    // error in windows explorer (what a surprise)
-                                    LogAppend("ErrGeneral", eex.Message);
-                                    LogAppend("ErrExplorerOpen");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            // no password file found, but we can still continue to the next one
-                            LogAppend("ErrPwFileNoExist", enc_disk_partition.PasswordFile);
-                        }
-                    }
-                    else
-                    {
-                        // device letter is not free
-                        LogAppend("WarnLetterInUse", tc_device_letter);
-                    }
+                    LogAppend("PasswordFile", encMedia.PasswordFile);
+                    // file must be utf-8 encoded
+                    StreamReader pwFileStream = new StreamReader(encMedia.PasswordFile, System.Text.Encoding.UTF8);
+                    password = pwFileStream.ReadLine();
+                    pwFileStream.Close();
+                    LogAppend("PasswordReadOk");
                 }
                 else
                 {
-                    // disk is offline, log and skip
-                    LogAppend("DiskDriveOffline", enc_disk_partition.DiskCaption);
+                    LogAppend("ErrPwFileNoExist", encMedia.PasswordFile);
+                    return mountSuccess;
                 }
             }
             else
+                LogAppend("PasswordEmptyOk");
+
+            if (string.IsNullOrEmpty(config.TrueCrypt.CommandLineArguments))
+                LogAppend("WarnTCArgs");
+
+            // log what I read
+            LogAppend("TCArgumentLine", config.TrueCrypt.CommandLineArguments);
+
+            // fill in the attributes we got above
+            String tcArgsReady = config.TrueCrypt.CommandLineArguments +
+                "/l" + encMedia.DriveLetter +
+                " /v \"" + encVolume + "\"" +
+                " /p \"" + password + "\"";
+            // unset password (it's now in the argument line)
+            password = null;
+
+            // add specified mount options to argument line
+            if (!string.IsNullOrEmpty(encMedia.MountOptions))
             {
-                // log and skip disk if marked as inactive
-                LogAppend("DiskDriveConfDisabled", enc_disk_partition.DiskCaption);
+                LogAppend("AddMountOpts", encMedia.MountOptions);
+                tcArgsReady += " " + encMedia.MountOptions;
+            }
+            else
+                LogAppend("NoMountOpts");
+
+            // add key files
+            if (!string.IsNullOrEmpty(encMedia.KeyFilesArgumentLine))
+            {
+                LogAppend("AddKeyFiles", encMedia.KeyFiles.Count.ToString());
+                tcArgsReady += " " + encMedia.KeyFilesArgumentLine;
+            }
+            else
+                LogAppend("NoKeyFiles");
+
+            // create new process
+            Process truecrypt = new Process();
+            // if not exists, exit
+            if (string.IsNullOrEmpty(config.TrueCrypt.ExecutablePath))
+            {
+                // password is in here, so free it
+                tcArgsReady = null;
+                // damn just a few more steps! -.-
+                LogAppend("ErrTCNotFound");
+                buttonStartWorker.Enabled = false;
+                buttonStopWorker.Enabled = false;
+                LogAppend("CheckCfgTC");
+                return mountSuccess;
+            }
+            else
+                LogAppend("TCPath", config.TrueCrypt.ExecutablePath);
+
+            // set exec name
+            truecrypt.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
+            // set arguments
+            truecrypt.StartInfo.Arguments = tcArgsReady;
+            // no need for shell
+            truecrypt.StartInfo.UseShellExecute = false;
+
+            // arrr, fire the canon! - well, try it...
+            try
+            {
+                LogAppend("StartProcess");
+                truecrypt.Start();
+            }
+            catch (Win32Exception ex)
+            {
+                // dammit, dammit, dammit! something went wrong at the very end...
+                LogAppend("ErrGeneral", ex.Message);
+                buttonStartWorker.Enabled = false;
+                buttonStopWorker.Enabled = false;
+                LogAppend("CheckTCConf");
+                return mountSuccess;
+            }
+            LogAppend("ProcessStarted");
+
+            // wait for device to be mounted
+            LogAppend("WaitDevLaunch");
+
+            /* we must distinguish between local and removable device!
+             * 2 = removable
+             * 3 = local (fixed)
+             * */
+            Cursor.Current = Cursors.WaitCursor;
+            int loop = 0;
+            // note to myself and every other reader: this loop is crap, we have to do this better :-S
+            while (SystemDevices.GetLogicalDisk(encMedia.DriveLetter, (encMedia.Removable) ? 2 : 3) == null)
+            {
+                Thread.Sleep(1000);
+                loop++;
+                if (loop == 10)
+                {
+                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
+                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                        System.Windows.Forms.DialogResult.Yes)
+                    {
+                        LogAppend("MountCanceled", encMedia.ToString());
+                        Cursor.Current = Cursors.Default;
+                        return mountSuccess;
+                    }
+                    else
+                        loop = 0;
+                }
+            }
+            Cursor.Current = Cursors.Default;
+
+            LogAppend("LogicalDiskOnline", encMedia.DriveLetter);
+            // mount was successfull
+            mountSuccess = true;
+            // display balloon tip on successfull mount
+            MountBalloonTip(encMedia);
+
+            // if set, open device content in windows explorer
+            if (encMedia.OpenExplorer)
+            {
+                LogAppend("OpenExplorer", encMedia.DriveLetter);
+                try
+                {
+                    Process.Start("explorer.exe", encMedia.DriveLetter + @":\");
+                }
+                catch (Exception eex)
+                {
+                    // error in windows explorer (what a surprise)
+                    LogAppend("ErrGeneral", eex.Message);
+                    LogAppend("ErrExplorerOpen");
+                }
             }
 
-            return mount_success;
+            return mountSuccess;
         }
 
         /// <summary>
@@ -713,6 +816,7 @@ namespace TrueMount
             // get new configuration and set it program wide
             settings.UpdateConfiguration(ref config);
             Configuration.SaveConfiguration(config);
+            config = Configuration.OpenConfiguration();
             settings = null;
             BuildMountMenu();
         }
@@ -791,7 +895,7 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(@"http://nefarius.darkhosters.net/windows/truemount2#download");
+            Process.Start(Configuration.ProjectLocation);
         }
     }
 }
