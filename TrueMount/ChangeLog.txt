@@ -1,4 +1,6 @@
-﻿  * Added auto-updater
+﻿  * Added message box to tray update check
+2.4.7.29  
+  * Added auto-updater
   * Removed now useless "List Disks" Dialog
   * Language corrections
 2.3.6.28

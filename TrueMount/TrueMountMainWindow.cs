@@ -896,9 +896,14 @@ namespace TrueMount
             AutoUpdater updater = new AutoUpdater();
             if (updater.DownloadVersionInfo())
                 if (updater.NewVersionAvailable)
+                {
                     if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         new UpdateProgressDialog().ShowDialog();
+                }
+                else
+                    MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

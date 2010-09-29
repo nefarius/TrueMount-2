@@ -369,6 +369,9 @@
   <data name="MsgHNewVersion" xml:space="preserve">
     <value>New version found online</value>
   </data>
+  <data name="MsgHNoNewVersion" xml:space="preserve">
+    <value>No new version</value>
+  </data>
   <data name="MsgHUDownloadFail" xml:space="preserve">
     <value>Update failed</value>
   </data>
@@ -380,6 +383,9 @@
   </data>
   <data name="MsgTNewVersion" xml:space="preserve">
     <value>A new version of TrueMount is available, download and install?</value>
+  </data>
+  <data name="MsgTNoNewVersion" xml:space="preserve">
+    <value>No new version available this time.</value>
   </data>
   <data name="MsgTUDownloadFail" xml:space="preserve">
     <value>Update could not be downloaded, try again later!</value>

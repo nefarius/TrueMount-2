@@ -466,6 +466,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No new version.
+        /// </summary>
+        internal static string MsgHNoNewVersion {
+            get {
+                return ResourceManager.GetString("MsgHNoNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password file missing.
         /// </summary>
         internal static string MsgHNoPw {
@@ -588,6 +597,15 @@ namespace TrueMount {
         internal static string MsgTNewVersion {
             get {
                 return ResourceManager.GetString("MsgTNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No new version available this time..
+        /// </summary>
+        internal static string MsgTNoNewVersion {
+            get {
+                return ResourceManager.GetString("MsgTNoNewVersion", resourceCulture);
             }
         }
         
