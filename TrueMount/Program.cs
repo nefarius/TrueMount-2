@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using System.Resources;
+using System.IO;
+using System.Diagnostics;
 
 namespace TrueMount
 {
@@ -12,12 +14,32 @@ namespace TrueMount
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             // load configuration
             Configuration config = Configuration.OpenConfiguration();
             // load languages
             ResourceManager langRes = new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly);
+
+            if (config.CheckForUpdates)
+            {
+                AutoUpdater updater = new AutoUpdater();
+                if (updater.DownloadVersionInfo())
+                    if (updater.NewVersionAvailable)
+                        if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
+                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            new UpdateProgressDialog().ShowDialog();
+            }
+
+            // clean old updates
+            if (Directory.Exists(Configuration.UpdateSavePath))
+                Directory.Delete(Configuration.UpdateSavePath, true);
+            string updaterFile = Path.Combine(Configuration.CurrentApplicationPath, "updater.exe");
+            if (File.Exists(updaterFile))
+                File.Delete(updaterFile);
 
             // use mutex to test, if application has been started bevore
             bool createdNew = true;
@@ -34,8 +56,6 @@ namespace TrueMount
                     }
                 }
 
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new TrueMountMainWindow());
             }
         }

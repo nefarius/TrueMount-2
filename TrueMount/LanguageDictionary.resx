@@ -151,25 +151,25 @@
     <value>Device Listener stopped.</value>
   </data>
   <data name="DiskConfEnabled" xml:space="preserve">
-    <value>DiskDevice {0} config enabled.</value>
+    <value>Disk device {0} config enabled.</value>
   </data>
   <data name="DiskDeviceId" xml:space="preserve">
-    <value>DiskDrive DeviceID: {0}</value>
+    <value>Disk drive DeviceID: {0}</value>
   </data>
   <data name="DiskDriveConfDisabled" xml:space="preserve">
     <value>Disk drive {0} config disabled, skipped.</value>
   </data>
   <data name="DiskDriveOffline" xml:space="preserve">
-    <value>DiskDrive {0} is offline, skipped.</value>
+    <value>Disk drive {0} is offline, skipped.</value>
   </data>
   <data name="DiskDrivePath" xml:space="preserve">
-    <value>DiskDrive Path: {0}</value>
+    <value>Disk drive Path: {0}</value>
   </data>
   <data name="DiskIsOnline" xml:space="preserve">
-    <value>DiskDrive {0} is online.</value>
+    <value>Disk drive {0} is online.</value>
   </data>
   <data name="DiskPartLetter" xml:space="preserve">
-    <value>DiskPartition letter: {0}</value>
+    <value>Disk partition letter: {0}</value>
   </data>
   <data name="ErrCheckConfig" xml:space="preserve">
     <value>Something went wrong, please check the config!</value>
@@ -339,8 +339,8 @@
   <data name="BalloonVolMounted" xml:space="preserve">
     <value>{0} has been mounted as {1}:</value>
   </data>
-  <data name="Check4Updates" xml:space="preserve">
-    <value>Check for updates daily!</value>
+  <data name="BeginUpdate" xml:space="preserve">
+    <value>Starting update process...</value>
   </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container file {0} disabled, skipped.</value>
@@ -350,6 +350,9 @@
   </data>
   <data name="ConFileFound" xml:space="preserve">
     <value>Container file {0} found.</value>
+  </data>
+  <data name="DownloadProgress" xml:space="preserve">
+    <value>Downloaded: {0}%</value>
   </data>
   <data name="DriveLetter" xml:space="preserve">
     <value>Drive letter: {0}</value>
@@ -362,6 +365,30 @@
   </data>
   <data name="MountCanceled" xml:space="preserve">
     <value>Mount of {0} canceled!</value>
+  </data>
+  <data name="MsgHNewVersion" xml:space="preserve">
+    <value>New version found online</value>
+  </data>
+  <data name="MsgHUDownloadFail" xml:space="preserve">
+    <value>Update failed</value>
+  </data>
+  <data name="MsgHUDownloadOk" xml:space="preserve">
+    <value>Download succeeded</value>
+  </data>
+  <data name="MsgHUpdateFail" xml:space="preserve">
+    <value>Update error</value>
+  </data>
+  <data name="MsgTNewVersion" xml:space="preserve">
+    <value>A new version of TrueMount is available, download and install?</value>
+  </data>
+  <data name="MsgTUDownloadFail" xml:space="preserve">
+    <value>Update could not be downloaded, try again later!</value>
+  </data>
+  <data name="MsgTUDownloadOk" xml:space="preserve">
+    <value>Update downloaded successfully!</value>
+  </data>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Updating failed!</value>
   </data>
   <data name="NewVolumeMounted" xml:space="preserve">
     <value>New volume mounted</value>

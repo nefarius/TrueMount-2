@@ -14,34 +14,35 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>http://updates.darkhosters.net/truemount/</UpdateUrl>
-    <SupportUrl>http://nefarius.darkhosters.net/</SupportUrl>
+    <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>http://nefarius.darkhosters.net/update/truemount/</InstallUrl>
+    <UpdateUrl>http://nefarius.darkhosters.net/update/truemount/</UpdateUrl>
+    <SupportUrl>http://nefarius.darkhosters.net/windows/truemount2</SupportUrl>
     <TargetCulture>en</TargetCulture>
     <ProductName>TrueMount</ProductName>
     <PublisherName>Benjamin Höglinger</PublisherName>
     <SuiteName>TrueMount</SuiteName>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationVersion>2.3.6.28</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <SccProjectName>Svn</SccProjectName>
-    <SccLocalPath>Svn</SccLocalPath>
-    <SccAuxPath>Svn</SccAuxPath>
-    <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -98,6 +99,7 @@
     <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>9F93BDB1445E3C821D4EA4DE07E5F7DEF1CB8928</ManifestCertificateThumbprint>
@@ -106,12 +108,22 @@
     <ManifestKeyFile>TrueMount_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -123,6 +135,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoUpdater.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="EncryptedContainerFile.cs" />
     <Compile Include="EncryptedMedia.cs" />
@@ -144,13 +157,13 @@
     </Compile>
     <Compile Include="EncryptedDiskPartition.cs" />
     <Compile Include="TrueCryptConfig.cs" />
-    <Compile Include="UsbKeyDevice.cs" />
-    <Compile Include="ListDisksDialog.cs">
+    <Compile Include="UpdateProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListDisksDialog.Designer.cs">
-      <DependentUpon>ListDisksDialog.cs</DependentUpon>
+    <Compile Include="UpdateProgressDialog.Designer.cs">
+      <DependentUpon>UpdateProgressDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsbKeyDevice.cs" />
     <Compile Include="SettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,12 +199,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageDictionary.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListDisksDialog.de.resx">
-      <DependentUpon>ListDisksDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListDisksDialog.resx">
-      <DependentUpon>ListDisksDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SettingsDialog.de.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,7 +230,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UpdateProgressDialog.resx">
+      <DependentUpon>UpdateProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -237,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
+    <Content Include="TrueMountVersion.xml" />
     <Content Include="ChangeLog.txt" />
     <None Include="Resources\1285602715_page_white_edit.png" />
     <None Include="Resources\1285602621_095.png" />
@@ -281,6 +293,38 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="1276686629_preferences-desktop-cryptography.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="ChangeLog.txt">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="de\TrueMount.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

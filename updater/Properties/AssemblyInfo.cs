@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrueMount")]
-[assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted devices.")]
+[assembly: AssemblyTitle("TrueMount software updater")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Benjamin Höglinger")]
-[assembly: AssemblyProduct("TrueMount")]
+[assembly: AssemblyProduct("updater")]
 [assembly: AssemblyCopyright("Copyright © Benjamin Höglinger 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +20,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e3159a64-5244-41bd-9272-c6fc4e36f3ce")]
+[assembly: Guid("5cac5ef4-1ad7-4fb9-a12a-ac7d8ac9f4c4")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,6 +32,5 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.4.7.29")]
-[assembly: AssemblyFileVersion("2.4.7.29")]
-[assembly: NeutralResourcesLanguageAttribute("en")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

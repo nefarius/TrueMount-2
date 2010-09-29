@@ -76,6 +76,7 @@ namespace TrueMount
             checkBoxWarnUnmountAll.Checked = config.UnmountWarning;
             checkBoxDisableBalloons.Checked = config.DisableBalloons;
             numericUpDownBalloonTime.Value = config.BalloonTimePeriod;
+            checkBoxCheckUpdates.Checked = config.CheckForUpdates;
 
             // load available languages
             if (config.Language != null)
@@ -430,11 +431,6 @@ namespace TrueMount
             config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
         }
 
-        private void buttonListDisks_Click(object sender, EventArgs e)
-        {
-            new ListDisksDialog().ShowDialog();
-        }
-
         private void checkBoxBackground_CheckedChanged(object sender, EventArgs e)
         {
             config.TrueCrypt.Background = checkBoxBackground.Checked;
@@ -750,6 +746,11 @@ namespace TrueMount
         private void numericUpDownBalloonTime_ValueChanged(object sender, EventArgs e)
         {
             config.BalloonTimePeriod = (int)numericUpDownBalloonTime.Value;
+        }
+
+        private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            config.CheckForUpdates = checkBoxCheckUpdates.Checked;
         }
     }
 }

@@ -339,8 +339,8 @@
   <data name="BalloonVolMounted" xml:space="preserve">
     <value>{0} wurde als Laufwerk {1}: eingebunden.</value>
   </data>
-  <data name="Check4Updates" xml:space="preserve">
-    <value>Suchen Sie täglich nach Aktualisierungen!</value>
+  <data name="BeginUpdate" xml:space="preserve">
+    <value>Beginne Programmaktualisierung...</value>
   </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container-Datei {0} deaktiviert, übersprungen.</value>
@@ -350,6 +350,9 @@
   </data>
   <data name="ConFileFound" xml:space="preserve">
     <value>Container-Datei {0} gefunden.</value>
+  </data>
+  <data name="DownloadProgress" xml:space="preserve">
+    <value>Heruntergeladen: {0}%</value>
   </data>
   <data name="DriveLetter" xml:space="preserve">
     <value>Laufwerksbuchstabe: {0}</value>
@@ -362,6 +365,30 @@
   </data>
   <data name="MountCanceled" xml:space="preserve">
     <value>Einbinden von {0} abgebrochen!</value>
+  </data>
+  <data name="MsgHNewVersion" xml:space="preserve">
+    <value>Neue Version online gefunden</value>
+  </data>
+  <data name="MsgHUDownloadFail" xml:space="preserve">
+    <value>Aktualisierung gescheitert</value>
+  </data>
+  <data name="MsgHUDownloadOk" xml:space="preserve">
+    <value>Herunterladen erfolgreich</value>
+  </data>
+  <data name="MsgHUpdateFail" xml:space="preserve">
+    <value>Aktualisierung gescheitert</value>
+  </data>
+  <data name="MsgTNewVersion" xml:space="preserve">
+    <value>Eine neue Version von TrueMount ist verfügbar, herunterladen und installieren?</value>
+  </data>
+  <data name="MsgTUDownloadFail" xml:space="preserve">
+    <value>Aktualisierung konnte nicht heruntergeladen werden, versuchen Sie es später nochmal!</value>
+  </data>
+  <data name="MsgTUDownloadOk" xml:space="preserve">
+    <value>Aktualisierung erfolgreich heruntergeladen!</value>
+  </data>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Aktualisierung fehlgeschlagen!</value>
   </data>
   <data name="NewVolumeMounted" xml:space="preserve">
     <value>Neues Laufwerk eingebunden</value>

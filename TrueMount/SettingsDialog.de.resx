@@ -117,25 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tabPageApplication.Text" xml:space="preserve">
-    <value>Anwendung</value>
-  </data>
-  <data name="tabPageKeyDevice.Text" xml:space="preserve">
-    <value>Schlüssel-Gerät</value>
-  </data>
-  <data name="tabPageDiskDrives.Text" xml:space="preserve">
-    <value>Laufwerke</value>
-  </data>
-  <data name="tabPageContainerFiles.Text" xml:space="preserve">
-    <value>Container-Dateien</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 98</value>
-  </data>
-  <data name="groupBox11.Text" xml:space="preserve">
-    <value>Test-Hinweise!</value>
-  </data>
   <data name="buttonDeleteConfig.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 135</value>
   </data>
@@ -151,8 +133,11 @@
   <data name="label17.Text" xml:space="preserve">
     <value>Dieses Programm befindet sich derzeit noch in der Testphase d.h. es ist mit plötzlichen Abstürzen, Fehlverhalten oder fehlenden Funktionen zu rechnen. Wenn Sie von einer früheren Version aktualisiert haben sollten Sie auf das Knöpfchen drücken (entschuldigung):</value>
   </data>
-  <data name="groupBoxLanguage.Text" xml:space="preserve">
-    <value>Sprache</value>
+  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 98</value>
+  </data>
+  <data name="groupBox11.Text" xml:space="preserve">
+    <value>Test-Hinweise!</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>244, 46</value>
@@ -160,14 +145,17 @@
   <data name="label13.Text" xml:space="preserve">
     <value>Eine Änderung der Sprache wird erst nach einem Neustart der Anwendung in Kraft treten!</value>
   </data>
-  <data name="buttonListDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 306</value>
+  <data name="groupBoxLanguage.Text" xml:space="preserve">
+    <value>Sprache</value>
   </data>
-  <data name="buttonListDisks.Text" xml:space="preserve">
-    <value>Zeige Laufwerkliste</value>
+  <data name="checkBoxCheckUpdates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 274</value>
   </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Verhalten</value>
+  <data name="checkBoxCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 17</value>
+  </data>
+  <data name="checkBoxCheckUpdates.Text" xml:space="preserve">
+    <value>Suche Aktualisierungen online nach Programmstart</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
     <value>209, 250</value>
@@ -262,8 +250,11 @@
   <data name="checkBoxHidden.Text" xml:space="preserve">
     <value>Verstecke Hauptfenster beim Start</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Gefundene Laufwerke</value>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Verhalten</value>
+  </data>
+  <data name="tabPageApplication.Text" xml:space="preserve">
+    <value>Anwendung</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>394, 58</value>
@@ -274,8 +265,8 @@
   <data name="buttonAddKeyDevice.Text" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Identifikation des Schlüssel-Geräts</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Gefundene Laufwerke</value>
   </data>
   <data name="checkBoxKeyDeviceActive.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 94</value>
@@ -316,6 +307,12 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Titel:</value>
   </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Identifikation des Schlüssel-Geräts</value>
+  </data>
+  <data name="tabPageKeyDevice.Text" xml:space="preserve">
+    <value>Schlüssel-Gerät</value>
+  </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 6</value>
   </data>
@@ -346,9 +343,6 @@
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
   </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Laufwerksinformationen</value>
-  </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 13</value>
   </data>
@@ -361,8 +355,8 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Signatur</value>
   </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Passwort-Optionen</value>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Laufwerksinformationen</value>
   </data>
   <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
     <value>85, 61</value>
@@ -397,8 +391,11 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Laufwerksbuchstabe:</value>
   </data>
-  <data name="groupBoxConSettings.Text" xml:space="preserve">
-    <value>Container-Einstellungen</value>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Passwort-Optionen</value>
+  </data>
+  <data name="tabPageDiskDrives.Text" xml:space="preserve">
+    <value>Laufwerke</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
     <value>258, 93</value>
@@ -421,12 +418,6 @@
   </data>
   <data name="checkBoxConActive.Text" xml:space="preserve">
     <value>Aktiviert</value>
-  </data>
-  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 42</value>
-  </data>
-  <data name="groupBox12.Text" xml:space="preserve">
-    <value>Mount-Optionen</value>
   </data>
   <data name="checkBoxConSm.Location" type="System.Drawing.Point, System.Drawing">
     <value>260, 18</value>
@@ -461,11 +452,11 @@
   <data name="checkBoxConRo.Text" xml:space="preserve">
     <value>schreibgesch.</value>
   </data>
-  <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 65</value>
+  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 42</value>
   </data>
-  <data name="groupBox13.Text" xml:space="preserve">
-    <value>Passwort-Optionen</value>
+  <data name="groupBox12.Text" xml:space="preserve">
+    <value>Mount-Optionen</value>
   </data>
   <data name="buttonSearchConPassword.Text" xml:space="preserve">
     <value>Suche Passwort-Datei...</value>
@@ -476,8 +467,14 @@
   <data name="label15.Text" xml:space="preserve">
     <value>Pfad zur Passwort-Datei</value>
   </data>
-  <data name="groupBox10.Text" xml:space="preserve">
-    <value>Container-Aktionen</value>
+  <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>418, 65</value>
+  </data>
+  <data name="groupBox13.Text" xml:space="preserve">
+    <value>Passwort-Optionen</value>
+  </data>
+  <data name="groupBoxConSettings.Text" xml:space="preserve">
+    <value>Container-Einstellungen</value>
   </data>
   <data name="buttonEditContainerKeyFiles.Text" xml:space="preserve">
     <value>Schlüsseldateien...</value>
@@ -494,11 +491,14 @@
   <data name="buttonAddContainer.Text" xml:space="preserve">
     <value>Hinzufügen...</value>
   </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Container-Aktionen</value>
+  </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Existierende Container-Dateien</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>TrueCrypt Konfigurationsschalter</value>
+  <data name="tabPageContainerFiles.Text" xml:space="preserve">
+    <value>Container-Dateien</value>
   </data>
   <data name="checkBoxCache.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 17</value>
@@ -530,11 +530,14 @@
   <data name="checkBoxSilent.Text" xml:space="preserve">
     <value>Unterdrücke alle (Fehler-)Meldungen und Dialogfenster.</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>TrueCrypt Programmdatei</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>TrueCrypt Konfigurationsschalter</value>
   </data>
   <data name="buttonSearchTrueCrypt.Text" xml:space="preserve">
     <value>Suche TrueCrypt...</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>TrueCrypt Programmdatei</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

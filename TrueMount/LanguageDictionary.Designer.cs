@@ -88,6 +88,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Starting update process....
+        /// </summary>
+        internal static string BeginUpdate {
+            get {
+                return ResourceManager.GetString("BeginUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to , Letter .
         /// </summary>
         internal static string CBoxLetter {
@@ -102,15 +111,6 @@ namespace TrueMount {
         internal static string CBoxPartition {
             get {
                 return ResourceManager.GetString("CBoxPartition", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Check for updates daily!.
-        /// </summary>
-        internal static string Check4Updates {
-            get {
-                return ResourceManager.GetString("Check4Updates", resourceCulture);
             }
         }
         
@@ -205,7 +205,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDevice {0} config enabled..
+        ///   Looks up a localized string similar to Disk device {0} config enabled..
         /// </summary>
         internal static string DiskConfEnabled {
             get {
@@ -214,7 +214,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive DeviceID: {0}.
+        ///   Looks up a localized string similar to Disk drive DeviceID: {0}.
         /// </summary>
         internal static string DiskDeviceId {
             get {
@@ -232,7 +232,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive {0} is offline, skipped..
+        ///   Looks up a localized string similar to Disk drive {0} is offline, skipped..
         /// </summary>
         internal static string DiskDriveOffline {
             get {
@@ -241,7 +241,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive Path: {0}.
+        ///   Looks up a localized string similar to Disk drive Path: {0}.
         /// </summary>
         internal static string DiskDrivePath {
             get {
@@ -250,7 +250,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskDrive {0} is online..
+        ///   Looks up a localized string similar to Disk drive {0} is online..
         /// </summary>
         internal static string DiskIsOnline {
             get {
@@ -259,11 +259,20 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DiskPartition letter: {0}.
+        ///   Looks up a localized string similar to Disk partition letter: {0}.
         /// </summary>
         internal static string DiskPartLetter {
             get {
                 return ResourceManager.GetString("DiskPartLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloaded: {0}%.
+        /// </summary>
+        internal static string DownloadProgress {
+            get {
+                return ResourceManager.GetString("DownloadProgress", resourceCulture);
             }
         }
         
@@ -448,6 +457,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New version found online.
+        /// </summary>
+        internal static string MsgHNewVersion {
+            get {
+                return ResourceManager.GetString("MsgHNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password file missing.
         /// </summary>
         internal static string MsgHNoPw {
@@ -471,6 +489,33 @@ namespace TrueMount {
         internal static string MsgHSaved {
             get {
                 return ResourceManager.GetString("MsgHSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update failed.
+        /// </summary>
+        internal static string MsgHUDownloadFail {
+            get {
+                return ResourceManager.GetString("MsgHUDownloadFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download succeeded.
+        /// </summary>
+        internal static string MsgHUDownloadOk {
+            get {
+                return ResourceManager.GetString("MsgHUDownloadOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update error.
+        /// </summary>
+        internal static string MsgHUpdateFail {
+            get {
+                return ResourceManager.GetString("MsgHUpdateFail", resourceCulture);
             }
         }
         
@@ -538,6 +583,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A new version of TrueMount is available, download and install?.
+        /// </summary>
+        internal static string MsgTNewVersion {
+            get {
+                return ResourceManager.GetString("MsgTNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a password file!.
         /// </summary>
         internal static string MsgTNoPw {
@@ -561,6 +615,33 @@ namespace TrueMount {
         internal static string MsgTSaved {
             get {
                 return ResourceManager.GetString("MsgTSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update could not be downloaded, try again later!.
+        /// </summary>
+        internal static string MsgTUDownloadFail {
+            get {
+                return ResourceManager.GetString("MsgTUDownloadFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update downloaded successfully!.
+        /// </summary>
+        internal static string MsgTUDownloadOk {
+            get {
+                return ResourceManager.GetString("MsgTUDownloadOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating failed!.
+        /// </summary>
+        internal static string MsgTUpdateFail {
+            get {
+                return ResourceManager.GetString("MsgTUpdateFail", resourceCulture);
             }
         }
         

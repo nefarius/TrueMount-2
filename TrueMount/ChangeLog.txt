@@ -1,4 +1,7 @@
-﻿2.3.6.28
+﻿  * Added auto-updater
+  * Removed now useless "List Disks" Dialog
+  * Language corrections
+2.3.6.28
   * Added container file support
   * Added tray menu item for seperadly mounting devices
   * Added button to delete configuration

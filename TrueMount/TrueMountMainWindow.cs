@@ -72,10 +72,7 @@ namespace TrueMount
                 StartDeviceListener();
             }
             else
-            {
-                // we will wait for the users command
                 LogAppend("SAutoDi");
-            }
 
             // register the event handler
             this.RegisterRemoveUSBHandler();
@@ -83,10 +80,9 @@ namespace TrueMount
             if (!config.DisableBalloons)
             {
                 // final start notification
-                notifyIconSysTray.BalloonTipTitle = "TrueMount by Nefarius";
+                notifyIconSysTray.BalloonTipTitle = config.ApplicationName;
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
-                notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion +
-                    Environment.NewLine + langRes.GetString("Check4Updates");
+                notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
 
@@ -714,6 +710,8 @@ namespace TrueMount
         /// <param name="e"></param>
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            config.ApplicationLocation = Configuration.CurrentApplicationLocation;
+            Configuration.SaveConfiguration(config);
             StopDeviceListener();
         }
 
@@ -895,7 +893,12 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(Configuration.ProjectLocation);
+            AutoUpdater updater = new AutoUpdater();
+            if (updater.DownloadVersionInfo())
+                if (updater.NewVersionAvailable)
+                    if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        new UpdateProgressDialog().ShowDialog();
         }
     }
 }

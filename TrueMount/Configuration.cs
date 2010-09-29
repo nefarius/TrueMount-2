@@ -27,6 +27,8 @@ namespace TrueMount
         public bool UnmountWarning { get; set; }
         public bool DisableBalloons { get; set; }
         public int BalloonTimePeriod { get; set; }
+        public string ApplicationLocation { get; set; }
+        public bool CheckForUpdates { get; set; }
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
@@ -44,6 +46,23 @@ namespace TrueMount
             OnlyOneInstance = true;
             BalloonTimePeriod = 3000;
             FirstStart = true;
+            ApplicationLocation = CurrentApplicationLocation;
+            CheckForUpdates = true;
+        }
+
+        public static string UpdateVersionFileURL
+        {
+            get { return "http://nefarius.darkhosters.net/_media/windows/TrueMountVersion.xml"; }
+        }
+
+        public static string CurrentApplicationLocation
+        {
+            get { return Assembly.GetExecutingAssembly().Location; }
+        }
+
+        public static string CurrentApplicationPath
+        {
+            get { return Path.GetDirectoryName(CurrentApplicationLocation); }
         }
 
         public static string ProjectLocation
@@ -56,6 +75,22 @@ namespace TrueMount
             get { return new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly); }
         }
 
+        public static string UpdateSavePath
+        {
+            get { return Path.Combine(ConfigurationPath, "update"); }
+        }
+
+        public static string ConfigurationPath
+        {
+            get
+            {
+                string appDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TrueMount");
+                if (!Directory.Exists(appDataDir))
+                    Directory.CreateDirectory(appDataDir);
+                return appDataDir;
+            }
+        }
+
         /// <summary>
         /// Contains the path of the configuration file.
         /// </summary>
@@ -63,13 +98,7 @@ namespace TrueMount
         {
             get
             {
-                string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\TrueMount";
-                string configFileName = @"\config.dat";
-
-                if (!Directory.Exists(appDataDir))
-                    Directory.CreateDirectory(appDataDir);
-
-                return appDataDir + configFileName;
+                return Path.Combine(ConfigurationPath, "config.dat");
             }
         }
 
@@ -87,7 +116,7 @@ namespace TrueMount
         public void SetAutoStart()
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(RUN_LOCATION);
-            key.SetValue(VALUE_NAME, Assembly.GetExecutingAssembly().Location);
+            key.SetValue(VALUE_NAME, CurrentApplicationLocation);
         }
 
         /// <summary>
@@ -113,7 +142,7 @@ namespace TrueMount
                 string value = (string)key.GetValue(VALUE_NAME);
                 if (value == null)
                     return false;
-                return (value == Assembly.GetExecutingAssembly().Location);
+                return (value == CurrentApplicationLocation);
             }
         }
 
