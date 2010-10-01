@@ -402,10 +402,4 @@
   <data name="SearchConFile" xml:space="preserve">
     <value>Suche nach neuer Container-Datei.</value>
   </data>
-  <data name="MsgHCleanInstallDir" xml:space="preserve">
-    <value>Achtung: möglicher Datenverlust!</value>
-  </data>
-  <data name="MsgTCleanInstallDir" xml:space="preserve">
-    <value>Um sicherzugehen dass keine alten Daten der Installation zurückbleiben, kann der Updater das Installationsverzeichnis säubern. Darf ich alle Dateien in "{0}" löschen?</value>
-  </data>
 </root>

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Resources;
 using System.IO;
 using System.Diagnostics;
+using System.IO.Pipes;
 
 namespace TrueMount
 {
@@ -22,7 +23,49 @@ namespace TrueMount
             // load configuration
             Configuration config = Configuration.OpenConfiguration();
             // load languages
-            ResourceManager langRes = new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly);
+            ResourceManager langRes = Configuration.LanguageDictionary;
+
+            foreach (string argument in args)
+            {
+                switch (argument)
+                {
+                    case "update":
+                        bool cleanDir = false;
+                        string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
+                        try
+                        {
+                            String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
+                            Process.Start(updaterPath);
+
+                            if (MessageBox.Show(string.Format(langRes.GetString("MsgTCleanInstallDir"), lastAppStartPath),
+                                langRes.GetString("MsgHCleanInstallDir"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                cleanDir = true;
+                        }
+                        catch
+                        {
+                            MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
+                        {
+                            pipeServer.WaitForConnection();
+
+                            using (StreamWriter outStream = new StreamWriter(pipeServer))
+                            {
+                                outStream.WriteLine(Configuration.UpdateSavePath);
+                                outStream.WriteLine(lastAppStartPath);
+                                outStream.WriteLine(cleanDir.ToString());
+                                outStream.Flush();
+                            }
+                        }
+                        return;
+                    default:
+                        break;
+                }
+            }
 
             if (config.CheckForUpdates)
             {

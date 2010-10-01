@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
 using System.IO;
+using System.Collections.Generic;
 
 namespace TrueMount
 {
@@ -59,9 +60,9 @@ namespace TrueMount
 
                 Process updater = new Process();
                 updater.StartInfo.UseShellExecute = false;
-                updater.StartInfo.FileName = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
-                updater.StartInfo.Arguments = "\"" + Configuration.UpdateSavePath + "\" \"" +
-                    Path.GetDirectoryName(config.ApplicationLocation) + "\"";
+                updater.StartInfo.FileName = Path.Combine(Configuration.UpdateSavePath, "TrueMount.exe");
+                updater.StartInfo.Arguments = "update";
+
                 try
                 {
                     updater.Start();

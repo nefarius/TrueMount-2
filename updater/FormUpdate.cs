@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Reflection;
+using System.IO.Pipes;
 
 namespace updater
 {
@@ -16,7 +17,9 @@ namespace updater
     {
         private string sourcePath = string.Empty;
         private string destinationPath = string.Empty;
+        private bool cleanDir = false;
         private TextWriter log = null;
+        private List<string> data = new List<string>();
 
         public FormUpdate(string[] args)
         {
@@ -26,16 +29,11 @@ namespace updater
             }
             catch { MessageBox.Show("Fatal error!"); }
 
+            // backwards compatibility
             if (args.Count() == 2)
             {
                 this.sourcePath = args[0];
                 this.destinationPath = args[1];
-            }
-            else
-            {
-                log.WriteLine(DateTime.Now.ToShortTimeString() + " - no cli options. exiting.");
-                log.Close();
-                Environment.Exit(1);
             }
 
             InitializeComponent();
@@ -43,7 +41,8 @@ namespace updater
 
         private void backgroundWorkerUpdate_DoWork(object sender, DoWorkEventArgs e)
         {
-            EmptyFolder(destinationPath);
+            if (cleanDir)
+                EmptyFolder(destinationPath);
             CopyFolder(sourcePath, destinationPath);
         }
 
@@ -73,6 +72,19 @@ namespace updater
 
         private void FormUpdate_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.sourcePath) && string.IsNullOrEmpty(this.destinationPath))
+                using (NamedPipeClientStream pipeClient = new NamedPipeClientStream("TrueMountUpdater"))
+                {
+                    pipeClient.Connect();
+
+                    using (StreamReader inStream = new StreamReader(pipeClient))
+                    {
+                        this.sourcePath = inStream.ReadLine();
+                        this.destinationPath = inStream.ReadLine();
+                        this.cleanDir = bool.Parse(inStream.ReadLine());
+                    }
+                }
+
             this.backgroundWorkerUpdate.RunWorkerAsync();
         }
 

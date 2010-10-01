@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TrueMount {
+namespace LibTrueMount {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TrueMount {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TrueMount.LanguageDictionary", typeof(LanguageDictionary).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LibTrueMount.LanguageDictionary", typeof(LanguageDictionary).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -412,15 +412,6 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attention: possible data loss!.
-        /// </summary>
-        internal static string MsgHCleanInstallDir {
-            get {
-                return ResourceManager.GetString("MsgHCleanInstallDir", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Duplicate detected.
         /// </summary>
         internal static string MsgHDevDouble {
@@ -552,15 +543,6 @@ namespace TrueMount {
         internal static string MsgHWarnUmount {
             get {
                 return ResourceManager.GetString("MsgHWarnUmount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To ensure that no old data is left back on your harddrive the updater can clean the current installation directory. May I delete all files in &quot;[0}&quot;?.
-        /// </summary>
-        internal static string MsgTCleanInstallDir {
-            get {
-                return ResourceManager.GetString("MsgTCleanInstallDir", resourceCulture);
             }
         }
         

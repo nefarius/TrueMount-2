@@ -1,4 +1,6 @@
-﻿  * Added message box to tray update check
+﻿  * Fixed and changed updater
+
+  * Added message box to tray update check
 2.4.7.29  
   * Added auto-updater
   * Removed now useless "List Disks" Dialog
