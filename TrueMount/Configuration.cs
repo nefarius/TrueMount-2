@@ -85,6 +85,9 @@ namespace TrueMount
             get
             {
                 string appDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TrueMount");
+#if DEBUG
+                appDataDir = Path.Combine(appDataDir, "debug");
+#endif
                 if (!Directory.Exists(appDataDir))
                     Directory.CreateDirectory(appDataDir);
                 return appDataDir;
