@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
-using System.Resources;
 
 namespace TrueMount
 {
@@ -50,36 +50,71 @@ namespace TrueMount
             CheckForUpdates = true;
         }
 
-        public static string UpdateVersionFileURL
+        /// <summary>
+        /// Is this instance launched from the update directory?
+        /// </summary>
+        public static bool IsUpdate
         {
-            get { return "http://nefarius.darkhosters.net/_media/windows/TrueMountVersion.xml"; }
+            get { return (CurrentApplicationLocation.Equals(UpdateSavePath)); }
         }
 
+        /// <summary>
+        /// Location of the XML file containing the update information.
+        /// </summary>
+        public static string UpdateVersionFileURL
+        {
+            get
+            {
+#if DEBUG
+                return "http://localhost/truemountversion.xml";
+#endif
+                return "http://nefarius.darkhosters.net/_media/windows/TrueMountVersion.xml";
+            }
+        }
+
+        /// <summary>
+        /// Full name of the current running assembly instance.
+        /// </summary>
         public static string CurrentApplicationLocation
         {
             get { return Assembly.GetExecutingAssembly().Location; }
         }
 
+        /// <summary>
+        /// Path name of the current running assembly instance.
+        /// </summary>
         public static string CurrentApplicationPath
         {
             get { return Path.GetDirectoryName(CurrentApplicationLocation); }
         }
 
+        /// <summary>
+        /// URL to the projects webpage.
+        /// </summary>
         public static string ProjectLocation
         {
             get { return "http://nefarius.darkhosters.net/windows/truemount2#beta"; }
         }
 
+        /// <summary>
+        /// Resource reference of available included user interface translations.
+        /// </summary>
         public static ResourceManager LanguageDictionary
         {
             get { return new ResourceManager("TrueMount.LanguageDictionary", typeof(TrueMountMainWindow).Assembly); }
         }
 
+        /// <summary>
+        /// Directory where the application updates get saved temporary.
+        /// </summary>
         public static string UpdateSavePath
         {
             get { return Path.Combine(ConfigurationPath, "update"); }
         }
 
+        /// <summary>
+        /// Contains the path where the configuration file and updates are stored.
+        /// </summary>
         public static string ConfigurationPath
         {
             get
@@ -163,6 +198,10 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Saves the given configuration to file.
+        /// </summary>
+        /// <param name="current">The current active configuration object.</param>
         public static void SaveConfiguration(Configuration current)
         {
             FileStream fsSave = new FileStream(ConfigurationFile, FileMode.Create);
@@ -171,6 +210,10 @@ namespace TrueMount
             fsSave.Close();
         }
 
+        /// <summary>
+        /// Opens the configuration from file.
+        /// </summary>
+        /// <returns>Returns stored or new empty default configuration reference.</returns>
         public static Configuration OpenConfiguration()
         {
             if (File.Exists(ConfigurationFile))

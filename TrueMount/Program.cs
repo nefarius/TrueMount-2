@@ -25,46 +25,41 @@ namespace TrueMount
             // load languages
             ResourceManager langRes = Configuration.LanguageDictionary;
 
-            foreach (string argument in args)
+            // if this instance is launched from the update directry, init an update
+            if (Configuration.IsUpdate)
             {
-                switch (argument)
+                bool cleanDir = false;
+                string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
+                try
                 {
-                    case "update":
-                        bool cleanDir = false;
-                        string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
-                        try
-                        {
-                            String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
-                            Process.Start(updaterPath);
+                    String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
+                    Process.Start(updaterPath);
 
-                            if (MessageBox.Show(string.Format(langRes.GetString("MsgTCleanInstallDir"), lastAppStartPath),
-                                langRes.GetString("MsgHCleanInstallDir"),
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                                cleanDir = true;
-                        }
-                        catch
-                        {
-                            MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
-                        {
-                            pipeServer.WaitForConnection();
-
-                            using (StreamWriter outStream = new StreamWriter(pipeServer))
-                            {
-                                outStream.WriteLine(Configuration.UpdateSavePath);
-                                outStream.WriteLine(lastAppStartPath);
-                                outStream.WriteLine(cleanDir.ToString());
-                                outStream.Flush();
-                            }
-                        }
-                        return;
-                    default:
-                        break;
+                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTCleanInstallDir"), lastAppStartPath),
+                        langRes.GetString("MsgHCleanInstallDir"),
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        cleanDir = true;
                 }
+                catch
+                {
+                    MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
+                {
+                    pipeServer.WaitForConnection();
+
+                    using (StreamWriter outStream = new StreamWriter(pipeServer))
+                    {
+                        outStream.WriteLine(Configuration.UpdateSavePath);
+                        outStream.WriteLine(lastAppStartPath);
+                        outStream.WriteLine(cleanDir.ToString());
+                        outStream.Flush();
+                    }
+                }
+                return;
             }
 
             if (config.CheckForUpdates)
@@ -72,9 +67,7 @@ namespace TrueMount
                 AutoUpdater updater = new AutoUpdater();
                 if (updater.DownloadVersionInfo())
                     if (updater.NewVersionAvailable)
-                        if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
-                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            new UpdateProgressDialog().ShowDialog();
+                        new UpdateDialog(updater).ShowDialog();
             }
 
             // clean old updates
@@ -84,7 +77,7 @@ namespace TrueMount
             if (File.Exists(updaterFile))
                 File.Delete(updaterFile);
 
-            // use mutex to test, if application has been started bevore
+            // use mutex to test if application has been started bevore
             bool createdNew = true;
             using (Mutex mutex = new Mutex(true, config.ApplicationName, out createdNew))
             {

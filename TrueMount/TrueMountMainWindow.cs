@@ -899,7 +899,7 @@ namespace TrueMount
                 {
                     if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        new UpdateProgressDialog().ShowDialog();
+                        new UpdateDialog(updater).ShowDialog();
                 }
                 else
                     MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),

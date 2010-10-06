@@ -7,6 +7,7 @@ using System.Net;
 using System.IO;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
+using System.Reflection;
 
 namespace TrueMount
 {
@@ -14,7 +15,7 @@ namespace TrueMount
     {
         // in newVersion variable we will store the
         // version info from xml file
-        private Version newVersion = null;
+        public Version NewVersion { get; set; }
         // and in this variable we will put the url we
         // would like to open so that the user can
         // download the new version
@@ -25,9 +26,25 @@ namespace TrueMount
         // our xml document
         public delegate void OnDownloadProgressChangedEventHandler(int downloadProgress);
         public event OnDownloadProgressChangedEventHandler OnDownloadProgressChanged;
+        private string changes = string.Empty;
+        public string ChangeLog
+        {
+            get
+            {
+                String temp = string.Empty;
+                foreach (string part in changes.Split('|'))
+                    temp += part + Environment.NewLine;
+                return temp;
+            }
+            set
+            {
+                changes = value;
+            }
+        }
 
         public bool DownloadNewVersion()
         {
+            // without the url to the archive this can't do anything usefull
             if (string.IsNullOrEmpty(this.zipUrl))
                 return false;
 
@@ -45,30 +62,39 @@ namespace TrueMount
                     //StreamUtils.Copy(responseStream, memoryStream, buffer);
 
                     int byteSize = 0, byteDownloaded = 0, percentDone = 0;
+                    // read the binary stream till the end
                     while ((byteSize = responseStream.Read(buffer, 0, buffer.Length)) > 0)
                     {
                         memoryStream.Write(buffer, 0, byteSize);
+                        // calculate progress percentage
                         byteDownloaded += byteSize;
                         percentDone = (byteDownloaded * 100) / (int)httpResponse.ContentLength;
+                        // invoke event to tell other forms the new download progress
                         this.OnDownloadProgressChanged.Invoke(percentDone);
                     }
 
-                    responseStream.Close();
+                    // associate new zip compressed file with memory stream
                     zipFile = new ZipFile(memoryStream);
                 }
             }
 
+            // extract every file in zip archiv
             foreach (ZipEntry zipEntry in zipFile)
             {
+                // we don't need directories, they will be created
                 if (!zipEntry.IsFile)
                     continue;
 
                 Stream zipStream = zipFile.GetInputStream(zipEntry);
+                // full file path + name (in the AppData update folder)
                 string fileName = Path.Combine(Configuration.UpdateSavePath, zipEntry.Name);
+                // directory name of the file
                 string dirName = Path.GetDirectoryName(fileName);
+                // if its directory does not exist, create it
                 if (!Directory.Exists(dirName))
                     Directory.CreateDirectory(dirName);
 
+                // create the file and write uncompressed data into it
                 using (FileStream streamWriter = File.Create(fileName))
                 {
                     StreamUtils.Copy(zipStream, streamWriter, buffer);
@@ -83,10 +109,9 @@ namespace TrueMount
             get
             {
                 // get the running version
-                Version curVersion =
-                    System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                Version curVersion = Assembly.GetExecutingAssembly().GetName().Version;
                 // compare the versions
-                if (curVersion.CompareTo(newVersion) < 0)
+                if (curVersion.CompareTo(NewVersion) < 0)
                     return true;
                 return false;
             }
@@ -107,7 +132,7 @@ namespace TrueMount
                 // what was the node name
                 string elementName = string.Empty;
                 // we check if the xml starts with a proper
-                // "ourfancyapp" element node
+                // "truemount" element node
                 if ((xmlReader.NodeType == XmlNodeType.Element) &&
                     (xmlReader.Name == "truemount"))
                 {
@@ -131,10 +156,13 @@ namespace TrueMount
                                         // in xxx.xxx.xxx.xxx format
                                         // the Version class does the
                                         // parsing for us
-                                        newVersion = new Version(xmlReader.Value);
+                                        NewVersion = new Version(xmlReader.Value);
                                         break;
                                     case "url":
                                         zipUrl = xmlReader.Value;
+                                        break;
+                                    case "changes":
+                                        changes = xmlReader.Value;
                                         break;
                                 }
                             }
@@ -143,6 +171,7 @@ namespace TrueMount
                 }
             }
             catch { return false; }
+            // always close the file/stream
             finally { if (xmlReader != null) xmlReader.Close(); }
 
             return true;
