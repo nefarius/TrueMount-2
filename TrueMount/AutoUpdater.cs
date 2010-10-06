@@ -27,6 +27,10 @@ namespace TrueMount
         public delegate void OnDownloadProgressChangedEventHandler(int downloadProgress);
         public event OnDownloadProgressChangedEventHandler OnDownloadProgressChanged;
         private string changes = string.Empty;
+
+        /// <summary>
+        /// Returns the chenges of the new version.
+        /// </summary>
         public string ChangeLog
         {
             get
@@ -42,6 +46,10 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Downloads and extracts an archive with the new version.
+        /// </summary>
+        /// <returns>Returns true on success.</returns>
         public bool DownloadNewVersion()
         {
             // without the url to the archive this can't do anything usefull
@@ -104,10 +112,16 @@ namespace TrueMount
             return true;
         }
 
+        /// <summary>
+        /// Returns true if new version was detected.
+        /// </summary>
         public bool NewVersionAvailable
         {
             get
             {
+                if (!this.DownloadVersionInfo())
+                    return false;
+
                 // get the running version
                 Version curVersion = Assembly.GetExecutingAssembly().GetName().Version;
                 // compare the versions
@@ -117,6 +131,10 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Downloads the version information from the update location.
+        /// </summary>
+        /// <returns>Returns true on success.</returns>
         public bool DownloadVersionInfo()
         {
             XmlTextReader xmlReader = null;

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using System.Diagnostics;
-using System.Reflection;
+using System.IO;
 using System.IO.Pipes;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace updater
 {
@@ -17,7 +14,6 @@ namespace updater
     {
         private string sourcePath = string.Empty;
         private string destinationPath = string.Empty;
-        private bool cleanDir = false;
         private TextWriter log = null;
         private List<string> data = new List<string>();
 
@@ -32,8 +28,10 @@ namespace updater
             // backwards compatibility
             if (args.Count() == 2)
             {
-                this.sourcePath = args[0];
-                this.destinationPath = args[1];
+                if (!string.IsNullOrEmpty(args[0]))
+                    this.sourcePath = args[0];
+                if (!string.IsNullOrEmpty(args[1]))
+                    this.destinationPath = args[1];
             }
 
             InitializeComponent();
@@ -41,8 +39,6 @@ namespace updater
 
         private void backgroundWorkerUpdate_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (cleanDir)
-                EmptyFolder(destinationPath);
             CopyFolder(sourcePath, destinationPath);
         }
 
@@ -81,35 +77,10 @@ namespace updater
                     {
                         this.sourcePath = inStream.ReadLine();
                         this.destinationPath = inStream.ReadLine();
-                        this.cleanDir = bool.Parse(inStream.ReadLine());
                     }
                 }
 
             this.backgroundWorkerUpdate.RunWorkerAsync();
-        }
-
-        private void EmptyFolder(String directoryName)
-        {
-            DirectoryInfo directory = new DirectoryInfo(directoryName);
-            foreach (FileInfo file in directory.GetFiles())
-            {
-                try
-                {
-                    file.Delete();
-                    WriteLog(file.FullName + " deleted.");
-                }
-                catch (Exception ex) { WriteExceptionLog(ex); }
-            }
-
-            foreach (DirectoryInfo subDirectory in directory.GetDirectories())
-            {
-                try
-                {
-                    directory.Delete(true);
-                    WriteLog(subDirectory.FullName + " deleted.");
-                }
-                catch (Exception ex) { WriteExceptionLog(ex); }
-            }
         }
 
         private void CopyFolder(string sourceFolder, string destFolder)

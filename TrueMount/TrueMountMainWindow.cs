@@ -19,7 +19,7 @@ namespace TrueMount
         private ManagementEventWatcher keyRemoveEvent = null;
         private ResourceManager langRes = null;
         private CultureInfo culture = null;
-        SplashScreen splashScreen = null;
+        private SplashScreen splashScreen = null;
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
@@ -204,7 +204,6 @@ namespace TrueMount
             if (config.FirstStart)
             {
                 splashScreen.Hide();
-                Process.Start(Configuration.ProjectLocation);
                 buttonSettings_Click(this, null);
                 config.FirstStart = false;
             }

@@ -28,17 +28,11 @@ namespace TrueMount
             // if this instance is launched from the update directry, init an update
             if (Configuration.IsUpdate)
             {
-                bool cleanDir = false;
                 string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
                 try
                 {
                     String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
                     Process.Start(updaterPath);
-
-                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTCleanInstallDir"), lastAppStartPath),
-                        langRes.GetString("MsgHCleanInstallDir"),
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                        cleanDir = true;
                 }
                 catch
                 {
@@ -55,7 +49,6 @@ namespace TrueMount
                     {
                         outStream.WriteLine(Configuration.UpdateSavePath);
                         outStream.WriteLine(lastAppStartPath);
-                        outStream.WriteLine(cleanDir.ToString());
                         outStream.Flush();
                     }
                 }
