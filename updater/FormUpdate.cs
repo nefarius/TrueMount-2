@@ -61,17 +61,25 @@ namespace updater
             // connect to the parent server instance and get the update paths
             using (NamedPipeClientStream pipeClient = new NamedPipeClientStream("TrueMountUpdater"))
             {
-                pipeClient.Connect();
-
-                using (StreamReader inStream = new StreamReader(pipeClient))
+                try
                 {
-                    this.sourcePath = inStream.ReadLine();
-                    this.destinationPath = inStream.ReadLine();
+                    pipeClient.Connect(3000);
+
+                    using (StreamReader inStream = new StreamReader(pipeClient))
+                    {
+                        this.sourcePath = inStream.ReadLine();
+                        this.destinationPath = inStream.ReadLine();
+                    }
+
+                    // begin with the update
+                    this.backgroundWorkerUpdate.RunWorkerAsync();
+                }
+                catch (TimeoutException toex)
+                {
+                    WriteExceptionLog(toex);
+                    Application.Exit();
                 }
             }
-
-            // begin with the update
-            this.backgroundWorkerUpdate.RunWorkerAsync();
         }
 
         /// <summary>

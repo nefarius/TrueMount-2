@@ -29,6 +29,14 @@ namespace TrueMount
             if (Configuration.IsUpdate)
             {
                 string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
+
+                if (string.IsNullOrEmpty(lastAppStartPath) || string.IsNullOrEmpty(Configuration.UpdateSavePath))
+                {
+                    MessageBox.Show(langRes.GetString("MsgTUpdateIncompatible"), langRes.GetString("MsgHUpdateIncompatible"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 try
                 {
                     String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");

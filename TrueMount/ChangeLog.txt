@@ -1,5 +1,12 @@
-﻿
-  * Fixed and changed updater
+﻿2.4.10.40
+  * Added (silent) compatibility mode for older configurations to avoid program crashes
+  * Minor updater changes
+    * only TrueMount program files get patched, other files in installation directory are untouched! Store TrueMount wherever you want!
+	* improved update notification dialog with integrated change log viewer
+	* Fixed hanging or crashing updater on user execution
+  * Language improvements
+  * Changed notification on failed mounts
+  * Improved error handling on updates and added new error messages
 2.4.8.32
   * Added message box to tray update check
 2.4.7.29  

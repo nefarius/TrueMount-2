@@ -402,4 +402,10 @@
   <data name="SearchConFile" xml:space="preserve">
     <value>Searching for new container file.</value>
   </data>
+  <data name="MsgHUpdateIncompatible" xml:space="preserve">
+    <value>Incompatibility problem</value>
+  </data>
+  <data name="MsgTUpdateIncompatible" xml:space="preserve">
+    <value>There seems to be a compatibility issue, please download and install the latest version by hand!</value>
+  </data>
 </root>

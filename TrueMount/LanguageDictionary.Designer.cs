@@ -529,6 +529,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incompatibility problem.
+        /// </summary>
+        internal static string MsgHUpdateIncompatible {
+            get {
+                return ResourceManager.GetString("MsgHUpdateIncompatible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings unsaved.
         /// </summary>
         internal static string MsgHWarnNotSaved {
@@ -660,6 +669,15 @@ namespace TrueMount {
         internal static string MsgTUpdateFail {
             get {
                 return ResourceManager.GetString("MsgTUpdateFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There seems to be a compatibility issue, please download and install the latest version by hand!.
+        /// </summary>
+        internal static string MsgTUpdateIncompatible {
+            get {
+                return ResourceManager.GetString("MsgTUpdateIncompatible", resourceCulture);
             }
         }
         
