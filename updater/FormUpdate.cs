@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -17,22 +16,14 @@ namespace updater
         private TextWriter log = null;
         private List<string> data = new List<string>();
 
-        public FormUpdate(string[] args)
+        public FormUpdate()
         {
+            // try to log errors to a file
             try
             {
                 log = new StreamWriter(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "updater.log"));
             }
             catch { MessageBox.Show("Fatal error!"); }
-
-            // backwards compatibility
-            if (args.Count() == 2)
-            {
-                if (!string.IsNullOrEmpty(args[0]))
-                    this.sourcePath = args[0];
-                if (!string.IsNullOrEmpty(args[1]))
-                    this.destinationPath = args[1];
-            }
 
             InitializeComponent();
         }
@@ -57,8 +48,7 @@ namespace updater
 
         private void WriteExceptionLog(Exception ex)
         {
-            log.WriteLine(DateTime.Now.ToShortTimeString() + " - " + ex.Message +
-                Environment.NewLine + ex.StackTrace);
+            WriteLog(ex.Message + Environment.NewLine + ex.StackTrace);
         }
 
         private void WriteLog(String line)
@@ -68,21 +58,27 @@ namespace updater
 
         private void FormUpdate_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.sourcePath) && string.IsNullOrEmpty(this.destinationPath))
-                using (NamedPipeClientStream pipeClient = new NamedPipeClientStream("TrueMountUpdater"))
+            // connect to the parent server instance and get the update paths
+            using (NamedPipeClientStream pipeClient = new NamedPipeClientStream("TrueMountUpdater"))
+            {
+                pipeClient.Connect();
+
+                using (StreamReader inStream = new StreamReader(pipeClient))
                 {
-                    pipeClient.Connect();
-
-                    using (StreamReader inStream = new StreamReader(pipeClient))
-                    {
-                        this.sourcePath = inStream.ReadLine();
-                        this.destinationPath = inStream.ReadLine();
-                    }
+                    this.sourcePath = inStream.ReadLine();
+                    this.destinationPath = inStream.ReadLine();
                 }
+            }
 
+            // begin with the update
             this.backgroundWorkerUpdate.RunWorkerAsync();
         }
 
+        /// <summary>
+        /// Copies a folder recursively.
+        /// </summary>
+        /// <param name="sourceFolder">The source directory.</param>
+        /// <param name="destFolder">The target directory.</param>
         private void CopyFolder(string sourceFolder, string destFolder)
         {
             if (!Directory.Exists(destFolder))
@@ -107,6 +103,7 @@ namespace updater
 
         private void FormUpdate_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // close the log if opened
             if (log != null)
                 log.Close();
         }

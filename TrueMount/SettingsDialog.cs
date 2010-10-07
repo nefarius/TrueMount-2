@@ -725,8 +725,9 @@ namespace TrueMount
 
         private void buttonEditContainerKeyFiles_Click(object sender, EventArgs e)
         {
-            KeyFilesDialog kfd = new KeyFilesDialog();
-            kfd.KeyFiles = containerKeyFilesList[listBoxContainerFiles.SelectedIndex];
+            // open new key files dialog with existing key files
+            KeyFilesDialog kfd = new KeyFilesDialog(containerKeyFilesList[listBoxContainerFiles.SelectedIndex]);
+            // if the user edited something (dialog closed with save/OK) overwrite old key files list
             if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 containerKeyFilesList[listBoxContainerFiles.SelectedIndex] = kfd.KeyFiles;
             kfd = null;
@@ -739,7 +740,7 @@ namespace TrueMount
                 if (File.Exists(Configuration.ConfigurationFile))
                     File.Delete(Configuration.ConfigurationFile);
             }
-            catch {/* tja... */}
+            catch {/* who cares? */}
             finally { Environment.Exit(1); }
         }
 

@@ -11,11 +11,11 @@ namespace updater
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormUpdate(args));
+            Application.Run(new FormUpdate());
         }
     }
 }

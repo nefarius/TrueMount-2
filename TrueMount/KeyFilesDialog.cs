@@ -7,6 +7,9 @@ namespace TrueMount
 {
     public partial class KeyFilesDialog : Form
     {
+        /// <summary>
+        /// Gets or sets the list of key files.
+        /// </summary>
         public List<string> KeyFiles
         {
             get
@@ -24,9 +27,22 @@ namespace TrueMount
             }
         }
 
+        /// <summary>
+        /// Create new KeyFilesDialog object.
+        /// </summary>
         public KeyFilesDialog()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Create new KeyFilesDialog object with key files list.
+        /// </summary>
+        /// <param name="keyFiles">The list of key files.</param>
+        public KeyFilesDialog(List<string> keyFiles)
+            : this()
+        {
+            this.KeyFiles = keyFiles;
         }
 
         /// <summary>
@@ -96,8 +112,6 @@ namespace TrueMount
         /// <summary>
         /// Opens path searcher and adds selected path to list.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonAddPath_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialogKeyDir.ShowDialog() == DialogResult.OK)
@@ -114,8 +128,6 @@ namespace TrueMount
         /// <summary>
         /// Removes all items from list.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonRemoveAll_Click(object sender, EventArgs e)
         {
             listBoxKeyFiles.Items.Clear();
@@ -125,8 +137,6 @@ namespace TrueMount
         /// <summary>
         /// Closes form.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -136,8 +146,6 @@ namespace TrueMount
         /// <summary>
         /// Saves items in key files list.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;

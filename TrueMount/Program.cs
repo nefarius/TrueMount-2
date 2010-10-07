@@ -55,12 +55,12 @@ namespace TrueMount
                 return;
             }
 
+            // if update checking is allowed, do it
             if (config.CheckForUpdates)
             {
                 AutoUpdater updater = new AutoUpdater();
-                if (updater.DownloadVersionInfo())
-                    if (updater.NewVersionAvailable)
-                        new UpdateDialog(updater).ShowDialog();
+                if (updater.NewVersionAvailable)
+                    new UpdateDialog(updater).ShowDialog();
             }
 
             // clean old updates
@@ -85,6 +85,7 @@ namespace TrueMount
                     }
                 }
 
+                // we made it to the main window, load it!
                 Application.Run(new TrueMountMainWindow());
             }
         }

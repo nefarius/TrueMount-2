@@ -235,7 +235,7 @@
     <value>Das gewählte Laufwerk scheint nicht mehr verfügbar zu sein, bitte öffnen Sie den Dialog erneut!</value>
   </data>
   <data name="MsgTDiskTimeout" xml:space="preserve">
-    <value>Das Einbinden von {0} scheint zu hängen, überspringen?</value>
+    <value>Das Einbinden von {0} scheint nicht funktioniert zu haben! Bitte prüfen Sie ausgegebene Meldungen und Einstellungen!</value>
   </data>
   <data name="MsgTInsranceInfo" xml:space="preserve">
     <value>Es läuft bereits eine Instanz von TrueMount!</value>

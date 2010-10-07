@@ -247,7 +247,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TrueMount_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />

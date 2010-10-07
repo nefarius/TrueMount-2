@@ -663,16 +663,12 @@ namespace TrueMount
                 loop++;
                 if (loop == 10)
                 {
-                    if (MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
-                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                        System.Windows.Forms.DialogResult.Yes)
-                    {
-                        LogAppend("MountCanceled", encMedia.ToString());
-                        Cursor.Current = Cursors.Default;
-                        return mountSuccess;
-                    }
-                    else
-                        loop = 0;
+                    MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
+                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    LogAppend("MountCanceled", encMedia.ToString());
+                    Cursor.Current = Cursors.Default;
+                    return mountSuccess;
                 }
             }
             Cursor.Current = Cursors.Default;
@@ -710,6 +706,7 @@ namespace TrueMount
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             config.ApplicationLocation = Configuration.CurrentApplicationLocation;
+            config.EncryptedContainerFiles = null;
             Configuration.SaveConfiguration(config);
             StopDeviceListener();
         }
@@ -892,17 +889,13 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             AutoUpdater updater = new AutoUpdater();
-            if (updater.DownloadVersionInfo())
-                if (updater.NewVersionAvailable)
-                {
-                    if (MessageBox.Show(langRes.GetString("MsgTNewVersion"), langRes.GetString("MsgHNewVersion"),
-                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        new UpdateDialog(updater).ShowDialog();
-                }
-                else
-                    MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (updater.NewVersionAvailable)
+            {
+                this.Cursor = Cursors.Default;
+                new UpdateDialog(updater).ShowDialog();
+            }
         }
     }
 }

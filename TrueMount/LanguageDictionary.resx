@@ -235,7 +235,7 @@
     <value>The chosen disk seems to be offline, please reopen this dialog!</value>
   </data>
   <data name="MsgTDiskTimeout" xml:space="preserve">
-    <value>The mount process of {0} seems to hang, skip this device?</value>
+    <value>The mount of {0} seems seems to have not worked! Please check the log output and your settings!</value>
   </data>
   <data name="MsgTInsranceInfo" xml:space="preserve">
     <value>There is already an instance of TrueMount running!</value>

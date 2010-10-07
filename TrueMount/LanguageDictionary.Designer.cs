@@ -574,7 +574,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The mount process of {0} seems to hang, skip this device?.
+        ///   Looks up a localized string similar to The mount of {0} seems seems to have not worked! Please check the log output and your settings!.
         /// </summary>
         internal static string MsgTDiskTimeout {
             get {

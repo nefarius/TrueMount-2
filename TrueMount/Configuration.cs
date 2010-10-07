@@ -51,6 +51,25 @@ namespace TrueMount
         }
 
         /// <summary>
+        /// Checks and initializes all null references.
+        /// </summary>
+        public void InitReferences()
+        {
+            if (TrueCrypt == null)
+                TrueCrypt = new TrueCryptConfig();
+            if (KeyDevices == null)
+                KeyDevices = new List<UsbKeyDevice>();
+            if (EncryptedDiskPartitions == null)
+                EncryptedDiskPartitions = new List<EncryptedDiskPartition>();
+            if (EncryptedContainerFiles == null)
+                EncryptedContainerFiles = new List<EncryptedContainerFile>();
+            if (Language == null)
+                Language = System.Threading.Thread.CurrentThread.CurrentUICulture;
+            if (string.IsNullOrEmpty(ApplicationLocation))
+                ApplicationLocation = CurrentApplicationLocation;
+        }
+
+        /// <summary>
         /// Is this instance launched from the update directory?
         /// </summary>
         public static bool IsUpdate
@@ -222,6 +241,8 @@ namespace TrueMount
                 BinaryFormatter binFormat = new BinaryFormatter();
                 Configuration stored = (Configuration)binFormat.Deserialize(fsFetch);
                 fsFetch.Close();
+                // compatibility workaround: initiates every null reference to avoid crashes
+                stored.InitReferences();
                 return stored;
             }
             return new Configuration();
