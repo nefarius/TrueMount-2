@@ -69,12 +69,22 @@ namespace TrueMount
                 ApplicationLocation = CurrentApplicationLocation;
         }
 
+        public static Version CurrentVersion
+        {
+            get { return Assembly.GetExecutingAssembly().GetName().Version; }
+        }
+
+        public static string WebUserAgent
+        {
+            get { return "TrueMount/" + CurrentVersion; }
+        }
+
         /// <summary>
         /// Is this instance launched from the update directory?
         /// </summary>
         public static bool IsUpdate
         {
-            get { return (CurrentApplicationLocation.Equals(UpdateSavePath)); }
+            get { return (Path.GetDirectoryName(CurrentApplicationLocation).Equals(UpdateSavePath)); }
         }
 
         /// <summary>

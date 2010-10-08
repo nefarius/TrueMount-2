@@ -57,6 +57,7 @@ namespace TrueMount
                 return false;
 
             HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(this.zipUrl);
+            httpRequest.UserAgent = Configuration.WebUserAgent;
             byte[] buffer = new byte[4096];
             ZipFile zipFile = null;
             MemoryStream memoryStream = null;
@@ -122,10 +123,8 @@ namespace TrueMount
                 if (!this.DownloadVersionInfo())
                     return false;
 
-                // get the running version
-                Version curVersion = Assembly.GetExecutingAssembly().GetName().Version;
                 // compare the versions
-                if (curVersion.CompareTo(NewVersion) < 0)
+                if (Configuration.CurrentVersion.CompareTo(NewVersion) < 0)
                     return true;
                 return false;
             }
@@ -140,48 +139,54 @@ namespace TrueMount
             XmlTextReader xmlReader = null;
             try
             {
-                xmlReader = new XmlTextReader(Configuration.UpdateVersionFileURL);
-                // simply (and easily) skip the junk at the beginning
-                xmlReader.MoveToContent();
-                // internal - as the XmlTextReader moves only
-                // forward, we save current xml element name
-                // in elementName variable. When we parse a
-                // text node, we refer to elementName to check
-                // what was the node name
-                string elementName = string.Empty;
-                // we check if the xml starts with a proper
-                // "truemount" element node
-                if ((xmlReader.NodeType == XmlNodeType.Element) &&
-                    (xmlReader.Name == "truemount"))
+                var request = (HttpWebRequest)WebRequest.Create(Configuration.UpdateVersionFileURL);
+                request.UserAgent = Configuration.WebUserAgent;
+                using (var response = request.GetResponse())
+                using (var responseStream = response.GetResponseStream())
+                using (xmlReader = new XmlTextReader(responseStream))
                 {
-                    while (xmlReader.Read())
+                    // simply (and easily) skip the junk at the beginning
+                    xmlReader.MoveToContent();
+                    // internal - as the XmlTextReader moves only
+                    // forward, we save current xml element name
+                    // in elementName variable. When we parse a
+                    // text node, we refer to elementName to check
+                    // what was the node name
+                    string elementName = string.Empty;
+                    // we check if the xml starts with a proper
+                    // "truemount" element node
+                    if ((xmlReader.NodeType == XmlNodeType.Element) &&
+                        (xmlReader.Name == "truemount"))
                     {
-                        // when we find an element node,
-                        // we remember its name
-                        if (xmlReader.NodeType == XmlNodeType.Element)
-                            elementName = xmlReader.Name;
-                        else
+                        while (xmlReader.Read())
                         {
-                            // for text nodes...
-                            if ((xmlReader.NodeType == XmlNodeType.Text) &&
-                                (xmlReader.HasValue))
+                            // when we find an element node,
+                            // we remember its name
+                            if (xmlReader.NodeType == XmlNodeType.Element)
+                                elementName = xmlReader.Name;
+                            else
                             {
-                                // we check what the name of the node was
-                                switch (elementName)
+                                // for text nodes...
+                                if ((xmlReader.NodeType == XmlNodeType.Text) &&
+                                    (xmlReader.HasValue))
                                 {
-                                    case "version":
-                                        // thats why we keep the version info
-                                        // in xxx.xxx.xxx.xxx format
-                                        // the Version class does the
-                                        // parsing for us
-                                        NewVersion = new Version(xmlReader.Value);
-                                        break;
-                                    case "url":
-                                        zipUrl = xmlReader.Value;
-                                        break;
-                                    case "changes":
-                                        changes = xmlReader.Value;
-                                        break;
+                                    // we check what the name of the node was
+                                    switch (elementName)
+                                    {
+                                        case "version":
+                                            // thats why we keep the version info
+                                            // in xxx.xxx.xxx.xxx format
+                                            // the Version class does the
+                                            // parsing for us
+                                            NewVersion = new Version(xmlReader.Value);
+                                            break;
+                                        case "url":
+                                            zipUrl = xmlReader.Value;
+                                            break;
+                                        case "changes":
+                                            changes = xmlReader.Value;
+                                            break;
+                                    }
                                 }
                             }
                         }
@@ -189,8 +194,6 @@ namespace TrueMount
                 }
             }
             catch { return false; }
-            // always close the file/stream
-            finally { if (xmlReader != null) xmlReader.Close(); }
 
             return true;
         }
