@@ -339,9 +339,6 @@
   <data name="BalloonVolMounted" xml:space="preserve">
     <value>{0} wurde als Laufwerk {1}: eingebunden.</value>
   </data>
-  <data name="BeginUpdate" xml:space="preserve">
-    <value>Beginne Programmaktualisierung...</value>
-  </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container-Datei {0} deaktiviert, übersprungen.</value>
   </data>
@@ -387,15 +384,6 @@
   <data name="MsgTNoNewVersion" xml:space="preserve">
     <value>Keine neue Version verfügbar zur Zeit.</value>
   </data>
-  <data name="MsgTUDownloadFail" xml:space="preserve">
-    <value>Aktualisierung konnte nicht heruntergeladen werden, versuchen Sie es später nochmal!</value>
-  </data>
-  <data name="MsgTUDownloadOk" xml:space="preserve">
-    <value>Aktualisierung erfolgreich heruntergeladen!</value>
-  </data>
-  <data name="MsgTUpdateFail" xml:space="preserve">
-    <value>Aktualisierung fehlgeschlagen!</value>
-  </data>
   <data name="NewVolumeMounted" xml:space="preserve">
     <value>Neues Laufwerk eingebunden</value>
   </data>
@@ -407,5 +395,8 @@
   </data>
   <data name="MsgTUpdateIncompatible" xml:space="preserve">
     <value>Es scheint ein Kompatibilitätsproblem aufgetreten zu sein, bitte laden und Installieren Sie die neueste Version von Hand!</value>
+  </data>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Aktualisierung fehlgeschlagen!</value>
   </data>
 </root>

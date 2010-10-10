@@ -117,41 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelCurrentAction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+  <data name="BeginUpdate" xml:space="preserve">
+    <value>Beginne Programmaktualisierung...</value>
   </data>
-  <data name="labelCurrentAction.Text" xml:space="preserve">
-    <value>Warten...</value>
+  <data name="DownloadProgress" xml:space="preserve">
+    <value>Heruntergeladen: {0}%</value>
   </data>
-  <data name="buttonPerformUpdate.Text" xml:space="preserve">
-    <value>Herunterladen und Installieren</value>
+  <data name="MsgHNoNewVersion" xml:space="preserve">
+    <value>Keine neue Version</value>
   </data>
-  <data name="buttonCancelUpdate.Text" xml:space="preserve">
-    <value>Jetzt nicht aktualisieren</value>
+  <data name="MsgHUDownloadFail" xml:space="preserve">
+    <value>Aktualisierung gescheitert</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 4</value>
+  <data name="MsgHUDownloadOk" xml:space="preserve">
+    <value>Herunterladen erfolgreich</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
+  <data name="MsgHUpdateFail" xml:space="preserve">
+    <value>Aktualisierung gescheitert</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Eine neue Version von TrueMount ist verfügbar!</value>
+  <data name="MsgTNoNewVersion" xml:space="preserve">
+    <value>Keine neue Version verfügbar zur Zeit.</value>
   </data>
-  <data name="linkLabelViewChanges.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 13</value>
+  <data name="MsgTUDownloadFail" xml:space="preserve">
+    <value>Aktualisierung konnte nicht heruntergeladen werden, versuchen Sie es später nochmal!</value>
   </data>
-  <data name="linkLabelViewChanges.Text" xml:space="preserve">
-    <value>Zeige Änderungen...</value>
+  <data name="MsgTUDownloadOk" xml:space="preserve">
+    <value>Aktualisierung erfolgreich heruntergeladen!</value>
   </data>
-  <data name="labelChangeLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 26</value>
-  </data>
-  <data name="labelChangeLog.Text" xml:space="preserve">
-    <value>Änderungen - </value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Eine Aktualisierung für TrueMount ist verfügbar</value>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Aktualisierung fehlgeschlagen!</value>
   </data>
 </root>

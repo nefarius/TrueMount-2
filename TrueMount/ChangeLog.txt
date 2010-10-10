@@ -1,4 +1,15 @@
-﻿2.4.10.40
+﻿2.4.12.42
+  * Rewrote big parts of updating system
+    * Updater is now a complete separate assembly
+  * Fixed application crash after update
+  * Fixed updater crash before update
+  * Fixed updater crash after update
+  * Fixed IPC errors
+  * Added process detection and copy protection code to updater
+  * Improved error handling
+  * Added language and dialog corrections
+  * Minor changes to settings dialog
+2.4.10.40
   * Added (silent) compatibility mode for older configurations to avoid program crashes
   * Minor updater changes
     * only TrueMount program files get patched, other files in installation directory are untouched! Store TrueMount wherever you want!

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
+using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
-using System.Resources;
-using System.IO;
-using System.Diagnostics;
-using System.IO.Pipes;
 
 namespace TrueMount
 {
@@ -25,58 +22,15 @@ namespace TrueMount
             // load languages
             ResourceManager langRes = Configuration.LanguageDictionary;
 
-            // if this instance is launched from the update directry, init an update
-            if (Configuration.IsUpdate)
-            {
-                string lastAppStartPath = Path.GetDirectoryName(config.ApplicationLocation);
-
-                if (string.IsNullOrEmpty(lastAppStartPath) || string.IsNullOrEmpty(Configuration.UpdateSavePath))
-                {
-                    MessageBox.Show(langRes.GetString("MsgTUpdateIncompatible"), langRes.GetString("MsgHUpdateIncompatible"),
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                try
-                {
-                    String updaterPath = Path.Combine(Configuration.UpdateSavePath, "updater.exe");
-                    Process.Start(updaterPath);
-                }
-                catch
-                {
-                    MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
-                {
-                    pipeServer.WaitForConnection();
-
-                    using (StreamWriter outStream = new StreamWriter(pipeServer))
-                    {
-                        outStream.WriteLine(Configuration.UpdateSavePath);
-                        outStream.WriteLine(lastAppStartPath);
-                        outStream.Flush();
-                    }
-                }
-                return;
-            }
-
             // if update checking is allowed, do it
             if (config.CheckForUpdates)
-            {
-                AutoUpdater updater = new AutoUpdater();
-                if (updater.NewVersionAvailable)
-                    new UpdateDialog(updater).ShowDialog();
-            }
+                if (!config.InvokeUpdateProcess(true))
+                    MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             // clean old updates
             if (Directory.Exists(Configuration.UpdateSavePath))
                 Directory.Delete(Configuration.UpdateSavePath, true);
-            string updaterFile = Path.Combine(Configuration.CurrentApplicationPath, "updater.exe");
-            if (File.Exists(updaterFile))
-                File.Delete(updaterFile);
 
             // use mutex to test if application has been started bevore
             bool createdNew = true;

@@ -120,10 +120,6 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -135,7 +131,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoUpdater.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="EncryptedContainerFile.cs" />
     <Compile Include="EncryptedMedia.cs" />
@@ -157,12 +152,6 @@
     </Compile>
     <Compile Include="EncryptedDiskPartition.cs" />
     <Compile Include="TrueCryptConfig.cs" />
-    <Compile Include="UpdateDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateDialog.Designer.cs">
-      <DependentUpon>UpdateDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UsbKeyDevice.cs" />
     <Compile Include="SettingsDialog.cs">
       <SubType>Form</SubType>
@@ -230,12 +219,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UpdateDialog.de.resx">
-      <DependentUpon>UpdateDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateDialog.resx">
-      <DependentUpon>UpdateDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -250,7 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
-    <Content Include="TrueMountVersion.xml" />
+    <Content Include="TrueMountVersion.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ChangeLog.txt" />
     <None Include="Resources\1285602715_page_white_edit.png" />
     <None Include="Resources\1285602621_095.png" />

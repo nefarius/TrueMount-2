@@ -88,15 +88,6 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting update process....
-        /// </summary>
-        internal static string BeginUpdate {
-            get {
-                return ResourceManager.GetString("BeginUpdate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to , Letter .
         /// </summary>
         internal static string CBoxLetter {
@@ -511,24 +502,6 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download succeeded.
-        /// </summary>
-        internal static string MsgHUDownloadOk {
-            get {
-                return ResourceManager.GetString("MsgHUDownloadOk", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update error.
-        /// </summary>
-        internal static string MsgHUpdateFail {
-            get {
-                return ResourceManager.GetString("MsgHUpdateFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Incompatibility problem.
         /// </summary>
         internal static string MsgHUpdateIncompatible {
@@ -642,24 +615,6 @@ namespace TrueMount {
         internal static string MsgTSaved {
             get {
                 return ResourceManager.GetString("MsgTSaved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update could not be downloaded, try again later!.
-        /// </summary>
-        internal static string MsgTUDownloadFail {
-            get {
-                return ResourceManager.GetString("MsgTUDownloadFail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update downloaded successfully!.
-        /// </summary>
-        internal static string MsgTUDownloadOk {
-            get {
-                return ResourceManager.GetString("MsgTUDownloadOk", resourceCulture);
             }
         }
         

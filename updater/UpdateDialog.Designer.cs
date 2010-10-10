@@ -1,4 +1,4 @@
-﻿namespace TrueMount
+﻿namespace updater
 {
     partial class UpdateDialog
     {
@@ -71,19 +71,19 @@
             // 
             // buttonCancelUpdate
             // 
-            resources.ApplyResources(this.buttonCancelUpdate, "buttonCancelUpdate");
             this.buttonCancelUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.buttonCancelUpdate, "buttonCancelUpdate");
             this.buttonCancelUpdate.Name = "buttonCancelUpdate";
             this.buttonCancelUpdate.UseVisualStyleBackColor = true;
             this.buttonCancelUpdate.Click += new System.EventHandler(this.buttonCancelUpdate_Click);
             // 
             // panelUpdateQuestion
             // 
-            resources.ApplyResources(this.panelUpdateQuestion, "panelUpdateQuestion");
             this.panelUpdateQuestion.Controls.Add(this.label1);
             this.panelUpdateQuestion.Controls.Add(this.linkLabelViewChanges);
             this.panelUpdateQuestion.Controls.Add(this.buttonPerformUpdate);
             this.panelUpdateQuestion.Controls.Add(this.buttonCancelUpdate);
+            resources.ApplyResources(this.panelUpdateQuestion, "panelUpdateQuestion");
             this.panelUpdateQuestion.Name = "panelUpdateQuestion";
             // 
             // label1
@@ -100,16 +100,16 @@
             // 
             // panelProgress
             // 
-            resources.ApplyResources(this.panelProgress, "panelProgress");
             this.panelProgress.Controls.Add(this.progressBarDownload);
             this.panelProgress.Controls.Add(this.labelCurrentAction);
+            resources.ApplyResources(this.panelProgress, "panelProgress");
             this.panelProgress.Name = "panelProgress";
             // 
             // panelChanges
             // 
-            resources.ApplyResources(this.panelChanges, "panelChanges");
             this.panelChanges.Controls.Add(this.labelChangeLog);
             this.panelChanges.Controls.Add(this.richTextBoxChanges);
+            resources.ApplyResources(this.panelChanges, "panelChanges");
             this.panelChanges.Name = "panelChanges";
             // 
             // labelChangeLog
@@ -119,8 +119,8 @@
             // 
             // richTextBoxChanges
             // 
-            resources.ApplyResources(this.richTextBoxChanges, "richTextBoxChanges");
             this.richTextBoxChanges.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.richTextBoxChanges, "richTextBoxChanges");
             this.richTextBoxChanges.Name = "richTextBoxChanges";
             this.richTextBoxChanges.ReadOnly = true;
             // 
@@ -135,8 +135,6 @@
             this.Controls.Add(this.panelUpdateQuestion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UpdateDialog";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.UpdateProgressDialog_Load);
             this.panelUpdateQuestion.ResumeLayout(false);
             this.panelUpdateQuestion.PerformLayout();

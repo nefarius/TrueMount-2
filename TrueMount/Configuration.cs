@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Pipes;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -72,33 +74,6 @@ namespace TrueMount
         public static Version CurrentVersion
         {
             get { return Assembly.GetExecutingAssembly().GetName().Version; }
-        }
-
-        public static string WebUserAgent
-        {
-            get { return "TrueMount/" + CurrentVersion; }
-        }
-
-        /// <summary>
-        /// Is this instance launched from the update directory?
-        /// </summary>
-        public static bool IsUpdate
-        {
-            get { return (Path.GetDirectoryName(CurrentApplicationLocation).Equals(UpdateSavePath)); }
-        }
-
-        /// <summary>
-        /// Location of the XML file containing the update information.
-        /// </summary>
-        public static string UpdateVersionFileURL
-        {
-            get
-            {
-#if DEBUG
-                return "http://localhost/truemountversion.xml";
-#endif
-                return "http://nefarius.darkhosters.net/_media/windows/TrueMountVersion.xml";
-            }
         }
 
         /// <summary>
@@ -245,17 +220,65 @@ namespace TrueMount
         /// <returns>Returns stored or new empty default configuration reference.</returns>
         public static Configuration OpenConfiguration()
         {
+            Configuration stored = new Configuration();
             if (File.Exists(ConfigurationFile))
             {
                 FileStream fsFetch = new FileStream(ConfigurationFile, FileMode.Open);
                 BinaryFormatter binFormat = new BinaryFormatter();
-                Configuration stored = (Configuration)binFormat.Deserialize(fsFetch);
+                try { stored = (Configuration)binFormat.Deserialize(fsFetch); }
+                catch { return stored; }
                 fsFetch.Close();
                 // compatibility workaround: initiates every null reference to avoid crashes
                 stored.InitReferences();
-                return stored;
             }
-            return new Configuration();
+            return stored;
+        }
+
+        /// <summary>
+        /// Tries to start an updater instance and waits for its response.
+        /// </summary>
+        /// <param name="silent">Set true if you want to suppress dialogs.</param>
+        /// <returns>Returns true on successfull update, else false.</returns>
+        public bool InvokeUpdateProcess(bool silent = false)
+        {
+            string lastAppStartPath = Path.GetDirectoryName(this.ApplicationLocation);
+            // valid paths are needed to start the updater
+            if (!string.IsNullOrEmpty(lastAppStartPath) && !string.IsNullOrEmpty(UpdateSavePath))
+            {
+                try
+                {
+                    String updaterPath = Path.Combine(CurrentApplicationPath, "updater.exe");
+                    Process updater = Process.Start(updaterPath);
+
+                    using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
+                    {
+                        pipeServer.WaitForConnection();
+
+                        using (StreamWriter outStream = new StreamWriter(pipeServer))
+                        {
+                            // silent mode?
+                            outStream.WriteLine(silent);
+                            // directory to store update in
+                            outStream.WriteLine(Configuration.UpdateSavePath);
+                            // directory to patch
+                            outStream.WriteLine(lastAppStartPath);
+                            // go!
+                            outStream.Flush();
+                        }
+                    }
+
+                    // wait for updater to finish and continue or exit
+                    while (!updater.WaitForExit(1000)) ;
+                    if (updater.ExitCode != 2)
+                        Environment.Exit(0);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }

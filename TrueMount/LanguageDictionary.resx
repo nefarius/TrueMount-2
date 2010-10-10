@@ -339,9 +339,6 @@
   <data name="BalloonVolMounted" xml:space="preserve">
     <value>{0} has been mounted as {1}:</value>
   </data>
-  <data name="BeginUpdate" xml:space="preserve">
-    <value>Starting update process...</value>
-  </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container file {0} disabled, skipped.</value>
   </data>
@@ -375,26 +372,11 @@
   <data name="MsgHUDownloadFail" xml:space="preserve">
     <value>Update failed</value>
   </data>
-  <data name="MsgHUDownloadOk" xml:space="preserve">
-    <value>Download succeeded</value>
-  </data>
-  <data name="MsgHUpdateFail" xml:space="preserve">
-    <value>Update error</value>
-  </data>
   <data name="MsgTNewVersion" xml:space="preserve">
     <value>A new version of TrueMount is available, download and install?</value>
   </data>
   <data name="MsgTNoNewVersion" xml:space="preserve">
     <value>No new version available this time.</value>
-  </data>
-  <data name="MsgTUDownloadFail" xml:space="preserve">
-    <value>Update could not be downloaded, try again later!</value>
-  </data>
-  <data name="MsgTUDownloadOk" xml:space="preserve">
-    <value>Update downloaded successfully!</value>
-  </data>
-  <data name="MsgTUpdateFail" xml:space="preserve">
-    <value>Updating failed!</value>
   </data>
   <data name="NewVolumeMounted" xml:space="preserve">
     <value>New volume mounted</value>
@@ -407,5 +389,8 @@
   </data>
   <data name="MsgTUpdateIncompatible" xml:space="preserve">
     <value>There seems to be a compatibility issue, please download and install the latest version by hand!</value>
+  </data>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Updating failed!</value>
   </data>
 </root>

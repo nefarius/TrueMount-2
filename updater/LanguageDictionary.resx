@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="backgroundWorkerUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="BeginUpdate" xml:space="preserve">
+    <value>Starting update process...</value>
+  </data>
+  <data name="DownloadProgress" xml:space="preserve">
+    <value>Downloaded: {0}%</value>
+  </data>
+  <data name="MsgHNoNewVersion" xml:space="preserve">
+    <value>No new version</value>
+  </data>
+  <data name="MsgHUDownloadFail" xml:space="preserve">
+    <value>Update failed</value>
+  </data>
+  <data name="MsgHUDownloadOk" xml:space="preserve">
+    <value>Download succeeded</value>
+  </data>
+  <data name="MsgHUpdateFail" xml:space="preserve">
+    <value>Update error</value>
+  </data>
+  <data name="MsgTNoNewVersion" xml:space="preserve">
+    <value>No new version available at time.</value>
+  </data>
+  <data name="MsgTUDownloadFail" xml:space="preserve">
+    <value>Update could not be downloaded, try again later!</value>
+  </data>
+  <data name="MsgTUDownloadOk" xml:space="preserve">
+    <value>Update downloaded successfully!</value>
+  </data>
+  <data name="MsgTUpdateFail" xml:space="preserve">
+    <value>Updating failed!</value>
+  </data>
 </root>

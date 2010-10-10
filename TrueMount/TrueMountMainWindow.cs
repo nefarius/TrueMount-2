@@ -889,13 +889,7 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            AutoUpdater updater = new AutoUpdater();
-            if (updater.NewVersionAvailable)
-            {
-                this.Cursor = Cursors.Default;
-                new UpdateDialog(updater).ShowDialog();
-            }
+            config.InvokeUpdateProcess();
         }
     }
 }
