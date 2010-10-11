@@ -71,6 +71,25 @@ namespace TrueMount
                 ApplicationLocation = CurrentApplicationLocation;
         }
 
+        /// <summary>
+        /// Path to updater assembly.
+        /// </summary>
+        public static string UpdaterLocation
+        {
+            get { return Path.Combine(CurrentApplicationPath, "updater.exe"); }
+        }
+
+        /// <summary>
+        /// Checks if updater component exists in applications working directory.
+        /// </summary>
+        public static bool UpdaterExists
+        {
+            get { return File.Exists(UpdaterLocation); }
+        }
+
+        /// <summary>
+        /// Returns the current running assembly version information.
+        /// </summary>
         public static Version CurrentVersion
         {
             get { return Assembly.GetExecutingAssembly().GetName().Version; }
@@ -247,8 +266,7 @@ namespace TrueMount
             {
                 try
                 {
-                    String updaterPath = Path.Combine(CurrentApplicationPath, "updater.exe");
-                    Process updater = Process.Start(updaterPath);
+                    Process updater = Process.Start(UpdaterLocation);
 
                     using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("TrueMountUpdater"))
                     {

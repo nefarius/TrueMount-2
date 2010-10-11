@@ -8,6 +8,7 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace TrueMount
 {
@@ -127,7 +128,42 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// Event after an encrypted media item has been leftclicked.
+        /// Adds a mounted volume to the unmount tray dropdown list.
+        /// </summary>
+        /// <param name="encMedia">The successfull mounted media reference.</param>
+        private void AddMountedMedia(EncryptedMedia encMedia)
+        {
+            ToolStripMenuItem menuItemMedia =
+                new ToolStripMenuItem(encMedia.ToString() +
+                    langRes.GetString("CBoxLetter") +
+                    encMedia.DriveLetter);
+            menuItemMedia.Tag = encMedia;
+            menuItemMedia.Image = Properties.Resources._1276786893_drive_disk;
+            menuItemMedia.Click += new EventHandler(menuItemMedia_Click);
+            unmountDeviceToolStripMenuItem.DropDownItems.Add(menuItemMedia);
+            if (unmountDeviceToolStripMenuItem.DropDownItems.Count > 0)
+                unmountDeviceToolStripMenuItem.Enabled = true;
+        }
+
+        /// <summary>
+        /// Event after an encrapted unmount media item has been leftclicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void menuItemMedia_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            if (UnmountMedia((EncryptedMedia)item.Tag))
+            {
+                unmountDeviceToolStripMenuItem.DropDownItems.Remove(item);
+                if (unmountDeviceToolStripMenuItem.DropDownItems.Count == 0)
+                    unmountDeviceToolStripMenuItem.Enabled = false;
+                UnmountBalloonTip((EncryptedMedia)item.Tag);
+            }
+        }
+
+        /// <summary>
+        /// Event after an encrypted mount media item has been leftclicked.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -157,7 +193,6 @@ namespace TrueMount
         /// <summary>
         /// Displayes a balloon tip on mount success.
         /// </summary>
-        /// <param name="result">The result of the last mount process.</param>
         /// <param name="encMedia">The mounted media.</param>
         private void MountBalloonTip(EncryptedMedia encMedia)
         {
@@ -166,7 +201,25 @@ namespace TrueMount
             {
                 notifyIconSysTray.BalloonTipTitle = langRes.GetString("NewVolumeMounted");
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
-                notifyIconSysTray.BalloonTipText = string.Format(langRes.GetString("BalloonVolMounted"), encMedia, encMedia.DriveLetter);
+                notifyIconSysTray.BalloonTipText =
+                    string.Format(langRes.GetString("BalloonVolMounted"), encMedia, encMedia.DriveLetter);
+                notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
+            }
+        }
+
+        /// <summary>
+        /// Displays a balloon top on successfull dismount.
+        /// </summary>
+        /// <param name="encMedia">The dismounted media.</param>
+        private void UnmountBalloonTip(EncryptedMedia encMedia)
+        {
+            // display ballon tip on success
+            if (!config.DisableBalloons)
+            {
+                notifyIconSysTray.BalloonTipTitle = langRes.GetString("VolumeDismounted");
+                notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
+                notifyIconSysTray.BalloonTipText =
+                    string.Format(langRes.GetString("BalloonVolumeDismounted"), encMedia, encMedia.DriveLetter);
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
         }
@@ -695,6 +748,9 @@ namespace TrueMount
                 }
             }
 
+            // add the current mounted media to the dismount systray list
+            AddMountedMedia(encMedia);
+
             return mountSuccess;
         }
 
@@ -706,7 +762,6 @@ namespace TrueMount
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             config.ApplicationLocation = Configuration.CurrentApplicationLocation;
-            config.EncryptedContainerFiles = null;
             Configuration.SaveConfiguration(config);
             StopDeviceListener();
         }
@@ -807,10 +862,7 @@ namespace TrueMount
             SettingsDialog settings = new SettingsDialog(ref config);
             // bring dialog to front and await user actions
             settings.ShowDialog();
-            // get new configuration and set it program wide
-            settings.UpdateConfiguration(ref config);
             Configuration.SaveConfiguration(config);
-            config = Configuration.OpenConfiguration();
             settings = null;
             BuildMountMenu();
         }
@@ -832,39 +884,56 @@ namespace TrueMount
         /// <param name="e"></param>
         private void unmountAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UnmountMedia();
+        }
+
+        private bool UnmountMedia(EncryptedMedia encMedia = null)
+        {
             if (config.UnmountWarning)
                 if (MessageBox.Show(langRes.GetString("MsgTWarnUmount"), langRes.GetString("MsgHWarnUmount"),
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
-                    return;
+                    return false;
+
+            if (string.IsNullOrEmpty(config.TrueCrypt.ExecutablePath))
+            {
+                LogAppend("ErrTCPathWrong");
+                return false;
+            }
 
             Process tcUnmount = new Process();
+            tcUnmount.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
+            tcUnmount.StartInfo.Arguments = "/q background";
 
-            if (config.TrueCrypt.ExecutablePath != null)
+            // force dismount?
+            if (config.ForceUnmount)
+                tcUnmount.StartInfo.Arguments += " /f";
+            // general switch for dismount
+            tcUnmount.StartInfo.Arguments += " /d ";
+
+            // unmount all if no media given
+            if (encMedia == null)
             {
-                tcUnmount.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
-                tcUnmount.StartInfo.Arguments = "/d /q background";
-                if (config.ForceUnmount)
-                    tcUnmount.StartInfo.Arguments += " /f";
-
                 LogAppend("UnmountAll");
-                try
-                {
-                    tcUnmount.Start();
-                }
-                catch (InvalidOperationException ioex)
-                {
-                    LogAppend("ErrGeneral", ioex.Message);
-                    LogAppend("ErrCheckConfig");
-                    return;
-                }
             }
             else
             {
-                LogAppend("ErrTCPathWrong");
-                return;
+                tcUnmount.StartInfo.Arguments += encMedia.DriveLetter;
+                LogAppend("UnmountMedia", encMedia.DriveLetter);
+            }
+
+            try
+            {
+                tcUnmount.Start();
+            }
+            catch (InvalidOperationException ioex)
+            {
+                LogAppend("ErrGeneral", ioex.Message);
+                LogAppend("ErrCheckConfig");
+                return false;
             }
 
             LogAppend("MsgDone");
+            return true;
         }
 
         /// <summary>
@@ -889,7 +958,11 @@ namespace TrueMount
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            config.InvokeUpdateProcess();
+            if (Configuration.UpdaterExists)
+                config.InvokeUpdateProcess();
+            else
+                MessageBox.Show(langRes.GetString("MsgTNoUpdater"), langRes.GetString("MsgHNoUpdater"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1285602206_switch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1285602206_switch.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1285602621_095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1285602621_095.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1284750160_encrypted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1284750160_encrypted.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,20 +127,17 @@
   <data name="1277233011_window_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1277233011_window_list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1285602621_095" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1285602621_095.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1285440550_Radioactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1285440550_Radioactive.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1277832668_usbpendrive_mount" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1277832668_usbpendrive_mount.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1277233069_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277233069_copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1276770923_power_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276770923_power_off.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1285602514_add_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1285602514_add_small.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1284820964_system-software-update" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1284820964_system-software-update.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +151,9 @@
   <data name="1276770921_power_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276770921_power_on.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1285602206_switch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1285602206_switch.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1276771116_dialog-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276771116_dialog-close.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +162,9 @@
   </data>
   <data name="1276786795_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276786795_remove.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1285602715_page_white_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1285602715_page_white_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1276790510_gear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276790510_gear.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +184,11 @@
   <data name="1276718799_application-pgp-signature" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276718799_application-pgp-signature.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1277233069_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1277233069_copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1276790845_preferences-desktop-cryptography" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276790845_preferences-desktop-cryptography.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1285602514_add_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1285602514_add_small.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1277903288_USB-Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1277903288_USB-Black.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -194,7 +197,7 @@
     <value>..\Resources\spalsh.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1285602715_page_white_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1285602715_page_white_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1286800325_unmount_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1286800325_unmount_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

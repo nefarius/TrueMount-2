@@ -13,7 +13,7 @@ namespace TrueMount
 {
     partial class SettingsDialog : Form
     {
-        private Configuration config = null;
+        public Configuration config = null;
         private Dictionary<int, List<ManagementObject>> keyDeviceList = null;
         private Dictionary<int, List<ManagementObject>> encDeviceList = null;
         private ResourceManager langRes = null;
@@ -47,15 +47,6 @@ namespace TrueMount
             culture = Thread.CurrentThread.CurrentUICulture;
 
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Returns the changed configuration references.
-        /// </summary>
-        /// <param name="config">The Configuration object.</param>
-        public void UpdateConfiguration(ref Configuration config)
-        {
-            config = this.config;
         }
 
         /// <summary>

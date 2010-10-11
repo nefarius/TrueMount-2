@@ -9,6 +9,7 @@ using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace updater
 {
@@ -75,13 +76,15 @@ namespace updater
             get
             {
                 String temp = string.Empty;
-                foreach (string part in changes.Split('|'))
-                    temp += part + Environment.NewLine;
+                if (string.IsNullOrEmpty(changes))
+                    return temp;
+
+                foreach (string part in Regex.Split(changes, Environment.NewLine))
+                {
+                    if (!string.IsNullOrEmpty(part.Trim()))
+                        temp += part.Trim() + Environment.NewLine;
+                }
                 return temp;
-            }
-            set
-            {
-                changes = value;
             }
         }
 

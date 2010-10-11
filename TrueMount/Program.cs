@@ -24,9 +24,10 @@ namespace TrueMount
 
             // if update checking is allowed, do it
             if (config.CheckForUpdates)
-                if (!config.InvokeUpdateProcess(true))
-                    MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Configuration.UpdaterExists)
+                    if (!config.InvokeUpdateProcess(true))
+                        MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             // clean old updates
             if (Directory.Exists(Configuration.UpdateSavePath))

@@ -1,4 +1,13 @@
-﻿2.4.12.42
+﻿2.5.12.43
+  * Added unmount droplist in system tray
+  * Added error message if updater is missing
+  * Starts silent if updater is missing
+  * Fixed extremely dumb bug in container files storage code
+  * Minor language and dialog design changes
+  * Changed included change log viewer render algorithm
+  * Debugged' the hell out of the configuration serialization and fixed lots of things
+  * Added more balloon tips
+2.4.12.42
   * Rewrote big parts of updating system
     * Updater is now a complete separate assembly
   * Fixed application crash after update

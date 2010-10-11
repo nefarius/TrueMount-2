@@ -35,6 +35,7 @@
             this.showToolStripMenuShow = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mountDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unmountDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unmountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,36 +63,36 @@
             // 
             // notifyIconSysTray
             // 
-            resources.ApplyResources(this.notifyIconSysTray, "notifyIconSysTray");
             this.notifyIconSysTray.ContextMenuStrip = this.contextMenuStripSysTray;
+            resources.ApplyResources(this.notifyIconSysTray, "notifyIconSysTray");
             this.notifyIconSysTray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSysTray_MouseDoubleClick);
             // 
             // contextMenuStripSysTray
             // 
-            resources.ApplyResources(this.contextMenuStripSysTray, "contextMenuStripSysTray");
             this.contextMenuStripSysTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuShow,
             this.settingsToolStripMenuSettings,
             this.mountDeviceToolStripMenuItem,
+            this.unmountDeviceToolStripMenuItem,
             this.mountAllToolStripMenuItem,
             this.unmountAllToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem,
             this.closeToolStripMenuClose});
             this.contextMenuStripSysTray.Name = "contextMenuStripSysTray";
-            this.toolTipMainWindow.SetToolTip(this.contextMenuStripSysTray, resources.GetString("contextMenuStripSysTray.ToolTip"));
+            resources.ApplyResources(this.contextMenuStripSysTray, "contextMenuStripSysTray");
             // 
             // showToolStripMenuShow
             // 
-            resources.ApplyResources(this.showToolStripMenuShow, "showToolStripMenuShow");
             this.showToolStripMenuShow.Image = global::TrueMount.Properties.Resources._1277233011_window_list;
             this.showToolStripMenuShow.Name = "showToolStripMenuShow";
+            resources.ApplyResources(this.showToolStripMenuShow, "showToolStripMenuShow");
             this.showToolStripMenuShow.Click += new System.EventHandler(this.showToolStripMenuShow_Click);
             // 
             // settingsToolStripMenuSettings
             // 
-            resources.ApplyResources(this.settingsToolStripMenuSettings, "settingsToolStripMenuSettings");
             this.settingsToolStripMenuSettings.Image = global::TrueMount.Properties.Resources._1276790510_gear;
             this.settingsToolStripMenuSettings.Name = "settingsToolStripMenuSettings";
+            resources.ApplyResources(this.settingsToolStripMenuSettings, "settingsToolStripMenuSettings");
             this.settingsToolStripMenuSettings.Click += new System.EventHandler(this.settingsToolStripMenuSettings_Click);
             // 
             // mountDeviceToolStripMenuItem
@@ -100,66 +101,69 @@
             this.mountDeviceToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1285440550_Radioactive;
             this.mountDeviceToolStripMenuItem.Name = "mountDeviceToolStripMenuItem";
             // 
+            // unmountDeviceToolStripMenuItem
+            // 
+            resources.ApplyResources(this.unmountDeviceToolStripMenuItem, "unmountDeviceToolStripMenuItem");
+            this.unmountDeviceToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1286800325_unmount_overlay;
+            this.unmountDeviceToolStripMenuItem.Name = "unmountDeviceToolStripMenuItem";
+            // 
             // mountAllToolStripMenuItem
             // 
-            resources.ApplyResources(this.mountAllToolStripMenuItem, "mountAllToolStripMenuItem");
             this.mountAllToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1279794104_hdd_mount;
             this.mountAllToolStripMenuItem.Name = "mountAllToolStripMenuItem";
+            resources.ApplyResources(this.mountAllToolStripMenuItem, "mountAllToolStripMenuItem");
             this.mountAllToolStripMenuItem.Click += new System.EventHandler(this.mountAllToolStripMenuItem_Click);
             // 
             // unmountAllToolStripMenuItem
             // 
-            resources.ApplyResources(this.unmountAllToolStripMenuItem, "unmountAllToolStripMenuItem");
             this.unmountAllToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1277232971_hdd_unmount;
             this.unmountAllToolStripMenuItem.Name = "unmountAllToolStripMenuItem";
+            resources.ApplyResources(this.unmountAllToolStripMenuItem, "unmountAllToolStripMenuItem");
             this.unmountAllToolStripMenuItem.Click += new System.EventHandler(this.unmountAllToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
-            resources.ApplyResources(this.checkForUpdatesToolStripMenuItem, "checkForUpdatesToolStripMenuItem");
             this.checkForUpdatesToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1284820964_system_software_update;
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            resources.ApplyResources(this.checkForUpdatesToolStripMenuItem, "checkForUpdatesToolStripMenuItem");
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // closeToolStripMenuClose
             // 
-            resources.ApplyResources(this.closeToolStripMenuClose, "closeToolStripMenuClose");
             this.closeToolStripMenuClose.Image = global::TrueMount.Properties.Resources._1276771116_dialog_close;
             this.closeToolStripMenuClose.Name = "closeToolStripMenuClose";
+            resources.ApplyResources(this.closeToolStripMenuClose, "closeToolStripMenuClose");
             this.closeToolStripMenuClose.Click += new System.EventHandler(this.closeToolStripMenuClose_Click);
             // 
             // richTextBoxLog
             // 
-            resources.ApplyResources(this.richTextBoxLog, "richTextBoxLog");
             this.richTextBoxLog.BackColor = System.Drawing.Color.Black;
             this.richTextBoxLog.ContextMenuStrip = this.contextMenuStripClipboard;
+            resources.ApplyResources(this.richTextBoxLog, "richTextBoxLog");
             this.richTextBoxLog.ForeColor = System.Drawing.Color.White;
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.toolTipMainWindow.SetToolTip(this.richTextBoxLog, resources.GetString("richTextBoxLog.ToolTip"));
             // 
             // contextMenuStripClipboard
             // 
-            resources.ApplyResources(this.contextMenuStripClipboard, "contextMenuStripClipboard");
             this.contextMenuStripClipboard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyToolStripMenuItem});
             this.contextMenuStripClipboard.Name = "contextMenuStripClipboard";
-            this.toolTipMainWindow.SetToolTip(this.contextMenuStripClipboard, resources.GetString("contextMenuStripClipboard.ToolTip"));
+            resources.ApplyResources(this.contextMenuStripClipboard, "contextMenuStripClipboard");
             // 
             // copyToolStripMenuItem
             // 
-            resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
             this.copyToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1277233069_copy;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            resources.ApplyResources(this.copyToolStripMenuItem, "copyToolStripMenuItem");
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.richTextBoxLog);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            this.toolTipMainWindow.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
             // 
             // linkLabelNefarius
             // 
@@ -179,7 +183,6 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.toolTipMainWindow.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label3
             // 
@@ -190,8 +193,8 @@
             // 
             // buttonStopWorker
             // 
-            resources.ApplyResources(this.buttonStopWorker, "buttonStopWorker");
             this.buttonStopWorker.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.buttonStopWorker, "buttonStopWorker");
             this.buttonStopWorker.Image = global::TrueMount.Properties.Resources._1276770923_power_off;
             this.buttonStopWorker.Name = "buttonStopWorker";
             this.toolTipMainWindow.SetToolTip(this.buttonStopWorker, resources.GetString("buttonStopWorker.ToolTip"));
@@ -200,8 +203,8 @@
             // 
             // buttonSettings
             // 
-            resources.ApplyResources(this.buttonSettings, "buttonSettings");
             this.buttonSettings.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.buttonSettings, "buttonSettings");
             this.buttonSettings.Image = global::TrueMount.Properties.Resources._1276790510_gear;
             this.buttonSettings.Name = "buttonSettings";
             this.toolTipMainWindow.SetToolTip(this.buttonSettings, resources.GetString("buttonSettings.ToolTip"));
@@ -210,8 +213,8 @@
             // 
             // buttonStartWorker
             // 
-            resources.ApplyResources(this.buttonStartWorker, "buttonStartWorker");
             this.buttonStartWorker.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.buttonStartWorker, "buttonStartWorker");
             this.buttonStartWorker.Image = global::TrueMount.Properties.Resources._1276770921_power_on;
             this.buttonStartWorker.Name = "buttonStartWorker";
             this.toolTipMainWindow.SetToolTip(this.buttonStartWorker, resources.GetString("buttonStartWorker.ToolTip"));
@@ -220,8 +223,8 @@
             // 
             // buttonHide
             // 
-            resources.ApplyResources(this.buttonHide, "buttonHide");
             this.buttonHide.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.buttonHide, "buttonHide");
             this.buttonHide.Image = global::TrueMount.Properties.Resources._1276771048_Cloud_Download_On;
             this.buttonHide.Name = "buttonHide";
             this.toolTipMainWindow.SetToolTip(this.buttonHide, resources.GetString("buttonHide.ToolTip"));
@@ -230,8 +233,8 @@
             // 
             // buttonClose
             // 
-            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.Image = global::TrueMount.Properties.Resources._1276771116_dialog_close;
             this.buttonClose.Name = "buttonClose";
             this.toolTipMainWindow.SetToolTip(this.buttonClose, resources.GetString("buttonClose.ToolTip"));
@@ -240,15 +243,14 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.buttonStopWorker);
             this.groupBox3.Controls.Add(this.buttonSettings);
             this.groupBox3.Controls.Add(this.buttonStartWorker);
             this.groupBox3.Controls.Add(this.buttonHide);
             this.groupBox3.Controls.Add(this.buttonClose);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
-            this.toolTipMainWindow.SetToolTip(this.groupBox3, resources.GetString("groupBox3.ToolTip"));
             // 
             // TrueMountMainWindow
             // 
@@ -264,7 +266,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "TrueMountMainWindow";
-            this.toolTipMainWindow.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrueMountMainWindow_FormClosing);
             this.Load += new System.EventHandler(this.TrueMountMainWindow_Load);
             this.contextMenuStripSysTray.ResumeLayout(false);
@@ -302,6 +303,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuSettings;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mountDeviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unmountDeviceToolStripMenuItem;
     }
 }
 

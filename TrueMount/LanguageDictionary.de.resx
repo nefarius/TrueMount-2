@@ -337,7 +337,7 @@
     <value>Die gewählte Festplatte/Partition ist bereits vorhanden!</value>
   </data>
   <data name="BalloonVolMounted" xml:space="preserve">
-    <value>{0} wurde als Laufwerk {1}: eingebunden.</value>
+    <value>"{0}" wurde als Laufwerk {1}:\ eingebunden.</value>
   </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container-Datei {0} deaktiviert, übersprungen.</value>
@@ -398,5 +398,20 @@
   </data>
   <data name="MsgTUpdateFail" xml:space="preserve">
     <value>Aktualisierung fehlgeschlagen!</value>
+  </data>
+  <data name="MsgHNoUpdater" xml:space="preserve">
+    <value>Updater-Komponente fehlt</value>
+  </data>
+  <data name="MsgTNoUpdater" xml:space="preserve">
+    <value>Die Aktualisierungskomponente konnte nicht gefunden werden, automatische Aktualisierungen sind nicht möglich. Bitte laden Sie die neueste Version von der Herstellerseite.</value>
+  </data>
+  <data name="UnmountMedia" xml:space="preserve">
+    <value>Auswerfen von {0}:\</value>
+  </data>
+  <data name="BalloonVolumeDismounted" xml:space="preserve">
+    <value>"{0}" mit dem Buchstaben {1} wurde ausgeworfen.</value>
+  </data>
+  <data name="VolumeDismounted" xml:space="preserve">
+    <value>Laufwerk ausgeworfen</value>
   </data>
 </root>

@@ -79,11 +79,20 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} has been mounted as {1}:.
+        ///   Looks up a localized string similar to &quot;{0}&quot; has been mounted as {1}:\.
         /// </summary>
         internal static string BalloonVolMounted {
             get {
                 return ResourceManager.GetString("BalloonVolMounted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;{0}&quot; with letter {1} has been dismounted..
+        /// </summary>
+        internal static string BalloonVolumeDismounted {
+            get {
+                return ResourceManager.GetString("BalloonVolumeDismounted", resourceCulture);
             }
         }
         
@@ -484,6 +493,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updater component missing.
+        /// </summary>
+        internal static string MsgHNoUpdater {
+            get {
+                return ResourceManager.GetString("MsgHNoUpdater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
         internal static string MsgHSaved {
@@ -606,6 +624,15 @@ namespace TrueMount {
         internal static string MsgTNoTCSet {
             get {
                 return ResourceManager.GetString("MsgTNoTCSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The updater component could not be found, automatic updates are not possible. Please visit the developer website and install the latest version..
+        /// </summary>
+        internal static string MsgTNoUpdater {
+            get {
+                return ResourceManager.GetString("MsgTNoUpdater", resourceCulture);
             }
         }
         
@@ -826,6 +853,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unmounting {0}:\.
+        /// </summary>
+        internal static string UnmountMedia {
+            get {
+                return ResourceManager.GetString("UnmountMedia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New USB Device found..
         /// </summary>
         internal static string USBFound {
@@ -849,6 +885,15 @@ namespace TrueMount {
         internal static string USBRemoved {
             get {
                 return ResourceManager.GetString("USBRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume dismounted.
+        /// </summary>
+        internal static string VolumeDismounted {
+            get {
+                return ResourceManager.GetString("VolumeDismounted", resourceCulture);
             }
         }
         

@@ -337,7 +337,7 @@
     <value>The selected disk/partition already exists!</value>
   </data>
   <data name="BalloonVolMounted" xml:space="preserve">
-    <value>{0} has been mounted as {1}:</value>
+    <value>"{0}" has been mounted as {1}:\</value>
   </data>
   <data name="ConConfDisabled" xml:space="preserve">
     <value>Container file {0} disabled, skipped.</value>
@@ -392,5 +392,20 @@
   </data>
   <data name="MsgTUpdateFail" xml:space="preserve">
     <value>Updating failed!</value>
+  </data>
+  <data name="MsgHNoUpdater" xml:space="preserve">
+    <value>Updater component missing</value>
+  </data>
+  <data name="MsgTNoUpdater" xml:space="preserve">
+    <value>The updater component could not be found, automatic updates are not possible. Please visit the developer website and install the latest version.</value>
+  </data>
+  <data name="UnmountMedia" xml:space="preserve">
+    <value>Unmounting {0}:\</value>
+  </data>
+  <data name="BalloonVolumeDismounted" xml:space="preserve">
+    <value>"{0}" with letter {1} has been dismounted.</value>
+  </data>
+  <data name="VolumeDismounted" xml:space="preserve">
+    <value>Volume dismounted</value>
   </data>
 </root>

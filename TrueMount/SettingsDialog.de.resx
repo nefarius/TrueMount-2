@@ -203,10 +203,10 @@
     <value>16, 175</value>
   </data>
   <data name="checkBoxForceUnmountAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 17</value>
+    <value>269, 17</value>
   </data>
   <data name="checkBoxForceUnmountAll.Text" xml:space="preserve">
-    <value>Erzwinge das Auswerfen bei 'Alle auswerfen'</value>
+    <value>Erzwinge das Auswerfen eingebundener Laufwerke</value>
   </data>
   <data name="checkBoxWarnUnmountAll.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 200</value>

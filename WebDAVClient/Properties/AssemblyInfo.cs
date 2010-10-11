@@ -1,17 +1,16 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrueMount")]
-[assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted devices.")]
+[assembly: AssemblyTitle("WebDAVClient")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Benjamin Höglinger")]
-[assembly: AssemblyProduct("TrueMount")]
-[assembly: AssemblyCopyright("Copyright © Benjamin Höglinger 2010")]
+[assembly: AssemblyCompany("_")]
+[assembly: AssemblyProduct("WebDAVClient")]
+[assembly: AssemblyCopyright("Copyright © _ 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +20,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e3159a64-5244-41bd-9272-c6fc4e36f3ce")]
+[assembly: Guid("74d8d673-b718-4c26-a7fa-9842d8b9a54c")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,6 +32,5 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.5.13.43")]
-[assembly: AssemblyFileVersion("2.5.13.43")]
-[assembly: NeutralResourcesLanguageAttribute("en")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
