@@ -46,14 +46,30 @@ namespace TrueMount
         /// <returns>Returns the device with the given parameters.</returns>
         public static ManagementObject GetDiskDriveBySignature(String caption, uint signature)
         {
-            var hddQuery =
-                from ManagementObject hdd in _DiskDrives.GetInstances()
-                where (string)hdd["Caption"] == caption
-                && (uint)hdd["Signature"] == signature
-                select hdd;
+            var diskQuery =
+                from ManagementObject disk in _DiskDrives.GetInstances()
+                where (string)disk["Caption"] == caption
+                && (uint)disk["Signature"] == signature
+                select disk;
 
-            if (hddQuery.Count() > 0)
-                return hddQuery.First();
+            if (diskQuery.Count() > 0)
+                return diskQuery.First();
+            else
+                return null;
+        }
+
+        public static ManagementObject GetPartitionBySignature(String caption, uint signature, uint partitionNr)
+        {
+            var partQiery =
+                from ManagementObject disk in _DiskDrives.GetInstances()
+                where (string)disk["Caption"] == caption
+                && (uint)disk["Signature"] == signature
+                from ManagementObject partition in disk.GetRelated(Win32_DiskPartition)
+                where (uint)partition["Index"] == partitionNr
+                select partition;
+
+            if (partQiery.Count() > 0)
+                return partQiery.First();
             else
                 return null;
         }
@@ -118,16 +134,16 @@ namespace TrueMount
         /// </summary>
         /// <param name="caption">Caption (title, name) of the disk.</param>
         /// <param name="signature">Signature (10 digit unsigned integer) of the disk.</param>
-        /// <param name="partition_nr">Partition number (zero based).</param>
+        /// <param name="partitionNr">Partition number (zero based).</param>
         /// <returns>Returns the drive letter of the logical disk.</returns>
-        public static String GetDriveLetterBySignature(String caption, uint signature, uint partition_nr)
+        public static String GetDriveLetterBySignature(String caption, uint signature, uint partitionNr)
         {
             var devQuery =
                 from ManagementObject disk in DiskDrives
                 where (string)disk["Caption"] == caption
                 && (uint)disk["Signature"] == signature
                 from ManagementObject partition in disk.GetRelated(SystemDevices.Win32_DiskPartition)
-                where (uint)partition["Index"] == partition_nr
+                where (uint)partition["Index"] == partitionNr
                 from ManagementObject ldisk in partition.GetRelated(SystemDevices.Win32_LogicalDisk)
                 select (string)ldisk["Name"];
 
@@ -163,9 +179,9 @@ namespace TrueMount
         /// <param name="letter">Drive letter of the logical disk.</param>
         /// <param name="caption">Caption of the disk.</param>
         /// <param name="signature">Signature of the disk.</param>
-        /// <param name="partition_nr">Partition number (zero based).</param>
+        /// <param name="partitionNr">Partition number (zero based).</param>
         public static void GetDiskSignatureFromLetter(String letter,
-            ref string caption, ref uint signature, ref uint partition_nr)
+            ref string caption, ref uint signature, ref uint partitionNr)
         {
             var ldiskQuery =
                 from ManagementObject ldisk in LogicalDisks
@@ -177,7 +193,7 @@ namespace TrueMount
                 select part;
 
             if (partQuery.Count() > 0)
-                partition_nr = (uint)partQuery.First()["Index"];
+                partitionNr = (uint)partQuery.First()["Index"];
 
             var diskQuery =
                 from ManagementObject disk in partQuery.First().GetRelated(Win32_DiskDrive)

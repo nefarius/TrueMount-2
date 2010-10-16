@@ -23,7 +23,7 @@ namespace TrueMount
         private bool editInProgress = false;
 
         /// <summary>
-        /// Constructor
+        /// Creates new settings dialog with current configuration data.
         /// </summary>
         public SettingsDialog(ref Configuration config)
         {

@@ -169,9 +169,6 @@
   <data name="contextMenuStripSysTray.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 202</value>
   </data>
-  <data name="contextMenuStripSysTray.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="notifyIconSysTray.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAAAIABoBAAAVgAAACAgAAAAACAAqBAAAL4EAAAwMAAAAAAgAKglAABmFQAAQEAAAAAA
@@ -1847,17 +1844,8 @@
   <data name="contextMenuStripClipboard.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 26</value>
   </data>
-  <data name="contextMenuStripClipboard.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="richTextBoxLog.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Meldungen</value>
-  </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="linkLabelNefarius.ToolTip" xml:space="preserve">
     <value>Guggt mal auf meine Webseite für mehr tolles Zeug! :)</value>
@@ -1870,9 +1858,6 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>TrueMount - komfortable Sicherheit</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 25</value>
@@ -1948,9 +1933,6 @@
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Aktionen</value>
-  </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3617,8 +3599,5 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>

@@ -349,8 +349,15 @@ namespace TrueMount
         private void USBLogicalDiskRemoved(object sender, EventArrivedEventArgs e)
         {
             LogAppend("USBRemoved");
-            // Debug
+
+            ManagementBaseObject removedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
+            uint diskIndex = uint.Parse(removedObject["DiskIndex"].ToString());
+            uint partIndex = uint.Parse(removedObject["Index"].ToString());
+
+            // FIXME
+
             /*
+            // Debug
             foreach (PropertyData pd in e.NewEvent.Properties)
             {
                 ManagementBaseObject mbo = null;
@@ -359,8 +366,7 @@ namespace TrueMount
                     foreach (PropertyData prop in mbo.Properties)
                         Console.WriteLine("{0} - {1}", prop.Name, prop.Value);
                 }
-            }
-             * */
+            }*/
         }
 
         /// <summary>
@@ -369,13 +375,13 @@ namespace TrueMount
         /// <returns>Returns true if one or more are found, else false.</returns>
         private bool IsUsbKeyDeviceOnline()
         {
-            foreach (UsbKeyDevice usb_key_device in config.KeyDevices)
+            foreach (UsbKeyDevice usbKeyDevice in config.KeyDevices)
             {
-                String drive_letter = SystemDevices.GetDriveLetterBySignature(usb_key_device.Caption,
-                    usb_key_device.Signature, usb_key_device.PartitionIndex - 1);
+                String drive_letter = SystemDevices.GetDriveLetterBySignature(usbKeyDevice.Caption,
+                    usbKeyDevice.Signature, usbKeyDevice.PartitionIndex - 1);
                 if (SystemDevices.IsLogicalDiskOnline(drive_letter))
                 {
-                    LogAppend("PDevOnline", usb_key_device.Caption);
+                    LogAppend("PDevOnline", usbKeyDevice.Caption);
                     buttonStartWorker.Enabled = false;
                     MountAllDevices();
                     buttonStopWorker.Enabled = true;
