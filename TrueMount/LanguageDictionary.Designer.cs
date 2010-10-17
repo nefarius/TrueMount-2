@@ -682,6 +682,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New device &quot;{0}&quot; is not a removable device..
+        /// </summary>
+        internal static string NewDeviceNotRemovable {
+            get {
+                return ResourceManager.GetString("NewDeviceNotRemovable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New volume mounted.
         /// </summary>
         internal static string NewVolumeMounted {

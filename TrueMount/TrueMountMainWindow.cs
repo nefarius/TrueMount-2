@@ -21,6 +21,7 @@ namespace TrueMount
         private ResourceManager langRes = null;
         private CultureInfo culture = null;
         private SplashScreen splashScreen = null;
+        private List<string> onlineKeyDevices = null;
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
@@ -37,6 +38,9 @@ namespace TrueMount
 
             // open or create configuration objects
             this.config = Configuration.OpenConfiguration();
+
+            // init new empty list of online key devices
+            onlineKeyDevices = new List<string>();
 
             // if first start and no language available, use the systems default
             if (config.Language != null)
@@ -76,7 +80,7 @@ namespace TrueMount
                 LogAppend("SAutoDi");
 
             // register the event handler
-            this.RegisterRemoveUSBHandler();
+            this.RegisterDeviceRemoveHandler();
 
             if (!config.DisableBalloons)
             {
@@ -269,7 +273,7 @@ namespace TrueMount
         /// Register usb plug-in event listener
         /// </summary>
         /// <returns>Return true on success.</returns>
-        private bool RegisterInsetUSBHandler()
+        private bool RegisterDeviceInsetHandler()
         {
             WqlEventQuery insertQery;
 
@@ -286,7 +290,7 @@ namespace TrueMount
                  * */
                 insertQery.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
                 keyInsertEvent = new ManagementEventWatcher(scope, insertQery);
-                keyInsertEvent.EventArrived += new EventArrivedEventHandler(USBLogicalDiskAdded);
+                keyInsertEvent.EventArrived += new EventArrivedEventHandler(keyInsertEvent_EventArrived);
                 keyInsertEvent.Start();
             }
             catch (Exception e)
@@ -300,11 +304,22 @@ namespace TrueMount
             return true;
         }
 
+        void keyInsertEvent_EventArrived(object sender, EventArrivedEventArgs e)
+        {
+            LogAppend("USBFound");
+
+            ManagementBaseObject insertedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
+            string deviceId = insertedObject["DeviceID"].ToString();
+
+            if (!this.IsKeyDeviceOnline(deviceId))
+                LogAppend("USBNotPw");
+        }
+
         /// <summary>
         /// Register usb remove event listener
         /// </summary>
         /// <returns>Return true on success.</returns>
-        private bool RegisterRemoveUSBHandler()
+        private bool RegisterDeviceRemoveHandler()
         {
             WqlEventQuery removeQuery;
 
@@ -315,7 +330,7 @@ namespace TrueMount
                 removeQuery.WithinInterval = new TimeSpan(0, 0, 3);
                 removeQuery.Condition = "TargetInstance ISA '" + SystemDevices.Win32_DiskPartition + "'";
                 keyRemoveEvent = new ManagementEventWatcher(scope, removeQuery);
-                keyRemoveEvent.EventArrived += new EventArrivedEventHandler(USBLogicalDiskRemoved);
+                keyRemoveEvent.EventArrived += new EventArrivedEventHandler(keyRemoveEvent_EventArrived);
                 keyRemoveEvent.Start();
             }
             catch (Exception e)
@@ -329,63 +344,54 @@ namespace TrueMount
             return true;
         }
 
-        /// <summary>
-        /// Will be called if new USB device has been found.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void USBLogicalDiskAdded(object sender, EventArgs e)
-        {
-            LogAppend("USBFound");
-            if (!this.IsUsbKeyDeviceOnline())
-                LogAppend("USBNotPw");
-        }
-
-        /// <summary>
-        /// Will be called if USB device is removed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void USBLogicalDiskRemoved(object sender, EventArrivedEventArgs e)
+        void keyRemoveEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
             LogAppend("USBRemoved");
 
             ManagementBaseObject removedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
-            uint diskIndex = uint.Parse(removedObject["DiskIndex"].ToString());
-            uint partIndex = uint.Parse(removedObject["Index"].ToString());
+            string deviceId = removedObject["DeviceID"].ToString();
 
-            // FIXME
-
-            /*
-            // Debug
-            foreach (PropertyData pd in e.NewEvent.Properties)
+            if (onlineKeyDevices.Contains(deviceId))
             {
-                ManagementBaseObject mbo = null;
-                if ((mbo = pd.Value as ManagementBaseObject) != null)
-                {
-                    foreach (PropertyData prop in mbo.Properties)
-                        Console.WriteLine("{0} - {1}", prop.Name, prop.Value);
-                }
-            }*/
+                onlineKeyDevices.Remove(deviceId);
+                
+            }
         }
 
         /// <summary>
         /// Run through all configured key SystemDevices and if one is online, start the mount process.
         /// </summary>
         /// <returns>Returns true if one or more are found, else false.</returns>
-        private bool IsUsbKeyDeviceOnline()
+        private bool IsKeyDeviceOnline(string deviceId = null)
         {
-            foreach (UsbKeyDevice usbKeyDevice in config.KeyDevices)
+            foreach (UsbKeyDevice keyDevice in config.KeyDevices)
             {
-                String drive_letter = SystemDevices.GetDriveLetterBySignature(usbKeyDevice.Caption,
-                    usbKeyDevice.Signature, usbKeyDevice.PartitionIndex - 1);
-                if (SystemDevices.IsLogicalDiskOnline(drive_letter))
+                if (!string.IsNullOrEmpty(deviceId))
                 {
-                    LogAppend("PDevOnline", usbKeyDevice.Caption);
-                    buttonStartWorker.Enabled = false;
-                    MountAllDevices();
-                    buttonStopWorker.Enabled = true;
-                    return true;
+                    if (SystemDevices.IsPartitionOnline(keyDevice.Caption, keyDevice.Signature,
+                        keyDevice.PartitionIndex - 1, deviceId))
+                    {
+                        if (!onlineKeyDevices.Contains(deviceId))
+                            onlineKeyDevices.Add(deviceId);
+                        LogAppend("PDevOnline", keyDevice.Caption);
+                        buttonStartWorker.Enabled = false;
+                        MountAllDevices();
+                        buttonStopWorker.Enabled = true;
+                        return true;
+                    }
+                }
+                else
+                {
+                    String driveLetter = SystemDevices.GetDriveLetterBySignature(keyDevice.Caption,
+                        keyDevice.Signature, keyDevice.PartitionIndex - 1);
+                    if (SystemDevices.IsLogicalDiskOnline(driveLetter))
+                    {
+                        LogAppend("PDevOnline", keyDevice.Caption);
+                        buttonStartWorker.Enabled = false;
+                        MountAllDevices();
+                        buttonStopWorker.Enabled = true;
+                        return true;
+                    }
                 }
             }
 
@@ -397,7 +403,7 @@ namespace TrueMount
         /// </summary>
         private void StartDeviceListener()
         {
-            if (!config.IsUsbDeviceConfigOk)
+            if (!config.IsKeyDeviceConfigOk)
             {
                 // well, the config is crap
                 LogAppend("ErrNoKeyDev");
@@ -405,12 +411,12 @@ namespace TrueMount
             }
 
             // no need for waiting if usb device is already online
-            this.IsUsbKeyDeviceOnline();
+            this.IsKeyDeviceOnline();
 
             LogAppend("StartDevListener");
             if (keyInsertEvent == null)
             {
-                if (!this.RegisterInsetUSBHandler())
+                if (!this.RegisterDeviceInsetHandler())
                     LogAppend("ErrDevListenerStart");
                 else
                 {

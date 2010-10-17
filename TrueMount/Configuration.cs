@@ -210,7 +210,7 @@ namespace TrueMount
         /// <summary>
         /// Checks if there is at least one valid key device.
         /// </summary>
-        public bool IsUsbDeviceConfigOk
+        public bool IsKeyDeviceConfigOk
         {
             get
             {

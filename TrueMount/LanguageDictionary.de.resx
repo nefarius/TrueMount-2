@@ -414,4 +414,7 @@
   <data name="VolumeDismounted" xml:space="preserve">
     <value>Laufwerk ausgeworfen</value>
   </data>
+  <data name="NewDeviceNotRemovable" xml:space="preserve">
+    <value>Neues Gerät "{0}" ist kein auswerfbares Laufwerk.</value>
+  </data>
 </root>

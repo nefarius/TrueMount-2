@@ -408,4 +408,7 @@
   <data name="VolumeDismounted" xml:space="preserve">
     <value>Volume dismounted</value>
   </data>
+  <data name="NewDeviceNotRemovable" xml:space="preserve">
+    <value>New device "{0}" is not a removable device.</value>
+  </data>
 </root>
