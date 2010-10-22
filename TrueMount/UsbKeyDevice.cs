@@ -9,6 +9,7 @@ namespace TrueMount
         public uint Signature { get; set; }
         public uint PartitionIndex { get; set; }
         public bool IsActive { get; set; }
+        public bool TriggerDismount { get; set; }
 
         public override bool Equals(object obj)
         {

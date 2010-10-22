@@ -8,11 +8,13 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
 using System.IO;
+using ManagedWinapi;
 
 namespace TrueMount
 {
     partial class SettingsDialog : Form
     {
+        #region Definitions
         public Configuration config = null;
         private Dictionary<int, List<ManagementObject>> keyDeviceList = null;
         private Dictionary<int, List<ManagementObject>> encDeviceList = null;
@@ -21,7 +23,9 @@ namespace TrueMount
         private List<List<string>> diskKeyFilesList = null;
         private List<List<string>> containerKeyFilesList = null;
         private bool editInProgress = false;
+        #endregion
 
+        #region Constructor and Load Events
         /// <summary>
         /// Creates new settings dialog with current configuration data.
         /// </summary>
@@ -114,59 +118,17 @@ namespace TrueMount
             Cursor.Current = Cursors.Default;
         }
 
-        /// <summary>
-        /// Builds the device lists (the most evil code I ever wrote :/)
-        /// </summary>
-        private void BuildDeviceList()
+        private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // fill up device list
-            int keyIndex = 0, encIndex = 0;
-            List<ManagementObject> keyDeviceMobjects = null, encDeviceMobjects = null;
-            comboBoxUSBKeyDevice.BeginUpdate();
-            comboBoxDiskDrives.BeginUpdate();
-            // walk through every physical disk
-            foreach (ManagementObject dDrive in SystemDevices.DiskDrives)
-            {
-                encDeviceMobjects = new List<ManagementObject>();
-                encDeviceMobjects.Add(dDrive);
-                // add disk caption to dropdown list
-                comboBoxDiskDrives.Items.Add(dDrive["Caption"].ToString());
-                // walk through every partition
-                foreach (ManagementObject dPartition in dDrive.GetRelated(SystemDevices.Win32_DiskPartition))
-                {
-                    encDeviceMobjects.Add(dPartition);
-                    // get the logical disk
-                    foreach (ManagementObject lDisk in dPartition.GetRelated(SystemDevices.Win32_LogicalDisk))
-                    {
-                        // create title of key device and add it to dropdown list
-                        comboBoxUSBKeyDevice.Items.Add(dDrive["Caption"].ToString() +
-                            langRes.GetString("CBoxPartition") +
-                            ((uint)dPartition["Index"] + 1).ToString() +
-                            langRes.GetString("CBoxLetter") +
-                            lDisk["Name"].ToString());
-                        // we have all the information, let's save it
-                        keyDeviceMobjects = new List<ManagementObject>();
-                        // add disk
-                        keyDeviceMobjects.Add(dDrive);
-                        // add partition
-                        keyDeviceMobjects.Add(dPartition);
-                        // add logical disk
-                        keyDeviceMobjects.Add(lDisk);
-                        // save it in list
-                        keyDeviceList.Add(keyIndex++, keyDeviceMobjects);
-                    }
-                }
-                encDeviceList.Add(encIndex++, encDeviceMobjects);
-            }
-            comboBoxUSBKeyDevice.EndUpdate();
-            comboBoxDiskDrives.EndUpdate();
-
-            // there is nothing to select if empty
-            if (comboBoxUSBKeyDevice.Items.Count > 0)
-                comboBoxUSBKeyDevice.SelectedIndex = 0;
-            if (comboBoxDiskDrives.Items.Count > 0)
-                comboBoxDiskDrives.SelectedIndex = 0;
+            if (editInProgress)
+                if (MessageBox.Show(langRes.GetString("MsgTWarnNotSaved"), langRes.GetString("MsgHWarnNotSaved"),
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                    e.Cancel = true;
         }
+
+        #endregion
+
+        #region Application Tab Events
 
         /// <summary>
         /// Set or unset autostart entry.
@@ -196,30 +158,207 @@ namespace TrueMount
             config.ShowSplashScreen = checkBoxSplashScreen.Checked;
         }
 
-        /// <summary>
-        /// Search for TrueCrypt on local file system.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSearchTrueCrypt_Click(object sender, EventArgs e)
-        {
-            if (openFileDialogTrueCrypt.ShowDialog() == DialogResult.OK)
-            {
-                textBoxTrueCryptExec.Text = openFileDialogTrueCrypt.FileName;
-                config.TrueCrypt.ExecutablePath = openFileDialogTrueCrypt.FileName;
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(textBoxTrueCryptExec.Text))
-                    MessageBox.Show(langRes.GetString("MsgTNoTCSet"), langRes.GetString("MsgHNoTCSet"),
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void checkBoxOneInstance_CheckedChanged(object sender, EventArgs e)
         {
             config.OnlyOneInstance = checkBoxOneInstance.Checked;
         }
+
+        private void checkBoxIgnoreDriveLetters_CheckedChanged(object sender, EventArgs e)
+        {
+            config.IgnoreAssignedDriveLetters = checkBoxIgnoreDriveLetters.Checked;
+        }
+
+        private void checkBoxForceUnmountAll_CheckedChanged(object sender, EventArgs e)
+        {
+            config.ForceUnmount = checkBoxForceUnmountAll.Checked;
+        }
+
+        private void checkBoxWarnUnmountAll_CheckedChanged(object sender, EventArgs e)
+        {
+            config.UnmountWarning = checkBoxWarnUnmountAll.Checked;
+        }
+
+        private void checkBoxDisableBallons_CheckedChanged(object sender, EventArgs e)
+        {
+            config.DisableBalloons = checkBoxDisableBalloons.Checked;
+        }
+
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxLanguage.Text == "English")
+                config.Language = new CultureInfo("en");
+            if (comboBoxLanguage.Text == "Deutsch")
+                config.Language = new CultureInfo("de");
+        }
+
+        private void numericUpDownBalloonTime_ValueChanged(object sender, EventArgs e)
+        {
+            config.BalloonTimePeriod = (int)numericUpDownBalloonTime.Value;
+        }
+
+        private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            config.CheckForUpdates = checkBoxCheckUpdates.Checked;
+        }
+
+        #endregion
+
+        #region Hotkeys Tab Events
+
+        bool kCtrl = false, kAlt = false, kShift = false, kWin = false, kCode = false;
+        private void textBoxHotKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox temp = ((TextBox)sender);
+            switch (e.KeyCode)
+            {
+                case Keys.ControlKey:
+                case Keys.Control:
+                    temp.Text += !kCtrl ? "CTRL + " : string.Empty;
+                    kCtrl = true;
+                    break;
+                case Keys.Menu:
+                case Keys.Alt:
+                    temp.Text += !kAlt ? "ALT + " : string.Empty;
+                    kAlt = true;
+                    break;
+                case Keys.ShiftKey:
+                case Keys.Shift:
+                    temp.Text += !kShift ? "SHIFT + " : string.Empty;
+                    kShift = true;
+                    break;
+                case Keys.LWin:
+                case Keys.RWin:
+                    temp.Text += !kWin ? "WIN + " : string.Empty;
+                    kWin = true;
+                    break;
+                default:
+                    temp.Text += !kCode ? e.KeyCode.ToString() : string.Empty;
+                    kCode = true;
+                    break;
+            }
+        }
+
+        private void textBoxHotKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox temp = ((TextBox)sender);
+
+            if (!kCode)
+            {
+                kCtrl = false;
+                kAlt = false;
+                kShift = false;
+                kWin = false;
+                temp.Text = string.Empty;
+            }
+        }
+
+        private void textBoxHotKey_Enter(object sender, EventArgs e)
+        {
+            kCtrl = false;
+            kAlt = false;
+            kShift = false;
+            kWin = false;
+            kCode = false;
+        }
+
+        #endregion
+
+        #region Key Devices Tab Events
+
+        private void buttonAddKeyDevice_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ManagementObject diskDrive = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][0];
+            ManagementObject diskPartition = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][1];
+
+            UsbKeyDevice newKeyDevice = new UsbKeyDevice();
+            newKeyDevice.Caption = diskDrive["Caption"].ToString();
+            newKeyDevice.Signature = (uint)diskDrive["Signature"];
+            newKeyDevice.PartitionIndex = ((uint)diskPartition["Index"] + 1);
+            newKeyDevice.IsActive = checkBoxKeyDeviceActive.Checked;
+            newKeyDevice.TriggerDismount = checkBoxTriggerUnmount.Checked;
+
+            // detect if disk is already configured
+            if (!config.KeyDevices.Contains(newKeyDevice))
+            {
+                config.KeyDevices.Add(newKeyDevice);
+            }
+            else
+            {
+                // this key device already exists
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show(langRes.GetString("MsgTDevDouble"), langRes.GetString("MsgHDevDouble"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            listBoxKeyDevices.Items.Add(newKeyDevice);
+            listBoxKeyDevices.SelectedItem = newKeyDevice;
+            listBoxKeyDevices.Enabled = true;
+            panelKeyDevice.Visible = true;
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void listBoxKeyDevices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxKeyDevices.SelectedIndex != -1 &&
+                config.KeyDevices.Count > 0 &&
+                config.KeyDevices.Count >= listBoxKeyDevices.Items.Count)
+            {
+                UsbKeyDevice keyDevice = config.KeyDevices[listBoxKeyDevices.SelectedIndex];
+                textBoxUSBCaption.Text = keyDevice.Caption;
+                textBoxUSBSignature.Text = keyDevice.Signature.ToString();
+                textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
+                checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
+                checkBoxTriggerUnmount.Checked = keyDevice.TriggerDismount;
+                panelKeyDevice.Visible = true;
+                return;
+            }
+
+            if (listBoxKeyDevices.Items.Count > 0 && config.KeyDevices.Count > 0)
+            {
+                listBoxKeyDevices.SelectedItem = config.KeyDevices.First();
+                panelKeyDevice.Visible = true;
+                return;
+            }
+
+            // if nothing to do, reset components and return
+            textBoxUSBCaption.Text = null;
+            textBoxUSBSignature.Text = null;
+            textBoxUSBPartition.Text = null;
+            panelKeyDevice.Visible = false;
+        }
+
+        /// <summary>
+        /// Deletes key device from configuration and tree.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonDeleteKeyDevice_Click(object sender, EventArgs e)
+        {
+            config.KeyDevices.RemoveAt(listBoxKeyDevices.SelectedIndex);
+            listBoxKeyDevices.Items.Remove(listBoxKeyDevices.SelectedItem);
+
+            if (config.KeyDevices.Count <= 0)
+            {
+                panelKeyDevice.Visible = false;
+                listBoxKeyDevices.Enabled = false;
+            }
+        }
+
+        private void checkBoxKeyDeviceActive_CheckedChanged(object sender, EventArgs e)
+        {
+            config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
+        }
+
+        private void checkBoxTriggerUnmount_CheckedChanged(object sender, EventArgs e)
+        {
+            config.KeyDevices[listBoxKeyDevices.SelectedIndex].TriggerDismount = checkBoxTriggerUnmount.Checked;
+        }
+
+        #endregion
+
+        #region Disk Drives Tab Events
 
         /// <summary>
         /// Add new encrypted disk.
@@ -283,7 +422,7 @@ namespace TrueMount
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonSearchPasswordFile_Click(object sender, EventArgs e)
+        private void buttonSearchDiskPasswordFile_Click(object sender, EventArgs e)
         {
             // search for password file, no error handling needed here
             if (openFileDialogGeneral.ShowDialog() == DialogResult.OK)
@@ -345,56 +484,6 @@ namespace TrueMount
             listBoxDisks.Enabled = true;
         }
 
-        private void buttonAddKeyDevice_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            ManagementObject diskDrive = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][0];
-            ManagementObject diskPartition = keyDeviceList[comboBoxUSBKeyDevice.SelectedIndex][1];
-
-            UsbKeyDevice newKeyDevice = new UsbKeyDevice();
-            newKeyDevice.Caption = diskDrive["Caption"].ToString();
-            newKeyDevice.Signature = (uint)diskDrive["Signature"];
-            newKeyDevice.PartitionIndex = ((uint)diskPartition["Index"] + 1);
-            newKeyDevice.IsActive = checkBoxKeyDeviceActive.Checked;
-
-            // detect if disk is already configured
-            if (!config.KeyDevices.Contains(newKeyDevice))
-            {
-                config.KeyDevices.Add(newKeyDevice);
-            }
-            else
-            {
-                // this key device already exists
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show(langRes.GetString("MsgTDevDouble"), langRes.GetString("MsgHDevDouble"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            listBoxKeyDevices.Items.Add(newKeyDevice);
-            listBoxKeyDevices.SelectedItem = newKeyDevice;
-            listBoxKeyDevices.Enabled = true;
-            panelKeyDevice.Visible = true;
-            Cursor.Current = Cursors.Default;
-        }
-
-        /// <summary>
-        /// Deletes key device from configuration and tree.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonDeleteKeyDevice_Click(object sender, EventArgs e)
-        {
-            config.KeyDevices.RemoveAt(listBoxKeyDevices.SelectedIndex);
-            listBoxKeyDevices.Items.Remove(listBoxKeyDevices.SelectedItem);
-
-            if (config.KeyDevices.Count <= 0)
-            {
-                panelKeyDevice.Visible = false;
-                listBoxKeyDevices.Enabled = false;
-            }
-        }
-
         /// <summary>
         /// Deletes disk from config and tree.
         /// </summary>
@@ -417,10 +506,64 @@ namespace TrueMount
             listBoxDisks.Enabled = true;
         }
 
-        private void checkBoxKeyDeviceActive_CheckedChanged(object sender, EventArgs e)
+        private void buttonEditDiskKeyFiles_Click(object sender, EventArgs e)
         {
-            config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
+            KeyFilesDialog kfd = new KeyFilesDialog();
+            kfd.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
+            if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                diskKeyFilesList[listBoxDisks.SelectedIndex] = kfd.KeyFiles;
+            kfd = null;
         }
+
+        private void listBoxDisks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // re-create the list of available drive letters
+            comboBoxDiskDriveLetter.BeginUpdate();
+            comboBoxDiskDriveLetter.Items.Clear();
+            if (!config.IgnoreAssignedDriveLetters)
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
+            else
+                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
+            if (comboBoxDiskDriveLetter.Items.Count > 0)
+                comboBoxDiskDriveLetter.SelectedIndex = 0;
+            comboBoxDiskDriveLetter.EndUpdate();
+
+            // we must have disks available to display it
+            if (config.EncryptedDiskPartitions.Count > 0 &&
+                config.EncryptedDiskPartitions.Count >= listBoxDisks.Items.Count &&
+                listBoxDisks.SelectedIndex != -1)
+            {
+                EncryptedDiskPartition encDiskPartition =
+                    config.EncryptedDiskPartitions[listBoxDisks.SelectedIndex];
+
+                // fill up informations
+                textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
+                textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
+                textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
+                textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
+                checkBoxDiskActive.Checked = encDiskPartition.IsActive;
+                checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
+                checkBoxDiskRo.Checked = encDiskPartition.Readonly;
+                checkBoxDiskRm.Checked = encDiskPartition.Removable;
+                checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
+                checkBoxDiskSm.Checked = encDiskPartition.System;
+
+                if (encDiskPartition.DriveLetter != null)
+                {
+                    // if the letter of the drive is not in the list, add it an first position
+                    if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
+                        comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
+                    comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
+                }
+
+                // after everything is filled with data, make panel visible
+                panelDisks.Visible = true;
+            }
+        }
+
+        #endregion
+
+        #region TrueCrypt Tab Events
 
         private void checkBoxBackground_CheckedChanged(object sender, EventArgs e)
         {
@@ -457,55 +600,34 @@ namespace TrueMount
             config.TrueCrypt.Beep = checkBoxBeep.Checked;
         }
 
-        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Search for TrueCrypt on local file system.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSearchTrueCrypt_Click(object sender, EventArgs e)
         {
-            if (comboBoxLanguage.Text == "English")
-                config.Language = new CultureInfo("en");
-            if (comboBoxLanguage.Text == "Deutsch")
-                config.Language = new CultureInfo("de");
-        }
-
-        private void checkBoxIgnoreDriveLetters_CheckedChanged(object sender, EventArgs e)
-        {
-            config.IgnoreAssignedDriveLetters = checkBoxIgnoreDriveLetters.Checked;
-        }
-
-        private void buttonEditKeyFiles_Click(object sender, EventArgs e)
-        {
-            KeyFilesDialog kfd = new KeyFilesDialog();
-            kfd.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
-            if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                diskKeyFilesList[listBoxDisks.SelectedIndex] = kfd.KeyFiles;
-            kfd = null;
-        }
-
-        private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (editInProgress)
-                if (MessageBox.Show(langRes.GetString("MsgTWarnNotSaved"), langRes.GetString("MsgHWarnNotSaved"),
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
-                    e.Cancel = true;
-        }
-
-        private void checkBoxForceUnmountAll_CheckedChanged(object sender, EventArgs e)
-        {
-            config.ForceUnmount = checkBoxForceUnmountAll.Checked;
-        }
-
-        private void checkBoxWarnUnmountAll_CheckedChanged(object sender, EventArgs e)
-        {
-            config.UnmountWarning = checkBoxWarnUnmountAll.Checked;
-        }
-
-        private void checkBoxDisableBallons_CheckedChanged(object sender, EventArgs e)
-        {
-            config.DisableBalloons = checkBoxDisableBalloons.Checked;
+            if (openFileDialogTrueCrypt.ShowDialog() == DialogResult.OK)
+            {
+                textBoxTrueCryptExec.Text = openFileDialogTrueCrypt.FileName;
+                config.TrueCrypt.ExecutablePath = openFileDialogTrueCrypt.FileName;
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(textBoxTrueCryptExec.Text))
+                    MessageBox.Show(langRes.GetString("MsgTNoTCSet"), langRes.GetString("MsgHNoTCSet"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void pictureBoxTrueCryptHeader_Click(object sender, EventArgs e)
         {
             Process.Start("http://www.truecrypt.org/");
         }
+
+        #endregion
+
+        #region Container Files Tab Events
 
         private void buttonAddContainer_Click(object sender, EventArgs e)
         {
@@ -587,81 +709,6 @@ namespace TrueMount
             }
         }
 
-        private void listBoxKeyDevices_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxKeyDevices.SelectedIndex != -1 &&
-                config.KeyDevices.Count > 0 &&
-                config.KeyDevices.Count >= listBoxKeyDevices.Items.Count)
-            {
-                UsbKeyDevice keyDevice = config.KeyDevices[listBoxKeyDevices.SelectedIndex];
-                textBoxUSBCaption.Text = keyDevice.Caption;
-                textBoxUSBSignature.Text = keyDevice.Signature.ToString();
-                textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
-                checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
-                panelKeyDevice.Visible = true;
-                return;
-            }
-
-            if (listBoxKeyDevices.Items.Count > 0 && config.KeyDevices.Count > 0)
-            {
-                listBoxKeyDevices.SelectedItem = config.KeyDevices.First();
-                panelKeyDevice.Visible = true;
-                return;
-            }
-
-            // if nothing to do, reset components and return
-            textBoxUSBCaption.Text = null;
-            textBoxUSBSignature.Text = null;
-            textBoxUSBPartition.Text = null;
-            panelKeyDevice.Visible = false;
-        }
-
-        private void listBoxDisks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // re-create the list of available drive letters
-            comboBoxDiskDriveLetter.BeginUpdate();
-            comboBoxDiskDriveLetter.Items.Clear();
-            if (!config.IgnoreAssignedDriveLetters)
-                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.FreeDriveLetters.ToArray());
-            else
-                comboBoxDiskDriveLetter.Items.AddRange(SystemDevices.AllDriveLetters.ToArray());
-            if (comboBoxDiskDriveLetter.Items.Count > 0)
-                comboBoxDiskDriveLetter.SelectedIndex = 0;
-            comboBoxDiskDriveLetter.EndUpdate();
-
-            // we must have disks available to display it
-            if (config.EncryptedDiskPartitions.Count > 0 &&
-                config.EncryptedDiskPartitions.Count >= listBoxDisks.Items.Count &&
-                listBoxDisks.SelectedIndex != -1)
-            {
-                EncryptedDiskPartition encDiskPartition =
-                    config.EncryptedDiskPartitions[listBoxDisks.SelectedIndex];
-
-                // fill up informations
-                textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
-                textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
-                textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
-                textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
-                checkBoxDiskActive.Checked = encDiskPartition.IsActive;
-                checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
-                checkBoxDiskRo.Checked = encDiskPartition.Readonly;
-                checkBoxDiskRm.Checked = encDiskPartition.Removable;
-                checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
-                checkBoxDiskSm.Checked = encDiskPartition.System;
-
-                if (encDiskPartition.DriveLetter != null)
-                {
-                    // if the letter of the drive is not in the list, add it an first position
-                    if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
-                        comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
-                    comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
-                }
-
-                // after everything is filled with data, make panel visible
-                panelDisks.Visible = true;
-            }
-        }
-
         private void buttonRemoveContainer_Click(object sender, EventArgs e)
         {
             // we need container files to delete
@@ -724,6 +771,64 @@ namespace TrueMount
             kfd = null;
         }
 
+        #endregion
+
+        #region Helper Methods
+
+        /// <summary>
+        /// Builds the device lists (the most evil code I ever wrote :/)
+        /// </summary>
+        private void BuildDeviceList()
+        {
+            // fill up device list
+            int keyIndex = 0, encIndex = 0;
+            List<ManagementObject> keyDeviceMobjects = null, encDeviceMobjects = null;
+            comboBoxUSBKeyDevice.BeginUpdate();
+            comboBoxDiskDrives.BeginUpdate();
+            // walk through every physical disk
+            foreach (ManagementObject dDrive in SystemDevices.DiskDrives)
+            {
+                encDeviceMobjects = new List<ManagementObject>();
+                encDeviceMobjects.Add(dDrive);
+                // add disk caption to dropdown list
+                comboBoxDiskDrives.Items.Add(dDrive["Caption"].ToString());
+                // walk through every partition
+                foreach (ManagementObject dPartition in dDrive.GetRelated(SystemDevices.Win32_DiskPartition))
+                {
+                    encDeviceMobjects.Add(dPartition);
+                    // get the logical disk
+                    foreach (ManagementObject lDisk in dPartition.GetRelated(SystemDevices.Win32_LogicalDisk))
+                    {
+                        // create title of key device and add it to dropdown list
+                        comboBoxUSBKeyDevice.Items.Add(dDrive["Caption"].ToString() +
+                            langRes.GetString("CBoxPartition") +
+                            ((uint)dPartition["Index"] + 1).ToString() +
+                            langRes.GetString("CBoxLetter") +
+                            lDisk["Name"].ToString());
+                        // we have all the information, let's save it
+                        keyDeviceMobjects = new List<ManagementObject>();
+                        // add disk
+                        keyDeviceMobjects.Add(dDrive);
+                        // add partition
+                        keyDeviceMobjects.Add(dPartition);
+                        // add logical disk
+                        keyDeviceMobjects.Add(lDisk);
+                        // save it in list
+                        keyDeviceList.Add(keyIndex++, keyDeviceMobjects);
+                    }
+                }
+                encDeviceList.Add(encIndex++, encDeviceMobjects);
+            }
+            comboBoxUSBKeyDevice.EndUpdate();
+            comboBoxDiskDrives.EndUpdate();
+
+            // there is nothing to select if empty
+            if (comboBoxUSBKeyDevice.Items.Count > 0)
+                comboBoxUSBKeyDevice.SelectedIndex = 0;
+            if (comboBoxDiskDrives.Items.Count > 0)
+                comboBoxDiskDrives.SelectedIndex = 0;
+        }
+
         private void buttonDeleteConfig_Click(object sender, EventArgs e)
         {
             try
@@ -735,14 +840,6 @@ namespace TrueMount
             finally { Environment.Exit(1); }
         }
 
-        private void numericUpDownBalloonTime_ValueChanged(object sender, EventArgs e)
-        {
-            config.BalloonTimePeriod = (int)numericUpDownBalloonTime.Value;
-        }
-
-        private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
-        {
-            config.CheckForUpdates = checkBoxCheckUpdates.Checked;
-        }
+        #endregion
     }
 }

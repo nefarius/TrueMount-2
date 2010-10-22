@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -8,12 +9,12 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace TrueMount
 {
     public partial class TrueMountMainWindow : Form
     {
+        #region Definitions
         private Configuration config = null;
         private ManagementScope scope = null;
         private ManagementEventWatcher keyInsertEvent = null;
@@ -25,7 +26,9 @@ namespace TrueMount
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
+        #endregion
 
+        #region Constructor, Destructor, Load and Unload Events
         /// <summary>
         /// Constructor loads the configuration.
         /// </summary>
@@ -94,6 +97,21 @@ namespace TrueMount
             BuildMountMenu();
         }
 
+        /// <summary>
+        /// Close main window and exit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            config.ApplicationLocation = Configuration.CurrentApplicationLocation;
+            Configuration.SaveConfiguration(config);
+            StopDeviceListener();
+        }
+
+        #endregion
+
+        #region Tray menu actions
         /// <summary>
         /// Adds encrypted device items dynamically to the tray menu.
         /// </summary>
@@ -193,7 +211,9 @@ namespace TrueMount
             if (result)
                 MountBalloonTip(encMedia);
         }
+        #endregion
 
+        #region Balloon tips actions
         /// <summary>
         /// Displayes a balloon tip on mount success.
         /// </summary>
@@ -227,7 +247,9 @@ namespace TrueMount
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
         }
+        #endregion
 
+        #region Show and hide main window
         /// <summary>
         /// Maximize and unhide main window in taskbar.
         /// </summary>
@@ -251,24 +273,9 @@ namespace TrueMount
             this.ShowInTaskbar = false;
             this.Hide();
         }
+        #endregion
 
-        /// <summary>
-        /// When splash screen closes and silent start is disabled, bring main window to front.
-        /// </summary>
-        void splashScreen_OnSplashFinished()
-        {
-            // on first start show settings dialog
-            if (config.FirstStart)
-            {
-                splashScreen.Hide();
-                buttonSettings_Click(this, null);
-                config.FirstStart = false;
-            }
-
-            if (!config.StartSilent)
-                ShowMainWindow();
-        }
-
+        #region Key device listener methods
         /// <summary>
         /// Register usb plug-in event listener
         /// </summary>
@@ -295,7 +302,7 @@ namespace TrueMount
             }
             catch (Exception e)
             {
-                LogAppend(e.Message);
+                LogAppend("", e.Message);
                 if (keyInsertEvent != null)
                     keyInsertEvent.Stop();
                 return false;
@@ -335,7 +342,7 @@ namespace TrueMount
             }
             catch (Exception e)
             {
-                LogAppend(e.Message);
+                LogAppend("", e.Message);
                 if (keyRemoveEvent != null)
                     keyRemoveEvent.Stop();
                 return false;
@@ -354,50 +361,12 @@ namespace TrueMount
             if (onlineKeyDevices.Contains(deviceId))
             {
                 onlineKeyDevices.Remove(deviceId);
-                
+                // IMPLEMENT THIS!
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Run through all configured key SystemDevices and if one is online, start the mount process.
-        /// </summary>
-        /// <returns>Returns true if one or more are found, else false.</returns>
-        private bool IsKeyDeviceOnline(string deviceId = null)
-        {
-            foreach (UsbKeyDevice keyDevice in config.KeyDevices)
-            {
-                if (!string.IsNullOrEmpty(deviceId))
-                {
-                    if (SystemDevices.IsPartitionOnline(keyDevice.Caption, keyDevice.Signature,
-                        keyDevice.PartitionIndex - 1, deviceId))
-                    {
-                        if (!onlineKeyDevices.Contains(deviceId))
-                            onlineKeyDevices.Add(deviceId);
-                        LogAppend("PDevOnline", keyDevice.Caption);
-                        buttonStartWorker.Enabled = false;
-                        MountAllDevices();
-                        buttonStopWorker.Enabled = true;
-                        return true;
-                    }
-                }
-                else
-                {
-                    String driveLetter = SystemDevices.GetDriveLetterBySignature(keyDevice.Caption,
-                        keyDevice.Signature, keyDevice.PartitionIndex - 1);
-                    if (SystemDevices.IsLogicalDiskOnline(driveLetter))
-                    {
-                        LogAppend("PDevOnline", keyDevice.Caption);
-                        buttonStartWorker.Enabled = false;
-                        MountAllDevices();
-                        buttonStopWorker.Enabled = true;
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
+        #region Start and stop Device Listener
         /// <summary>
         /// Launches the listening thread and adjusts the gui.
         /// </summary>
@@ -452,7 +421,9 @@ namespace TrueMount
                 keyRemoveEvent = null;
             }
         }
+        #endregion
 
+        #region Button and Menu Events
         /// <summary>
         /// Shows the main windows on tray doubleclick.
         /// </summary>
@@ -477,6 +448,124 @@ namespace TrueMount
             HideMainWindow();
         }
 
+        /// <summary>
+        /// On Tray menu close click close the main window and exit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void closeToolStripMenuClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Tray menu show main window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void showToolStripMenuShow_Click(object sender, EventArgs e)
+        {
+            ShowMainWindow();
+        }
+
+        /// <summary>
+        /// Start device listener.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonStartWorker_Click(object sender, EventArgs e)
+        {
+            this.StartDeviceListener();
+        }
+
+        /// <summary>
+        /// Stop device listener.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonStopWorker_Click(object sender, EventArgs e)
+        {
+            this.StopDeviceListener();
+        }
+
+        /// <summary>
+        /// Open my website :)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabelNefarius_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(linkLabelNefarius.Text);
+        }
+
+        /// <summary>
+        /// Show settings dialog and reload config after close.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            // create settings dialog and feed with configuration references
+            SettingsDialog settings = new SettingsDialog(ref config);
+            // bring dialog to front and await user actions
+            settings.ShowDialog();
+            Configuration.SaveConfiguration(config);
+            settings = null;
+            BuildMountMenu();
+        }
+
+        /// <summary>
+        /// Context menu copy action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(richTextBoxLog.SelectedText);
+        }
+
+        /// <summary>
+        /// Try to unmount all devices.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void unmountAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UnmountMedia();
+        }
+
+        /// <summary>
+        /// Systray menu entry to mount all SystemDevices
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mountAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MountAllDevices();
+        }
+
+        private void backgroundWorkerSplash_DoWork(object sender, DoWorkEventArgs e)
+        {
+            new SplashScreen().ShowDialog();
+        }
+
+        private void settingsToolStripMenuSettings_Click(object sender, EventArgs e)
+        {
+            this.buttonSettings_Click(sender, e);
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Configuration.UpdaterExists)
+                config.InvokeUpdateProcess();
+            else
+                MessageBox.Show(langRes.GetString("MsgTNoUpdater"), langRes.GetString("MsgHNoUpdater"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        #endregion
+
+        #region Mount and Unmount methods
         /// <summary>
         /// Reads configuration and tries to mount every found device.
         /// </summary>
@@ -766,139 +855,6 @@ namespace TrueMount
             return mountSuccess;
         }
 
-        /// <summary>
-        /// Close main window and exit.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            config.ApplicationLocation = Configuration.CurrentApplicationLocation;
-            Configuration.SaveConfiguration(config);
-            StopDeviceListener();
-        }
-
-        /// <summary>
-        /// On Tray menu close click close the main window and exit.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void closeToolStripMenuClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        /// <summary>
-        /// Tray menu show main window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void showToolStripMenuShow_Click(object sender, EventArgs e)
-        {
-            ShowMainWindow();
-        }
-
-        /// <summary>
-        /// Start device listener.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonStartWorker_Click(object sender, EventArgs e)
-        {
-            this.StartDeviceListener();
-        }
-
-        /// <summary>
-        /// Stop device listener.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonStopWorker_Click(object sender, EventArgs e)
-        {
-            this.StopDeviceListener();
-        }
-
-        /// <summary>
-        /// Log messages to textbox and consider language.
-        /// </summary>
-        /// <param name="conv_var">Alias name for text saved in resource files.</param>
-        /// <param name="text">Values getting inserted to message throu string.Format.</param>
-        private void LogAppend(String conv_var, params string[] text)
-        {
-            // thread-safe delegate call
-            if (this.richTextBoxLog.InvokeRequired)
-            {
-                LogAppendCallback lac = new LogAppendCallback(LogAppend);
-                this.Invoke(lac, new object[] { conv_var, text });
-            }
-            else
-            {
-                // correct errors made by accidental whitespaces :)
-                conv_var = conv_var.Trim();
-                /* build log line:
-                 * TIME - MESSAGE
-                 * */
-                String log_line = DateTime.Now.ToLongTimeString() + " - ";
-                if (text.Count() == 0)
-                    log_line += langRes.GetString(conv_var, culture);
-                else
-                    log_line += string.Format(langRes.GetString(conv_var, culture), text);
-                log_line += Environment.NewLine;
-
-                richTextBoxLog.AppendText(log_line);
-
-                // autoscroll to end
-                richTextBoxLog.SelectionStart = richTextBoxLog.Text.Length;
-                richTextBoxLog.ScrollToCaret();
-            }
-        }
-
-        /// <summary>
-        /// Open my website :)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linkLabelNefarius_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(linkLabelNefarius.Text);
-        }
-
-        /// <summary>
-        /// Show settings dialog and reload config after close.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSettings_Click(object sender, EventArgs e)
-        {
-            // create settings dialog and feed with configuration references
-            SettingsDialog settings = new SettingsDialog(ref config);
-            // bring dialog to front and await user actions
-            settings.ShowDialog();
-            Configuration.SaveConfiguration(config);
-            settings = null;
-            BuildMountMenu();
-        }
-
-        /// <summary>
-        /// Context menu copy action.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(richTextBoxLog.SelectedText);
-        }
-
-        /// <summary>
-        /// Try to unmount all devices.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void unmountAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UnmountMedia();
-        }
-
         private bool UnmountMedia(EncryptedMedia encMedia = null)
         {
             if (config.UnmountWarning)
@@ -948,33 +904,103 @@ namespace TrueMount
             return true;
         }
 
+        #endregion
+
+        #region Helper (SplashScreen, Device Check, Log)
         /// <summary>
-        /// Systray menu entry to mount all SystemDevices
+        /// Run through all configured key SystemDevices and if one is online, start the mount process.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mountAllToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <returns>Returns true if one or more are found, else false.</returns>
+        private bool IsKeyDeviceOnline(string deviceId = null)
         {
-            this.MountAllDevices();
+            foreach (UsbKeyDevice keyDevice in config.KeyDevices)
+            {
+                if (!string.IsNullOrEmpty(deviceId))
+                {
+                    if (SystemDevices.IsPartitionOnline(keyDevice.Caption, keyDevice.Signature,
+                        keyDevice.PartitionIndex - 1, deviceId))
+                    {
+                        if (!onlineKeyDevices.Contains(deviceId))
+                            onlineKeyDevices.Add(deviceId);
+                        LogAppend("PDevOnline", keyDevice.Caption);
+                        buttonStartWorker.Enabled = false;
+                        MountAllDevices();
+                        buttonStopWorker.Enabled = true;
+                        return true;
+                    }
+                }
+                else
+                {
+                    String driveLetter = SystemDevices.GetDriveLetterBySignature(keyDevice.Caption,
+                        keyDevice.Signature, keyDevice.PartitionIndex - 1);
+                    if (SystemDevices.IsLogicalDiskOnline(driveLetter))
+                    {
+                        LogAppend("PDevOnline", keyDevice.Caption);
+                        buttonStartWorker.Enabled = false;
+                        MountAllDevices();
+                        buttonStopWorker.Enabled = true;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
-        private void backgroundWorkerSplash_DoWork(object sender, DoWorkEventArgs e)
+        /// <summary>
+        /// When splash screen closes and silent start is disabled, bring main window to front.
+        /// </summary>
+        void splashScreen_OnSplashFinished()
         {
-            new SplashScreen().ShowDialog();
+            // on first start show settings dialog
+            if (config.FirstStart)
+            {
+                splashScreen.Hide();
+                buttonSettings_Click(this, null);
+                config.FirstStart = false;
+            }
+
+            if (!config.StartSilent)
+                ShowMainWindow();
         }
 
-        private void settingsToolStripMenuSettings_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Log messages to textbox and consider language.
+        /// </summary>
+        /// <param name="convVar">Alias name for text saved in resource files.</param>
+        /// <param name="text">Values getting inserted to message throu string.Format.</param>
+        private void LogAppend(String convVar, params string[] text)
         {
-            this.buttonSettings_Click(sender, e);
-        }
-
-        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Configuration.UpdaterExists)
-                config.InvokeUpdateProcess();
+            // thread-safe delegate call
+            if (this.richTextBoxLog.InvokeRequired)
+            {
+                LogAppendCallback lac = new LogAppendCallback(LogAppend);
+                this.Invoke(lac, new object[] { convVar, text });
+            }
             else
-                MessageBox.Show(langRes.GetString("MsgTNoUpdater"), langRes.GetString("MsgHNoUpdater"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {
+                /* build log line:
+                 * TIME - MESSAGE
+                 * */
+                String logLine = DateTime.Now.ToLongTimeString() + " - ";
+
+                if (string.IsNullOrEmpty(convVar) && text.Count() > 0)
+                    logLine += text.First();
+                else
+                    if (text.Count() == 0)
+                        logLine += langRes.GetString(convVar.Trim(), culture);
+                    else
+                        logLine += string.Format(langRes.GetString(convVar.Trim(), culture), text);
+
+                logLine += Environment.NewLine;
+                richTextBoxLog.AppendText(logLine);
+
+                // autoscroll to end
+                richTextBoxLog.SelectionStart = richTextBoxLog.Text.Length;
+                richTextBoxLog.ScrollToCaret();
+            }
         }
+
+        #endregion
     }
 }
