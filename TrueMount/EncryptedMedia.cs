@@ -17,6 +17,7 @@ namespace TrueMount
         public bool Removable { get; set; }
         public bool Timestamp { get; set; }
         public bool System { get; set; }
+        public bool TriggerDismount { get; set; }
 
         public string KeyFilesArgumentLine
         {

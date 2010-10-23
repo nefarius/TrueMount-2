@@ -23,6 +23,7 @@ namespace TrueMount
         private CultureInfo culture = null;
         private SplashScreen splashScreen = null;
         private List<string> onlineKeyDevices = null;
+        private List<EncryptedMedia> mountedVolumes = null;
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
@@ -34,7 +35,9 @@ namespace TrueMount
         /// </summary>
         public TrueMountMainWindow()
         {
+            // get the management scope for the management events
             scope = new ManagementScope(@"root\CIMv2");
+            // enable events privileges
             scope.Options.EnablePrivileges = true;
             // load log output languages
             langRes = Configuration.LanguageDictionary;
@@ -44,6 +47,8 @@ namespace TrueMount
 
             // init new empty list of online key devices
             onlineKeyDevices = new List<string>();
+            // init new list of mounted volumes
+            mountedVolumes = new List<EncryptedMedia>();
 
             // if first start and no language available, use the systems default
             if (config.Language != null)
@@ -112,6 +117,7 @@ namespace TrueMount
         #endregion
 
         #region Tray menu actions
+
         /// <summary>
         /// Adds encrypted device items dynamically to the tray menu.
         /// </summary>
@@ -155,14 +161,20 @@ namespace TrueMount
         /// <param name="encMedia">The successfull mounted media reference.</param>
         private void AddMountedMedia(EncryptedMedia encMedia)
         {
+            // add mounted volume to global list
+            mountedVolumes.Add(encMedia);
+            // create new tool strip sub-entry
             ToolStripMenuItem menuItemMedia =
                 new ToolStripMenuItem(encMedia.ToString() +
                     langRes.GetString("CBoxLetter") +
                     encMedia.DriveLetter);
-            menuItemMedia.Tag = encMedia;
+            // set icon
             menuItemMedia.Image = Properties.Resources._1276786893_drive_disk;
-            menuItemMedia.Click += new EventHandler(menuItemMedia_Click);
+            // register event handler
+            menuItemMedia.Click += new EventHandler(menuItemUnmountMedia_Click);
+            // add it to the sys tray menu item
             unmountDeviceToolStripMenuItem.DropDownItems.Add(menuItemMedia);
+            // if there are more than 0 items enable the sub-menu
             if (unmountDeviceToolStripMenuItem.DropDownItems.Count > 0)
                 unmountDeviceToolStripMenuItem.Enabled = true;
         }
@@ -172,15 +184,24 @@ namespace TrueMount
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void menuItemMedia_Click(object sender, EventArgs e)
+        void menuItemUnmountMedia_Click(object sender, EventArgs e)
         {
+            // get the clicked item
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            if (UnmountMedia((EncryptedMedia)item.Tag))
+            // get the encrypted volume related to it
+            EncryptedMedia encMedia = mountedVolumes[unmountDeviceToolStripMenuItem.DropDownItems.IndexOf(item)];
+            // try to unmount
+            if (UnmountMedia(encMedia))
             {
+                // remove from the list of mounted volumes
+                mountedVolumes.Remove(encMedia);
+                // remove the menu entry
                 unmountDeviceToolStripMenuItem.DropDownItems.Remove(item);
+                // if the menu is empty now hide it
                 if (unmountDeviceToolStripMenuItem.DropDownItems.Count == 0)
                     unmountDeviceToolStripMenuItem.Enabled = false;
-                UnmountBalloonTip((EncryptedMedia)item.Tag);
+                // pop-up a balloon tip
+                UnmountBalloonTip(encMedia);
             }
         }
 
@@ -191,7 +212,9 @@ namespace TrueMount
         /// <param name="e"></param>
         void menuItemEncDisk_Click(object sender, EventArgs e)
         {
+            // get the clicked menu item
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            // get the index number
             int index = int.Parse(item.Name);
             bool result = false;
             EncryptedMedia encMedia = null;
@@ -208,9 +231,11 @@ namespace TrueMount
                 result = MountContainerFile((EncryptedContainerFile)encMedia);
             }
 
+            // on success display a balloon tip
             if (result)
                 MountBalloonTip(encMedia);
         }
+
         #endregion
 
         #region Balloon tips actions
@@ -355,15 +380,22 @@ namespace TrueMount
         {
             LogAppend("USBRemoved");
 
+            // get the DeviceID of the removed device
             ManagementBaseObject removedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
             string deviceId = removedObject["DeviceID"].ToString();
 
             if (onlineKeyDevices.Contains(deviceId))
             {
-                onlineKeyDevices.Remove(deviceId);
-                // IMPLEMENT THIS!
+                for (int index = mountedVolumes.Count; index != 0; index--)
+                {
+                    if (mountedVolumes[index - 1].TriggerDismount)
+                    {
+                        menuItemUnmountMedia_Click(unmountDeviceToolStripMenuItem.DropDownItems[index - 1], null);
+                    }
+                }
             }
         }
+
         #endregion
 
         #region Start and stop Device Listener
@@ -855,6 +887,11 @@ namespace TrueMount
             return mountSuccess;
         }
 
+        /// <summary>
+        /// Unmounts a specific encrypted media.
+        /// </summary>
+        /// <param name="encMedia">The volume reference.</param>
+        /// <returns>Returns true on success, else false.</returns>
         private bool UnmountMedia(EncryptedMedia encMedia = null)
         {
             if (config.UnmountWarning)
@@ -913,13 +950,16 @@ namespace TrueMount
         /// <returns>Returns true if one or more are found, else false.</returns>
         private bool IsKeyDeviceOnline(string deviceId = null)
         {
+            // run through every key device
             foreach (UsbKeyDevice keyDevice in config.KeyDevices)
             {
+                // if a specific device is given, only check this
                 if (!string.IsNullOrEmpty(deviceId))
                 {
                     if (SystemDevices.IsPartitionOnline(keyDevice.Caption, keyDevice.Signature,
                         keyDevice.PartitionIndex - 1, deviceId))
                     {
+                        // add the new device to the online key device list
                         if (!onlineKeyDevices.Contains(deviceId))
                             onlineKeyDevices.Add(deviceId);
                         LogAppend("PDevOnline", keyDevice.Caption);
@@ -929,7 +969,7 @@ namespace TrueMount
                         return true;
                     }
                 }
-                else
+                else // check all online logical devices
                 {
                     String driveLetter = SystemDevices.GetDriveLetterBySignature(keyDevice.Caption,
                         keyDevice.Signature, keyDevice.PartitionIndex - 1);

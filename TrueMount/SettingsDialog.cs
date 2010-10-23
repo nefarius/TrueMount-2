@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.IO;
 using ManagedWinapi;
+using System.Runtime.InteropServices;
 
 namespace TrueMount
 {
@@ -205,10 +206,26 @@ namespace TrueMount
 
         #region Hotkeys Tab Events
 
-        bool kCtrl = false, kAlt = false, kShift = false, kWin = false, kCode = false;
+        private bool kCtrl = false, kAlt = false, kShift = false, kWin = false, kCode = false;
+        Hotkey hkMountAll = new Hotkey();
+        Hotkey hkUmountAll = new Hotkey();
+        Hotkey hkMountVol = new Hotkey();
+        Hotkey hkUmountVol = new Hotkey();
+        Hotkey hkShowMain = new Hotkey();
+        Hotkey hkShowSettings = new Hotkey();
+        Hotkey hkSearchUpdates = new Hotkey();
+
         private void textBoxHotKey_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox temp = ((TextBox)sender);
+            HideCaret(temp.Handle);
+
+            if ((!kCtrl && !kAlt && !kShift && !kWin) || kCode)
+            {
+                temp.Text = string.Empty;
+                kCode = false;
+            }
+
             switch (e.KeyCode)
             {
                 case Keys.ControlKey:
@@ -236,23 +253,71 @@ namespace TrueMount
                     kCode = true;
                     break;
             }
+
+            e.Handled = true;
         }
 
         private void textBoxHotKey_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox temp = ((TextBox)sender);
 
+            switch (e.KeyCode)
+            {
+                case Keys.ControlKey:
+                case Keys.Control:
+                    kCtrl = false;
+                    break;
+                case Keys.Menu:
+                case Keys.Alt:
+                    kAlt = false;
+                    break;
+                case Keys.ShiftKey:
+                case Keys.Shift:
+                    kShift = false;
+                    break;
+                case Keys.LWin:
+                case Keys.RWin:
+                    kWin = false;
+                    break;
+                default:
+                    ResetKeyStates();
+                    kCode = true;
+                    break;
+            }
+
             if (!kCode)
             {
-                kCtrl = false;
-                kAlt = false;
-                kShift = false;
-                kWin = false;
                 temp.Text = string.Empty;
+                SetHotKeyState(temp, false);
             }
+            else
+                SetHotKeyState(temp, true);
+
+            e.Handled = true;
+        }
+
+        private void SetHotKeyState(TextBox parent, bool state)
+        {
+            foreach (Control cBox in tableLayoutPanelHotKeys.Controls)
+                if (cBox is CheckBox)
+                    if (cBox.Name.Contains(parent.Name.Last()))
+                        ((CheckBox)tableLayoutPanelHotKeys.Controls[cBox.Name]).Checked = state;
         }
 
         private void textBoxHotKey_Enter(object sender, EventArgs e)
+        {
+            ResetKeyStates();
+        }
+
+        private void textBoxHotKey_Leave(object sender, EventArgs e)
+        {
+            ResetKeyStates();
+        }
+
+        /// <summary>
+        /// Resets all key state values to default.
+        /// </summary>
+        private void ResetKeyStates()
         {
             kCtrl = false;
             kAlt = false;
@@ -260,6 +325,10 @@ namespace TrueMount
             kWin = false;
             kCode = false;
         }
+
+        // hides cursor (caret)
+        [DllImport("user32")]
+        private static extern bool HideCaret(IntPtr hWnd);
 
         #endregion
 
@@ -276,7 +345,6 @@ namespace TrueMount
             newKeyDevice.Signature = (uint)diskDrive["Signature"];
             newKeyDevice.PartitionIndex = ((uint)diskPartition["Index"] + 1);
             newKeyDevice.IsActive = checkBoxKeyDeviceActive.Checked;
-            newKeyDevice.TriggerDismount = checkBoxTriggerUnmount.Checked;
 
             // detect if disk is already configured
             if (!config.KeyDevices.Contains(newKeyDevice))
@@ -310,7 +378,6 @@ namespace TrueMount
                 textBoxUSBSignature.Text = keyDevice.Signature.ToString();
                 textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
                 checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
-                checkBoxTriggerUnmount.Checked = keyDevice.TriggerDismount;
                 panelKeyDevice.Visible = true;
                 return;
             }
@@ -351,11 +418,6 @@ namespace TrueMount
             config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
         }
 
-        private void checkBoxTriggerUnmount_CheckedChanged(object sender, EventArgs e)
-        {
-            config.KeyDevices[listBoxKeyDevices.SelectedIndex].TriggerDismount = checkBoxTriggerUnmount.Checked;
-        }
-
         #endregion
 
         #region Disk Drives Tab Events
@@ -394,12 +456,12 @@ namespace TrueMount
             }
 
             // fill information into form elements
-            textBoxDiskCaption.Text = (string)newDisk["Caption"];
-            textBoxDiskSignature.Text = ((uint)newDisk["Signature"]).ToString();
+            labelDiskCaption.Text = (string)newDisk["Caption"];
+            labelDiskSignature.Text = ((uint)newDisk["Signature"]).ToString();
             if (newPart != null)
-                textBoxDiskPartition.Text = ((uint)newPart["Index"] + 1).ToString();
+                labelDiskPartition.Text = ((uint)newPart["Index"] + 1).ToString();
             else
-                textBoxDiskPartition.Text = comboBoxDiskPartitions.SelectedItem.ToString();
+                labelDiskPartition.Text = comboBoxDiskPartitions.SelectedItem.ToString();
             textBoxDiskPasswordFile.Text = null;
             checkBoxDiskActive.Checked = true;
             checkBoxDiskOpenExplorer.Checked = false;
@@ -456,8 +518,8 @@ namespace TrueMount
         /// <param name="e"></param>
         private void buttonSaveDisk_Click(object sender, EventArgs e)
         {
-            EncryptedDiskPartition newEncDiskPartition = new EncryptedDiskPartition(textBoxDiskCaption.Text,
-                uint.Parse(textBoxDiskSignature.Text), uint.Parse(textBoxDiskPartition.Text));
+            EncryptedDiskPartition newEncDiskPartition = new EncryptedDiskPartition(labelDiskCaption.Text,
+                uint.Parse(labelDiskSignature.Text), uint.Parse(labelDiskPartition.Text));
 
             // save all the params in the new object
             newEncDiskPartition.PasswordFile = textBoxDiskPasswordFile.Text;
@@ -469,6 +531,7 @@ namespace TrueMount
             newEncDiskPartition.System = checkBoxDiskSm.Checked;
             newEncDiskPartition.Timestamp = checkBoxDiskTs.Checked;
             newEncDiskPartition.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
+            newEncDiskPartition.TriggerDismount = checkBoxDiskDismountTrigger.Checked;
 
             // replace the disk with the new settings
             if (config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
@@ -537,9 +600,9 @@ namespace TrueMount
                     config.EncryptedDiskPartitions[listBoxDisks.SelectedIndex];
 
                 // fill up informations
-                textBoxDiskCaption.Text = encDiskPartition.DiskCaption;
-                textBoxDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
-                textBoxDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
+                labelDiskCaption.Text = encDiskPartition.DiskCaption;
+                labelDiskSignature.Text = encDiskPartition.DiskSignature.ToString();
+                labelDiskPartition.Text = encDiskPartition.PartitionIndex.ToString();
                 textBoxDiskPasswordFile.Text = encDiskPartition.PasswordFile;
                 checkBoxDiskActive.Checked = encDiskPartition.IsActive;
                 checkBoxDiskOpenExplorer.Checked = encDiskPartition.OpenExplorer;
@@ -547,6 +610,7 @@ namespace TrueMount
                 checkBoxDiskRm.Checked = encDiskPartition.Removable;
                 checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
                 checkBoxDiskSm.Checked = encDiskPartition.System;
+                checkBoxDiskDismountTrigger.Checked = encDiskPartition.TriggerDismount;
 
                 if (encDiskPartition.DriveLetter != null)
                 {
@@ -696,6 +760,7 @@ namespace TrueMount
                 checkBoxConRm.Checked = encContainerFiles.Removable;
                 checkBoxConTs.Checked = encContainerFiles.Timestamp;
                 checkBoxConSm.Checked = encContainerFiles.System;
+                checkBoxConDismountTrigger.Checked = encContainerFiles.TriggerDismount;
 
                 if (encContainerFiles.DriveLetter != null)
                 {
@@ -747,6 +812,7 @@ namespace TrueMount
             newContainerFile.Removable = checkBoxConRm.Checked;
             newContainerFile.System = checkBoxConSm.Checked;
             newContainerFile.Timestamp = checkBoxConTs.Checked;
+            newContainerFile.TriggerDismount = checkBoxConDismountTrigger.Checked;
 
             if (config.EncryptedContainerFiles.Contains(newContainerFile))
                 config.EncryptedContainerFiles[config.EncryptedContainerFiles.IndexOf(newContainerFile)] = newContainerFile;

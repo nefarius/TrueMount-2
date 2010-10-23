@@ -117,11 +117,834 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Name" xml:space="preserve">
+    <value>groupBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tabPageApplication.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPageApplication.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPageApplication.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageApplication.Text" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="&gt;&gt;tabPageApplication.Name" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;tabPageApplication.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageApplication.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageApplication.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.Name" xml:space="preserve">
+    <value>groupBoxHotkeys</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.Parent" xml:space="preserve">
+    <value>tabPageHotkeys</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageHotkeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageHotkeys.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageHotkeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <data name="tabPageHotkeys.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabPageHotkeys.Text" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="&gt;&gt;tabPageHotkeys.Name" xml:space="preserve">
+    <value>tabPageHotkeys</value>
+  </data>
+  <data name="&gt;&gt;tabPageHotkeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageHotkeys.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageHotkeys.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>428, 6</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 122</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>tabPageKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonAddKeyDevice.Name" xml:space="preserve">
+    <value>buttonAddKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;buttonAddKeyDevice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddKeyDevice.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;buttonAddKeyDevice.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxUSBKeyDevice.Name" xml:space="preserve">
+    <value>comboBoxUSBKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;comboBoxUSBKeyDevice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxUSBKeyDevice.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxUSBKeyDevice.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 122</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Detected Logical Disks</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>tabPageKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="listBoxKeyDevices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="listBoxKeyDevices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 160</value>
+  </data>
+  <data name="listBoxKeyDevices.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listBoxKeyDevices.Name" xml:space="preserve">
+    <value>listBoxKeyDevices</value>
+  </data>
+  <data name="&gt;&gt;listBoxKeyDevices.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxKeyDevices.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;listBoxKeyDevices.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 68</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 17</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="checkBoxKeyDeviceActive.Text" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="&gt;&gt;checkBoxKeyDeviceActive.Name" xml:space="preserve">
+    <value>checkBoxKeyDeviceActive</value>
+  </data>
+  <data name="&gt;&gt;checkBoxKeyDeviceActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxKeyDeviceActive.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;checkBoxKeyDeviceActive.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBoxUSBSignature.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="textBoxUSBSignature.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 42</value>
+  </data>
+  <data name="textBoxUSBSignature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="textBoxUSBSignature.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="textBoxUSBSignature.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBSignature.Name" xml:space="preserve">
+    <value>textBoxUSBSignature</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBSignature.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBSignature.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBSignature.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonDeleteKeyDevice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonDeleteKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 132</value>
+  </data>
+  <data name="buttonDeleteKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 23</value>
+  </data>
+  <data name="buttonDeleteKeyDevice.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonDeleteKeyDevice.Text" xml:space="preserve">
+    <value>Delete Device</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteKeyDevice.Name" xml:space="preserve">
+    <value>buttonDeleteKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteKeyDevice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteKeyDevice.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteKeyDevice.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 45</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Partition #:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 45</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Signature:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 19</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Caption:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBoxUSBCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="textBoxUSBCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 16</value>
+  </data>
+  <data name="textBoxUSBCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 20</value>
+  </data>
+  <data name="textBoxUSBCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBCaption.Name" xml:space="preserve">
+    <value>textBoxUSBCaption</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBCaption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBCaption.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBCaption.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="textBoxUSBPartition.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 8.25pt</value>
+  </data>
+  <data name="textBoxUSBPartition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 42</value>
+  </data>
+  <data name="textBoxUSBPartition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="textBoxUSBPartition.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="textBoxUSBPartition.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBPartition.Name" xml:space="preserve">
+    <value>textBoxUSBPartition</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBPartition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBPartition.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;textBoxUSBPartition.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pictureBox2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 68</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 87</value>
+  </data>
+  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panelKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 19</value>
+  </data>
+  <data name="panelKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>366, 160</value>
+  </data>
+  <data name="panelKeyDevice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="panelKeyDevice.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelKeyDevice.Name" xml:space="preserve">
+    <value>panelKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;panelKeyDevice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelKeyDevice.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;panelKeyDevice.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 134</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 195</value>
+  </data>
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Key Device identification configuration</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tabPageKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabPageKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageKeyDevice.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <data name="tabPageKeyDevice.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageKeyDevice.Text" xml:space="preserve">
+    <value>Key Devices</value>
+  </data>
+  <data name="&gt;&gt;tabPageKeyDevice.Name" xml:space="preserve">
+    <value>tabPageKeyDevice</value>
+  </data>
+  <data name="&gt;&gt;tabPageKeyDevice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageKeyDevice.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageKeyDevice.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Name" xml:space="preserve">
+    <value>listBoxDisks</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;listBoxDisks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Name" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Name" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPageDiskDrives.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageDiskDrives.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageDiskDrives.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <data name="tabPageDiskDrives.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageDiskDrives.Text" xml:space="preserve">
+    <value>Disk Drives</value>
+  </data>
+  <data name="&gt;&gt;tabPageDiskDrives.Name" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;tabPageDiskDrives.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageDiskDrives.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageDiskDrives.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Name" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Parent" xml:space="preserve">
+    <value>tabPageContainerFiles</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
+    <value>tabPageContainerFiles</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>tabPageContainerFiles</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabPageContainerFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageContainerFiles.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageContainerFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <data name="tabPageContainerFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPageContainerFiles.Text" xml:space="preserve">
+    <value>Container files</value>
+  </data>
+  <data name="&gt;&gt;tabPageContainerFiles.Name" xml:space="preserve">
+    <value>tabPageContainerFiles</value>
+  </data>
+  <data name="&gt;&gt;tabPageContainerFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageContainerFiles.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageContainerFiles.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTrueCryptHeader.Name" xml:space="preserve">
+    <value>pictureBoxTrueCryptHeader</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTrueCryptHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTrueCryptHeader.Parent" xml:space="preserve">
+    <value>tabPageTrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTrueCryptHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tabPageTrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>tabPageTrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabPageTrueCrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageTrueCrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageTrueCrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>584, 335</value>
+  </data>
+  <data name="tabPageTrueCrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageTrueCrypt.Text" xml:space="preserve">
+    <value>TrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageTrueCrypt.Name" xml:space="preserve">
+    <value>tabPageTrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageTrueCrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageTrueCrypt.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageTrueCrypt.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tabControlSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="tabControlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 361</value>
+  </data>
+  <data name="tabControlSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControlSettings.Name" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabControlSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControlSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControlSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Name" xml:space="preserve">
+    <value>buttonDeleteConfig</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteConfig.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Monotype Corsiva, 15.75pt, style=Italic</value>
+  </data>
+  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 101</value>
+  </data>
+  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 209</value>
+  </data>
+  <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="groupBox11.Text" xml:space="preserve">
+    <value>Beta notes!</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonDeleteConfig.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonDeleteConfig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -131,7 +954,6 @@
   <data name="buttonDeleteConfig.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 30</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonDeleteConfig.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -183,33 +1005,6 @@
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBox11.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Monotype Corsiva, 15.75pt, style=Italic</value>
-  </data>
-  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 101</value>
-  </data>
-  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 209</value>
-  </data>
-  <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="groupBox11.Text" xml:space="preserve">
-    <value>Beta notes!</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
-    <value>groupBox11</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
-    <value>tabPageApplication</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -242,6 +1037,54 @@
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Name" xml:space="preserve">
+    <value>comboBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Parent" xml:space="preserve">
+    <value>groupBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 6</value>
+  </data>
+  <data name="groupBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 89</value>
+  </data>
+  <data name="groupBoxLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="groupBoxLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Name" xml:space="preserve">
+    <value>groupBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.Parent" xml:space="preserve">
+    <value>tabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLanguage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -297,29 +1140,188 @@
   <data name="&gt;&gt;comboBoxLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 6</value>
+  <data name="&gt;&gt;checkBoxCheckUpdates.Name" xml:space="preserve">
+    <value>checkBoxCheckUpdates</value>
   </data>
-  <data name="groupBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 89</value>
+  <data name="&gt;&gt;checkBoxCheckUpdates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBoxLanguage.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;checkBoxCheckUpdates.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCheckUpdates.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label19.Name" xml:space="preserve">
+    <value>label19</value>
+  </data>
+  <data name="&gt;&gt;label19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownBalloonTime.Name" xml:space="preserve">
+    <value>numericUpDownBalloonTime</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownBalloonTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownBalloonTime.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownBalloonTime.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDisableBalloons.Name" xml:space="preserve">
+    <value>checkBoxDisableBalloons</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDisableBalloons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDisableBalloons.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDisableBalloons.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;checkBoxForceUnmountAll.Name" xml:space="preserve">
+    <value>checkBoxForceUnmountAll</value>
+  </data>
+  <data name="&gt;&gt;checkBoxForceUnmountAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxForceUnmountAll.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxForceUnmountAll.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWarnUnmountAll.Name" xml:space="preserve">
+    <value>checkBoxWarnUnmountAll</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWarnUnmountAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWarnUnmountAll.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWarnUnmountAll.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Name" xml:space="preserve">
+    <value>checkBoxIgnoreDriveLetters</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIgnoreDriveLetters.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWindowsStartup.Name" xml:space="preserve">
+    <value>checkBoxWindowsStartup</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWindowsStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWindowsStartup.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxWindowsStartup.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="groupBoxLanguage.Text" xml:space="preserve">
-    <value>Language</value>
+  <data name="&gt;&gt;checkBoxOneInstance.Name" xml:space="preserve">
+    <value>checkBoxOneInstance</value>
   </data>
-  <data name="&gt;&gt;groupBoxLanguage.Name" xml:space="preserve">
-    <value>groupBoxLanguage</value>
+  <data name="&gt;&gt;checkBoxOneInstance.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxLanguage.Type" xml:space="preserve">
+  <data name="&gt;&gt;checkBoxOneInstance.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOneInstance.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAutostart.Name" xml:space="preserve">
+    <value>checkBoxAutostart</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAutostart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAutostart.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAutostart.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSplashScreen.Name" xml:space="preserve">
+    <value>checkBoxSplashScreen</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSplashScreen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSplashScreen.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSplashScreen.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHidden.Name" xml:space="preserve">
+    <value>checkBoxHidden</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHidden.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHidden.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHidden.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 3, 3, 3</value>
+  </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 304</value>
+  </data>
+  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxLanguage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
     <value>tabPageApplication</value>
   </data>
-  <data name="&gt;&gt;groupBoxLanguage.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="checkBoxCheckUpdates.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -693,62 +1695,434 @@
   <data name="&gt;&gt;checkBoxHidden.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Name" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
   </data>
-  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 3, 3, 3</value>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 304</value>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Parent" xml:space="preserve">
+    <value>groupBoxHotkeys</value>
   </data>
-  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Behavior</value>
+  <data name="tableLayoutPanelHotKeys.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label20" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label21" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label25" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey4" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label26" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label27" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label28" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey5" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey6" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey7" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive1" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive2" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive3" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive4" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive5" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive6" Row="5" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive7" Row="6" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch1" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch2" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch3" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch4" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch5" Row="4" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch6" Row="5" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch7" Row="6" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,22,40022,Percent,26,60714,Percent,24,64286,Percent,13,03571,Percent,13,21429" /&gt;&lt;Rows Styles="Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
-    <value>groupBox9</value>
+  <data name="groupBoxHotkeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 37</value>
   </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+  <data name="groupBoxHotkeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>572, 253</value>
+  </data>
+  <data name="groupBoxHotkeys.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBoxHotkeys.Text" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.Name" xml:space="preserve">
+    <value>groupBoxHotkeys</value>
+  </data>
+  <data name="&gt;&gt;groupBoxHotkeys.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
-    <value>tabPageApplication</value>
+  <data name="&gt;&gt;groupBoxHotkeys.Parent" xml:space="preserve">
+    <value>tabPageHotkeys</value>
   </data>
-  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;groupBoxHotkeys.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.ColumnCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label20.Name" xml:space="preserve">
+    <value>label20</value>
+  </data>
+  <data name="&gt;&gt;label20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label21.Name" xml:space="preserve">
+    <value>label21</value>
+  </data>
+  <data name="&gt;&gt;label21.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label21.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label22.Name" xml:space="preserve">
+    <value>label22</value>
+  </data>
+  <data name="&gt;&gt;label22.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label22.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label23.Name" xml:space="preserve">
+    <value>label23</value>
+  </data>
+  <data name="&gt;&gt;label23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label23.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tabPageApplication.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="&gt;&gt;label24.Name" xml:space="preserve">
+    <value>label24</value>
   </data>
-  <data name="tabPageApplication.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;label24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabPageApplication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
+  <data name="&gt;&gt;label24.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
   </data>
-  <data name="tabPageApplication.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="tabPageApplication.Text" xml:space="preserve">
-    <value>Application</value>
+  <data name="&gt;&gt;label25.Name" xml:space="preserve">
+    <value>label25</value>
   </data>
-  <data name="&gt;&gt;tabPageApplication.Name" xml:space="preserve">
-    <value>tabPageApplication</value>
+  <data name="&gt;&gt;label25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageApplication.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
   </data>
-  <data name="&gt;&gt;tabPageApplication.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageApplication.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey1.Name" xml:space="preserve">
+    <value>textBoxHotKey1</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey1.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey2.Name" xml:space="preserve">
+    <value>textBoxHotKey2</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey2.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey3.Name" xml:space="preserve">
+    <value>textBoxHotKey3</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey3.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey3.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey4.Name" xml:space="preserve">
+    <value>textBoxHotKey4</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey4.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey4.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label26.Name" xml:space="preserve">
+    <value>label26</value>
+  </data>
+  <data name="&gt;&gt;label26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label26.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label27.Name" xml:space="preserve">
+    <value>label27</value>
+  </data>
+  <data name="&gt;&gt;label27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;label28.Name" xml:space="preserve">
+    <value>label28</value>
+  </data>
+  <data name="&gt;&gt;label28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label28.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey5.Name" xml:space="preserve">
+    <value>textBoxHotKey5</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey5.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey5.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey6.Name" xml:space="preserve">
+    <value>textBoxHotKey6</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey6.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey6.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey7.Name" xml:space="preserve">
+    <value>textBoxHotKey7</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey7.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;textBoxHotKey7.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive1.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive1.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive1.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive2.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive2.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive2.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive3.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive3.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive3.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive4.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive4</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive4.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive4.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive5.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive5</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive5.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive5.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive6.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive6.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive6.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive7.Name" xml:space="preserve">
+    <value>checkBoxHotKeyActive7</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive7.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyActive7.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch1.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch1.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch1.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch2.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch2.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch2.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch3.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch3.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch3.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch4.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch4</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch4.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch4.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch5.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch5</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch5.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch5.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch6.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch6.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch6.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch7.Name" xml:space="preserve">
+    <value>checkBoxHotKeyCatch7</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch7.Parent" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;checkBoxHotKeyCatch7.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 32</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.RowCount" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 206</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Name" xml:space="preserve">
+    <value>tableLayoutPanelHotKeys</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.Parent" xml:space="preserve">
+    <value>groupBoxHotkeys</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelHotKeys.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelHotKeys.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label20" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label21" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label25" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey4" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label26" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label27" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label28" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey5" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey6" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey7" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive1" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive2" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive3" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive4" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive5" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive6" Row="5" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive7" Row="6" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch1" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch2" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch3" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch4" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch5" Row="4" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch6" Row="5" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch7" Row="6" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,22,40022,Percent,26,60714,Percent,24,64286,Percent,13,03571,Percent,13,21429" /&gt;&lt;Rows Styles="Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -775,7 +2149,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label20.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -808,7 +2182,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label21.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -841,7 +2215,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label22.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -871,7 +2245,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label23.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -904,7 +2278,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label24.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -937,7 +2311,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label25.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -958,7 +2332,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey1.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -979,7 +2353,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey2.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1000,7 +2374,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey3.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1021,7 +2395,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey4.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey4.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -1054,7 +2428,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label26.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -1087,7 +2461,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label27.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -1117,7 +2491,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label28.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -1138,7 +2512,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey5.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey5.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -1159,7 +2533,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey6.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey6.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -1180,7 +2554,7 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;textBoxHotKey7.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -1210,7 +2584,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive1.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -1243,7 +2617,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive2.ZOrder" xml:space="preserve">
     <value>17</value>
@@ -1276,7 +2650,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive3.ZOrder" xml:space="preserve">
     <value>18</value>
@@ -1309,7 +2683,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive4.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive4.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -1342,7 +2716,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive5.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive5.ZOrder" xml:space="preserve">
     <value>20</value>
@@ -1375,7 +2749,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive6.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive6.ZOrder" xml:space="preserve">
     <value>21</value>
@@ -1408,7 +2782,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyActive7.ZOrder" xml:space="preserve">
     <value>22</value>
@@ -1438,7 +2812,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch1.ZOrder" xml:space="preserve">
     <value>23</value>
@@ -1471,7 +2845,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch2.ZOrder" xml:space="preserve">
     <value>24</value>
@@ -1504,7 +2878,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch3.ZOrder" xml:space="preserve">
     <value>25</value>
@@ -1537,7 +2911,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch4.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch4.ZOrder" xml:space="preserve">
     <value>26</value>
@@ -1570,7 +2944,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch5.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch5.ZOrder" xml:space="preserve">
     <value>27</value>
@@ -1603,7 +2977,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch6.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch6.ZOrder" xml:space="preserve">
     <value>28</value>
@@ -1636,115 +3010,10 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelHotKeys</value>
   </data>
   <data name="&gt;&gt;checkBoxHotKeyCatch7.ZOrder" xml:space="preserve">
     <value>29</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 32</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 206</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>groupBox14</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label20" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label21" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label24" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label25" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey2" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey3" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey4" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label26" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label27" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label28" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey5" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey6" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxHotKey7" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive1" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive2" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive3" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive4" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive5" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive6" Row="5" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyActive7" Row="6" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch1" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch2" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch3" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch4" Row="3" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch5" Row="4" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch6" Row="5" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxHotKeyCatch7" Row="6" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,22,40022,Percent,26,60714,Percent,24,64286,Percent,13,03571,Percent,13,21429" /&gt;&lt;Rows Styles="Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25,Absolute,25" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="groupBox14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 37</value>
-  </data>
-  <data name="groupBox14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 253</value>
-  </data>
-  <data name="groupBox14.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox14.Text" xml:space="preserve">
-    <value>Hotkeys</value>
-  </data>
-  <data name="&gt;&gt;groupBox14.Name" xml:space="preserve">
-    <value>groupBox14</value>
-  </data>
-  <data name="&gt;&gt;groupBox14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox14.Parent" xml:space="preserve">
-    <value>tabPageHotkeys</value>
-  </data>
-  <data name="&gt;&gt;groupBox14.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageHotkeys.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageHotkeys.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageHotkeys.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
-  </data>
-  <data name="tabPageHotkeys.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="tabPageHotkeys.Text" xml:space="preserve">
-    <value>Hotkeys</value>
-  </data>
-  <data name="&gt;&gt;tabPageHotkeys.Name" xml:space="preserve">
-    <value>tabPageHotkeys</value>
-  </data>
-  <data name="&gt;&gt;tabPageHotkeys.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageHotkeys.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageHotkeys.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 6</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 122</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>tabPageKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1821,405 +3090,6 @@
   <data name="&gt;&gt;comboBoxUSBKeyDevice.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 122</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Detected Logical Disks</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>tabPageKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="listBoxKeyDevices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="listBoxKeyDevices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 160</value>
-  </data>
-  <data name="listBoxKeyDevices.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listBoxKeyDevices.Name" xml:space="preserve">
-    <value>listBoxKeyDevices</value>
-  </data>
-  <data name="&gt;&gt;listBoxKeyDevices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listBoxKeyDevices.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;listBoxKeyDevices.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkBoxTriggerUnmount.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxTriggerUnmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 91</value>
-  </data>
-  <data name="checkBoxTriggerUnmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 17</value>
-  </data>
-  <data name="checkBoxTriggerUnmount.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="checkBoxTriggerUnmount.Text" xml:space="preserve">
-    <value>Trigger dismount on removal</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTriggerUnmount.Name" xml:space="preserve">
-    <value>checkBoxTriggerUnmount</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTriggerUnmount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTriggerUnmount.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;checkBoxTriggerUnmount.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 68</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 17</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="checkBoxKeyDeviceActive.Text" xml:space="preserve">
-    <value>Active</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeyDeviceActive.Name" xml:space="preserve">
-    <value>checkBoxKeyDeviceActive</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeyDeviceActive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeyDeviceActive.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;checkBoxKeyDeviceActive.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="textBoxUSBSignature.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="textBoxUSBSignature.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 42</value>
-  </data>
-  <data name="textBoxUSBSignature.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="textBoxUSBSignature.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="textBoxUSBSignature.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBSignature.Name" xml:space="preserve">
-    <value>textBoxUSBSignature</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBSignature.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBSignature.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBSignature.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 132</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 23</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="buttonDeleteKeyDevice.Text" xml:space="preserve">
-    <value>Delete Device</value>
-  </data>
-  <data name="&gt;&gt;buttonDeleteKeyDevice.Name" xml:space="preserve">
-    <value>buttonDeleteKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;buttonDeleteKeyDevice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDeleteKeyDevice.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;buttonDeleteKeyDevice.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>178, 45</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Partition #:</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 45</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Signature:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 19</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Caption:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="textBoxUSBCaption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="textBoxUSBCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 16</value>
-  </data>
-  <data name="textBoxUSBCaption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 20</value>
-  </data>
-  <data name="textBoxUSBCaption.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBCaption.Name" xml:space="preserve">
-    <value>textBoxUSBCaption</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBCaption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBCaption.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBCaption.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="textBoxUSBPartition.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="textBoxUSBPartition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 42</value>
-  </data>
-  <data name="textBoxUSBPartition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="textBoxUSBPartition.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="textBoxUSBPartition.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBPartition.Name" xml:space="preserve">
-    <value>textBoxUSBPartition</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBPartition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBPartition.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;textBoxUSBPartition.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="pictureBox2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 68</value>
-  </data>
-  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 87</value>
-  </data>
-  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="panelKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 19</value>
-  </data>
-  <data name="panelKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 160</value>
-  </data>
-  <data name="panelKeyDevice.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="panelKeyDevice.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelKeyDevice.Name" xml:space="preserve">
-    <value>panelKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;panelKeyDevice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelKeyDevice.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;panelKeyDevice.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 134</value>
-  </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 195</value>
-  </data>
-  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Key Device identification configuration</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
-    <value>tabPageKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabPageKeyDevice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageKeyDevice.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageKeyDevice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
-  </data>
-  <data name="tabPageKeyDevice.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tabPageKeyDevice.Text" xml:space="preserve">
-    <value>Key Devices</value>
-  </data>
-  <data name="&gt;&gt;tabPageKeyDevice.Name" xml:space="preserve">
-    <value>tabPageKeyDevice</value>
-  </data>
-  <data name="&gt;&gt;tabPageKeyDevice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageKeyDevice.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageKeyDevice.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="listBoxDisks.HorizontalScrollbar" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2273,6 +3143,90 @@
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskPartitions.Name" xml:space="preserve">
+    <value>comboBoxDiskPartitions</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskPartitions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskPartitions.Parent" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskPartitions.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDrives.Name" xml:space="preserve">
+    <value>comboBoxDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDrives.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDrives.Parent" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDrives.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDisk.Name" xml:space="preserve">
+    <value>buttonAddDisk</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDisk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDisk.Parent" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDisk.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBoxLocalDiskDrives.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 6</value>
+  </data>
+  <data name="groupBoxLocalDiskDrives.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 69</value>
+  </data>
+  <data name="groupBoxLocalDiskDrives.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBoxLocalDiskDrives.Text" xml:space="preserve">
+    <value>Local Disk Drives</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Name" xml:space="preserve">
+    <value>groupBoxLocalDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.Parent" xml:space="preserve">
+    <value>tabPageDiskDrives</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLocalDiskDrives.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2403,38 +3357,230 @@
   <data name="&gt;&gt;buttonAddDisk.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="groupBoxLocalDiskDrives.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 6</value>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Name" xml:space="preserve">
+    <value>checkBoxDiskDismountTrigger</value>
   </data>
-  <data name="groupBoxLocalDiskDrives.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 69</value>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBoxLocalDiskDrives.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Name" xml:space="preserve">
+    <value>checkBoxDiskOpenExplorer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonEditDiskKeyFiles.Name" xml:space="preserve">
+    <value>buttonEditDiskKeyFiles</value>
+  </data>
+  <data name="&gt;&gt;buttonEditDiskKeyFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEditDiskKeyFiles.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;buttonEditDiskKeyFiles.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Name" xml:space="preserve">
+    <value>comboBoxDiskDriveLetter</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveDisk.Name" xml:space="preserve">
+    <value>buttonSaveDisk</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveDisk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveDisk.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;buttonSaveDisk.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="groupBoxLocalDiskDrives.Text" xml:space="preserve">
-    <value>Local Disk Drives</value>
+  <data name="&gt;&gt;buttonDeleteDiskDrive.Name" xml:space="preserve">
+    <value>buttonDeleteDiskDrive</value>
   </data>
-  <data name="&gt;&gt;groupBoxLocalDiskDrives.Name" xml:space="preserve">
-    <value>groupBoxLocalDiskDrives</value>
+  <data name="&gt;&gt;buttonDeleteDiskDrive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxLocalDiskDrives.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonDeleteDiskDrive.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;buttonDeleteDiskDrive.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxLocalDiskDrives.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.Name" xml:space="preserve">
+    <value>checkBoxDiskActive</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="panelDisks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 81</value>
+  </data>
+  <data name="panelDisks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>448, 244</value>
+  </data>
+  <data name="panelDisks.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="panelDisks.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Name" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelDisks.Parent" xml:space="preserve">
     <value>tabPageDiskDrives</value>
   </data>
-  <data name="&gt;&gt;groupBoxLocalDiskDrives.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;panelDisks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 147</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 17</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="checkBoxDiskDismountTrigger.Text" xml:space="preserve">
+    <value>Dismount on key device removal</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Name" xml:space="preserve">
+    <value>checkBoxDiskDismountTrigger</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskDismountTrigger.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 124</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.Text" xml:space="preserve">
+    <value>Open Explorer after mount</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Name" xml:space="preserve">
+    <value>checkBoxDiskOpenExplorer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskOpenExplorer.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="buttonEditDiskKeyFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonEditDiskKeyFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>344, 187</value>
+    <value>287, 182</value>
   </data>
   <data name="buttonEditDiskKeyFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 23</value>
+    <value>156, 23</value>
   </data>
   <data name="buttonEditDiskKeyFiles.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -2452,13 +3598,34 @@
     <value>panelDisks</value>
   </data>
   <data name="&gt;&gt;buttonEditDiskKeyFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
+  </data>
+  <data name="comboBoxDiskDriveLetter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>386, 124</value>
+  </data>
+  <data name="comboBoxDiskDriveLetter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 21</value>
+  </data>
+  <data name="comboBoxDiskDriveLetter.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Name" xml:space="preserve">
+    <value>comboBoxDiskDriveLetter</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDiskDriveLetter.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="buttonSaveDisk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSaveDisk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 216</value>
+    <value>368, 211</value>
   </data>
   <data name="buttonSaveDisk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -2479,13 +3646,43 @@
     <value>panelDisks</value>
   </data>
   <data name="&gt;&gt;buttonSaveDisk.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>315, 127</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Drive Letter:</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="buttonDeleteDiskDrive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonDeleteDiskDrive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 216</value>
+    <value>287, 211</value>
   </data>
   <data name="buttonDeleteDiskDrive.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -2506,7 +3703,79 @@
     <value>panelDisks</value>
   </data>
   <data name="&gt;&gt;buttonDeleteDiskDrive.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskSm.Name" xml:space="preserve">
+    <value>checkBoxDiskSm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskSm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskSm.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskSm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskTs.Name" xml:space="preserve">
+    <value>checkBoxDiskTs</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskTs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskTs.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskTs.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRm.Name" xml:space="preserve">
+    <value>checkBoxDiskRm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRm.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRm.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRo.Name" xml:space="preserve">
+    <value>checkBoxDiskRo</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRo.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskRo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 170</value>
+  </data>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 64</value>
+  </data>
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Mount Options</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="checkBoxDiskSm.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2628,77 +3897,212 @@
   <data name="&gt;&gt;checkBoxDiskRo.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 175</value>
+  <data name="checkBoxDiskActive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 64</value>
+  <data name="checkBoxDiskActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+  <data name="checkBoxDiskActive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 124</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Mount Options</value>
+  <data name="checkBoxDiskActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 17</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
+  <data name="checkBoxDiskActive.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBoxDiskActive.Text" xml:space="preserve">
+    <value>Active</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;checkBoxDiskActive.Name" xml:space="preserve">
+    <value>checkBoxDiskActive</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDiskActive.Parent" xml:space="preserve">
     <value>panelDisks</value>
   </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;checkBoxDiskActive.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="textBoxDiskSignature.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 31</value>
+  <data name="&gt;&gt;labelDiskPartition.Name" xml:space="preserve">
+    <value>labelDiskPartition</value>
   </data>
-  <data name="textBoxDiskSignature.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 20</value>
+  <data name="&gt;&gt;labelDiskPartition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textBoxDiskSignature.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="textBoxDiskSignature.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskSignature.Name" xml:space="preserve">
-    <value>textBoxDiskSignature</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskSignature.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskSignature.Parent" xml:space="preserve">
+  <data name="&gt;&gt;labelDiskPartition.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;textBoxDiskSignature.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;labelDiskPartition.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBoxDiskCaption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
+  <data name="&gt;&gt;labelDiskSignature.Name" xml:space="preserve">
+    <value>labelDiskSignature</value>
   </data>
-  <data name="textBoxDiskCaption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 31</value>
+  <data name="&gt;&gt;labelDiskSignature.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="textBoxDiskCaption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 20</value>
-  </data>
-  <data name="textBoxDiskCaption.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskCaption.Name" xml:space="preserve">
-    <value>textBoxDiskCaption</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskCaption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskCaption.Parent" xml:space="preserve">
+  <data name="&gt;&gt;labelDiskSignature.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;textBoxDiskCaption.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;labelDiskSignature.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Name" xml:space="preserve">
+    <value>labelDiskCaption</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 58</value>
+  </data>
+  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Disk/Partition Information</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="labelDiskPartition.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelDiskPartition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 34</value>
+  </data>
+  <data name="labelDiskPartition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 13</value>
+  </data>
+  <data name="labelDiskPartition.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="labelDiskPartition.Text" xml:space="preserve">
+    <value>&lt;unset&gt;</value>
+  </data>
+  <data name="&gt;&gt;labelDiskPartition.Name" xml:space="preserve">
+    <value>labelDiskPartition</value>
+  </data>
+  <data name="&gt;&gt;labelDiskPartition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDiskPartition.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;labelDiskPartition.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelDiskSignature.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelDiskSignature.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 34</value>
+  </data>
+  <data name="labelDiskSignature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 13</value>
+  </data>
+  <data name="labelDiskSignature.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="labelDiskSignature.Text" xml:space="preserve">
+    <value>&lt;unset&gt;</value>
+  </data>
+  <data name="&gt;&gt;labelDiskSignature.Name" xml:space="preserve">
+    <value>labelDiskSignature</value>
+  </data>
+  <data name="&gt;&gt;labelDiskSignature.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDiskSignature.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;labelDiskSignature.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelDiskCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelDiskCaption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 34</value>
+  </data>
+  <data name="labelDiskCaption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 13</value>
+  </data>
+  <data name="labelDiskCaption.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="labelDiskCaption.Text" xml:space="preserve">
+    <value>&lt;unset&gt;</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Name" xml:space="preserve">
+    <value>labelDiskCaption</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;labelDiskCaption.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2728,7 +4132,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2758,33 +4162,6 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="textBoxDiskPartition.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Courier New, 8.25pt</value>
-  </data>
-  <data name="textBoxDiskPartition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 31</value>
-  </data>
-  <data name="textBoxDiskPartition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
-  </data>
-  <data name="textBoxDiskPartition.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="textBoxDiskPartition.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskPartition.Name" xml:space="preserve">
-    <value>textBoxDiskPartition</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskPartition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskPartition.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;textBoxDiskPartition.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
@@ -2817,62 +4194,56 @@
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;textBoxDiskPasswordFile.Name" xml:space="preserve">
+    <value>textBoxDiskPasswordFile</value>
   </data>
-  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 66</value>
+  <data name="&gt;&gt;textBoxDiskPasswordFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Disk/Partition Information</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
-    <value>panelDisks</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 60</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 17</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Text" xml:space="preserve">
-    <value>Open Explorer after mount</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Name" xml:space="preserve">
-    <value>checkBoxDiskOpenExplorer</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskOpenExplorer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDiskPasswordFile.Parent" xml:space="preserve">
     <value>groupBox8</value>
   </data>
-  <data name="&gt;&gt;checkBoxDiskOpenExplorer.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDiskPasswordFile.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;buttonSearchPasswordFile.Name" xml:space="preserve">
+    <value>buttonSearchPasswordFile</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchPasswordFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchPasswordFile.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchPasswordFile.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 67</value>
+  </data>
+  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 51</value>
+  </data>
+  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Path to password file</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
+    <value>panelDisks</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="textBoxDiskPasswordFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 31</value>
+    <value>15, 19</value>
   </data>
   <data name="textBoxDiskPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 20</value>
@@ -2890,13 +4261,13 @@
     <value>groupBox8</value>
   </data>
   <data name="&gt;&gt;textBoxDiskPasswordFile.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="buttonSearchPasswordFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSearchPasswordFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 29</value>
+    <value>287, 17</value>
   </data>
   <data name="buttonSearchPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 23</value>
@@ -2917,193 +4288,145 @@
     <value>groupBox8</value>
   </data>
   <data name="&gt;&gt;buttonSearchPasswordFile.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 15</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
-  </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Path to password file</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>groupBox8</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="comboBoxDiskDriveLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>383, 58</value>
-  </data>
-  <data name="comboBoxDiskDriveLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 21</value>
-  </data>
-  <data name="comboBoxDiskDriveLetter.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;comboBoxDiskDriveLetter.Name" xml:space="preserve">
-    <value>comboBoxDiskDriveLetter</value>
-  </data>
-  <data name="&gt;&gt;comboBoxDiskDriveLetter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxDiskDriveLetter.Parent" xml:space="preserve">
-    <value>groupBox8</value>
-  </data>
-  <data name="&gt;&gt;comboBoxDiskDriveLetter.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="checkBoxDiskActive.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxDiskActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxDiskActive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 60</value>
-  </data>
-  <data name="checkBoxDiskActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 17</value>
-  </data>
-  <data name="checkBoxDiskActive.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="checkBoxDiskActive.Text" xml:space="preserve">
-    <value>Active</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskActive.Name" xml:space="preserve">
-    <value>checkBoxDiskActive</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskActive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskActive.Parent" xml:space="preserve">
-    <value>groupBox8</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDiskActive.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 61</value>
-  </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 13</value>
-  </data>
-  <data name="label12.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>Drive Letter:</value>
-  </data>
-  <data name="&gt;&gt;label12.Name" xml:space="preserve">
-    <value>label12</value>
-  </data>
-  <data name="&gt;&gt;label12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
-    <value>groupBox8</value>
-  </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 75</value>
-  </data>
-  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 94</value>
-  </data>
-  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Password Options</value>
-  </data>
-  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
-    <value>groupBox8</value>
-  </data>
-  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
-    <value>panelDisks</value>
-  </data>
-  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="panelDisks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 81</value>
-  </data>
-  <data name="panelDisks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 244</value>
-  </data>
-  <data name="panelDisks.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="panelDisks.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelDisks.Name" xml:space="preserve">
-    <value>panelDisks</value>
-  </data>
-  <data name="&gt;&gt;panelDisks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelDisks.Parent" xml:space="preserve">
-    <value>tabPageDiskDrives</value>
-  </data>
-  <data name="&gt;&gt;panelDisks.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabPageDiskDrives.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageDiskDrives.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageDiskDrives.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
-  </data>
-  <data name="tabPageDiskDrives.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="tabPageDiskDrives.Text" xml:space="preserve">
-    <value>Disk Drives</value>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Name" xml:space="preserve">
+    <value>checkBoxConDismountTrigger</value>
   </data>
-  <data name="&gt;&gt;tabPageDiskDrives.Name" xml:space="preserve">
-    <value>tabPageDiskDrives</value>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageDiskDrives.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
   </data>
-  <data name="&gt;&gt;tabPageDiskDrives.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;tabPageDiskDrives.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;checkBoxOpenConExplorer.Name" xml:space="preserve">
+    <value>checkBoxOpenConExplorer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOpenConExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOpenConExplorer.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;checkBoxOpenConExplorer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxConLetter.Name" xml:space="preserve">
+    <value>comboBoxConLetter</value>
+  </data>
+  <data name="&gt;&gt;comboBoxConLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxConLetter.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;comboBoxConLetter.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConActive.Name" xml:space="preserve">
+    <value>checkBoxConActive</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConActive.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConActive.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.Name" xml:space="preserve">
+    <value>groupBox13</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBoxConSettings.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="groupBoxConSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 159</value>
+  </data>
+  <data name="groupBoxConSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 170</value>
+  </data>
+  <data name="groupBoxConSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="groupBoxConSettings.Text" xml:space="preserve">
+    <value>Container settings</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Name" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.Parent" xml:space="preserve">
+    <value>tabPageContainerFiles</value>
+  </data>
+  <data name="&gt;&gt;groupBoxConSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkBoxConDismountTrigger.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxConDismountTrigger.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 100</value>
+  </data>
+  <data name="checkBoxConDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 17</value>
+  </data>
+  <data name="checkBoxConDismountTrigger.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="checkBoxConDismountTrigger.Text" xml:space="preserve">
+    <value>Dismount on key device removal</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Name" xml:space="preserve">
+    <value>checkBoxConDismountTrigger</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConDismountTrigger.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="checkBoxOpenConExplorer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3112,7 +4435,7 @@
     <value>NoControl</value>
   </data>
   <data name="checkBoxOpenConExplorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 92</value>
+    <value>16, 76</value>
   </data>
   <data name="checkBoxOpenConExplorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 17</value>
@@ -3133,10 +4456,10 @@
     <value>groupBoxConSettings</value>
   </data>
   <data name="&gt;&gt;checkBoxOpenConExplorer.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="comboBoxConLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 90</value>
+    <value>373, 76</value>
   </data>
   <data name="comboBoxConLetter.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 21</value>
@@ -3154,7 +4477,7 @@
     <value>groupBoxConSettings</value>
   </data>
   <data name="&gt;&gt;comboBoxConLetter.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3163,7 +4486,7 @@
     <value>NoControl</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 95</value>
+    <value>305, 81</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 13</value>
@@ -3184,7 +4507,7 @@
     <value>groupBoxConSettings</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="checkBoxConActive.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -3220,7 +4543,79 @@
     <value>groupBoxConSettings</value>
   </data>
   <data name="&gt;&gt;checkBoxConActive.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConSm.Name" xml:space="preserve">
+    <value>checkBoxConSm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConSm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConSm.Parent" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConSm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConTs.Name" xml:space="preserve">
+    <value>checkBoxConTs</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConTs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConTs.Parent" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConTs.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRm.Name" xml:space="preserve">
+    <value>checkBoxConRm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRm.Parent" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRm.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRo.Name" xml:space="preserve">
+    <value>checkBoxConRo</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRo.Parent" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConRo.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 122</value>
+  </data>
+  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 42</value>
+  </data>
+  <data name="groupBox12.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="groupBox12.Text" xml:space="preserve">
+    <value>Mount Options</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
+    <value>groupBoxConSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="checkBoxConSm.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3342,32 +4737,56 @@
   <data name="&gt;&gt;checkBoxConRo.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 122</value>
+  <data name="&gt;&gt;textBoxConPasswordFile.Name" xml:space="preserve">
+    <value>textBoxConPasswordFile</value>
   </data>
-  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 42</value>
+  <data name="&gt;&gt;textBoxConPasswordFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox12.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="&gt;&gt;textBoxConPasswordFile.Parent" xml:space="preserve">
+    <value>groupBox13</value>
   </data>
-  <data name="groupBox12.Text" xml:space="preserve">
-    <value>Mount Options</value>
+  <data name="&gt;&gt;textBoxConPasswordFile.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
-    <value>groupBox12</value>
+  <data name="&gt;&gt;buttonSearchConPassword.Name" xml:space="preserve">
+    <value>buttonSearchConPassword</value>
   </data>
-  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonSearchConPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchConPassword.Parent" xml:space="preserve">
+    <value>groupBox13</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchConPassword.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>418, 51</value>
+  </data>
+  <data name="groupBox13.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="groupBox13.Text" xml:space="preserve">
+    <value>Path to password file</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.Name" xml:space="preserve">
+    <value>groupBox13</value>
+  </data>
+  <data name="&gt;&gt;groupBox13.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox13.Parent" xml:space="preserve">
     <value>groupBoxConSettings</value>
   </data>
-  <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;groupBox13.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="textBoxConPasswordFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 36</value>
+    <value>6, 19</value>
   </data>
   <data name="textBoxConPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 20</value>
@@ -3391,7 +4810,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonSearchConPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 34</value>
+    <value>271, 17</value>
   </data>
   <data name="buttonSearchConPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 23</value>
@@ -3414,86 +4833,77 @@
   <data name="&gt;&gt;buttonSearchConPassword.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;buttonEditContainerKeyFiles.Name" xml:space="preserve">
+    <value>buttonEditContainerKeyFiles</value>
   </data>
-  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;buttonEditContainerKeyFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 20</value>
+  <data name="&gt;&gt;buttonEditContainerKeyFiles.Parent" xml:space="preserve">
+    <value>groupBox10</value>
   </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+  <data name="&gt;&gt;buttonEditContainerKeyFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="label15.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;buttonSaveContainer.Name" xml:space="preserve">
+    <value>buttonSaveContainer</value>
   </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Path to password file</value>
+  <data name="&gt;&gt;buttonSaveContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label15.Name" xml:space="preserve">
-    <value>label15</value>
+  <data name="&gt;&gt;buttonSaveContainer.Parent" xml:space="preserve">
+    <value>groupBox10</value>
   </data>
-  <data name="&gt;&gt;label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;buttonSaveContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
-    <value>groupBox13</value>
+  <data name="&gt;&gt;buttonRemoveContainer.Name" xml:space="preserve">
+    <value>buttonRemoveContainer</value>
   </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonRemoveContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveContainer.Parent" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveContainer.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="groupBox13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="&gt;&gt;buttonAddContainer.Name" xml:space="preserve">
+    <value>buttonAddContainer</value>
   </data>
-  <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 67</value>
+  <data name="&gt;&gt;buttonAddContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox13.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="&gt;&gt;buttonAddContainer.Parent" xml:space="preserve">
+    <value>groupBox10</value>
   </data>
-  <data name="groupBox13.Text" xml:space="preserve">
-    <value>Password Options</value>
+  <data name="&gt;&gt;buttonAddContainer.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;groupBox13.Name" xml:space="preserve">
-    <value>groupBox13</value>
+  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 159</value>
   </data>
-  <data name="&gt;&gt;groupBox13.Type" xml:space="preserve">
+  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 170</value>
+  </data>
+  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Container actions</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox13.Parent" xml:space="preserve">
-    <value>groupBoxConSettings</value>
-  </data>
-  <data name="&gt;&gt;groupBox13.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="groupBoxConSettings.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="groupBoxConSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 159</value>
-  </data>
-  <data name="groupBoxConSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 170</value>
-  </data>
-  <data name="groupBoxConSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBoxConSettings.Text" xml:space="preserve">
-    <value>Container settings</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConSettings.Name" xml:space="preserve">
-    <value>groupBoxConSettings</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxConSettings.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
     <value>tabPageContainerFiles</value>
   </data>
-  <data name="&gt;&gt;groupBoxConSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="buttonEditContainerKeyFiles.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3624,39 +5034,6 @@
   <data name="&gt;&gt;buttonAddContainer.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 159</value>
-  </data>
-  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 170</value>
-  </data>
-  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBox10.Text" xml:space="preserve">
-    <value>Container actions</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
-    <value>tabPageContainerFiles</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="listBoxContainerFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="listBoxContainerFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 121</value>
-  </data>
-  <data name="listBoxContainerFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;listBoxContainerFiles.Name" xml:space="preserve">
     <value>listBoxContainerFiles</value>
   </data>
@@ -3693,32 +5070,26 @@
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="tabPageContainerFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="listBoxContainerFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
-  <data name="tabPageContainerFiles.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="listBoxContainerFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 121</value>
   </data>
-  <data name="tabPageContainerFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
+  <data name="listBoxContainerFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="tabPageContainerFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;listBoxContainerFiles.Name" xml:space="preserve">
+    <value>listBoxContainerFiles</value>
   </data>
-  <data name="tabPageContainerFiles.Text" xml:space="preserve">
-    <value>Container files</value>
+  <data name="&gt;&gt;listBoxContainerFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageContainerFiles.Name" xml:space="preserve">
-    <value>tabPageContainerFiles</value>
+  <data name="&gt;&gt;listBoxContainerFiles.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;tabPageContainerFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageContainerFiles.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageContainerFiles.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;listBoxContainerFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="pictureBoxTrueCryptHeader.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -3746,6 +5117,90 @@
   </data>
   <data name="&gt;&gt;pictureBoxTrueCryptHeader.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCache.Name" xml:space="preserve">
+    <value>checkBoxCache</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCache.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCache.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCache.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackground.Name" xml:space="preserve">
+    <value>checkBoxBackground</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackground.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackground.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackground.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBeep.Name" xml:space="preserve">
+    <value>checkBoxBeep</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBeep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBeep.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBeep.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxExplorer.Name" xml:space="preserve">
+    <value>checkBoxExplorer</value>
+  </data>
+  <data name="&gt;&gt;checkBoxExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxExplorer.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxExplorer.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSilent.Name" xml:space="preserve">
+    <value>checkBoxSilent</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSilent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSilent.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSilent.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 158</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 157</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>TrueCrypt configuration switches</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tabPageTrueCrypt</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="checkBoxCache.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3900,29 +5355,53 @@
   <data name="&gt;&gt;checkBoxSilent.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 158</value>
+  <data name="&gt;&gt;textBoxTrueCryptExec.Name" xml:space="preserve">
+    <value>textBoxTrueCryptExec</value>
   </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 157</value>
+  <data name="&gt;&gt;textBoxTrueCryptExec.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;textBoxTrueCryptExec.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>TrueCrypt configuration switches</value>
+  <data name="&gt;&gt;textBoxTrueCryptExec.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;buttonSearchTrueCrypt.Name" xml:space="preserve">
+    <value>buttonSearchTrueCrypt</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonSearchTrueCrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchTrueCrypt.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;buttonSearchTrueCrypt.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 95</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 57</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>TrueCrypt executable</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>tabPageTrueCrypt</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="textBoxTrueCryptExec.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 19</value>
@@ -3971,78 +5450,6 @@
   </data>
   <data name="&gt;&gt;buttonSearchTrueCrypt.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 95</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 57</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>TrueCrypt executable</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>tabPageTrueCrypt</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabPageTrueCrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageTrueCrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageTrueCrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 335</value>
-  </data>
-  <data name="tabPageTrueCrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageTrueCrypt.Text" xml:space="preserve">
-    <value>TrueCrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageTrueCrypt.Name" xml:space="preserve">
-    <value>tabPageTrueCrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageTrueCrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageTrueCrypt.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageTrueCrypt.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tabControlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="tabControlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 361</value>
-  </data>
-  <data name="tabControlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Name" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="openFileDialogTrueCrypt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

@@ -127,8 +127,8 @@
   <data name="&gt;&gt;buttonHide.Name" xml:space="preserve">
     <value>buttonHide</value>
   </data>
-  <data name="&gt;&gt;buttonStartWorker.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>© Nefarius</value>
   </data>
   <data name="&gt;&gt;buttonSettings.Name" xml:space="preserve">
     <value>buttonSettings</value>
@@ -236,6 +236,9 @@
   </data>
   <data name="richTextBoxLog.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
   </data>
   <data name="notifyIconSysTray.Text" xml:space="preserve">
     <value>TrueMount by Nefarius</value>
@@ -3608,11 +3611,17 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="richTextBoxLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>604, 300</value>
+  </data>
   <data name="unmountDeviceToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="unmountDeviceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
   </data>
   <data name="buttonSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 35</value>
@@ -3632,6 +3641,9 @@
   <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
     <value>groupBox3</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonClose.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -3641,8 +3653,8 @@
   <data name="&gt;&gt;buttonStopWorker.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonHide.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 19</value>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="linkLabelNefarius.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -3670,9 +3682,6 @@
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;showToolStripMenuShow.Name" xml:space="preserve">
-    <value>showToolStripMenuShow</value>
   </data>
   <data name="buttonSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -3722,8 +3731,8 @@
   <data name="buttonClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 35</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 22</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="linkLabelNefarius.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3743,8 +3752,8 @@
   <data name="closeToolStripMenuClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value>Testversion Biatsch!</value>
+  <data name="&gt;&gt;buttonStartWorker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonClose.Name" xml:space="preserve">
     <value>buttonClose</value>
@@ -3830,14 +3839,11 @@
   <data name="contextMenuStripSysTray.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 202</value>
   </data>
-  <data name="linkLabelNefarius.Text" xml:space="preserve">
-    <value>http://nefarius.darkhosters.net/</value>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value>Testversion Biatsch!</value>
   </data>
   <data name="buttonSettings.ToolTip" xml:space="preserve">
     <value>View or change current configuration</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>© Nefarius</value>
   </data>
   <data name="&gt;&gt;contextMenuStripSysTray.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3848,6 +3854,9 @@
   <data name="buttonStartWorker.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 35</value>
   </data>
+  <data name="linkLabelNefarius.Text" xml:space="preserve">
+    <value>http://nefarius.darkhosters.net/</value>
+  </data>
   <data name="buttonClose.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
@@ -3857,8 +3866,8 @@
   <data name="buttonSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;showToolStripMenuShow.Name" xml:space="preserve">
+    <value>showToolStripMenuShow</value>
   </data>
   <data name="buttonSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>215, 19</value>
@@ -3896,7 +3905,7 @@
   <data name="label2.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;checkForUpdatesToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;aboutToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="mountDeviceToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
@@ -3908,8 +3917,8 @@
   <data name="&gt;&gt;richTextBoxLog.Type" xml:space="preserve">
     <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="richTextBoxLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>604, 300</value>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About</value>
   </data>
   <data name="settingsToolStripMenuSettings.Text" xml:space="preserve">
     <value>Settings</value>
@@ -3926,8 +3935,8 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 16</value>
   </data>
-  <data name="unmountDeviceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+  <data name="&gt;&gt;aboutToolStripMenuItem.Name" xml:space="preserve">
+    <value>aboutToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;unmountDeviceToolStripMenuItem.Name" xml:space="preserve">
     <value>unmountDeviceToolStripMenuItem</value>
@@ -3956,6 +3965,9 @@
   <data name="&gt;&gt;closeToolStripMenuClose.Name" xml:space="preserve">
     <value>closeToolStripMenuClose</value>
   </data>
+  <data name="buttonHide.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 19</value>
+  </data>
   <data name="&gt;&gt;closeToolStripMenuClose.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -3974,17 +3986,14 @@
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>634, 452</value>
-  </data>
   <data name="buttonStopWorker.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 19</value>
   </data>
   <data name="&gt;&gt;buttonSettings.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>634, 452</value>
   </data>
   <data name="&gt;&gt;linkLabelNefarius.Name" xml:space="preserve">
     <value>linkLabelNefarius</value>
@@ -4013,8 +4022,14 @@
   <data name="groupBox1.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="&gt;&gt;checkForUpdatesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.75pt</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 22</value>
   </data>
   <data name="buttonStopWorker.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>

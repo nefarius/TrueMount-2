@@ -54,8 +54,8 @@
             this.checkBoxSplashScreen = new System.Windows.Forms.CheckBox();
             this.checkBoxHidden = new System.Windows.Forms.CheckBox();
             this.tabPageHotkeys = new System.Windows.Forms.TabPage();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBoxHotkeys = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelHotKeys = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -95,7 +95,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxKeyDevices = new System.Windows.Forms.ListBox();
             this.panelKeyDevice = new System.Windows.Forms.Panel();
-            this.checkBoxTriggerUnmount = new System.Windows.Forms.CheckBox();
             this.checkBoxKeyDeviceActive = new System.Windows.Forms.CheckBox();
             this.textBoxUSBSignature = new System.Windows.Forms.TextBox();
             this.buttonDeleteKeyDevice = new System.Windows.Forms.Button();
@@ -115,31 +114,32 @@
             this.comboBoxDiskDrives = new System.Windows.Forms.ComboBox();
             this.buttonAddDisk = new System.Windows.Forms.Button();
             this.panelDisks = new System.Windows.Forms.Panel();
+            this.checkBoxDiskDismountTrigger = new System.Windows.Forms.CheckBox();
+            this.checkBoxDiskOpenExplorer = new System.Windows.Forms.CheckBox();
             this.buttonEditDiskKeyFiles = new System.Windows.Forms.Button();
+            this.comboBoxDiskDriveLetter = new System.Windows.Forms.ComboBox();
             this.buttonSaveDisk = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.buttonDeleteDiskDrive = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.checkBoxDiskSm = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskTs = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskRm = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskRo = new System.Windows.Forms.CheckBox();
+            this.checkBoxDiskActive = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBoxDiskSignature = new System.Windows.Forms.TextBox();
-            this.textBoxDiskCaption = new System.Windows.Forms.TextBox();
+            this.labelDiskPartition = new System.Windows.Forms.Label();
+            this.labelDiskSignature = new System.Windows.Forms.Label();
+            this.labelDiskCaption = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxDiskPartition = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.checkBoxDiskOpenExplorer = new System.Windows.Forms.CheckBox();
             this.textBoxDiskPasswordFile = new System.Windows.Forms.TextBox();
             this.buttonSearchPasswordFile = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxDiskDriveLetter = new System.Windows.Forms.ComboBox();
-            this.checkBoxDiskActive = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabPageContainerFiles = new System.Windows.Forms.TabPage();
             this.groupBoxConSettings = new System.Windows.Forms.GroupBox();
+            this.checkBoxConDismountTrigger = new System.Windows.Forms.CheckBox();
             this.checkBoxOpenConExplorer = new System.Windows.Forms.CheckBox();
             this.comboBoxConLetter = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -152,7 +152,6 @@
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.textBoxConPasswordFile = new System.Windows.Forms.TextBox();
             this.buttonSearchConPassword = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.buttonEditContainerKeyFiles = new System.Windows.Forms.Button();
             this.buttonSaveContainer = new System.Windows.Forms.Button();
@@ -181,8 +180,8 @@
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).BeginInit();
             this.tabPageHotkeys.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBoxHotkeys.SuspendLayout();
+            this.tableLayoutPanelHotKeys.SuspendLayout();
             this.tabPageKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -402,52 +401,52 @@
             // 
             // tabPageHotkeys
             // 
-            this.tabPageHotkeys.Controls.Add(this.groupBox14);
+            this.tabPageHotkeys.Controls.Add(this.groupBoxHotkeys);
             resources.ApplyResources(this.tabPageHotkeys, "tabPageHotkeys");
             this.tabPageHotkeys.Name = "tabPageHotkeys";
             this.tabPageHotkeys.UseVisualStyleBackColor = true;
             // 
-            // groupBox14
+            // groupBoxHotkeys
             // 
-            this.groupBox14.Controls.Add(this.tableLayoutPanel1);
-            resources.ApplyResources(this.groupBox14, "groupBox14");
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.TabStop = false;
+            this.groupBoxHotkeys.Controls.Add(this.tableLayoutPanelHotKeys);
+            resources.ApplyResources(this.groupBoxHotkeys, "groupBoxHotkeys");
+            this.groupBoxHotkeys.Name = "groupBoxHotkeys";
+            this.groupBoxHotkeys.TabStop = false;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelHotKeys
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label21, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label22, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label23, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label24, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label25, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label26, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label27, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label28, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey6, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxHotKey7, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive1, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive2, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive3, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive4, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive5, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive6, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyActive7, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch1, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch2, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch3, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch4, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch5, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch6, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.checkBoxHotKeyCatch7, 4, 6);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            resources.ApplyResources(this.tableLayoutPanelHotKeys, "tableLayoutPanelHotKeys");
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label20, 0, 0);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label21, 0, 2);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label22, 2, 2);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label23, 0, 1);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label24, 0, 3);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label25, 2, 3);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey1, 1, 0);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey2, 1, 1);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey3, 1, 2);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey4, 1, 3);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label26, 0, 4);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label27, 0, 5);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.label28, 0, 6);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey5, 1, 4);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey6, 1, 5);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey7, 1, 6);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive1, 3, 0);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive2, 3, 1);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive3, 3, 2);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive4, 3, 3);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive5, 3, 4);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive6, 3, 5);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive7, 3, 6);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch1, 4, 0);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch2, 4, 1);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch3, 4, 2);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch4, 4, 3);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch5, 4, 4);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch6, 4, 5);
+            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch7, 4, 6);
+            this.tableLayoutPanelHotKeys.Name = "tableLayoutPanelHotKeys";
             // 
             // label20
             // 
@@ -488,6 +487,7 @@
             this.textBoxHotKey1.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey1.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // textBoxHotKey2
             // 
@@ -498,6 +498,7 @@
             this.textBoxHotKey2.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey2.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // textBoxHotKey3
             // 
@@ -508,6 +509,7 @@
             this.textBoxHotKey3.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey3.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // textBoxHotKey4
             // 
@@ -518,6 +520,7 @@
             this.textBoxHotKey4.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey4.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // label26
             // 
@@ -543,6 +546,7 @@
             this.textBoxHotKey5.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey5.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // textBoxHotKey6
             // 
@@ -553,6 +557,7 @@
             this.textBoxHotKey6.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey6.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // textBoxHotKey7
             // 
@@ -563,6 +568,7 @@
             this.textBoxHotKey7.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
+            this.textBoxHotKey7.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
             // 
             // checkBoxHotKeyActive1
             // 
@@ -710,7 +716,6 @@
             // panelKeyDevice
             // 
             this.panelKeyDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelKeyDevice.Controls.Add(this.checkBoxTriggerUnmount);
             this.panelKeyDevice.Controls.Add(this.checkBoxKeyDeviceActive);
             this.panelKeyDevice.Controls.Add(this.textBoxUSBSignature);
             this.panelKeyDevice.Controls.Add(this.buttonDeleteKeyDevice);
@@ -722,13 +727,6 @@
             this.panelKeyDevice.Controls.Add(this.pictureBox2);
             resources.ApplyResources(this.panelKeyDevice, "panelKeyDevice");
             this.panelKeyDevice.Name = "panelKeyDevice";
-            // 
-            // checkBoxTriggerUnmount
-            // 
-            resources.ApplyResources(this.checkBoxTriggerUnmount, "checkBoxTriggerUnmount");
-            this.checkBoxTriggerUnmount.Name = "checkBoxTriggerUnmount";
-            this.checkBoxTriggerUnmount.UseVisualStyleBackColor = true;
-            this.checkBoxTriggerUnmount.CheckedChanged += new System.EventHandler(this.checkBoxTriggerUnmount_CheckedChanged);
             // 
             // checkBoxKeyDeviceActive
             // 
@@ -857,14 +855,31 @@
             // panelDisks
             // 
             this.panelDisks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDisks.Controls.Add(this.checkBoxDiskDismountTrigger);
+            this.panelDisks.Controls.Add(this.checkBoxDiskOpenExplorer);
             this.panelDisks.Controls.Add(this.buttonEditDiskKeyFiles);
+            this.panelDisks.Controls.Add(this.comboBoxDiskDriveLetter);
             this.panelDisks.Controls.Add(this.buttonSaveDisk);
+            this.panelDisks.Controls.Add(this.label12);
             this.panelDisks.Controls.Add(this.buttonDeleteDiskDrive);
             this.panelDisks.Controls.Add(this.groupBox6);
+            this.panelDisks.Controls.Add(this.checkBoxDiskActive);
             this.panelDisks.Controls.Add(this.groupBox7);
             this.panelDisks.Controls.Add(this.groupBox8);
             resources.ApplyResources(this.panelDisks, "panelDisks");
             this.panelDisks.Name = "panelDisks";
+            // 
+            // checkBoxDiskDismountTrigger
+            // 
+            resources.ApplyResources(this.checkBoxDiskDismountTrigger, "checkBoxDiskDismountTrigger");
+            this.checkBoxDiskDismountTrigger.Name = "checkBoxDiskDismountTrigger";
+            this.checkBoxDiskDismountTrigger.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDiskOpenExplorer
+            // 
+            resources.ApplyResources(this.checkBoxDiskOpenExplorer, "checkBoxDiskOpenExplorer");
+            this.checkBoxDiskOpenExplorer.Name = "checkBoxDiskOpenExplorer";
+            this.checkBoxDiskOpenExplorer.UseVisualStyleBackColor = true;
             // 
             // buttonEditDiskKeyFiles
             // 
@@ -873,12 +888,24 @@
             this.buttonEditDiskKeyFiles.UseVisualStyleBackColor = true;
             this.buttonEditDiskKeyFiles.Click += new System.EventHandler(this.buttonEditDiskKeyFiles_Click);
             // 
+            // comboBoxDiskDriveLetter
+            // 
+            this.comboBoxDiskDriveLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDiskDriveLetter.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBoxDiskDriveLetter, "comboBoxDiskDriveLetter");
+            this.comboBoxDiskDriveLetter.Name = "comboBoxDiskDriveLetter";
+            // 
             // buttonSaveDisk
             // 
             resources.ApplyResources(this.buttonSaveDisk, "buttonSaveDisk");
             this.buttonSaveDisk.Name = "buttonSaveDisk";
             this.buttonSaveDisk.UseVisualStyleBackColor = true;
             this.buttonSaveDisk.Click += new System.EventHandler(this.buttonSaveDisk_Click);
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
             // 
             // buttonDeleteDiskDrive
             // 
@@ -921,31 +948,43 @@
             this.checkBoxDiskRo.Name = "checkBoxDiskRo";
             this.checkBoxDiskRo.UseVisualStyleBackColor = true;
             // 
+            // checkBoxDiskActive
+            // 
+            resources.ApplyResources(this.checkBoxDiskActive, "checkBoxDiskActive");
+            this.checkBoxDiskActive.Checked = true;
+            this.checkBoxDiskActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDiskActive.Name = "checkBoxDiskActive";
+            this.checkBoxDiskActive.UseVisualStyleBackColor = true;
+            // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.textBoxDiskSignature);
-            this.groupBox7.Controls.Add(this.textBoxDiskCaption);
+            this.groupBox7.Controls.Add(this.labelDiskPartition);
+            this.groupBox7.Controls.Add(this.labelDiskSignature);
+            this.groupBox7.Controls.Add(this.labelDiskCaption);
             this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Controls.Add(this.textBoxDiskPartition);
             this.groupBox7.Controls.Add(this.label11);
             resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
-            // textBoxDiskSignature
+            // labelDiskPartition
             // 
-            this.textBoxDiskSignature.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxDiskSignature, "textBoxDiskSignature");
-            this.textBoxDiskSignature.Name = "textBoxDiskSignature";
-            this.textBoxDiskSignature.ReadOnly = true;
+            this.labelDiskPartition.AutoEllipsis = true;
+            resources.ApplyResources(this.labelDiskPartition, "labelDiskPartition");
+            this.labelDiskPartition.Name = "labelDiskPartition";
             // 
-            // textBoxDiskCaption
+            // labelDiskSignature
             // 
-            this.textBoxDiskCaption.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxDiskCaption, "textBoxDiskCaption");
-            this.textBoxDiskCaption.Name = "textBoxDiskCaption";
-            this.textBoxDiskCaption.ReadOnly = true;
+            this.labelDiskSignature.AutoEllipsis = true;
+            resources.ApplyResources(this.labelDiskSignature, "labelDiskSignature");
+            this.labelDiskSignature.Name = "labelDiskSignature";
+            // 
+            // labelDiskCaption
+            // 
+            this.labelDiskCaption.AutoEllipsis = true;
+            resources.ApplyResources(this.labelDiskCaption, "labelDiskCaption");
+            this.labelDiskCaption.Name = "labelDiskCaption";
             // 
             // label9
             // 
@@ -957,13 +996,6 @@
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
-            // textBoxDiskPartition
-            // 
-            this.textBoxDiskPartition.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxDiskPartition, "textBoxDiskPartition");
-            this.textBoxDiskPartition.Name = "textBoxDiskPartition";
-            this.textBoxDiskPartition.ReadOnly = true;
-            // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
@@ -971,22 +1003,11 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.checkBoxDiskOpenExplorer);
             this.groupBox8.Controls.Add(this.textBoxDiskPasswordFile);
             this.groupBox8.Controls.Add(this.buttonSearchPasswordFile);
-            this.groupBox8.Controls.Add(this.label8);
-            this.groupBox8.Controls.Add(this.comboBoxDiskDriveLetter);
-            this.groupBox8.Controls.Add(this.checkBoxDiskActive);
-            this.groupBox8.Controls.Add(this.label12);
             resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
-            // 
-            // checkBoxDiskOpenExplorer
-            // 
-            resources.ApplyResources(this.checkBoxDiskOpenExplorer, "checkBoxDiskOpenExplorer");
-            this.checkBoxDiskOpenExplorer.Name = "checkBoxDiskOpenExplorer";
-            this.checkBoxDiskOpenExplorer.UseVisualStyleBackColor = true;
             // 
             // textBoxDiskPasswordFile
             // 
@@ -1002,31 +1023,6 @@
             this.buttonSearchPasswordFile.UseVisualStyleBackColor = true;
             this.buttonSearchPasswordFile.Click += new System.EventHandler(this.buttonSearchDiskPasswordFile_Click);
             // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // comboBoxDiskDriveLetter
-            // 
-            this.comboBoxDiskDriveLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDiskDriveLetter.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxDiskDriveLetter, "comboBoxDiskDriveLetter");
-            this.comboBoxDiskDriveLetter.Name = "comboBoxDiskDriveLetter";
-            // 
-            // checkBoxDiskActive
-            // 
-            resources.ApplyResources(this.checkBoxDiskActive, "checkBoxDiskActive");
-            this.checkBoxDiskActive.Checked = true;
-            this.checkBoxDiskActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDiskActive.Name = "checkBoxDiskActive";
-            this.checkBoxDiskActive.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
             // tabPageContainerFiles
             // 
             this.tabPageContainerFiles.Controls.Add(this.groupBoxConSettings);
@@ -1038,6 +1034,7 @@
             // 
             // groupBoxConSettings
             // 
+            this.groupBoxConSettings.Controls.Add(this.checkBoxConDismountTrigger);
             this.groupBoxConSettings.Controls.Add(this.checkBoxOpenConExplorer);
             this.groupBoxConSettings.Controls.Add(this.comboBoxConLetter);
             this.groupBoxConSettings.Controls.Add(this.label16);
@@ -1047,6 +1044,12 @@
             resources.ApplyResources(this.groupBoxConSettings, "groupBoxConSettings");
             this.groupBoxConSettings.Name = "groupBoxConSettings";
             this.groupBoxConSettings.TabStop = false;
+            // 
+            // checkBoxConDismountTrigger
+            // 
+            resources.ApplyResources(this.checkBoxConDismountTrigger, "checkBoxConDismountTrigger");
+            this.checkBoxConDismountTrigger.Name = "checkBoxConDismountTrigger";
+            this.checkBoxConDismountTrigger.UseVisualStyleBackColor = true;
             // 
             // checkBoxOpenConExplorer
             // 
@@ -1113,7 +1116,6 @@
             // 
             this.groupBox13.Controls.Add(this.textBoxConPasswordFile);
             this.groupBox13.Controls.Add(this.buttonSearchConPassword);
-            this.groupBox13.Controls.Add(this.label15);
             resources.ApplyResources(this.groupBox13, "groupBox13");
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.TabStop = false;
@@ -1131,11 +1133,6 @@
             this.buttonSearchConPassword.Name = "buttonSearchConPassword";
             this.buttonSearchConPassword.UseVisualStyleBackColor = true;
             this.buttonSearchConPassword.Click += new System.EventHandler(this.buttonSearchConPassword_Click);
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
             // 
             // groupBox10
             // 
@@ -1311,9 +1308,9 @@
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).EndInit();
             this.tabPageHotkeys.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.groupBoxHotkeys.ResumeLayout(false);
+            this.tableLayoutPanelHotKeys.ResumeLayout(false);
+            this.tableLayoutPanelHotKeys.PerformLayout();
             this.tabPageKeyDevice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -1326,6 +1323,7 @@
             this.groupBoxLocalDiskDrives.ResumeLayout(false);
             this.groupBoxLocalDiskDrives.PerformLayout();
             this.panelDisks.ResumeLayout(false);
+            this.panelDisks.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -1377,14 +1375,10 @@
         private System.Windows.Forms.Button buttonSearchPasswordFile;
         private System.Windows.Forms.TextBox textBoxDiskPasswordFile;
         private System.Windows.Forms.OpenFileDialog openFileDialogGeneral;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxDiskDriveLetter;
-        private System.Windows.Forms.CheckBox checkBoxDiskActive;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBoxDiskPartition;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxDiskCaption;
         private System.Windows.Forms.GroupBox groupBoxLocalDiskDrives;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -1412,8 +1406,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTipSettings;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBoxDiskOpenExplorer;
-        private System.Windows.Forms.TextBox textBoxDiskSignature;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.PictureBox pictureBoxTrueCryptHeader;
@@ -1447,7 +1439,6 @@
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.TextBox textBoxConPasswordFile;
         private System.Windows.Forms.Button buttonSearchConPassword;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonSaveContainer;
         private System.Windows.Forms.Button buttonEditContainerKeyFiles;
         private System.Windows.Forms.CheckBox checkBoxOpenConExplorer;
@@ -1463,13 +1454,12 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Button buttonDeleteConfig;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox checkBoxTriggerUnmount;
         private System.Windows.Forms.TabPage tabPageHotkeys;
-        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.GroupBox groupBoxHotkeys;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelHotKeys;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -1497,6 +1487,13 @@
         private System.Windows.Forms.CheckBox checkBoxHotKeyCatch5;
         private System.Windows.Forms.CheckBox checkBoxHotKeyCatch6;
         private System.Windows.Forms.CheckBox checkBoxHotKeyCatch7;
+        private System.Windows.Forms.Label labelDiskCaption;
+        private System.Windows.Forms.Label labelDiskSignature;
+        private System.Windows.Forms.Label labelDiskPartition;
+        private System.Windows.Forms.CheckBox checkBoxDiskDismountTrigger;
+        private System.Windows.Forms.CheckBox checkBoxDiskOpenExplorer;
+        private System.Windows.Forms.CheckBox checkBoxDiskActive;
+        private System.Windows.Forms.CheckBox checkBoxConDismountTrigger;
 
 
     }

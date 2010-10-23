@@ -235,6 +235,13 @@ namespace TrueMount.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1287860743_info {
+            get {
+                object obj = ResourceManager.GetObject("1287860743_info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap spalsh {
             get {
                 object obj = ResourceManager.GetObject("spalsh", resourceCulture);

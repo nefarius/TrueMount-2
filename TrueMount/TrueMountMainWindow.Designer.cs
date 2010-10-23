@@ -39,6 +39,7 @@
             this.mountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unmountAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.contextMenuStripClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -78,6 +79,7 @@
             this.mountAllToolStripMenuItem,
             this.unmountAllToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem,
+            this.aboutToolStripMenuItem,
             this.closeToolStripMenuClose});
             this.contextMenuStripSysTray.Name = "contextMenuStripSysTray";
             this.toolTipMainWindow.SetToolTip(this.contextMenuStripSysTray, resources.GetString("contextMenuStripSysTray.ToolTip"));
@@ -128,6 +130,12 @@
             this.checkForUpdatesToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1284820964_system_software_update;
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
+            this.aboutToolStripMenuItem.Image = global::TrueMount.Properties.Resources._1287860743_info;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             // 
             // closeToolStripMenuClose
             // 
@@ -311,6 +319,7 @@
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mountDeviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unmountDeviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

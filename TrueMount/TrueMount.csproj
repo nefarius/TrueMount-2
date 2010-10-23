@@ -237,6 +237,7 @@
   <ItemGroup>
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <None Include="Resources\1286800325_unmount_overlay.png" />
+    <None Include="Resources\1287860743_info.png" />
     <Content Include="TrueMountVersion.xml">
       <SubType>Designer</SubType>
     </Content>

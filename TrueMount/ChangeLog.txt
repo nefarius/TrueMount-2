@@ -1,4 +1,7 @@
-﻿2.5.12.43
+﻿  * Added missing translations
+  * Improved detection of key devices
+  * Minor settings dialog design changes
+2.5.12.43
   * Added unmount droplist in system tray
   * Added error message if updater is missing
   * Starts silent if updater is missing
