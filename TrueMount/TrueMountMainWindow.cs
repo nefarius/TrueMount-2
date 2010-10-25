@@ -385,15 +385,9 @@ namespace TrueMount
             string deviceId = removedObject["DeviceID"].ToString();
 
             if (onlineKeyDevices.Contains(deviceId))
-            {
                 for (int index = mountedVolumes.Count; index != 0; index--)
-                {
                     if (mountedVolumes[index - 1].TriggerDismount)
-                    {
                         menuItemUnmountMedia_Click(unmountDeviceToolStripMenuItem.DropDownItems[index - 1], null);
-                    }
-                }
-            }
         }
 
         #endregion

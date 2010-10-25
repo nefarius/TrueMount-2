@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
+using ManagedWinapi;
 
 namespace TrueMount
 {
@@ -37,12 +38,12 @@ namespace TrueMount
 
         public Configuration()
         {
-            // initiate empty lists
+            // initiate empty references
             TrueCrypt = new TrueCryptConfig();
             KeyDevices = new List<UsbKeyDevice>();
             EncryptedDiskPartitions = new List<EncryptedDiskPartition>();
             EncryptedContainerFiles = new List<EncryptedContainerFile>();
-
+            
             // set default values
             ShowSplashScreen = true;
             OnlyOneInstance = true;

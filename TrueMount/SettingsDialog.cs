@@ -204,56 +204,44 @@ namespace TrueMount
 
         #endregion
 
-        #region Hotkeys Tab Events
+        #region Hotkeys Tab Events (IMPLEMENT THIS!)
 
-        private bool kCtrl = false, kAlt = false, kShift = false, kWin = false, kCode = false;
-        Hotkey hkMountAll = new Hotkey();
-        Hotkey hkUmountAll = new Hotkey();
-        Hotkey hkMountVol = new Hotkey();
-        Hotkey hkUmountVol = new Hotkey();
-        Hotkey hkShowMain = new Hotkey();
-        Hotkey hkShowSettings = new Hotkey();
-        Hotkey hkSearchUpdates = new Hotkey();
+        private bool hkSet = false;
 
         private void textBoxHotKey_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox temp = ((TextBox)sender);
+            temp.Text = string.Empty;
+            hkSet = false;
             HideCaret(temp.Handle);
 
-            if ((!kCtrl && !kAlt && !kShift && !kWin) || kCode)
-            {
-                temp.Text = string.Empty;
-                kCode = false;
-            }
-
+            // override unsuitable keys
             switch (e.KeyCode)
             {
-                case Keys.ControlKey:
-                case Keys.Control:
-                    temp.Text += !kCtrl ? "CTRL + " : string.Empty;
-                    kCtrl = true;
-                    break;
-                case Keys.Menu:
-                case Keys.Alt:
-                    temp.Text += !kAlt ? "ALT + " : string.Empty;
-                    kAlt = true;
-                    break;
-                case Keys.ShiftKey:
-                case Keys.Shift:
-                    temp.Text += !kShift ? "SHIFT + " : string.Empty;
-                    kShift = true;
-                    break;
+                case Keys.Capital:
                 case Keys.LWin:
                 case Keys.RWin:
-                    temp.Text += !kWin ? "WIN + " : string.Empty;
-                    kWin = true;
-                    break;
+                case Keys.NumLock:
+                case Keys.Pause:
+                    return;
                 default:
-                    temp.Text += !kCode ? e.KeyCode.ToString() : string.Empty;
-                    kCode = true;
                     break;
             }
 
+            if (e.Control)
+                temp.Text += "CTRL + ";
+            if (e.Alt)
+                temp.Text += "ALT + ";
+            if (e.Shift)
+                temp.Text += "SHIFT + ";
+
+            if (e.KeyCode != Keys.ControlKey && e.KeyCode != Keys.Menu && e.KeyCode != Keys.ShiftKey)
+            {
+                temp.Text += e.KeyCode.ToString();
+                hkSet = true;
+            }
+
+            e.SuppressKeyPress = true;
             e.Handled = true;
         }
 
@@ -261,38 +249,18 @@ namespace TrueMount
         {
             TextBox temp = ((TextBox)sender);
 
-            switch (e.KeyCode)
-            {
-                case Keys.ControlKey:
-                case Keys.Control:
-                    kCtrl = false;
-                    break;
-                case Keys.Menu:
-                case Keys.Alt:
-                    kAlt = false;
-                    break;
-                case Keys.ShiftKey:
-                case Keys.Shift:
-                    kShift = false;
-                    break;
-                case Keys.LWin:
-                case Keys.RWin:
-                    kWin = false;
-                    break;
-                default:
-                    ResetKeyStates();
-                    kCode = true;
-                    break;
-            }
-
-            if (!kCode)
+            if (!hkSet)
             {
                 temp.Text = string.Empty;
                 SetHotKeyState(temp, false);
             }
             else
+            {
                 SetHotKeyState(temp, true);
+                //Console.WriteLine("{0} + {1} + {2} + {3}", e.Control, e.Alt, e.Shift, e.KeyCode);
+            }
 
+            e.SuppressKeyPress = true;
             e.Handled = true;
         }
 
@@ -304,26 +272,11 @@ namespace TrueMount
                         ((CheckBox)tableLayoutPanelHotKeys.Controls[cBox.Name]).Checked = state;
         }
 
-        private void textBoxHotKey_Enter(object sender, EventArgs e)
-        {
-            ResetKeyStates();
-        }
-
         private void textBoxHotKey_Leave(object sender, EventArgs e)
         {
-            ResetKeyStates();
-        }
-
-        /// <summary>
-        /// Resets all key state values to default.
-        /// </summary>
-        private void ResetKeyStates()
-        {
-            kCtrl = false;
-            kAlt = false;
-            kShift = false;
-            kWin = false;
-            kCode = false;
+            if (!hkSet)
+                ((TextBox)sender).Text = string.Empty;
+            hkSet = false;
         }
 
         // hides cursor (caret)

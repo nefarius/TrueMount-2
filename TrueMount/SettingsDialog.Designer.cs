@@ -484,7 +484,6 @@
             resources.ApplyResources(this.textBoxHotKey1, "textBoxHotKey1");
             this.textBoxHotKey1.Name = "textBoxHotKey1";
             this.textBoxHotKey1.ReadOnly = true;
-            this.textBoxHotKey1.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey1.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -495,7 +494,6 @@
             resources.ApplyResources(this.textBoxHotKey2, "textBoxHotKey2");
             this.textBoxHotKey2.Name = "textBoxHotKey2";
             this.textBoxHotKey2.ReadOnly = true;
-            this.textBoxHotKey2.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey2.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -506,7 +504,6 @@
             resources.ApplyResources(this.textBoxHotKey3, "textBoxHotKey3");
             this.textBoxHotKey3.Name = "textBoxHotKey3";
             this.textBoxHotKey3.ReadOnly = true;
-            this.textBoxHotKey3.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey3.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -517,7 +514,6 @@
             resources.ApplyResources(this.textBoxHotKey4, "textBoxHotKey4");
             this.textBoxHotKey4.Name = "textBoxHotKey4";
             this.textBoxHotKey4.ReadOnly = true;
-            this.textBoxHotKey4.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey4.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -543,7 +539,6 @@
             resources.ApplyResources(this.textBoxHotKey5, "textBoxHotKey5");
             this.textBoxHotKey5.Name = "textBoxHotKey5";
             this.textBoxHotKey5.ReadOnly = true;
-            this.textBoxHotKey5.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey5.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -554,7 +549,6 @@
             resources.ApplyResources(this.textBoxHotKey6, "textBoxHotKey6");
             this.textBoxHotKey6.Name = "textBoxHotKey6";
             this.textBoxHotKey6.ReadOnly = true;
-            this.textBoxHotKey6.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey6.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
@@ -565,7 +559,6 @@
             resources.ApplyResources(this.textBoxHotKey7, "textBoxHotKey7");
             this.textBoxHotKey7.Name = "textBoxHotKey7";
             this.textBoxHotKey7.ReadOnly = true;
-            this.textBoxHotKey7.Enter += new System.EventHandler(this.textBoxHotKey_Enter);
             this.textBoxHotKey7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
             this.textBoxHotKey7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
             this.textBoxHotKey7.Leave += new System.EventHandler(this.textBoxHotKey_Leave);

@@ -137,6 +137,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="EncryptedContainerFile.cs" />
     <Compile Include="EncryptedMedia.cs" />
+    <Compile Include="Hotkey.cs" />
     <Compile Include="KeyFilesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
