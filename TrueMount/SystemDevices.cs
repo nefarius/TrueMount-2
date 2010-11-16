@@ -315,7 +315,7 @@ namespace TrueMount
                 int upperBound = Convert.ToInt16('Z');
                 int index = 0;
 
-                for (index = lowerBound; index < upperBound; index++)
+                for (index = lowerBound; index <= upperBound; index++)
                 {
                     char driveLetter = (char)index;
                     alphabet.Add(driveLetter.ToString());

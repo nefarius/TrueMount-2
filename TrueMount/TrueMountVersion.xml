@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.5.13.43</version>
-  <url>http://nefarius.darkhosters.net/_media/windows/truemount_2.5.13.43.zip</url>
+  <version>2.5.14.53</version>
+  <url>http://nefarius.darkhosters.net/_media/windows/truemount_2.5.14.53.zip</url>
   <changes>
-    ● Added unmount droplist in system tray
-    ● Added error message if updater is missing
-    ● Starts silent if updater is missing
-    ● Fixed extremely dumb bug in container files storage code
-    ● Minor language and dialog design changes
-    ● Changed included change log viewer render algorithm
-    ● Debugged' the hell out of the configuration serialization and fixed lots of things
-    ● Added more balloon tips
+    ● Minor settings dialog changes
+    ● Added auto-dismount functionality on key device removal
+    ● Fixed some translation errors
+    ● Fixed drive letter 'Z' not available even if it's free
   </changes>
 </truemount>

@@ -8,7 +8,6 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
 using System.IO;
-using ManagedWinapi;
 using System.Runtime.InteropServices;
 
 namespace TrueMount
@@ -60,6 +59,9 @@ namespace TrueMount
         private void SettingsDialog_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+
+            // DON'T FORGET TO REMOVE THIS!!!
+            tabControlSettings.TabPages.RemoveAt(1);
 
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;

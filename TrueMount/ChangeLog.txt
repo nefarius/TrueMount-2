@@ -1,4 +1,10 @@
-﻿  * Added missing translations
+﻿2.5.14.x
+  * Minor settings dialog changes
+  * Added auto-dismount functionality on key device removal
+  * Fixed some translation errors
+  * Fixed drive letter 'Z' not available even if it's free
+2.5.13.43
+  * Added missing translations
   * Improved detection of key devices
   * Minor settings dialog design changes
 2.5.12.43
