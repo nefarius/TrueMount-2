@@ -18,12 +18,13 @@ namespace TrueMount
         public bool Timestamp { get; set; }
         public bool System { get; set; }
         public bool TriggerDismount { get; set; }
+        public bool FetchUserPassword { get; set; }
 
         public string KeyFilesArgumentLine
         {
             get
             {
-                String args = null;
+                String args = string.Empty;
                 if (this.KeyFiles.Count > 0)
                 {
                     foreach (string item in this.KeyFiles)
@@ -39,19 +40,19 @@ namespace TrueMount
         {
             get
             {
-                String m_opts = null;
+                String mOpts = string.Empty;
                 if (Readonly)
-                    m_opts += "/m ro ";
+                    mOpts += "/m ro ";
                 if (Removable)
-                    m_opts += "/m rm ";
+                    mOpts += "/m rm ";
                 if (Timestamp)
-                    m_opts += "/m ts ";
+                    mOpts += "/m ts ";
                 if (System)
-                    m_opts += "/m sm ";
+                    mOpts += "/m sm ";
 
-                if (!string.IsNullOrEmpty(m_opts))
-                    return m_opts.Trim();
-                return m_opts;
+                if (!string.IsNullOrEmpty(mOpts))
+                    return mOpts.Trim();
+                return mOpts;
             }
         }
 

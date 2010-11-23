@@ -1,4 +1,10 @@
-﻿2.5.14.x
+﻿2.6.15.54
+  * Added manual password input option
+  * Added new switch to application options
+    * Key devices are now optional
+  * Fixed some language mistakes again
+  * Improved translations
+2.5.14.53
   * Minor settings dialog changes
   * Added auto-dismount functionality on key device removal
   * Fixed some translation errors

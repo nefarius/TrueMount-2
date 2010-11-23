@@ -22,6 +22,7 @@ namespace TrueMount
             // load languages
             ResourceManager langRes = Configuration.LanguageDictionary;
 
+#if !DEBUG
             // if update checking is allowed, do it
             if (config.CheckForUpdates)
                 if (Configuration.UpdaterExists)
@@ -32,11 +33,13 @@ namespace TrueMount
             // clean old updates
             if (Directory.Exists(Configuration.UpdateSavePath))
                 Directory.Delete(Configuration.UpdateSavePath, true);
+#endif
 
             // use mutex to test if application has been started bevore
             bool createdNew = true;
             using (Mutex mutex = new Mutex(true, config.ApplicationName, out createdNew))
             {
+#if !DEBUG
                 if (config.OnlyOneInstance)
                 {
                     if (!createdNew)
@@ -47,6 +50,7 @@ namespace TrueMount
                         return;
                     }
                 }
+#endif
 
                 // we made it to the main window, load it!
                 Application.Run(new TrueMountMainWindow());

@@ -376,6 +376,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Info: password gathering switched to user mode, open password dialog..
+        /// </summary>
+        internal static string InfoPasswordDialog {
+            get {
+                return ResourceManager.GetString("InfoPasswordDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logical disk {0}:\ online..
         /// </summary>
         internal static string LogicalDiskOnline {
@@ -727,11 +736,29 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: required password fetching canceled by user!.
+        /// </summary>
+        internal static string PasswordDialogCanceled {
+            get {
+                return ResourceManager.GetString("PasswordDialogCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Info: No password set..
         /// </summary>
         internal static string PasswordEmptyOk {
             get {
                 return ResourceManager.GetString("PasswordEmptyOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password successfully fetched by user input..
+        /// </summary>
+        internal static string PasswordFetchOk {
+            get {
+                return ResourceManager.GetString("PasswordFetchOk", resourceCulture);
             }
         }
         
@@ -898,7 +925,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Volume dismounted.
+        ///   Looks up a localized string similar to Volume dismounted..
         /// </summary>
         internal static string VolumeDismounted {
             get {

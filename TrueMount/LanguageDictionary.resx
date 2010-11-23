@@ -406,9 +406,18 @@
     <value>"{0}" with letter {1} has been dismounted.</value>
   </data>
   <data name="VolumeDismounted" xml:space="preserve">
-    <value>Volume dismounted</value>
+    <value>Volume dismounted.</value>
   </data>
   <data name="NewDeviceNotRemovable" xml:space="preserve">
     <value>New device "{0}" is not a removable device.</value>
+  </data>
+  <data name="InfoPasswordDialog" xml:space="preserve">
+    <value>Info: password gathering switched to user mode, open password dialog.</value>
+  </data>
+  <data name="PasswordDialogCanceled" xml:space="preserve">
+    <value>Error: required password fetching canceled by user!</value>
+  </data>
+  <data name="PasswordFetchOk" xml:space="preserve">
+    <value>Password successfully fetched by user input.</value>
   </data>
 </root>

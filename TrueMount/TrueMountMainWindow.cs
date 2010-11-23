@@ -24,6 +24,7 @@ namespace TrueMount
         private SplashScreen splashScreen = null;
         private List<string> onlineKeyDevices = null;
         private List<EncryptedMedia> mountedVolumes = null;
+        private PasswordDialog pwDlg = null;
 
         // make LogAppend thread safe
         delegate void LogAppendCallback(String line, params string[] text);
@@ -57,6 +58,10 @@ namespace TrueMount
 
             // create all controls
             InitializeComponent();
+
+#if DEBUG
+            this.Text += " - DEBUG Mode";
+#endif
         }
 
         /// <summary>
@@ -64,6 +69,16 @@ namespace TrueMount
         /// </summary>
         private void TrueMountMainWindow_Load(object sender, EventArgs e)
         {
+#if DEBUG
+            // add some test code here to be executed on the very beginning
+            /*
+            PasswordDialog pwDlg = new PasswordDialog("U.N. Owen VAULT-TEC enc. Device o9000TB");
+            if (pwDlg.ShowDialog() == DialogResult.OK)
+                MessageBox.Show(pwDlg.Password);
+            Environment.Exit(0);
+             * */
+#endif
+
             // start silent?
             if (config.StartSilent)
                 HideMainWindow();
@@ -343,7 +358,7 @@ namespace TrueMount
             ManagementBaseObject insertedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
             string deviceId = insertedObject["DeviceID"].ToString();
 
-            if (!this.IsKeyDeviceOnline(deviceId))
+            if (!this.CheckOnlineKeyDevices(deviceId))
                 LogAppend("USBNotPw");
         }
 
@@ -398,15 +413,16 @@ namespace TrueMount
         /// </summary>
         private void StartDeviceListener()
         {
-            if (!config.IsKeyDeviceConfigOk)
-            {
-                // well, the config is crap
-                LogAppend("ErrNoKeyDev");
-                return;
-            }
+            if(!config.IgnoreKeyDevices)
+                if (!config.IsKeyDeviceConfigOk)
+                {
+                    // well, the config is crap
+                    LogAppend("ErrNoKeyDev");
+                    return;
+                }
 
             // no need for waiting if usb device is already online
-            this.IsKeyDeviceOnline();
+            this.CheckOnlineKeyDevices();
 
             LogAppend("StartDevListener");
             if (keyInsertEvent == null)
@@ -748,16 +764,43 @@ namespace TrueMount
                 else
                 {
                     LogAppend("ErrPwFileNoExist", encMedia.PasswordFile);
-                    return mountSuccess;
+                    // return if we run out of options
+                    if (!encMedia.FetchUserPassword)
+                        return mountSuccess;
                 }
             }
             else
+            {
                 LogAppend("PasswordEmptyOk");
+                // it will work without a password, but if the user wants to talk to me...
+                if (encMedia.FetchUserPassword)
+                {
+                    LogAppend("InfoPasswordDialog");
 
+                    if (pwDlg == null)
+                        pwDlg = new PasswordDialog(encMedia.ToString());
+                    else
+                        pwDlg.VolumeLabel = encMedia.ToString();
+
+                    // launch a new password dialog and annoy the user
+                    if (pwDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        LogAppend("PasswordFetchOk");
+                        password = pwDlg.Password;
+                    }
+                    else
+                    {
+                        LogAppend("PasswordDialogCanceled");
+                        return mountSuccess;
+                    }
+                }
+            }
+
+            // warn if important CLI flags are missing (probably the users fault)
             if (string.IsNullOrEmpty(config.TrueCrypt.CommandLineArguments))
                 LogAppend("WarnTCArgs");
 
-            // log what I read
+            // log what we read
             LogAppend("TCArgumentLine", config.TrueCrypt.CommandLineArguments);
 
             // fill in the attributes we got above
@@ -942,8 +985,17 @@ namespace TrueMount
         /// Run through all configured key SystemDevices and if one is online, start the mount process.
         /// </summary>
         /// <returns>Returns true if one or more are found, else false.</returns>
-        private bool IsKeyDeviceOnline(string deviceId = null)
+        private bool CheckOnlineKeyDevices(string deviceId = null)
         {
+            // if the user does not need this function, just try to mount everything
+            if (config.IgnoreKeyDevices)
+            {
+                if (MountAllDevices() > 0)
+                    return true;
+                else
+                    return false;
+            }
+
             // run through every key device
             foreach (UsbKeyDevice keyDevice in config.KeyDevices)
             {

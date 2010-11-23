@@ -66,6 +66,7 @@ namespace TrueMount
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;
             checkBoxAutostart.Checked = config.AutostartService;
+            checkBoxIgnoreKeyDevices.Checked = config.IgnoreKeyDevices;
             checkBoxHidden.Checked = config.StartSilent;
             checkBoxSplashScreen.Checked = config.ShowSplashScreen;
             checkBoxOneInstance.Checked = config.OnlyOneInstance;
@@ -149,6 +150,14 @@ namespace TrueMount
         private void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
         {
             config.AutostartService = checkBoxAutostart.Checked;
+
+            if (checkBoxAutostart.Checked)
+                checkBoxIgnoreKeyDevices.Enabled = true;
+            else
+            {
+                checkBoxIgnoreKeyDevices.Checked = false;
+                checkBoxIgnoreKeyDevices.Enabled = false;
+            }
         }
 
         private void checkBoxHidden_CheckedChanged(object sender, EventArgs e)
@@ -202,6 +211,11 @@ namespace TrueMount
         private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
         {
             config.CheckForUpdates = checkBoxCheckUpdates.Checked;
+        }
+
+        private void checkBoxIgnoreKeyDevices_CheckedChanged(object sender, EventArgs e)
+        {
+            config.IgnoreKeyDevices = checkBoxIgnoreKeyDevices.Checked;
         }
 
         #endregion
@@ -420,6 +434,7 @@ namespace TrueMount
             textBoxDiskPasswordFile.Text = null;
             checkBoxDiskActive.Checked = true;
             checkBoxDiskOpenExplorer.Checked = false;
+            checkBoxFetchDiskPassword.Checked = false;
 
             // new disk, new node in tree
             listBoxDisks.Items.Add(comboBoxDiskDrives.Text);
@@ -487,6 +502,7 @@ namespace TrueMount
             newEncDiskPartition.Timestamp = checkBoxDiskTs.Checked;
             newEncDiskPartition.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
             newEncDiskPartition.TriggerDismount = checkBoxDiskDismountTrigger.Checked;
+            newEncDiskPartition.FetchUserPassword = checkBoxFetchDiskPassword.Checked;
 
             // replace the disk with the new settings
             if (config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
@@ -566,6 +582,7 @@ namespace TrueMount
                 checkBoxDiskTs.Checked = encDiskPartition.Timestamp;
                 checkBoxDiskSm.Checked = encDiskPartition.System;
                 checkBoxDiskDismountTrigger.Checked = encDiskPartition.TriggerDismount;
+                checkBoxFetchDiskPassword.Checked = encDiskPartition.FetchUserPassword;
 
                 if (encDiskPartition.DriveLetter != null)
                 {
@@ -661,6 +678,7 @@ namespace TrueMount
             checkBoxConRm.Checked = false;
             checkBoxConSm.Checked = false;
             checkBoxConTs.Checked = false;
+            checkBoxFetchConPassword.Checked = false;
 
             listBoxContainerFiles.SelectedItem = openFileDialogGeneral.FileName;
 
@@ -716,6 +734,7 @@ namespace TrueMount
                 checkBoxConTs.Checked = encContainerFiles.Timestamp;
                 checkBoxConSm.Checked = encContainerFiles.System;
                 checkBoxConDismountTrigger.Checked = encContainerFiles.TriggerDismount;
+                checkBoxFetchConPassword.Checked = encContainerFiles.FetchUserPassword;
 
                 if (encContainerFiles.DriveLetter != null)
                 {
@@ -768,6 +787,7 @@ namespace TrueMount
             newContainerFile.System = checkBoxConSm.Checked;
             newContainerFile.Timestamp = checkBoxConTs.Checked;
             newContainerFile.TriggerDismount = checkBoxConDismountTrigger.Checked;
+            newContainerFile.FetchUserPassword = checkBoxFetchConPassword.Checked;
 
             if (config.EncryptedContainerFiles.Contains(newContainerFile))
                 config.EncryptedContainerFiles[config.EncryptedContainerFiles.IndexOf(newContainerFile)] = newContainerFile;

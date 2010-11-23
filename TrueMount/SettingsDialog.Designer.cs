@@ -40,6 +40,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.checkBoxIgnoreKeyDevices = new System.Windows.Forms.CheckBox();
             this.checkBoxCheckUpdates = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.numericUpDownBalloonTime = new System.Windows.Forms.NumericUpDown();
@@ -114,6 +115,7 @@
             this.comboBoxDiskDrives = new System.Windows.Forms.ComboBox();
             this.buttonAddDisk = new System.Windows.Forms.Button();
             this.panelDisks = new System.Windows.Forms.Panel();
+            this.checkBoxFetchDiskPassword = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskDismountTrigger = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskOpenExplorer = new System.Windows.Forms.CheckBox();
             this.buttonEditDiskKeyFiles = new System.Windows.Forms.Button();
@@ -139,6 +141,7 @@
             this.buttonSearchPasswordFile = new System.Windows.Forms.Button();
             this.tabPageContainerFiles = new System.Windows.Forms.TabPage();
             this.groupBoxConSettings = new System.Windows.Forms.GroupBox();
+            this.checkBoxFetchConPassword = new System.Windows.Forms.CheckBox();
             this.checkBoxConDismountTrigger = new System.Windows.Forms.CheckBox();
             this.checkBoxOpenConExplorer = new System.Windows.Forms.CheckBox();
             this.comboBoxConLetter = new System.Windows.Forms.ComboBox();
@@ -281,6 +284,7 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.checkBoxIgnoreKeyDevices);
             this.groupBox9.Controls.Add(this.checkBoxCheckUpdates);
             this.groupBox9.Controls.Add(this.label19);
             this.groupBox9.Controls.Add(this.numericUpDownBalloonTime);
@@ -297,6 +301,13 @@
             resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
+            // 
+            // checkBoxIgnoreKeyDevices
+            // 
+            resources.ApplyResources(this.checkBoxIgnoreKeyDevices, "checkBoxIgnoreKeyDevices");
+            this.checkBoxIgnoreKeyDevices.Name = "checkBoxIgnoreKeyDevices";
+            this.checkBoxIgnoreKeyDevices.UseVisualStyleBackColor = true;
+            this.checkBoxIgnoreKeyDevices.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreKeyDevices_CheckedChanged);
             // 
             // checkBoxCheckUpdates
             // 
@@ -848,6 +859,7 @@
             // panelDisks
             // 
             this.panelDisks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDisks.Controls.Add(this.checkBoxFetchDiskPassword);
             this.panelDisks.Controls.Add(this.checkBoxDiskDismountTrigger);
             this.panelDisks.Controls.Add(this.checkBoxDiskOpenExplorer);
             this.panelDisks.Controls.Add(this.buttonEditDiskKeyFiles);
@@ -861,6 +873,12 @@
             this.panelDisks.Controls.Add(this.groupBox8);
             resources.ApplyResources(this.panelDisks, "panelDisks");
             this.panelDisks.Name = "panelDisks";
+            // 
+            // checkBoxFetchDiskPassword
+            // 
+            resources.ApplyResources(this.checkBoxFetchDiskPassword, "checkBoxFetchDiskPassword");
+            this.checkBoxFetchDiskPassword.Name = "checkBoxFetchDiskPassword";
+            this.checkBoxFetchDiskPassword.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskDismountTrigger
             // 
@@ -1027,6 +1045,7 @@
             // 
             // groupBoxConSettings
             // 
+            this.groupBoxConSettings.Controls.Add(this.checkBoxFetchConPassword);
             this.groupBoxConSettings.Controls.Add(this.checkBoxConDismountTrigger);
             this.groupBoxConSettings.Controls.Add(this.checkBoxOpenConExplorer);
             this.groupBoxConSettings.Controls.Add(this.comboBoxConLetter);
@@ -1037,6 +1056,12 @@
             resources.ApplyResources(this.groupBoxConSettings, "groupBoxConSettings");
             this.groupBoxConSettings.Name = "groupBoxConSettings";
             this.groupBoxConSettings.TabStop = false;
+            // 
+            // checkBoxFetchConPassword
+            // 
+            resources.ApplyResources(this.checkBoxFetchConPassword, "checkBoxFetchConPassword");
+            this.checkBoxFetchConPassword.Name = "checkBoxFetchConPassword";
+            this.checkBoxFetchConPassword.UseVisualStyleBackColor = true;
             // 
             // checkBoxConDismountTrigger
             // 
@@ -1487,6 +1512,9 @@
         private System.Windows.Forms.CheckBox checkBoxDiskOpenExplorer;
         private System.Windows.Forms.CheckBox checkBoxDiskActive;
         private System.Windows.Forms.CheckBox checkBoxConDismountTrigger;
+        private System.Windows.Forms.CheckBox checkBoxFetchDiskPassword;
+        private System.Windows.Forms.CheckBox checkBoxFetchConPassword;
+        private System.Windows.Forms.CheckBox checkBoxIgnoreKeyDevices;
 
 
     }

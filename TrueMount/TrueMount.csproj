@@ -151,6 +151,12 @@
       <DependentUpon>LanguageDictionary.resx</DependentUpon>
     </Compile>
     <Compile Include="EncryptedDiskPartition.cs" />
+    <Compile Include="PasswordDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordDialog.Designer.cs">
+      <DependentUpon>PasswordDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrueCryptConfig.cs" />
     <Compile Include="UsbKeyDevice.cs" />
     <Compile Include="SettingsDialog.cs">
@@ -187,6 +193,12 @@
     <EmbeddedResource Include="LanguageDictionary.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageDictionary.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordDialog.de.resx">
+      <DependentUpon>PasswordDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordDialog.resx">
+      <DependentUpon>PasswordDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsDialog.de.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>

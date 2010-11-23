@@ -412,9 +412,18 @@
     <value>"{0}" mit dem Buchstaben {1} wurde ausgeworfen.</value>
   </data>
   <data name="VolumeDismounted" xml:space="preserve">
-    <value>Laufwerk ausgeworfen</value>
+    <value>Laufwerk ausgeworfen.</value>
   </data>
   <data name="NewDeviceNotRemovable" xml:space="preserve">
     <value>Neues Gerät "{0}" ist kein auswerfbares Laufwerk.</value>
+  </data>
+  <data name="InfoPasswordDialog" xml:space="preserve">
+    <value>Information: Passwort wird von Nutzer abgefragt, öffne Dialog.</value>
+  </data>
+  <data name="PasswordDialogCanceled" xml:space="preserve">
+    <value>Fehler: die Passworteingabe wurde vom Benutzer abgebrochen!</value>
+  </data>
+  <data name="PasswordFetchOk" xml:space="preserve">
+    <value>Passwort wurde erfolgreich von der Nutzereingabe gelesen.</value>
   </data>
 </root>

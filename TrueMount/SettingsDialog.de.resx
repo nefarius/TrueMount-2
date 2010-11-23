@@ -169,8 +169,14 @@
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Verhalten</value>
   </data>
+  <data name="checkBoxIgnoreKeyDevices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 17</value>
+  </data>
+  <data name="checkBoxIgnoreKeyDevices.Text" xml:space="preserve">
+    <value>Ignoriere alle Schlüsselgeräte (alles Einbinden)</value>
+  </data>
   <data name="checkBoxCheckUpdates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 274</value>
+    <value>16, 278</value>
   </data>
   <data name="checkBoxCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 17</value>
@@ -179,13 +185,13 @@
     <value>Suche Aktualisierungen online nach Programmstart</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 250</value>
+    <value>210, 254</value>
   </data>
   <data name="numericUpDownBalloonTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 248</value>
+    <value>141, 252</value>
   </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 250</value>
+    <value>15, 254</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 13</value>
@@ -194,7 +200,7 @@
     <value>Ballon-Tipp Anzeigezeit:</value>
   </data>
   <data name="checkBoxDisableBalloons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 225</value>
+    <value>16, 229</value>
   </data>
   <data name="checkBoxDisableBalloons.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 17</value>
@@ -203,7 +209,7 @@
     <value>Deaktiviere alle Ballon-Tips programmweit</value>
   </data>
   <data name="checkBoxForceUnmountAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 175</value>
+    <value>16, 183</value>
   </data>
   <data name="checkBoxForceUnmountAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>269, 17</value>
@@ -212,7 +218,7 @@
     <value>Erzwinge das Auswerfen eingebundener Laufwerke</value>
   </data>
   <data name="checkBoxWarnUnmountAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 200</value>
+    <value>16, 206</value>
   </data>
   <data name="checkBoxWarnUnmountAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>276, 17</value>
@@ -221,7 +227,7 @@
     <value>Zeige Warnmeldung vor dem Auswerfen aller Medien</value>
   </data>
   <data name="checkBoxIgnoreDriveLetters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 150</value>
+    <value>16, 160</value>
   </data>
   <data name="checkBoxIgnoreDriveLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 17</value>
@@ -236,7 +242,7 @@
     <value>Starte TrueMount mit Windows</value>
   </data>
   <data name="checkBoxOneInstance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 125</value>
+    <value>16, 137</value>
   </data>
   <data name="checkBoxOneInstance.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 17</value>
@@ -245,7 +251,7 @@
     <value>Erlaube nur eine Instanz von TrueMount</value>
   </data>
   <data name="checkBoxAutostart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 50</value>
+    <value>16, 45</value>
   </data>
   <data name="checkBoxAutostart.Size" type="System.Drawing.Size, System.Drawing">
     <value>255, 17</value>
@@ -254,7 +260,7 @@
     <value>Starte Wächter automatisch nach Programmstart</value>
   </data>
   <data name="checkBoxSplashScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 100</value>
+    <value>16, 114</value>
   </data>
   <data name="checkBoxSplashScreen.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 17</value>
@@ -263,7 +269,7 @@
     <value>Zeige Splash Screen während Programmstart</value>
   </data>
   <data name="checkBoxHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 75</value>
+    <value>16, 91</value>
   </data>
   <data name="checkBoxHidden.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 17</value>
@@ -339,6 +345,15 @@
   </data>
   <data name="buttonAddDisk.Text" xml:space="preserve">
     <value>Hinzufügen</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 147</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 17</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.Text" xml:space="preserve">
+    <value>Erfrage Passwort</value>
   </data>
   <data name="checkBoxDiskDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 17</value>
@@ -447,6 +462,15 @@
   </data>
   <data name="groupBoxConSettings.Text" xml:space="preserve">
     <value>Container-Einstellungen</value>
+  </data>
+  <data name="checkBoxFetchConPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 100</value>
+  </data>
+  <data name="checkBoxFetchConPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 17</value>
+  </data>
+  <data name="checkBoxFetchConPassword.Text" xml:space="preserve">
+    <value>Erfrage Passwort</value>
   </data>
   <data name="checkBoxConDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 17</value>
