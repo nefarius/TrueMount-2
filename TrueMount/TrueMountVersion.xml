@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.5.14.53</version>
-  <url>http://nefarius.darkhosters.net/_media/windows/truemount_2.5.14.53.zip</url>
+  <version>2.6.15.55</version>
+  <url>http://nefarius.darkhosters.net/_media/windows/truemount_2.6.15.55.zip</url>
   <changes>
-    ● Minor settings dialog changes
-    ● Added auto-dismount functionality on key device removal
-    ● Fixed some translation errors
-    ● Fixed drive letter 'Z' not available even if it's free
+    This is a special release for sc4ry =)
+    ======================================
+    ● Added manual password input option
+    ● Key devices are now optional
+    ● Added new switch to application options
+    ● Fixed some language mistakes again
+    ● Improved translations
+    ● Added About-Box
   </changes>
 </truemount>

@@ -1,9 +1,11 @@
-﻿2.6.15.54
+﻿2.6.15.55
+This is a special release for sc4ry =)
   * Added manual password input option
   * Added new switch to application options
     * Key devices are now optional
   * Fixed some language mistakes again
   * Improved translations
+  * Added About-Box
 2.5.14.53
   * Minor settings dialog changes
   * Added auto-dismount functionality on key device removal

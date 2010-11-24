@@ -251,6 +251,11 @@ namespace TrueMount
                 MountBalloonTip(encMedia);
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
+        }
+
         #endregion
 
         #region Balloon tips actions
