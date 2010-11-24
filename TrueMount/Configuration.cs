@@ -299,5 +299,25 @@ namespace TrueMount
             }
             return false;
         }
+
+        public bool IsUserPasswordNeeded
+        {
+            get
+            {
+                foreach (EncryptedMedia encMedia in this.EncryptedDiskPartitions)
+                {
+                    if (encMedia.FetchUserPassword)
+                        return true;
+                }
+
+                foreach (EncryptedMedia encMedia in this.EncryptedContainerFiles)
+                {
+                    if (encMedia.FetchUserPassword)
+                        return true;
+                }
+
+                return false;
+            }
+        }
     }
 }

@@ -427,7 +427,7 @@ namespace TrueMount
                 }
 
             // no need for waiting if usb device is already online
-            this.CheckOnlineKeyDevices();
+            CheckOnlineKeyDevices();
 
             LogAppend("StartDevListener");
             if (keyInsertEvent == null)
@@ -772,6 +772,27 @@ namespace TrueMount
                     // return if we run out of options
                     if (!encMedia.FetchUserPassword)
                         return mountSuccess;
+                    else
+                    {
+                        LogAppend("InfoPasswordDialog");
+
+                        if (pwDlg == null)
+                            pwDlg = new PasswordDialog(encMedia.ToString());
+                        else
+                            pwDlg.VolumeLabel = encMedia.ToString();
+
+                        // launch a new password dialog and annoy the user
+                        if (pwDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            LogAppend("PasswordFetchOk");
+                            password = pwDlg.Password;
+                        }
+                        else
+                        {
+                            LogAppend("PasswordDialogCanceled");
+                            return mountSuccess;
+                        }
+                    }
                 }
             }
             else
@@ -993,7 +1014,8 @@ namespace TrueMount
         private bool CheckOnlineKeyDevices(string deviceId = null)
         {
             // if the user does not need this function, just try to mount everything
-            if (config.IgnoreKeyDevices)
+            if ((config.IgnoreKeyDevices || config.IsUserPasswordNeeded)
+                && deviceId == null)
             {
                 if (MountAllDevices() > 0)
                     return true;
