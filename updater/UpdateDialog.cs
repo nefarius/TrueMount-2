@@ -128,12 +128,15 @@ namespace updater
                 updateProc.StartInfo.UseShellExecute = false;
                 updateProc.StartInfo.FileName = Path.Combine(this.updateSavePath, "updater.exe");
                 updateProc.StartInfo.Arguments = "patch";
+                // on Vista/7/2008 ask for admin permissions
+                if (Environment.OSVersion.Version.Major >= 6)
+                    updateProc.StartInfo.Verb = "runas";
 
                 try
                 {
                     // start downloaded version of the updater with "patch" flag
                     updateProc.Start();
-                    // wait and server important path data to the updater client
+                    // wait and serve important path data to the updater client
                     using (NamedPipeServerStream outPipe = new NamedPipeServerStream("TrueMountUpdater"))
                     {
                         outPipe.WaitForConnection();

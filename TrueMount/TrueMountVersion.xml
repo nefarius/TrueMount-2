@@ -1,16 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.6.16.56</version>
-  <url>http://nefarius.darkhosters.net/_media/windows/truemount_2.6.16.56.zip</url>
+  <version>2.6.16.57</version>
+  <url>http://nefarius.darkhosters.net/_media/windows/truemount_latest.zip</url>
   <changes>
-    ● UPDATE: Fixed some logic bugs caused by new features
-    This is a special release for sc4ry =)
-    ======================================
-    ● Added manual password input option
-    ● Key devices are now optional
-    ● Added new switch to application options
-    ● Fixed some language mistakes again
-    ● Improved translations
-    ● Added About-Box
+    ● Updater is now UAC (Vista/7/2008) compatible!
+    ● Minor code improvements
   </changes>
 </truemount>

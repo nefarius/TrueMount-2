@@ -33,6 +33,10 @@ namespace TrueMount
             // clean old updates
             if (Directory.Exists(Configuration.UpdateSavePath))
                 Directory.Delete(Configuration.UpdateSavePath, true);
+#else
+            if (!config.InvokeUpdateProcess(true))
+                MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 #endif
 
             // use mutex to test if application has been started bevore
