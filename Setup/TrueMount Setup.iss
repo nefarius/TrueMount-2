@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppID={{98BFC619-6202-49CA-BEA6-D26F786FAC7D}
 AppName=TrueMount
-AppVersion=2.4.12.42
-;AppVerName=TrueMount 2.4.10.40
+AppVersion=2.6.16.57
+AppVerName=TrueMount 2
 AppPublisher=Nefarius
 AppPublisherURL=http://nefarius.darkhosters.net/windows/truemount2
 AppSupportURL=http://nefarius.darkhosters.net/windows/truemount2
@@ -16,13 +16,12 @@ AppUpdatesURL=http://nefarius.darkhosters.net/windows/truemount2
 DefaultDirName={pf}\TrueMount
 DefaultGroupName=TrueMount
 AllowNoIcons=false
-OutputDir=D:\dotNET Programme\TrueMount 2\Setup
+OutputDir=M:\Development\C#\TrueMount 2
 OutputBaseFilename=setup
-SetupIconFile=D:\dotNET Programme\TrueMount 2\TrueMount\1276686629_preferences-desktop-cryptography.ico
 Compression=lzma/Max
 SolidCompression=false
-WizardImageFile="D:\dotNET Programme\TrueMount 2\SetupImage.bmp"
-WizardSmallImageFile="D:\dotNET Programme\TrueMount 2\SetupImageSmall.bmp"
+WizardImageFile="M:\Development\C#\TrueMount 2\Setup\SetupImage.bmp"
+WizardSmallImageFile="M:\Development\C#\TrueMount 2\Setup\SetupImageSmall.bmp"
 MinVersion=,5.0.2195
 VersionInfoVersion=1.0
 VersionInfoCompany=Nefarius
@@ -30,6 +29,7 @@ VersionInfoDescription=TrueMount software installer
 VersionInfoCopyright=Benjamin Höglinger 2010
 VersionInfoProductName=TrueMount
 VersionInfoProductVersion=2
+SetupIconFile=M:\Development\C#\TrueMount 2\TrueMount\1276686629_preferences-desktop-cryptography.ico
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -39,12 +39,13 @@ Name: "german"; MessagesFile: "compiler:Languages\German.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\dotNET Programme\TrueMount 2\TrueMount\bin\Release\TrueMount.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\dotNET Programme\TrueMount 2\TrueMount\bin\Release\ICSharpCode.SharpZipLib.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: D:\dotNET Programme\TrueMount 2\TrueMount\bin\Release\de\*; DestDir: {app}\de; Flags: ignoreversion recursesubdirs createallsubdirs; 
-Source: D:\dotNET Programme\TrueMount 2\TrueMount\bin\Release\en\*; DestDir: {app}\en; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\TrueMount.exe"; DestDir: {app}; Flags: ignoreversion; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\ICSharpCode.SharpZipLib.dll"; DestDir: {app}; Flags: ignoreversion; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\de\*"; DestDir: {app}\de; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\en\*"; DestDir: {app}\en; Flags: ignoreversion recursesubdirs createallsubdirs; 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: D:\dotNET Programme\TrueMount 2\TrueMount\bin\Release\updater.exe; DestDir: {app}; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\updater.exe"; DestDir: {app}; 
+Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\TrueMount.exe.config"; DestDir: {app}; 
 
 [Icons]
 Name: "{group}\TrueMount"; Filename: "{app}\TrueMount.exe"
