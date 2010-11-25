@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
   <version>2.6.16.57</version>
-  <url>http://nefarius.darkhosters.net/_media/windows/truemount_latest.zip</url>
+  <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
     ● Updater is now UAC (Vista/7/2008) compatible!
     ● Minor code improvements
