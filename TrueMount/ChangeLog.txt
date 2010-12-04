@@ -1,4 +1,10 @@
-﻿2.6.15.55
+﻿  * Fixed minor updater performance bug
+  * Minor language changes
+  * Cleaned repository
+  * Added error log to updater for easier error reporting
+  * Fixed some updater bugs caused by failed downloads
+  * Added more debug code
+2.6.15.55
 This is a special release for sc4ry =)
   * Added manual password input option
   * Added new switch to application options

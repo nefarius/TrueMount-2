@@ -149,5 +149,32 @@ namespace updater {
                 return ResourceManager.GetString("MsgTUpdateFail", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading new version....
+        /// </summary>
+        internal static string TitleDownloading {
+            get {
+                return ResourceManager.GetString("TitleDownloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action failed.
+        /// </summary>
+        internal static string TitleFailed {
+            get {
+                return ResourceManager.GetString("TitleFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating finished.
+        /// </summary>
+        internal static string TitleFinished {
+            get {
+                return ResourceManager.GetString("TitleFinished", resourceCulture);
+            }
+        }
     }
 }

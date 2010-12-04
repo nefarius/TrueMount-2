@@ -3,6 +3,7 @@ using System.IO;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using TrueMount.Forms;
 
 namespace TrueMount
 {
@@ -22,7 +23,6 @@ namespace TrueMount
             // load languages
             ResourceManager langRes = Configuration.LanguageDictionary;
 
-#if !DEBUG
             // if update checking is allowed, do it
             if (config.CheckForUpdates)
                 if (Configuration.UpdaterExists)
@@ -33,11 +33,6 @@ namespace TrueMount
             // clean old updates
             if (Directory.Exists(Configuration.UpdateSavePath))
                 Directory.Delete(Configuration.UpdateSavePath, true);
-#else
-            if (!config.InvokeUpdateProcess(true))
-                MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-#endif
 
             // use mutex to test if application has been started bevore
             bool createdNew = true;

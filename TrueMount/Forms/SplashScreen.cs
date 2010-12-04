@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace TrueMount
+namespace TrueMount.Forms
 {
     public partial class SplashScreen : Form
     {

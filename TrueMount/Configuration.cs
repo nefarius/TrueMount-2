@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
+using TrueMount.Forms;
 
 namespace TrueMount
 {

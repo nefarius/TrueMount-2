@@ -131,19 +131,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="Forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="EncryptedContainerFile.cs" />
     <Compile Include="EncryptedMedia.cs" />
-    <Compile Include="KeyFilesDialog.cs">
+    <Compile Include="Forms\KeyFilesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KeyFilesDialog.Designer.cs">
+    <Compile Include="Forms\KeyFilesDialog.Designer.cs">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="LanguageDictionary.de.Designer.cs">
@@ -157,45 +157,45 @@
       <DependentUpon>LanguageDictionary.resx</DependentUpon>
     </Compile>
     <Compile Include="EncryptedDiskPartition.cs" />
-    <Compile Include="PasswordDialog.cs">
+    <Compile Include="Forms\PasswordDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PasswordDialog.Designer.cs">
+    <Compile Include="Forms\PasswordDialog.Designer.cs">
       <DependentUpon>PasswordDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="TrueCryptConfig.cs" />
     <Compile Include="UsbKeyDevice.cs" />
-    <Compile Include="SettingsDialog.cs">
+    <Compile Include="Forms\SettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsDialog.Designer.cs">
+    <Compile Include="Forms\SettingsDialog.Designer.cs">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen.cs">
+    <Compile Include="Forms\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashScreen.Designer.cs">
+    <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemDevices.cs" />
-    <Compile Include="TrueMountMainWindow.cs">
+    <Compile Include="Forms\TrueMountMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrueMountMainWindow.Designer.cs">
+    <Compile Include="Forms\TrueMountMainWindow.Designer.cs">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.de.resx">
+    <EmbeddedResource Include="Forms\AboutBox.de.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.resx">
+    <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeyFilesDialog.de.resx">
+    <EmbeddedResource Include="Forms\KeyFilesDialog.de.resx">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeyFilesDialog.resx">
+    <EmbeddedResource Include="Forms\KeyFilesDialog.resx">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LanguageDictionary.de.resx">
@@ -206,31 +206,31 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LanguageDictionary.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PasswordDialog.de.resx">
+    <EmbeddedResource Include="Forms\PasswordDialog.de.resx">
       <DependentUpon>PasswordDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PasswordDialog.resx">
+    <EmbeddedResource Include="Forms\PasswordDialog.resx">
       <DependentUpon>PasswordDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsDialog.de.resx">
+    <EmbeddedResource Include="Forms\SettingsDialog.de.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsDialog.en.resx">
+    <EmbeddedResource Include="Forms\SettingsDialog.en.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsDialog.resx">
+    <EmbeddedResource Include="Forms\SettingsDialog.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen.resx">
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrueMountMainWindow.de.resx">
+    <EmbeddedResource Include="Forms\TrueMountMainWindow.de.resx">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrueMountMainWindow.en.resx">
+    <EmbeddedResource Include="Forms\TrueMountMainWindow.en.resx">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrueMountMainWindow.resx">
+    <EmbeddedResource Include="Forms\TrueMountMainWindow.resx">
       <DependentUpon>TrueMountMainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

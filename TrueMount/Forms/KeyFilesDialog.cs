@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace TrueMount
+namespace TrueMount.Forms
 {
     public partial class KeyFilesDialog : Form
     {

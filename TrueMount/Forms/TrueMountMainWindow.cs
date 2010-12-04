@@ -10,7 +10,7 @@ using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace TrueMount
+namespace TrueMount.Forms
 {
     public partial class TrueMountMainWindow : Form
     {
@@ -111,6 +111,9 @@ namespace TrueMount
                 notifyIconSysTray.BalloonTipTitle = config.ApplicationName;
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
                 notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
+#if DEBUG
+                notifyIconSysTray.BalloonTipText+=" - DEBUG Mode";
+#endif
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
 

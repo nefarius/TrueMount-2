@@ -94,12 +94,14 @@ namespace updater
                 SetProgressInfo pInfo = new SetProgressInfo(updater_OnDownloadProgressChanged);
                 this.Invoke(pInfo, downloadProgress);
             }
-
-            // only update progress if values are different
-            if (downloadProgress > this.progressBarDownload.Value)
+            else
             {
-                this.progressBarDownload.Value = downloadProgress;
-                this.labelCurrentAction.Text = string.Format(langRes.GetString("DownloadProgress"), downloadProgress);
+                // only update progress if values are different
+                if (downloadProgress > this.progressBarDownload.Value)
+                {
+                    this.progressBarDownload.Value = downloadProgress;
+                    this.labelCurrentAction.Text = string.Format(langRes.GetString("DownloadProgress"), downloadProgress);
+                }
             }
         }
 
@@ -108,6 +110,7 @@ namespace updater
         /// </summary>
         private void backgroundWorkerDownload_DoWork(object sender, DoWorkEventArgs e)
         {
+            this.Text = langRes.GetString("TitleDownloading");
             downloadSuccess = updater.DownloadNewVersion(this.updateSavePath);
         }
 
@@ -119,6 +122,8 @@ namespace updater
             // download must be successfull
             if (downloadSuccess)
             {
+                // adjust form title
+                this.Text = langRes.GetString("TitleFinished");
                 // success message
                 MessageBox.Show(langRes.GetString("MsgTUDownloadOk"), langRes.GetString("MsgHUDownloadOk"),
                        MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -153,6 +158,7 @@ namespace updater
                 }
                 catch
                 {
+                    this.Text = langRes.GetString("TitleFailed");
                     MessageBox.Show(langRes.GetString("MsgTUpdateFail"), langRes.GetString("MsgHUpdateFail"),
                           MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -161,6 +167,7 @@ namespace updater
             }
             else
             {
+                this.Text = langRes.GetString("TitleFailed");
                 MessageBox.Show(langRes.GetString("MsgTUDownloadFail"), langRes.GetString("MsgHUDownloadFail"),
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
@@ -177,6 +184,7 @@ namespace updater
 
             // start update download
             labelCurrentAction.Text = langRes.GetString("BeginUpdate");
+            this.Text = labelCurrentAction.Text;
             this.backgroundWorkerDownload.RunWorkerAsync();
         }
 

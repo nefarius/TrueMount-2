@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Net;
 using System.IO;
+using System.Net;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Xml;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
-using System.Reflection;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace updater
 {
@@ -46,10 +43,7 @@ namespace updater
         {
             if (currentVersion == null)
                 throw new ArgumentNullException();
-            this.currentVersion = currentVersion;
-            // define the useragent
-            this.userAgent = "TrueMount/" + currentVersion +
-                ";Updater/" + Assembly.GetExecutingAssembly().GetName().Version;
+            FetchVersion(currentVersion);
         }
 
         /// <summary>
@@ -62,8 +56,17 @@ namespace updater
                 throw new ArgumentNullException();
             AppDomain domain = AppDomain.CreateDomain("TrueMount");
             domain.Load(AssemblyName.GetAssemblyName(currentAssembly));
-            this.currentVersion = domain.GetAssemblies()[1].GetName().Version;
+            FetchVersion(domain.GetAssemblies()[1].GetName().Version);
             AppDomain.Unload(domain);
+        }
+
+        /// <summary>
+        /// Fetches the version of the parent assembly and builds User-Agent.
+        /// </summary>
+        /// <param name="currentVersion">The assembly version.</param>
+        private void FetchVersion(Version currentVersion)
+        {
+            this.currentVersion = currentVersion;
             this.userAgent = "TrueMount/" + this.currentVersion +
                 ";Updater/" + Assembly.GetExecutingAssembly().GetName().Version;
         }
@@ -95,14 +98,14 @@ namespace updater
         /// <returns>Returns true on success.</returns>
         public bool DownloadNewVersion(String downloadLocation)
         {
+            if (string.IsNullOrEmpty(downloadLocation))
+                throw new ArgumentNullException();
+            // without the url to the archive this can't do anything usefull
+            if (string.IsNullOrEmpty(this.zipUrl))
+                return false;
+
             try
             {
-                if (string.IsNullOrEmpty(downloadLocation))
-                    throw new ArgumentNullException();
-                // without the url to the archive this can't do anything usefull
-                if (string.IsNullOrEmpty(this.zipUrl))
-                    return false;
-
                 HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(this.zipUrl);
                 httpRequest.UserAgent = userAgent;
                 byte[] buffer = new byte[4096];
@@ -157,7 +160,11 @@ namespace updater
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.StackTrace); }
+            catch (Exception ex)
+            {
+                WriteLog(ex);
+                return false;
+            }
 
             return true;
         }
@@ -242,7 +249,11 @@ namespace updater
                     }
                 }
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                WriteLog(ex);
+                return false;
+            }
 
             return true;
         }
@@ -254,22 +265,44 @@ namespace updater
         /// <param name="destFolder">The target directory.</param>
         public static void CopyFolder(string sourceFolder, string destFolder)
         {
-            if (!Directory.Exists(destFolder))
-                Directory.CreateDirectory(destFolder);
-            string[] files = Directory.GetFiles(sourceFolder);
-            foreach (string file in files)
+            try
             {
-                string name = Path.GetFileName(file);
-                string dest = Path.Combine(destFolder, name);
-                File.Copy(file, dest, true);
-            }
+                if (!Directory.Exists(destFolder))
+                    Directory.CreateDirectory(destFolder);
+                string[] files = Directory.GetFiles(sourceFolder);
+                foreach (string file in files)
+                {
+                    string name = Path.GetFileName(file);
+                    string dest = Path.Combine(destFolder, name);
+                    File.Copy(file, dest, true);
+                }
 
-            string[] folders = Directory.GetDirectories(sourceFolder);
-            foreach (string folder in folders)
+                string[] folders = Directory.GetDirectories(sourceFolder);
+                foreach (string folder in folders)
+                {
+                    string name = Path.GetFileName(folder);
+                    string dest = Path.Combine(destFolder, name);
+                    CopyFolder(folder, dest);
+                }
+            }
+            catch (Exception ex)
             {
-                string name = Path.GetFileName(folder);
-                string dest = Path.Combine(destFolder, name);
-                CopyFolder(folder, dest);
+                WriteLog(ex);
+            }
+        }
+
+        public static void WriteLog(Exception ex)
+        {
+            WriteLog(ex.Message);
+            WriteLog(ex.StackTrace);
+        }
+
+        public static void WriteLog(String logLine)
+        {
+            using (StreamWriter sWriter = new StreamWriter("updater.log", true))
+            {
+                sWriter.WriteLine(DateTime.Now.ToShortTimeString() +
+                    " - " + logLine);
             }
         }
     }

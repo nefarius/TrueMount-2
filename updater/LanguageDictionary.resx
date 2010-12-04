@@ -147,4 +147,13 @@
   <data name="MsgTUpdateFail" xml:space="preserve">
     <value>Updating failed!</value>
   </data>
+  <data name="TitleDownloading" xml:space="preserve">
+    <value>Downloading new version...</value>
+  </data>
+  <data name="TitleFailed" xml:space="preserve">
+    <value>Action failed</value>
+  </data>
+  <data name="TitleFinished" xml:space="preserve">
+    <value>Updating finished</value>
+  </data>
 </root>

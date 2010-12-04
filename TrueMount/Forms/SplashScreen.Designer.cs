@@ -1,4 +1,4 @@
-﻿namespace TrueMount
+﻿namespace TrueMount.Forms
 {
     partial class SplashScreen
     {

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Management;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using System.Linq;
-using System.IO;
-using System.Runtime.InteropServices;
 
-namespace TrueMount
+namespace TrueMount.Forms
 {
     partial class SettingsDialog : Form
     {
