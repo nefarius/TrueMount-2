@@ -420,4 +420,7 @@
   <data name="PasswordFetchOk" xml:space="preserve">
     <value>Password successfully fetched by user input.</value>
   </data>
+  <data name="ErrVolumeOffline" xml:space="preserve">
+    <value>Error: the selected volume "{0}" is offline!</value>
+  </data>
 </root>

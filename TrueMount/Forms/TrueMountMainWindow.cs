@@ -688,10 +688,19 @@ namespace TrueMount.Forms
 
             // get original device id from local disk
             String deviceId = null;
-            if (encDiskPartition.PartitionIndex > 0)
-                deviceId = SystemDevices.GetPartitionByIndex(diskIndex, partIndex)["DeviceID"].ToString();
-            else
-                deviceId = SystemDevices.GetTCCompatibleDiskPath(diskIndex);
+            try
+            {
+                if (encDiskPartition.PartitionIndex > 0)
+                    deviceId = SystemDevices.GetPartitionByIndex(diskIndex, partIndex)["DeviceID"].ToString();
+                else
+                    deviceId = SystemDevices.GetTCCompatibleDiskPath(diskIndex);
+            }
+            catch (NullReferenceException)
+            {
+                LogAppend("ErrVolumeOffline", encDiskPartition.ToString());
+                return mountSuccess;
+            }
+
             LogAppend("DiskDeviceId", deviceId);
 
             // convert device id in truecrypt compatible name

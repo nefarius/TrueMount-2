@@ -146,16 +146,20 @@ namespace TrueMount
         /// <returns>Returns a found partition or null.</returns>
         public static ManagementObject GetPartitionByIndex(uint DiskIndex, uint Index)
         {
-            var partQuery =
-                from ManagementObject partition in DiskPartitions
-                where (uint)partition["DiskIndex"] == DiskIndex
-                && (uint)partition["Index"] == Index
-                select partition;
+            try
+            {
+                var partQuery =
+                    from ManagementObject partition in DiskPartitions
+                    where (uint)partition["DiskIndex"] == DiskIndex
+                    && (uint)partition["Index"] == Index
+                    select partition;
 
-            if (partQuery.Count() > 0)
-                return partQuery.First();
-            else
-                return null;
+                if (partQuery.Count() > 0)
+                    return partQuery.First();
+                else
+                    return null;
+            }
+            catch { return null; }
         }
 
         /// <summary>

@@ -426,4 +426,7 @@
   <data name="PasswordFetchOk" xml:space="preserve">
     <value>Passwort wurde erfolgreich von der Nutzereingabe gelesen.</value>
   </data>
+  <data name="ErrVolumeOffline" xml:space="preserve">
+    <value>Fehler: das gewählte Volume "{0}" is offline!</value>
+  </data>
 </root>

@@ -376,6 +376,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: the selected volume &quot;{0}&quot; is offline!.
+        /// </summary>
+        internal static string ErrVolumeOffline {
+            get {
+                return ResourceManager.GetString("ErrVolumeOffline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Info: password gathering switched to user mode, open password dialog..
         /// </summary>
         internal static string InfoPasswordDialog {
