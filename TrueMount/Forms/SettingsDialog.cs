@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Resources;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -217,87 +216,6 @@ namespace TrueMount.Forms
         {
             config.IgnoreKeyDevices = checkBoxIgnoreKeyDevices.Checked;
         }
-
-        #endregion
-
-        #region Hotkeys Tab Events (IMPLEMENT THIS!)
-
-        private bool hkSet = false;
-
-        private void textBoxHotKey_KeyDown(object sender, KeyEventArgs e)
-        {
-            TextBox temp = ((TextBox)sender);
-            temp.Text = string.Empty;
-            hkSet = false;
-            HideCaret(temp.Handle);
-
-            // override unsuitable keys
-            switch (e.KeyCode)
-            {
-                case Keys.Capital:
-                case Keys.LWin:
-                case Keys.RWin:
-                case Keys.NumLock:
-                case Keys.Pause:
-                    return;
-                default:
-                    break;
-            }
-
-            if (e.Control)
-                temp.Text += "CTRL + ";
-            if (e.Alt)
-                temp.Text += "ALT + ";
-            if (e.Shift)
-                temp.Text += "SHIFT + ";
-
-            if (e.KeyCode != Keys.ControlKey && e.KeyCode != Keys.Menu && e.KeyCode != Keys.ShiftKey)
-            {
-                temp.Text += e.KeyCode.ToString();
-                hkSet = true;
-            }
-
-            e.SuppressKeyPress = true;
-            e.Handled = true;
-        }
-
-        private void textBoxHotKey_KeyUp(object sender, KeyEventArgs e)
-        {
-            TextBox temp = ((TextBox)sender);
-
-            if (!hkSet)
-            {
-                temp.Text = string.Empty;
-                SetHotKeyState(temp, false);
-            }
-            else
-            {
-                SetHotKeyState(temp, true);
-                //Console.WriteLine("{0} + {1} + {2} + {3}", e.Control, e.Alt, e.Shift, e.KeyCode);
-            }
-
-            e.SuppressKeyPress = true;
-            e.Handled = true;
-        }
-
-        private void SetHotKeyState(TextBox parent, bool state)
-        {
-            foreach (Control cBox in tableLayoutPanelHotKeys.Controls)
-                if (cBox is CheckBox)
-                    if (cBox.Name.Contains(parent.Name.Last()))
-                        ((CheckBox)tableLayoutPanelHotKeys.Controls[cBox.Name]).Checked = state;
-        }
-
-        private void textBoxHotKey_Leave(object sender, EventArgs e)
-        {
-            if (!hkSet)
-                ((TextBox)sender).Text = string.Empty;
-            hkSet = false;
-        }
-
-        // hides cursor (caret)
-        [DllImport("user32")]
-        private static extern bool HideCaret(IntPtr hWnd);
 
         #endregion
 

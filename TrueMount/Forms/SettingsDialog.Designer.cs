@@ -54,39 +54,6 @@
             this.checkBoxAutostart = new System.Windows.Forms.CheckBox();
             this.checkBoxSplashScreen = new System.Windows.Forms.CheckBox();
             this.checkBoxHidden = new System.Windows.Forms.CheckBox();
-            this.tabPageHotkeys = new System.Windows.Forms.TabPage();
-            this.groupBoxHotkeys = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanelHotKeys = new System.Windows.Forms.TableLayoutPanel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBoxHotKey1 = new System.Windows.Forms.TextBox();
-            this.textBoxHotKey2 = new System.Windows.Forms.TextBox();
-            this.textBoxHotKey3 = new System.Windows.Forms.TextBox();
-            this.textBoxHotKey4 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBoxHotKey5 = new System.Windows.Forms.TextBox();
-            this.textBoxHotKey6 = new System.Windows.Forms.TextBox();
-            this.textBoxHotKey7 = new System.Windows.Forms.TextBox();
-            this.checkBoxHotKeyActive1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive4 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive5 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive6 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyActive7 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch4 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch5 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch6 = new System.Windows.Forms.CheckBox();
-            this.checkBoxHotKeyCatch7 = new System.Windows.Forms.CheckBox();
             this.tabPageKeyDevice = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -182,9 +149,6 @@
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).BeginInit();
-            this.tabPageHotkeys.SuspendLayout();
-            this.groupBoxHotkeys.SuspendLayout();
-            this.tableLayoutPanelHotKeys.SuspendLayout();
             this.tabPageKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -212,7 +176,6 @@
             // tabControlSettings
             // 
             this.tabControlSettings.Controls.Add(this.tabPageApplication);
-            this.tabControlSettings.Controls.Add(this.tabPageHotkeys);
             this.tabControlSettings.Controls.Add(this.tabPageKeyDevice);
             this.tabControlSettings.Controls.Add(this.tabPageDiskDrives);
             this.tabControlSettings.Controls.Add(this.tabPageContainerFiles);
@@ -409,254 +372,6 @@
             this.checkBoxHidden.Name = "checkBoxHidden";
             this.checkBoxHidden.UseVisualStyleBackColor = true;
             this.checkBoxHidden.CheckedChanged += new System.EventHandler(this.checkBoxHidden_CheckedChanged);
-            // 
-            // tabPageHotkeys
-            // 
-            this.tabPageHotkeys.Controls.Add(this.groupBoxHotkeys);
-            resources.ApplyResources(this.tabPageHotkeys, "tabPageHotkeys");
-            this.tabPageHotkeys.Name = "tabPageHotkeys";
-            this.tabPageHotkeys.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxHotkeys
-            // 
-            this.groupBoxHotkeys.Controls.Add(this.tableLayoutPanelHotKeys);
-            resources.ApplyResources(this.groupBoxHotkeys, "groupBoxHotkeys");
-            this.groupBoxHotkeys.Name = "groupBoxHotkeys";
-            this.groupBoxHotkeys.TabStop = false;
-            // 
-            // tableLayoutPanelHotKeys
-            // 
-            resources.ApplyResources(this.tableLayoutPanelHotKeys, "tableLayoutPanelHotKeys");
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label20, 0, 0);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label21, 0, 2);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label22, 2, 2);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label23, 0, 1);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label24, 0, 3);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label25, 2, 3);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey1, 1, 0);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey2, 1, 1);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey3, 1, 2);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey4, 1, 3);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label26, 0, 4);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label27, 0, 5);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.label28, 0, 6);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey5, 1, 4);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey6, 1, 5);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.textBoxHotKey7, 1, 6);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive1, 3, 0);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive2, 3, 1);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive3, 3, 2);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive4, 3, 3);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive5, 3, 4);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive6, 3, 5);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyActive7, 3, 6);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch1, 4, 0);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch2, 4, 1);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch3, 4, 2);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch4, 4, 3);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch5, 4, 4);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch6, 4, 5);
-            this.tableLayoutPanelHotKeys.Controls.Add(this.checkBoxHotKeyCatch7, 4, 6);
-            this.tableLayoutPanelHotKeys.Name = "tableLayoutPanelHotKeys";
-            // 
-            // label20
-            // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.Name = "label20";
-            // 
-            // label21
-            // 
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.Name = "label21";
-            // 
-            // label22
-            // 
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.Name = "label22";
-            // 
-            // label23
-            // 
-            resources.ApplyResources(this.label23, "label23");
-            this.label23.Name = "label23";
-            // 
-            // label24
-            // 
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.Name = "label24";
-            // 
-            // label25
-            // 
-            resources.ApplyResources(this.label25, "label25");
-            this.label25.Name = "label25";
-            // 
-            // textBoxHotKey1
-            // 
-            this.textBoxHotKey1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey1, "textBoxHotKey1");
-            this.textBoxHotKey1.Name = "textBoxHotKey1";
-            this.textBoxHotKey1.ReadOnly = true;
-            this.textBoxHotKey1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey1.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // textBoxHotKey2
-            // 
-            this.textBoxHotKey2.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey2, "textBoxHotKey2");
-            this.textBoxHotKey2.Name = "textBoxHotKey2";
-            this.textBoxHotKey2.ReadOnly = true;
-            this.textBoxHotKey2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey2.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // textBoxHotKey3
-            // 
-            this.textBoxHotKey3.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey3, "textBoxHotKey3");
-            this.textBoxHotKey3.Name = "textBoxHotKey3";
-            this.textBoxHotKey3.ReadOnly = true;
-            this.textBoxHotKey3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey3.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // textBoxHotKey4
-            // 
-            this.textBoxHotKey4.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey4, "textBoxHotKey4");
-            this.textBoxHotKey4.Name = "textBoxHotKey4";
-            this.textBoxHotKey4.ReadOnly = true;
-            this.textBoxHotKey4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey4.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
-            // 
-            // label27
-            // 
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.Name = "label27";
-            // 
-            // label28
-            // 
-            resources.ApplyResources(this.label28, "label28");
-            this.label28.Name = "label28";
-            // 
-            // textBoxHotKey5
-            // 
-            this.textBoxHotKey5.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey5, "textBoxHotKey5");
-            this.textBoxHotKey5.Name = "textBoxHotKey5";
-            this.textBoxHotKey5.ReadOnly = true;
-            this.textBoxHotKey5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey5.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // textBoxHotKey6
-            // 
-            this.textBoxHotKey6.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey6, "textBoxHotKey6");
-            this.textBoxHotKey6.Name = "textBoxHotKey6";
-            this.textBoxHotKey6.ReadOnly = true;
-            this.textBoxHotKey6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey6.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // textBoxHotKey7
-            // 
-            this.textBoxHotKey7.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.textBoxHotKey7, "textBoxHotKey7");
-            this.textBoxHotKey7.Name = "textBoxHotKey7";
-            this.textBoxHotKey7.ReadOnly = true;
-            this.textBoxHotKey7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyDown);
-            this.textBoxHotKey7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxHotKey_KeyUp);
-            this.textBoxHotKey7.Leave += new System.EventHandler(this.textBoxHotKey_Leave);
-            // 
-            // checkBoxHotKeyActive1
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive1, "checkBoxHotKeyActive1");
-            this.checkBoxHotKeyActive1.Name = "checkBoxHotKeyActive1";
-            this.checkBoxHotKeyActive1.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive2
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive2, "checkBoxHotKeyActive2");
-            this.checkBoxHotKeyActive2.Name = "checkBoxHotKeyActive2";
-            this.checkBoxHotKeyActive2.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive3
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive3, "checkBoxHotKeyActive3");
-            this.checkBoxHotKeyActive3.Name = "checkBoxHotKeyActive3";
-            this.checkBoxHotKeyActive3.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive4
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive4, "checkBoxHotKeyActive4");
-            this.checkBoxHotKeyActive4.Name = "checkBoxHotKeyActive4";
-            this.checkBoxHotKeyActive4.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive5
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive5, "checkBoxHotKeyActive5");
-            this.checkBoxHotKeyActive5.Name = "checkBoxHotKeyActive5";
-            this.checkBoxHotKeyActive5.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive6
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive6, "checkBoxHotKeyActive6");
-            this.checkBoxHotKeyActive6.Name = "checkBoxHotKeyActive6";
-            this.checkBoxHotKeyActive6.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyActive7
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyActive7, "checkBoxHotKeyActive7");
-            this.checkBoxHotKeyActive7.Name = "checkBoxHotKeyActive7";
-            this.checkBoxHotKeyActive7.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch1
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch1, "checkBoxHotKeyCatch1");
-            this.checkBoxHotKeyCatch1.Name = "checkBoxHotKeyCatch1";
-            this.checkBoxHotKeyCatch1.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch2
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch2, "checkBoxHotKeyCatch2");
-            this.checkBoxHotKeyCatch2.Name = "checkBoxHotKeyCatch2";
-            this.checkBoxHotKeyCatch2.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch3
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch3, "checkBoxHotKeyCatch3");
-            this.checkBoxHotKeyCatch3.Name = "checkBoxHotKeyCatch3";
-            this.checkBoxHotKeyCatch3.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch4
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch4, "checkBoxHotKeyCatch4");
-            this.checkBoxHotKeyCatch4.Name = "checkBoxHotKeyCatch4";
-            this.checkBoxHotKeyCatch4.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch5
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch5, "checkBoxHotKeyCatch5");
-            this.checkBoxHotKeyCatch5.Name = "checkBoxHotKeyCatch5";
-            this.checkBoxHotKeyCatch5.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch6
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch6, "checkBoxHotKeyCatch6");
-            this.checkBoxHotKeyCatch6.Name = "checkBoxHotKeyCatch6";
-            this.checkBoxHotKeyCatch6.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHotKeyCatch7
-            // 
-            resources.ApplyResources(this.checkBoxHotKeyCatch7, "checkBoxHotKeyCatch7");
-            this.checkBoxHotKeyCatch7.Name = "checkBoxHotKeyCatch7";
-            this.checkBoxHotKeyCatch7.UseVisualStyleBackColor = true;
             // 
             // tabPageKeyDevice
             // 
@@ -1325,10 +1040,6 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).EndInit();
-            this.tabPageHotkeys.ResumeLayout(false);
-            this.groupBoxHotkeys.ResumeLayout(false);
-            this.tableLayoutPanelHotKeys.ResumeLayout(false);
-            this.tableLayoutPanelHotKeys.PerformLayout();
             this.tabPageKeyDevice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -1472,39 +1183,6 @@
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Button buttonDeleteConfig;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TabPage tabPageHotkeys;
-        private System.Windows.Forms.GroupBox groupBoxHotkeys;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelHotKeys;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBoxHotKey1;
-        private System.Windows.Forms.TextBox textBoxHotKey2;
-        private System.Windows.Forms.TextBox textBoxHotKey3;
-        private System.Windows.Forms.TextBox textBoxHotKey4;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBoxHotKey5;
-        private System.Windows.Forms.TextBox textBoxHotKey6;
-        private System.Windows.Forms.TextBox textBoxHotKey7;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive1;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive2;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive3;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive4;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive5;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive6;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyActive7;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch1;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch2;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch3;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch4;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch5;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch6;
-        private System.Windows.Forms.CheckBox checkBoxHotKeyCatch7;
         private System.Windows.Forms.Label labelDiskCaption;
         private System.Windows.Forms.Label labelDiskSignature;
         private System.Windows.Forms.Label labelDiskPartition;
