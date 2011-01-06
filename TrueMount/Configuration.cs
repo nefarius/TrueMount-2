@@ -15,6 +15,7 @@ namespace TrueMount
     [Serializable()]
     class Configuration
     {
+        #region Definitions, Variables
         public bool FirstStart { get; set; }
         public bool AutostartService { get; set; }
         public bool IgnoreKeyDevices { get; set; }
@@ -36,6 +37,7 @@ namespace TrueMount
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
+        #endregion
 
         public Configuration()
         {
