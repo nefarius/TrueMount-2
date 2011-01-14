@@ -13,12 +13,6 @@ volatile BOOL bHooked = FALSE;
 
 #pragma comment(linker, "/section:SHARED,RWS")
 
-DWORD WINAPI MessageThread(LPVOID lpData)
-{
-	MessageBox(NULL, L"Something went wrong!", L"TrueMount", MB_OK);
-	bHooked = FALSE;
-	return TRUE;
-}
 
 int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 {
@@ -37,18 +31,10 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 		}
 	}
 
-	if(!bHooked)
-	{
-		bHooked = TRUE;
-		HANDLE hThread = CreateThread(NULL, 
-			NULL, 
-			(LPTHREAD_START_ROUTINE)MessageThread, 
-			NULL, NULL, NULL);
-		WaitForSingleObject(hThread, INFINITE);
-	}
+	return IDCANCEL;
 
 	if(origMessageBoxW != NULL)
-		return origMessageBoxW(hWnd, lpText, lpCaption, uType);
+		return origMessageBoxW(hWnd, lpText, L"TrueMount", uType);
 
 	SetLastError(ERROR_HOOK_NOT_INSTALLED);
 	return 0;
