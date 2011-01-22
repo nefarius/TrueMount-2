@@ -1,23 +1,25 @@
 #include <Windows.h>
 #include "NCodeHookInstantiation.h"
+#include <string>
+using namespace std;
 
 #pragma comment(lib, "distorm.lib")
 
+// Pointer to original function
 typedef int (WINAPI *MessageBoxFPtr)(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType);
 
-#pragma data_seg("SHARED")
+// Definitions
 MessageBoxFPtr origMessageBoxW = NULL;
 NCodeHookIA32 nch;
 volatile BOOL bHooked = FALSE;
-#pragma data_seg()
 
-#pragma comment(linker, "/section:SHARED,RWS")
-
-
+// The fake function
 int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 {
+	wstring buffer(lpText);
 	HANDLE npipe;
 
+	// Send test of message box back to parent process
 	if( WaitNamedPipe(L"\\\\.\\pipe\\TrueCryptMessage", 3000) )
 	{
 		npipe = CreateFile(L"\\\\.\\pipe\\TrueCryptMessage",
@@ -26,15 +28,14 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 		if( npipe != INVALID_HANDLE_VALUE )
 		{
 			DWORD dwRead;
-			WriteFile(npipe, (LPCVOID)&lpText, sizeof(lpText), &dwRead, NULL);
+			WriteFile(npipe, (LPCVOID)&buffer[0], sizeof(wchar_t) * buffer.size(), &dwRead, NULL);
 			CloseHandle(npipe);
 		}
 	}
 
-	if(origMessageBoxW != NULL)
-		return origMessageBoxW(hWnd, lpText, L"TrueMount", uType);
+	// We can't do more, terminate
+	TerminateProcess(GetCurrentProcess(), ERROR_SUCCESS);
 
-	SetLastError(ERROR_HOOK_NOT_INSTALLED);
 	return 0;
 }
 

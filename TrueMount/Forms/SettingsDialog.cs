@@ -86,11 +86,9 @@ namespace TrueMount.Forms
                 buttonSearchTrueCrypt_Click(this, null);
             }
 
-            checkBoxBackground.Checked = config.TrueCrypt.Background;
             checkBoxBeep.Checked = config.TrueCrypt.Beep;
             checkBoxCache.Checked = config.TrueCrypt.Cache;
             checkBoxExplorer.Checked = config.TrueCrypt.Explorer;
-            checkBoxSilent.Checked = config.TrueCrypt.Silent;
 
             // read key devices and add them to the list
             listBoxKeyDevices.Items.AddRange(config.KeyDevices.ToArray());
@@ -502,26 +500,6 @@ namespace TrueMount.Forms
 
         #region TrueCrypt Tab Events
 
-        private void checkBoxBackground_CheckedChanged(object sender, EventArgs e)
-        {
-            config.TrueCrypt.Background = checkBoxBackground.Checked;
-            if (checkBoxBackground.Checked)
-            {
-                //checkBoxSilent.Checked = true;
-                checkBoxSilent.Enabled = true;
-            }
-            else
-            {
-                checkBoxSilent.Checked = false;
-                checkBoxSilent.Enabled = false;
-            }
-        }
-
-        private void checkBoxSilent_CheckedChanged(object sender, EventArgs e)
-        {
-            config.TrueCrypt.Silent = checkBoxSilent.Checked;
-        }
-
         private void checkBoxCache_CheckedChanged(object sender, EventArgs e)
         {
             config.TrueCrypt.Cache = checkBoxCache.Checked;
@@ -569,8 +547,11 @@ namespace TrueMount.Forms
         private void buttonAddContainer_Click(object sender, EventArgs e)
         {
             if (openFileDialogGeneral.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
                 if (!listBoxContainerFiles.Items.Contains(openFileDialogGeneral.FileName))
                     listBoxContainerFiles.Items.Add(openFileDialogGeneral.FileName);
+            }
+            else return;
 
             textBoxConPasswordFile.Text = null;
             checkBoxOpenConExplorer.Checked = false;

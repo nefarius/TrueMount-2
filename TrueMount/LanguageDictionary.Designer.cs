@@ -367,11 +367,29 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: TrueCrypt responded: &quot;{0}&quot;, please check and correct your configuration!.
+        /// </summary>
+        internal static string ErrTrueCryptMsg {
+            get {
+                return ResourceManager.GetString("ErrTrueCryptMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error: the selected volume &quot;{0}&quot; is offline!.
         /// </summary>
         internal static string ErrVolumeOffline {
             get {
                 return ResourceManager.GetString("ErrVolumeOffline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info: Laucher exited successfully..
+        /// </summary>
+        internal static string InfoLauncherOk {
+            get {
+                return ResourceManager.GetString("InfoLauncherOk", resourceCulture);
             }
         }
         

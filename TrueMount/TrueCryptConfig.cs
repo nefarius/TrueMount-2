@@ -10,8 +10,6 @@ namespace TrueMount
     {
         public string ExecutablePath { get; set; }
         public string LauncherPath { get; set; }
-        public bool Background { get; set; }
-        public bool Silent { get; set; }
         public bool Cache { get; set; }
         public bool Explorer { get; set; }
         public bool Beep { get; set; }
@@ -19,11 +17,7 @@ namespace TrueMount
         {
             get
             {
-                String cli_args = null;
-                if (Background)
-                    cli_args += "/q background ";
-                if (Silent)
-                    cli_args += "/s ";
+                String cli_args = "/q ";
                 if (Cache)
                     cli_args += "/c ";
                 if (Explorer)
@@ -36,8 +30,6 @@ namespace TrueMount
 
         public TrueCryptConfig()
         {
-            Background = true;
-            Silent = false;
             Cache = true;
         }
     }

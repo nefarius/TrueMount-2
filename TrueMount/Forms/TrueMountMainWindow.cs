@@ -9,6 +9,8 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO.Pipes;
+using System.Text;
 
 namespace TrueMount.Forms
 {
@@ -91,7 +93,6 @@ namespace TrueMount.Forms
             Environment.Exit(0);
              * */
 #endif
-
             // show splash screen
             if (config.ShowSplashScreen)
                 splashScreen.Show();
@@ -891,19 +892,20 @@ namespace TrueMount.Forms
                 LogAppend("TCPath", config.TrueCrypt.ExecutablePath);
 
             // create new process
-            Process truecrypt = new Process();
+            Process tcLauncher = new Process();
             // set exec name
-            truecrypt.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
+            tcLauncher.StartInfo.FileName = Configuration.LauncherLocation;
             // set arguments
-            truecrypt.StartInfo.Arguments = tcArgsReady;
+            tcLauncher.StartInfo.Arguments = '"' + config.TrueCrypt.ExecutablePath + 
+                "\" " + tcArgsReady;
             // no need for shell
-            truecrypt.StartInfo.UseShellExecute = false;
+            tcLauncher.StartInfo.UseShellExecute = false;
 
             // arrr, fire the canon! - well, try it...
             try
             {
                 LogAppend("StartProcess");
-                truecrypt.Start();
+                tcLauncher.Start();
             }
             catch (Win32Exception ex)
             {
@@ -916,29 +918,37 @@ namespace TrueMount.Forms
             }
             LogAppend("ProcessStarted");
 
-            // wait for device to be mounted
+            // Status
             LogAppend("WaitDevLaunch");
-
-            /* we must distinguish between local and removable device!
-             * 2 = removable
-             * 3 = local (fixed)
-             * */
             Cursor.Current = Cursors.WaitCursor;
-            int loop = 0;
-            // note to myself and every other reader: this loop is crap, we have to do this better :-S
-            while (SystemDevices.GetLogicalDisk(encMedia.DriveLetter, (encMedia.Removable) ? 2 : 3) == null)
-            {
-                Thread.Sleep(1000);
-                loop++;
-                if (loop == 10)
-                {
-                    MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
-                        langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    LogAppend("MountCanceled", encMedia.ToString());
-                    Cursor.Current = Cursors.Default;
-                    return mountSuccess;
+            // Wait for incoming message
+            bool ipcSuccess = true;
+            using (NamedPipeServerStream npServer = new NamedPipeServerStream("TrueCryptMessage"))
+            {
+                npServer.WaitForConnection();
+                using (StreamReader sReader = new StreamReader(npServer, Encoding.Unicode))
+                {
+                    String input = sReader.ReadToEnd();
+                    if (input != "OK")
+                    {
+                        LogAppend("ErrTrueCryptMsg", input);
+                        ipcSuccess = false;
+                    }
+                    else
+                        LogAppend("InfoLauncherOk");
                 }
+            }
+
+            // If not successful log/display error
+            if (!ipcSuccess)
+            {
+                MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
+                    langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                LogAppend("MountCanceled", encMedia.ToString());
+                Cursor.Current = Cursors.Default;
+                return mountSuccess;
             }
             Cursor.Current = Cursors.Default;
 

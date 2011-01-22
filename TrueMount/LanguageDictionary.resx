@@ -423,4 +423,10 @@
   <data name="ErrVolumeOffline" xml:space="preserve">
     <value>Error: the selected volume "{0}" is offline!</value>
   </data>
+  <data name="ErrTrueCryptMsg" xml:space="preserve">
+    <value>Error: TrueCrypt responded: "{0}", please check and correct your configuration!</value>
+  </data>
+  <data name="InfoLauncherOk" xml:space="preserve">
+    <value>Info: Laucher exited successfully.</value>
+  </data>
 </root>

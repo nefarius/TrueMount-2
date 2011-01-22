@@ -74,6 +74,11 @@ namespace TrueMount
                 ApplicationLocation = CurrentApplicationLocation;
         }
 
+        public static string LauncherLocation
+        {
+            get { return CurrentApplicationPath + Path.DirectorySeparatorChar + "TCLauncher.exe"; }
+        }
+
         /// <summary>
         /// Path to updater assembly.
         /// </summary>
