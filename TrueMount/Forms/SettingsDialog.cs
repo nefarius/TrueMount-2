@@ -59,13 +59,9 @@ namespace TrueMount.Forms
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            // DON'T FORGET TO REMOVE THIS!!!
-            tabControlSettings.TabPages.RemoveAt(1);
-
             // load application settings
             checkBoxWindowsStartup.Checked = config.IsAutoStartEnabled;
             checkBoxAutostart.Checked = config.AutostartService;
-            checkBoxIgnoreKeyDevices.Checked = config.IgnoreKeyDevices;
             checkBoxHidden.Checked = config.StartSilent;
             checkBoxSplashScreen.Checked = config.ShowSplashScreen;
             checkBoxOneInstance.Checked = config.OnlyOneInstance;
@@ -149,14 +145,6 @@ namespace TrueMount.Forms
         private void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
         {
             config.AutostartService = checkBoxAutostart.Checked;
-
-            if (checkBoxAutostart.Checked)
-                checkBoxIgnoreKeyDevices.Enabled = true;
-            else
-            {
-                checkBoxIgnoreKeyDevices.Checked = false;
-                checkBoxIgnoreKeyDevices.Enabled = false;
-            }
         }
 
         private void checkBoxHidden_CheckedChanged(object sender, EventArgs e)
@@ -210,11 +198,6 @@ namespace TrueMount.Forms
         private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
         {
             config.CheckForUpdates = checkBoxCheckUpdates.Checked;
-        }
-
-        private void checkBoxIgnoreKeyDevices_CheckedChanged(object sender, EventArgs e)
-        {
-            config.IgnoreKeyDevices = checkBoxIgnoreKeyDevices.Checked;
         }
 
         #endregion

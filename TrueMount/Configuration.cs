@@ -18,7 +18,6 @@ namespace TrueMount
         #region Definitions, Variables
         public bool FirstStart { get; set; }
         public bool AutostartService { get; set; }
-        public bool IgnoreKeyDevices { get; set; }
         public bool StartSilent { get; set; }
         public bool ShowSplashScreen { get; set; }
         public bool OnlyOneInstance { get; set; }

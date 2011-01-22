@@ -28,7 +28,7 @@ namespace updater
         // our xml document
         private string changes = string.Empty;
 #if !DEBUG
-        private static string updateInfoURL = "http://nefarius.darkhosters.net/_media/windows/TrueMountVersion.xml";
+        private static string updateInfoURL = "https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount/TrueMountVersion.xml";
 #else
         private static string updateInfoURL = "http://localhost/TrueMountVersion.xml";
 #endif

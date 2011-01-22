@@ -1,4 +1,17 @@
-﻿  * Fixed minor updater performance bug
+﻿2.6.17.68
+  * Fixed not mounting new attached encrypted devices
+  * Minor changes to mount program logic
+  * Removed 'Ignore key devices switch' (no more necessary)
+  * Minor language changes
+  * Fixed a bug in auto-mounter which may cause a program crash
+  * Tray menu is now inactive while splash screen loads
+  * Corrected main window flash on silent/splash mode
+  * Minor design changes in settings dialog
+  * Fixed unmount tray menu item being active even without any mounted devices
+  * Removed unused code
+  * Changed updater config URL to 'https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount/TrueMountVersion.xml'
+2.6.16.57
+  * Fixed minor updater performance bug
   * Minor language changes
   * Cleaned repository
   * Added error log to updater for easier error reporting

@@ -59,6 +59,19 @@ namespace TrueMount.Forms
             // create all controls
             InitializeComponent();
 
+            // Hide windows if silent os splash start selected
+            if(config.StartSilent || config.ShowSplashScreen)
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+
+                if(config.ShowSplashScreen)
+                {
+                    splashScreen = new SplashScreen();
+                    splashScreen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(splashScreen_OnSplashFinished);
+                    contextMenuStripSysTray.Enabled = false;
+                }
+            }
 #if DEBUG
             this.Text += " - DEBUG Mode";
 #endif
@@ -79,18 +92,9 @@ namespace TrueMount.Forms
              * */
 #endif
 
-            // start silent?
-            if (config.StartSilent)
-                HideMainWindow();
-
             // show splash screen
             if (config.ShowSplashScreen)
-            {
-                HideMainWindow();
-                splashScreen = new SplashScreen();
-                splashScreen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(splashScreen_OnSplashFinished);
                 splashScreen.Show();
-            }
 
             // are we allowed to start the listener on our own?
             if (config.AutostartService)
@@ -156,6 +160,7 @@ namespace TrueMount.Forms
                 menuItemEncDisk.Image = Properties.Resources._1276786893_drive_disk;
                 menuItemEncDisk.Click += new EventHandler(menuItemEncDisk_Click);
                 mountDeviceToolStripMenuItem.DropDownItems.Add(menuItemEncDisk);
+                mountDeviceToolStripMenuItem.Enabled = true;
             }
 
             // add container files
@@ -168,33 +173,42 @@ namespace TrueMount.Forms
                 menuItemConFile.Image = Properties.Resources._1276786893_drive_disk;
                 menuItemConFile.Click += new EventHandler(menuItemEncDisk_Click);
                 mountDeviceToolStripMenuItem.DropDownItems.Add(menuItemConFile);
+                mountDeviceToolStripMenuItem.Enabled = true;
             }
-
-            mountDeviceToolStripMenuItem.Enabled = true;
         }
 
+        // Thread-safe call
+        private delegate void AddMountedMediaCallback(EncryptedMedia encMedia);
         /// <summary>
         /// Adds a mounted volume to the unmount tray dropdown list.
         /// </summary>
         /// <param name="encMedia">The successfull mounted media reference.</param>
         private void AddMountedMedia(EncryptedMedia encMedia)
         {
-            // add mounted volume to global list
-            mountedVolumes.Add(encMedia);
-            // create new tool strip sub-entry
-            ToolStripMenuItem menuItemMedia =
-                new ToolStripMenuItem(encMedia.ToString() +
-                    langRes.GetString("CBoxLetter") +
-                    encMedia.DriveLetter);
-            // set icon
-            menuItemMedia.Image = Properties.Resources._1276786893_drive_disk;
-            // register event handler
-            menuItemMedia.Click += new EventHandler(menuItemUnmountMedia_Click);
-            // add it to the sys tray menu item
-            unmountDeviceToolStripMenuItem.DropDownItems.Add(menuItemMedia);
-            // if there are more than 0 items enable the sub-menu
-            if (unmountDeviceToolStripMenuItem.DropDownItems.Count > 0)
-                unmountDeviceToolStripMenuItem.Enabled = true;
+            if (contextMenuStripSysTray.InvokeRequired)
+            {
+                AddMountedMediaCallback ammCall = new AddMountedMediaCallback(AddMountedMedia);
+                this.Invoke(ammCall, encMedia);
+            }
+            else
+            {
+                // add mounted volume to global list
+                mountedVolumes.Add(encMedia);
+                // create new tool strip sub-entry
+                ToolStripMenuItem menuItemMedia =
+                    new ToolStripMenuItem(encMedia.ToString() +
+                        langRes.GetString("CBoxLetter") +
+                        encMedia.DriveLetter);
+                // set icon
+                menuItemMedia.Image = Properties.Resources._1276786893_drive_disk;
+                // register event handler
+                menuItemMedia.Click += new EventHandler(menuItemUnmountMedia_Click);
+                // add it to the sys tray menu item
+                unmountDeviceToolStripMenuItem.DropDownItems.Add(menuItemMedia);
+                // if there are more than 0 items enable the sub-menu
+                if (unmountDeviceToolStripMenuItem.DropDownItems.Count > 0)
+                    unmountDeviceToolStripMenuItem.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -303,13 +317,9 @@ namespace TrueMount.Forms
         /// </summary>
         private void ShowMainWindow()
         {
+            this.Show();
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
-            this.Show();
-            this.TopMost = true;
-            this.BringToFront();
-            this.Focus();
-            this.TopMost = false;
         }
 
         /// <summary>
@@ -366,8 +376,10 @@ namespace TrueMount.Forms
             ManagementBaseObject insertedObject = e.NewEvent["TargetInstance"] as ManagementBaseObject;
             string deviceId = insertedObject["DeviceID"].ToString();
 
-            if (!this.CheckOnlineKeyDevices(deviceId))
+            if (!this.CheckOnlineDevices(deviceId))
                 LogAppend("USBNotPw");
+
+            MountAllDevices();
         }
 
         /// <summary>
@@ -421,17 +433,6 @@ namespace TrueMount.Forms
         /// </summary>
         private void StartDeviceListener()
         {
-            if(!config.IgnoreKeyDevices)
-                if (!config.IsKeyDeviceConfigOk)
-                {
-                    // well, the config is crap
-                    LogAppend("ErrNoKeyDev");
-                    return;
-                }
-
-            // no need for waiting if usb device is already online
-            CheckOnlineKeyDevices();
-
             LogAppend("StartDevListener");
             if (keyInsertEvent == null)
             {
@@ -446,6 +447,17 @@ namespace TrueMount.Forms
             }
             else
                 LogAppend("DevListenerIsRun");
+
+            if (!config.IsKeyDeviceConfigOk)
+            {
+                // well, the config is crap
+                LogAppend("WarnNoKeyDev");
+                return;
+            }
+
+            // no need for waiting if usb device is already online
+            CheckOnlineDevices();
+            MountAllDevices();
         }
 
         /// <summary>
@@ -1023,18 +1035,9 @@ namespace TrueMount.Forms
         /// Run through all configured key SystemDevices and if one is online, start the mount process.
         /// </summary>
         /// <returns>Returns true if one or more are found, else false.</returns>
-        private bool CheckOnlineKeyDevices(string deviceId = null)
+        private bool CheckOnlineDevices(string deviceId = null)
         {
-            // if the user does not need this function, just try to mount everything
-            if ((config.IgnoreKeyDevices || config.IsUserPasswordNeeded)
-                && deviceId == null)
-            {
-                if (MountAllDevices() > 0)
-                    return true;
-                else
-                    return false;
-            }
-
+            string devCaption = string.Empty;
             // run through every key device
             foreach (UsbKeyDevice keyDevice in config.KeyDevices)
             {
@@ -1047,11 +1050,8 @@ namespace TrueMount.Forms
                         // add the new device to the online key device list
                         if (!onlineKeyDevices.Contains(deviceId))
                             onlineKeyDevices.Add(deviceId);
-                        LogAppend("PDevOnline", keyDevice.Caption);
-                        buttonStartWorker.Enabled = false;
-                        MountAllDevices();
-                        buttonStopWorker.Enabled = true;
-                        return true;
+                        devCaption = keyDevice.Caption;
+                        break;
                     }
                 }
                 else // check all online logical devices
@@ -1060,14 +1060,22 @@ namespace TrueMount.Forms
                         keyDevice.Signature, keyDevice.PartitionIndex - 1);
                     if (SystemDevices.IsLogicalDiskOnline(driveLetter))
                     {
-                        LogAppend("PDevOnline", keyDevice.Caption);
-                        buttonStartWorker.Enabled = false;
-                        MountAllDevices();
-                        buttonStopWorker.Enabled = true;
-                        return true;
+                        devCaption = keyDevice.Caption;
+                        break;
                     }
                 }
             }
+
+            // Found, awwright!
+            if(!string.IsNullOrEmpty(devCaption))
+            {
+                LogAppend("PDevOnline", devCaption);
+                return true;
+            }
+
+            // if the user does not need this function return
+            if (config.IsUserPasswordNeeded || deviceId == null)
+                return true;
 
             return false;
         }
@@ -1077,6 +1085,9 @@ namespace TrueMount.Forms
         /// </summary>
         void splashScreen_OnSplashFinished()
         {
+            // Enable tray menu
+            contextMenuStripSysTray.Enabled = true;
+
             // on first start show settings dialog
             if (config.FirstStart)
             {
@@ -1085,7 +1096,7 @@ namespace TrueMount.Forms
                 config.FirstStart = false;
             }
 
-            if (!config.StartSilent)
+            if (!config.StartSilent && !config.FirstStart)
                 ShowMainWindow();
         }
 

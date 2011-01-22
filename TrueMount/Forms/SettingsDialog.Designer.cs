@@ -40,11 +40,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.checkBoxIgnoreKeyDevices = new System.Windows.Forms.CheckBox();
-            this.checkBoxCheckUpdates = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelBalloon = new System.Windows.Forms.Label();
+            this.labelBalloonTime = new System.Windows.Forms.Label();
             this.numericUpDownBalloonTime = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
+            this.checkBoxCheckUpdates = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableBalloons = new System.Windows.Forms.CheckBox();
             this.checkBoxForceUnmountAll = new System.Windows.Forms.CheckBox();
             this.checkBoxWarnUnmountAll = new System.Windows.Forms.CheckBox();
@@ -148,6 +148,7 @@
             this.groupBox11.SuspendLayout();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).BeginInit();
             this.tabPageKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -175,38 +176,42 @@
             // 
             // tabControlSettings
             // 
+            resources.ApplyResources(this.tabControlSettings, "tabControlSettings");
             this.tabControlSettings.Controls.Add(this.tabPageApplication);
             this.tabControlSettings.Controls.Add(this.tabPageKeyDevice);
             this.tabControlSettings.Controls.Add(this.tabPageDiskDrives);
             this.tabControlSettings.Controls.Add(this.tabPageContainerFiles);
             this.tabControlSettings.Controls.Add(this.tabPageTrueCrypt);
-            resources.ApplyResources(this.tabControlSettings, "tabControlSettings");
             this.tabControlSettings.Name = "tabControlSettings";
             this.tabControlSettings.SelectedIndex = 0;
+            this.toolTipSettings.SetToolTip(this.tabControlSettings, resources.GetString("tabControlSettings.ToolTip"));
             // 
             // tabPageApplication
             // 
+            resources.ApplyResources(this.tabPageApplication, "tabPageApplication");
             this.tabPageApplication.Controls.Add(this.groupBox11);
             this.tabPageApplication.Controls.Add(this.label14);
             this.tabPageApplication.Controls.Add(this.groupBoxLanguage);
             this.tabPageApplication.Controls.Add(this.groupBox9);
-            resources.ApplyResources(this.tabPageApplication, "tabPageApplication");
             this.tabPageApplication.Name = "tabPageApplication";
+            this.toolTipSettings.SetToolTip(this.tabPageApplication, resources.GetString("tabPageApplication.ToolTip"));
             this.tabPageApplication.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
+            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Controls.Add(this.buttonDeleteConfig);
             this.groupBox11.Controls.Add(this.label17);
-            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.ForeColor = System.Drawing.Color.Maroon;
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
             // 
             // buttonDeleteConfig
             // 
             resources.ApplyResources(this.buttonDeleteConfig, "buttonDeleteConfig");
             this.buttonDeleteConfig.Name = "buttonDeleteConfig";
+            this.toolTipSettings.SetToolTip(this.buttonDeleteConfig, resources.GetString("buttonDeleteConfig.ToolTip"));
             this.buttonDeleteConfig.UseVisualStyleBackColor = true;
             this.buttonDeleteConfig.Click += new System.EventHandler(this.buttonDeleteConfig_Click);
             // 
@@ -215,43 +220,46 @@
             resources.ApplyResources(this.label17, "label17");
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Name = "label17";
+            this.toolTipSettings.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
             // 
             // label14
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
+            this.toolTipSettings.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // groupBoxLanguage
             // 
+            resources.ApplyResources(this.groupBoxLanguage, "groupBoxLanguage");
             this.groupBoxLanguage.Controls.Add(this.label13);
             this.groupBoxLanguage.Controls.Add(this.comboBoxLanguage);
-            resources.ApplyResources(this.groupBoxLanguage, "groupBoxLanguage");
             this.groupBoxLanguage.Name = "groupBoxLanguage";
             this.groupBoxLanguage.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBoxLanguage, resources.GetString("groupBoxLanguage.ToolTip"));
             // 
             // label13
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
+            this.toolTipSettings.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // comboBoxLanguage
             // 
+            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
             this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Items.AddRange(new object[] {
             resources.GetString("comboBoxLanguage.Items"),
             resources.GetString("comboBoxLanguage.Items1")});
-            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
             this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.toolTipSettings.SetToolTip(this.comboBoxLanguage, resources.GetString("comboBoxLanguage.ToolTip"));
             this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLanguage_SelectedIndexChanged);
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.checkBoxIgnoreKeyDevices);
+            resources.ApplyResources(this.groupBox9, "groupBox9");
+            this.groupBox9.Controls.Add(this.panel1);
             this.groupBox9.Controls.Add(this.checkBoxCheckUpdates);
-            this.groupBox9.Controls.Add(this.label19);
-            this.groupBox9.Controls.Add(this.numericUpDownBalloonTime);
-            this.groupBox9.Controls.Add(this.label18);
             this.groupBox9.Controls.Add(this.checkBoxDisableBalloons);
             this.groupBox9.Controls.Add(this.checkBoxForceUnmountAll);
             this.groupBox9.Controls.Add(this.checkBoxWarnUnmountAll);
@@ -261,28 +269,30 @@
             this.groupBox9.Controls.Add(this.checkBoxAutostart);
             this.groupBox9.Controls.Add(this.checkBoxSplashScreen);
             this.groupBox9.Controls.Add(this.checkBoxHidden);
-            resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox9, resources.GetString("groupBox9.ToolTip"));
             // 
-            // checkBoxIgnoreKeyDevices
+            // panel1
             // 
-            resources.ApplyResources(this.checkBoxIgnoreKeyDevices, "checkBoxIgnoreKeyDevices");
-            this.checkBoxIgnoreKeyDevices.Name = "checkBoxIgnoreKeyDevices";
-            this.checkBoxIgnoreKeyDevices.UseVisualStyleBackColor = true;
-            this.checkBoxIgnoreKeyDevices.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreKeyDevices_CheckedChanged);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.labelBalloon);
+            this.panel1.Controls.Add(this.labelBalloonTime);
+            this.panel1.Controls.Add(this.numericUpDownBalloonTime);
+            this.panel1.Name = "panel1";
+            this.toolTipSettings.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
             // 
-            // checkBoxCheckUpdates
+            // labelBalloon
             // 
-            resources.ApplyResources(this.checkBoxCheckUpdates, "checkBoxCheckUpdates");
-            this.checkBoxCheckUpdates.Name = "checkBoxCheckUpdates";
-            this.checkBoxCheckUpdates.UseVisualStyleBackColor = true;
-            this.checkBoxCheckUpdates.CheckedChanged += new System.EventHandler(this.checkBoxCheckUpdates_CheckedChanged);
+            resources.ApplyResources(this.labelBalloon, "labelBalloon");
+            this.labelBalloon.Name = "labelBalloon";
+            this.toolTipSettings.SetToolTip(this.labelBalloon, resources.GetString("labelBalloon.ToolTip"));
             // 
-            // label19
+            // labelBalloonTime
             // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
+            resources.ApplyResources(this.labelBalloonTime, "labelBalloonTime");
+            this.labelBalloonTime.Name = "labelBalloonTime";
+            this.toolTipSettings.SetToolTip(this.labelBalloonTime, resources.GetString("labelBalloonTime.ToolTip"));
             // 
             // numericUpDownBalloonTime
             // 
@@ -298,6 +308,7 @@
             0,
             0});
             this.numericUpDownBalloonTime.Name = "numericUpDownBalloonTime";
+            this.toolTipSettings.SetToolTip(this.numericUpDownBalloonTime, resources.GetString("numericUpDownBalloonTime.ToolTip"));
             this.numericUpDownBalloonTime.Value = new decimal(new int[] {
             1000,
             0,
@@ -305,15 +316,19 @@
             0});
             this.numericUpDownBalloonTime.ValueChanged += new System.EventHandler(this.numericUpDownBalloonTime_ValueChanged);
             // 
-            // label18
+            // checkBoxCheckUpdates
             // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
+            resources.ApplyResources(this.checkBoxCheckUpdates, "checkBoxCheckUpdates");
+            this.checkBoxCheckUpdates.Name = "checkBoxCheckUpdates";
+            this.toolTipSettings.SetToolTip(this.checkBoxCheckUpdates, resources.GetString("checkBoxCheckUpdates.ToolTip"));
+            this.checkBoxCheckUpdates.UseVisualStyleBackColor = true;
+            this.checkBoxCheckUpdates.CheckedChanged += new System.EventHandler(this.checkBoxCheckUpdates_CheckedChanged);
             // 
             // checkBoxDisableBalloons
             // 
             resources.ApplyResources(this.checkBoxDisableBalloons, "checkBoxDisableBalloons");
             this.checkBoxDisableBalloons.Name = "checkBoxDisableBalloons";
+            this.toolTipSettings.SetToolTip(this.checkBoxDisableBalloons, resources.GetString("checkBoxDisableBalloons.ToolTip"));
             this.checkBoxDisableBalloons.UseVisualStyleBackColor = true;
             this.checkBoxDisableBalloons.CheckedChanged += new System.EventHandler(this.checkBoxDisableBallons_CheckedChanged);
             // 
@@ -321,6 +336,7 @@
             // 
             resources.ApplyResources(this.checkBoxForceUnmountAll, "checkBoxForceUnmountAll");
             this.checkBoxForceUnmountAll.Name = "checkBoxForceUnmountAll";
+            this.toolTipSettings.SetToolTip(this.checkBoxForceUnmountAll, resources.GetString("checkBoxForceUnmountAll.ToolTip"));
             this.checkBoxForceUnmountAll.UseVisualStyleBackColor = true;
             this.checkBoxForceUnmountAll.CheckedChanged += new System.EventHandler(this.checkBoxForceUnmountAll_CheckedChanged);
             // 
@@ -328,6 +344,7 @@
             // 
             resources.ApplyResources(this.checkBoxWarnUnmountAll, "checkBoxWarnUnmountAll");
             this.checkBoxWarnUnmountAll.Name = "checkBoxWarnUnmountAll";
+            this.toolTipSettings.SetToolTip(this.checkBoxWarnUnmountAll, resources.GetString("checkBoxWarnUnmountAll.ToolTip"));
             this.checkBoxWarnUnmountAll.UseVisualStyleBackColor = true;
             this.checkBoxWarnUnmountAll.CheckedChanged += new System.EventHandler(this.checkBoxWarnUnmountAll_CheckedChanged);
             // 
@@ -335,6 +352,7 @@
             // 
             resources.ApplyResources(this.checkBoxIgnoreDriveLetters, "checkBoxIgnoreDriveLetters");
             this.checkBoxIgnoreDriveLetters.Name = "checkBoxIgnoreDriveLetters";
+            this.toolTipSettings.SetToolTip(this.checkBoxIgnoreDriveLetters, resources.GetString("checkBoxIgnoreDriveLetters.ToolTip"));
             this.checkBoxIgnoreDriveLetters.UseVisualStyleBackColor = true;
             this.checkBoxIgnoreDriveLetters.CheckedChanged += new System.EventHandler(this.checkBoxIgnoreDriveLetters_CheckedChanged);
             // 
@@ -342,6 +360,7 @@
             // 
             resources.ApplyResources(this.checkBoxWindowsStartup, "checkBoxWindowsStartup");
             this.checkBoxWindowsStartup.Name = "checkBoxWindowsStartup";
+            this.toolTipSettings.SetToolTip(this.checkBoxWindowsStartup, resources.GetString("checkBoxWindowsStartup.ToolTip"));
             this.checkBoxWindowsStartup.UseVisualStyleBackColor = true;
             this.checkBoxWindowsStartup.CheckedChanged += new System.EventHandler(this.checkBoxWindowsStartup_CheckedChanged);
             // 
@@ -349,6 +368,7 @@
             // 
             resources.ApplyResources(this.checkBoxOneInstance, "checkBoxOneInstance");
             this.checkBoxOneInstance.Name = "checkBoxOneInstance";
+            this.toolTipSettings.SetToolTip(this.checkBoxOneInstance, resources.GetString("checkBoxOneInstance.ToolTip"));
             this.checkBoxOneInstance.UseVisualStyleBackColor = true;
             this.checkBoxOneInstance.CheckedChanged += new System.EventHandler(this.checkBoxOneInstance_CheckedChanged);
             // 
@@ -356,6 +376,7 @@
             // 
             resources.ApplyResources(this.checkBoxAutostart, "checkBoxAutostart");
             this.checkBoxAutostart.Name = "checkBoxAutostart";
+            this.toolTipSettings.SetToolTip(this.checkBoxAutostart, resources.GetString("checkBoxAutostart.ToolTip"));
             this.checkBoxAutostart.UseVisualStyleBackColor = true;
             this.checkBoxAutostart.CheckedChanged += new System.EventHandler(this.checkBoxAutostart_CheckedChanged);
             // 
@@ -363,6 +384,7 @@
             // 
             resources.ApplyResources(this.checkBoxSplashScreen, "checkBoxSplashScreen");
             this.checkBoxSplashScreen.Name = "checkBoxSplashScreen";
+            this.toolTipSettings.SetToolTip(this.checkBoxSplashScreen, resources.GetString("checkBoxSplashScreen.ToolTip"));
             this.checkBoxSplashScreen.UseVisualStyleBackColor = true;
             this.checkBoxSplashScreen.CheckedChanged += new System.EventHandler(this.checkBoxSplashScreen_CheckedChanged);
             // 
@@ -370,70 +392,80 @@
             // 
             resources.ApplyResources(this.checkBoxHidden, "checkBoxHidden");
             this.checkBoxHidden.Name = "checkBoxHidden";
+            this.toolTipSettings.SetToolTip(this.checkBoxHidden, resources.GetString("checkBoxHidden.ToolTip"));
             this.checkBoxHidden.UseVisualStyleBackColor = true;
             this.checkBoxHidden.CheckedChanged += new System.EventHandler(this.checkBoxHidden_CheckedChanged);
             // 
             // tabPageKeyDevice
             // 
+            resources.ApplyResources(this.tabPageKeyDevice, "tabPageKeyDevice");
             this.tabPageKeyDevice.Controls.Add(this.pictureBox1);
             this.tabPageKeyDevice.Controls.Add(this.groupBox3);
             this.tabPageKeyDevice.Controls.Add(this.groupBox4);
-            resources.ApplyResources(this.tabPageKeyDevice, "tabPageKeyDevice");
             this.tabPageKeyDevice.Name = "tabPageKeyDevice";
+            this.toolTipSettings.SetToolTip(this.tabPageKeyDevice, resources.GetString("tabPageKeyDevice.ToolTip"));
             this.tabPageKeyDevice.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::TrueMount.Properties.Resources._1276718799_application_pgp_signature;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.BackgroundImage = global::TrueMount.Properties.Resources._1276718799_application_pgp_signature;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.pictureBox1, resources.GetString("pictureBox1.ToolTip"));
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.buttonAddKeyDevice);
             this.groupBox3.Controls.Add(this.comboBoxUSBKeyDevice);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox3, resources.GetString("groupBox3.ToolTip"));
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
+            this.toolTipSettings.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // buttonAddKeyDevice
             // 
             resources.ApplyResources(this.buttonAddKeyDevice, "buttonAddKeyDevice");
             this.buttonAddKeyDevice.Name = "buttonAddKeyDevice";
+            this.toolTipSettings.SetToolTip(this.buttonAddKeyDevice, resources.GetString("buttonAddKeyDevice.ToolTip"));
             this.buttonAddKeyDevice.UseVisualStyleBackColor = true;
             this.buttonAddKeyDevice.Click += new System.EventHandler(this.buttonAddKeyDevice_Click);
             // 
             // comboBoxUSBKeyDevice
             // 
+            resources.ApplyResources(this.comboBoxUSBKeyDevice, "comboBoxUSBKeyDevice");
             this.comboBoxUSBKeyDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUSBKeyDevice.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxUSBKeyDevice, "comboBoxUSBKeyDevice");
             this.comboBoxUSBKeyDevice.Name = "comboBoxUSBKeyDevice";
+            this.toolTipSettings.SetToolTip(this.comboBoxUSBKeyDevice, resources.GetString("comboBoxUSBKeyDevice.ToolTip"));
             // 
             // groupBox4
             // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.listBoxKeyDevices);
             this.groupBox4.Controls.Add(this.panelKeyDevice);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox4, resources.GetString("groupBox4.ToolTip"));
             // 
             // listBoxKeyDevices
             // 
-            this.listBoxKeyDevices.FormattingEnabled = true;
             resources.ApplyResources(this.listBoxKeyDevices, "listBoxKeyDevices");
+            this.listBoxKeyDevices.FormattingEnabled = true;
             this.listBoxKeyDevices.Name = "listBoxKeyDevices";
+            this.toolTipSettings.SetToolTip(this.listBoxKeyDevices, resources.GetString("listBoxKeyDevices.ToolTip"));
             this.listBoxKeyDevices.SelectedIndexChanged += new System.EventHandler(this.listBoxKeyDevices_SelectedIndexChanged);
             // 
             // panelKeyDevice
             // 
+            resources.ApplyResources(this.panelKeyDevice, "panelKeyDevice");
             this.panelKeyDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelKeyDevice.Controls.Add(this.checkBoxKeyDeviceActive);
             this.panelKeyDevice.Controls.Add(this.textBoxUSBSignature);
@@ -444,8 +476,8 @@
             this.panelKeyDevice.Controls.Add(this.textBoxUSBCaption);
             this.panelKeyDevice.Controls.Add(this.textBoxUSBPartition);
             this.panelKeyDevice.Controls.Add(this.pictureBox2);
-            resources.ApplyResources(this.panelKeyDevice, "panelKeyDevice");
             this.panelKeyDevice.Name = "panelKeyDevice";
+            this.toolTipSettings.SetToolTip(this.panelKeyDevice, resources.GetString("panelKeyDevice.ToolTip"));
             // 
             // checkBoxKeyDeviceActive
             // 
@@ -453,20 +485,23 @@
             this.checkBoxKeyDeviceActive.Checked = true;
             this.checkBoxKeyDeviceActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxKeyDeviceActive.Name = "checkBoxKeyDeviceActive";
+            this.toolTipSettings.SetToolTip(this.checkBoxKeyDeviceActive, resources.GetString("checkBoxKeyDeviceActive.ToolTip"));
             this.checkBoxKeyDeviceActive.UseVisualStyleBackColor = true;
             this.checkBoxKeyDeviceActive.CheckedChanged += new System.EventHandler(this.checkBoxKeyDeviceActive_CheckedChanged);
             // 
             // textBoxUSBSignature
             // 
-            this.textBoxUSBSignature.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxUSBSignature, "textBoxUSBSignature");
+            this.textBoxUSBSignature.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxUSBSignature.Name = "textBoxUSBSignature";
             this.textBoxUSBSignature.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxUSBSignature, resources.GetString("textBoxUSBSignature.ToolTip"));
             // 
             // buttonDeleteKeyDevice
             // 
             resources.ApplyResources(this.buttonDeleteKeyDevice, "buttonDeleteKeyDevice");
             this.buttonDeleteKeyDevice.Name = "buttonDeleteKeyDevice";
+            this.toolTipSettings.SetToolTip(this.buttonDeleteKeyDevice, resources.GetString("buttonDeleteKeyDevice.ToolTip"));
             this.buttonDeleteKeyDevice.UseVisualStyleBackColor = true;
             this.buttonDeleteKeyDevice.Click += new System.EventHandler(this.buttonDeleteKeyDevice_Click);
             // 
@@ -474,105 +509,121 @@
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
+            this.toolTipSettings.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
+            this.toolTipSettings.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            this.toolTipSettings.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // textBoxUSBCaption
             // 
-            this.textBoxUSBCaption.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxUSBCaption, "textBoxUSBCaption");
+            this.textBoxUSBCaption.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxUSBCaption.Name = "textBoxUSBCaption";
             this.textBoxUSBCaption.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxUSBCaption, resources.GetString("textBoxUSBCaption.ToolTip"));
             // 
             // textBoxUSBPartition
             // 
-            this.textBoxUSBPartition.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxUSBPartition, "textBoxUSBPartition");
+            this.textBoxUSBPartition.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxUSBPartition.Name = "textBoxUSBPartition";
             this.textBoxUSBPartition.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxUSBPartition, resources.GetString("textBoxUSBPartition.ToolTip"));
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::TrueMount.Properties.Resources._1277832668_usbpendrive_mount;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.BackgroundImage = global::TrueMount.Properties.Resources._1277832668_usbpendrive_mount;
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.pictureBox2, resources.GetString("pictureBox2.ToolTip"));
             // 
             // tabPageDiskDrives
             // 
+            resources.ApplyResources(this.tabPageDiskDrives, "tabPageDiskDrives");
             this.tabPageDiskDrives.Controls.Add(this.listBoxDisks);
             this.tabPageDiskDrives.Controls.Add(this.label5);
             this.tabPageDiskDrives.Controls.Add(this.groupBoxLocalDiskDrives);
             this.tabPageDiskDrives.Controls.Add(this.panelDisks);
-            resources.ApplyResources(this.tabPageDiskDrives, "tabPageDiskDrives");
             this.tabPageDiskDrives.Name = "tabPageDiskDrives";
+            this.toolTipSettings.SetToolTip(this.tabPageDiskDrives, resources.GetString("tabPageDiskDrives.ToolTip"));
             this.tabPageDiskDrives.UseVisualStyleBackColor = true;
             // 
             // listBoxDisks
             // 
-            this.listBoxDisks.FormattingEnabled = true;
             resources.ApplyResources(this.listBoxDisks, "listBoxDisks");
+            this.listBoxDisks.FormattingEnabled = true;
             this.listBoxDisks.Name = "listBoxDisks";
+            this.toolTipSettings.SetToolTip(this.listBoxDisks, resources.GetString("listBoxDisks.ToolTip"));
             this.listBoxDisks.SelectedIndexChanged += new System.EventHandler(this.listBoxDisks_SelectedIndexChanged);
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
+            this.toolTipSettings.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // groupBoxLocalDiskDrives
             // 
+            resources.ApplyResources(this.groupBoxLocalDiskDrives, "groupBoxLocalDiskDrives");
             this.groupBoxLocalDiskDrives.Controls.Add(this.label7);
             this.groupBoxLocalDiskDrives.Controls.Add(this.label6);
             this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskPartitions);
             this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskDrives);
             this.groupBoxLocalDiskDrives.Controls.Add(this.buttonAddDisk);
-            resources.ApplyResources(this.groupBoxLocalDiskDrives, "groupBoxLocalDiskDrives");
             this.groupBoxLocalDiskDrives.Name = "groupBoxLocalDiskDrives";
             this.groupBoxLocalDiskDrives.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBoxLocalDiskDrives, resources.GetString("groupBoxLocalDiskDrives.ToolTip"));
             // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
+            this.toolTipSettings.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
+            this.toolTipSettings.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // comboBoxDiskPartitions
             // 
+            resources.ApplyResources(this.comboBoxDiskPartitions, "comboBoxDiskPartitions");
             this.comboBoxDiskPartitions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDiskPartitions.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxDiskPartitions, "comboBoxDiskPartitions");
             this.comboBoxDiskPartitions.Name = "comboBoxDiskPartitions";
+            this.toolTipSettings.SetToolTip(this.comboBoxDiskPartitions, resources.GetString("comboBoxDiskPartitions.ToolTip"));
             // 
             // comboBoxDiskDrives
             // 
+            resources.ApplyResources(this.comboBoxDiskDrives, "comboBoxDiskDrives");
             this.comboBoxDiskDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDiskDrives.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxDiskDrives, "comboBoxDiskDrives");
             this.comboBoxDiskDrives.Name = "comboBoxDiskDrives";
+            this.toolTipSettings.SetToolTip(this.comboBoxDiskDrives, resources.GetString("comboBoxDiskDrives.ToolTip"));
             this.comboBoxDiskDrives.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiskDrives_SelectedIndexChanged);
             // 
             // buttonAddDisk
             // 
             resources.ApplyResources(this.buttonAddDisk, "buttonAddDisk");
             this.buttonAddDisk.Name = "buttonAddDisk";
+            this.toolTipSettings.SetToolTip(this.buttonAddDisk, resources.GetString("buttonAddDisk.ToolTip"));
             this.buttonAddDisk.UseVisualStyleBackColor = true;
             this.buttonAddDisk.Click += new System.EventHandler(this.buttonAddDisk_Click);
             // 
             // panelDisks
             // 
+            resources.ApplyResources(this.panelDisks, "panelDisks");
             this.panelDisks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDisks.Controls.Add(this.checkBoxFetchDiskPassword);
             this.panelDisks.Controls.Add(this.checkBoxDiskDismountTrigger);
@@ -586,45 +637,51 @@
             this.panelDisks.Controls.Add(this.checkBoxDiskActive);
             this.panelDisks.Controls.Add(this.groupBox7);
             this.panelDisks.Controls.Add(this.groupBox8);
-            resources.ApplyResources(this.panelDisks, "panelDisks");
             this.panelDisks.Name = "panelDisks";
+            this.toolTipSettings.SetToolTip(this.panelDisks, resources.GetString("panelDisks.ToolTip"));
             // 
             // checkBoxFetchDiskPassword
             // 
             resources.ApplyResources(this.checkBoxFetchDiskPassword, "checkBoxFetchDiskPassword");
             this.checkBoxFetchDiskPassword.Name = "checkBoxFetchDiskPassword";
+            this.toolTipSettings.SetToolTip(this.checkBoxFetchDiskPassword, resources.GetString("checkBoxFetchDiskPassword.ToolTip"));
             this.checkBoxFetchDiskPassword.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskDismountTrigger
             // 
             resources.ApplyResources(this.checkBoxDiskDismountTrigger, "checkBoxDiskDismountTrigger");
             this.checkBoxDiskDismountTrigger.Name = "checkBoxDiskDismountTrigger";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskDismountTrigger, resources.GetString("checkBoxDiskDismountTrigger.ToolTip"));
             this.checkBoxDiskDismountTrigger.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskOpenExplorer
             // 
             resources.ApplyResources(this.checkBoxDiskOpenExplorer, "checkBoxDiskOpenExplorer");
             this.checkBoxDiskOpenExplorer.Name = "checkBoxDiskOpenExplorer";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskOpenExplorer, resources.GetString("checkBoxDiskOpenExplorer.ToolTip"));
             this.checkBoxDiskOpenExplorer.UseVisualStyleBackColor = true;
             // 
             // buttonEditDiskKeyFiles
             // 
             resources.ApplyResources(this.buttonEditDiskKeyFiles, "buttonEditDiskKeyFiles");
             this.buttonEditDiskKeyFiles.Name = "buttonEditDiskKeyFiles";
+            this.toolTipSettings.SetToolTip(this.buttonEditDiskKeyFiles, resources.GetString("buttonEditDiskKeyFiles.ToolTip"));
             this.buttonEditDiskKeyFiles.UseVisualStyleBackColor = true;
             this.buttonEditDiskKeyFiles.Click += new System.EventHandler(this.buttonEditDiskKeyFiles_Click);
             // 
             // comboBoxDiskDriveLetter
             // 
+            resources.ApplyResources(this.comboBoxDiskDriveLetter, "comboBoxDiskDriveLetter");
             this.comboBoxDiskDriveLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDiskDriveLetter.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxDiskDriveLetter, "comboBoxDiskDriveLetter");
             this.comboBoxDiskDriveLetter.Name = "comboBoxDiskDriveLetter";
+            this.toolTipSettings.SetToolTip(this.comboBoxDiskDriveLetter, resources.GetString("comboBoxDiskDriveLetter.ToolTip"));
             // 
             // buttonSaveDisk
             // 
             resources.ApplyResources(this.buttonSaveDisk, "buttonSaveDisk");
             this.buttonSaveDisk.Name = "buttonSaveDisk";
+            this.toolTipSettings.SetToolTip(this.buttonSaveDisk, resources.GetString("buttonSaveDisk.ToolTip"));
             this.buttonSaveDisk.UseVisualStyleBackColor = true;
             this.buttonSaveDisk.Click += new System.EventHandler(this.buttonSaveDisk_Click);
             // 
@@ -632,46 +689,53 @@
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
+            this.toolTipSettings.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // buttonDeleteDiskDrive
             // 
             resources.ApplyResources(this.buttonDeleteDiskDrive, "buttonDeleteDiskDrive");
             this.buttonDeleteDiskDrive.Name = "buttonDeleteDiskDrive";
+            this.toolTipSettings.SetToolTip(this.buttonDeleteDiskDrive, resources.GetString("buttonDeleteDiskDrive.ToolTip"));
             this.buttonDeleteDiskDrive.UseVisualStyleBackColor = true;
             this.buttonDeleteDiskDrive.Click += new System.EventHandler(this.buttonDeleteDiskDrive_Click);
             // 
             // groupBox6
             // 
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.checkBoxDiskSm);
             this.groupBox6.Controls.Add(this.checkBoxDiskTs);
             this.groupBox6.Controls.Add(this.checkBoxDiskRm);
             this.groupBox6.Controls.Add(this.checkBoxDiskRo);
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox6, resources.GetString("groupBox6.ToolTip"));
             // 
             // checkBoxDiskSm
             // 
             resources.ApplyResources(this.checkBoxDiskSm, "checkBoxDiskSm");
             this.checkBoxDiskSm.Name = "checkBoxDiskSm";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskSm, resources.GetString("checkBoxDiskSm.ToolTip"));
             this.checkBoxDiskSm.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskTs
             // 
             resources.ApplyResources(this.checkBoxDiskTs, "checkBoxDiskTs");
             this.checkBoxDiskTs.Name = "checkBoxDiskTs";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskTs, resources.GetString("checkBoxDiskTs.ToolTip"));
             this.checkBoxDiskTs.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskRm
             // 
             resources.ApplyResources(this.checkBoxDiskRm, "checkBoxDiskRm");
             this.checkBoxDiskRm.Name = "checkBoxDiskRm";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskRm, resources.GetString("checkBoxDiskRm.ToolTip"));
             this.checkBoxDiskRm.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskRo
             // 
             resources.ApplyResources(this.checkBoxDiskRo, "checkBoxDiskRo");
             this.checkBoxDiskRo.Name = "checkBoxDiskRo";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskRo, resources.GetString("checkBoxDiskRo.ToolTip"));
             this.checkBoxDiskRo.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiskActive
@@ -680,86 +744,99 @@
             this.checkBoxDiskActive.Checked = true;
             this.checkBoxDiskActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDiskActive.Name = "checkBoxDiskActive";
+            this.toolTipSettings.SetToolTip(this.checkBoxDiskActive, resources.GetString("checkBoxDiskActive.ToolTip"));
             this.checkBoxDiskActive.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Controls.Add(this.labelDiskPartition);
             this.groupBox7.Controls.Add(this.labelDiskSignature);
             this.groupBox7.Controls.Add(this.labelDiskCaption);
             this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.label10);
             this.groupBox7.Controls.Add(this.label11);
-            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox7, resources.GetString("groupBox7.ToolTip"));
             // 
             // labelDiskPartition
             // 
-            this.labelDiskPartition.AutoEllipsis = true;
             resources.ApplyResources(this.labelDiskPartition, "labelDiskPartition");
+            this.labelDiskPartition.AutoEllipsis = true;
             this.labelDiskPartition.Name = "labelDiskPartition";
+            this.toolTipSettings.SetToolTip(this.labelDiskPartition, resources.GetString("labelDiskPartition.ToolTip"));
             // 
             // labelDiskSignature
             // 
-            this.labelDiskSignature.AutoEllipsis = true;
             resources.ApplyResources(this.labelDiskSignature, "labelDiskSignature");
+            this.labelDiskSignature.AutoEllipsis = true;
             this.labelDiskSignature.Name = "labelDiskSignature";
+            this.toolTipSettings.SetToolTip(this.labelDiskSignature, resources.GetString("labelDiskSignature.ToolTip"));
             // 
             // labelDiskCaption
             // 
-            this.labelDiskCaption.AutoEllipsis = true;
             resources.ApplyResources(this.labelDiskCaption, "labelDiskCaption");
+            this.labelDiskCaption.AutoEllipsis = true;
             this.labelDiskCaption.Name = "labelDiskCaption";
+            this.toolTipSettings.SetToolTip(this.labelDiskCaption, resources.GetString("labelDiskCaption.ToolTip"));
             // 
             // label9
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
+            this.toolTipSettings.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // label10
             // 
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
+            this.toolTipSettings.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
+            this.toolTipSettings.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
             // 
             // groupBox8
             // 
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Controls.Add(this.textBoxDiskPasswordFile);
             this.groupBox8.Controls.Add(this.buttonSearchPasswordFile);
-            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox8, resources.GetString("groupBox8.ToolTip"));
             // 
             // textBoxDiskPasswordFile
             // 
-            this.textBoxDiskPasswordFile.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxDiskPasswordFile, "textBoxDiskPasswordFile");
+            this.textBoxDiskPasswordFile.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDiskPasswordFile.Name = "textBoxDiskPasswordFile";
             this.textBoxDiskPasswordFile.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxDiskPasswordFile, resources.GetString("textBoxDiskPasswordFile.ToolTip"));
             // 
             // buttonSearchPasswordFile
             // 
             resources.ApplyResources(this.buttonSearchPasswordFile, "buttonSearchPasswordFile");
             this.buttonSearchPasswordFile.Name = "buttonSearchPasswordFile";
+            this.toolTipSettings.SetToolTip(this.buttonSearchPasswordFile, resources.GetString("buttonSearchPasswordFile.ToolTip"));
             this.buttonSearchPasswordFile.UseVisualStyleBackColor = true;
             this.buttonSearchPasswordFile.Click += new System.EventHandler(this.buttonSearchDiskPasswordFile_Click);
             // 
             // tabPageContainerFiles
             // 
+            resources.ApplyResources(this.tabPageContainerFiles, "tabPageContainerFiles");
             this.tabPageContainerFiles.Controls.Add(this.groupBoxConSettings);
             this.tabPageContainerFiles.Controls.Add(this.groupBox10);
             this.tabPageContainerFiles.Controls.Add(this.groupBox5);
-            resources.ApplyResources(this.tabPageContainerFiles, "tabPageContainerFiles");
             this.tabPageContainerFiles.Name = "tabPageContainerFiles";
+            this.toolTipSettings.SetToolTip(this.tabPageContainerFiles, resources.GetString("tabPageContainerFiles.ToolTip"));
             this.tabPageContainerFiles.UseVisualStyleBackColor = true;
             // 
             // groupBoxConSettings
             // 
+            resources.ApplyResources(this.groupBoxConSettings, "groupBoxConSettings");
             this.groupBoxConSettings.Controls.Add(this.checkBoxFetchConPassword);
             this.groupBoxConSettings.Controls.Add(this.checkBoxConDismountTrigger);
             this.groupBoxConSettings.Controls.Add(this.checkBoxOpenConExplorer);
@@ -768,39 +845,44 @@
             this.groupBoxConSettings.Controls.Add(this.checkBoxConActive);
             this.groupBoxConSettings.Controls.Add(this.groupBox12);
             this.groupBoxConSettings.Controls.Add(this.groupBox13);
-            resources.ApplyResources(this.groupBoxConSettings, "groupBoxConSettings");
             this.groupBoxConSettings.Name = "groupBoxConSettings";
             this.groupBoxConSettings.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBoxConSettings, resources.GetString("groupBoxConSettings.ToolTip"));
             // 
             // checkBoxFetchConPassword
             // 
             resources.ApplyResources(this.checkBoxFetchConPassword, "checkBoxFetchConPassword");
             this.checkBoxFetchConPassword.Name = "checkBoxFetchConPassword";
+            this.toolTipSettings.SetToolTip(this.checkBoxFetchConPassword, resources.GetString("checkBoxFetchConPassword.ToolTip"));
             this.checkBoxFetchConPassword.UseVisualStyleBackColor = true;
             // 
             // checkBoxConDismountTrigger
             // 
             resources.ApplyResources(this.checkBoxConDismountTrigger, "checkBoxConDismountTrigger");
             this.checkBoxConDismountTrigger.Name = "checkBoxConDismountTrigger";
+            this.toolTipSettings.SetToolTip(this.checkBoxConDismountTrigger, resources.GetString("checkBoxConDismountTrigger.ToolTip"));
             this.checkBoxConDismountTrigger.UseVisualStyleBackColor = true;
             // 
             // checkBoxOpenConExplorer
             // 
             resources.ApplyResources(this.checkBoxOpenConExplorer, "checkBoxOpenConExplorer");
             this.checkBoxOpenConExplorer.Name = "checkBoxOpenConExplorer";
+            this.toolTipSettings.SetToolTip(this.checkBoxOpenConExplorer, resources.GetString("checkBoxOpenConExplorer.ToolTip"));
             this.checkBoxOpenConExplorer.UseVisualStyleBackColor = true;
             // 
             // comboBoxConLetter
             // 
+            resources.ApplyResources(this.comboBoxConLetter, "comboBoxConLetter");
             this.comboBoxConLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxConLetter.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxConLetter, "comboBoxConLetter");
             this.comboBoxConLetter.Name = "comboBoxConLetter";
+            this.toolTipSettings.SetToolTip(this.comboBoxConLetter, resources.GetString("comboBoxConLetter.ToolTip"));
             // 
             // label16
             // 
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
+            this.toolTipSettings.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // checkBoxConActive
             // 
@@ -809,79 +891,90 @@
             this.checkBoxConActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxConActive.Image = global::TrueMount.Properties.Resources._1285602206_switch;
             this.checkBoxConActive.Name = "checkBoxConActive";
+            this.toolTipSettings.SetToolTip(this.checkBoxConActive, resources.GetString("checkBoxConActive.ToolTip"));
             this.checkBoxConActive.UseVisualStyleBackColor = true;
             // 
             // groupBox12
             // 
+            resources.ApplyResources(this.groupBox12, "groupBox12");
             this.groupBox12.Controls.Add(this.checkBoxConSm);
             this.groupBox12.Controls.Add(this.checkBoxConTs);
             this.groupBox12.Controls.Add(this.checkBoxConRm);
             this.groupBox12.Controls.Add(this.checkBoxConRo);
-            resources.ApplyResources(this.groupBox12, "groupBox12");
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox12, resources.GetString("groupBox12.ToolTip"));
             // 
             // checkBoxConSm
             // 
             resources.ApplyResources(this.checkBoxConSm, "checkBoxConSm");
             this.checkBoxConSm.Name = "checkBoxConSm";
+            this.toolTipSettings.SetToolTip(this.checkBoxConSm, resources.GetString("checkBoxConSm.ToolTip"));
             this.checkBoxConSm.UseVisualStyleBackColor = true;
             // 
             // checkBoxConTs
             // 
             resources.ApplyResources(this.checkBoxConTs, "checkBoxConTs");
             this.checkBoxConTs.Name = "checkBoxConTs";
+            this.toolTipSettings.SetToolTip(this.checkBoxConTs, resources.GetString("checkBoxConTs.ToolTip"));
             this.checkBoxConTs.UseVisualStyleBackColor = true;
             // 
             // checkBoxConRm
             // 
             resources.ApplyResources(this.checkBoxConRm, "checkBoxConRm");
             this.checkBoxConRm.Name = "checkBoxConRm";
+            this.toolTipSettings.SetToolTip(this.checkBoxConRm, resources.GetString("checkBoxConRm.ToolTip"));
             this.checkBoxConRm.UseVisualStyleBackColor = true;
             // 
             // checkBoxConRo
             // 
             resources.ApplyResources(this.checkBoxConRo, "checkBoxConRo");
             this.checkBoxConRo.Name = "checkBoxConRo";
+            this.toolTipSettings.SetToolTip(this.checkBoxConRo, resources.GetString("checkBoxConRo.ToolTip"));
             this.checkBoxConRo.UseVisualStyleBackColor = true;
             // 
             // groupBox13
             // 
+            resources.ApplyResources(this.groupBox13, "groupBox13");
             this.groupBox13.Controls.Add(this.textBoxConPasswordFile);
             this.groupBox13.Controls.Add(this.buttonSearchConPassword);
-            resources.ApplyResources(this.groupBox13, "groupBox13");
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox13, resources.GetString("groupBox13.ToolTip"));
             // 
             // textBoxConPasswordFile
             // 
-            this.textBoxConPasswordFile.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxConPasswordFile, "textBoxConPasswordFile");
+            this.textBoxConPasswordFile.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxConPasswordFile.Name = "textBoxConPasswordFile";
             this.textBoxConPasswordFile.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxConPasswordFile, resources.GetString("textBoxConPasswordFile.ToolTip"));
             // 
             // buttonSearchConPassword
             // 
             resources.ApplyResources(this.buttonSearchConPassword, "buttonSearchConPassword");
             this.buttonSearchConPassword.Name = "buttonSearchConPassword";
+            this.toolTipSettings.SetToolTip(this.buttonSearchConPassword, resources.GetString("buttonSearchConPassword.ToolTip"));
             this.buttonSearchConPassword.UseVisualStyleBackColor = true;
             this.buttonSearchConPassword.Click += new System.EventHandler(this.buttonSearchConPassword_Click);
             // 
             // groupBox10
             // 
+            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Controls.Add(this.buttonEditContainerKeyFiles);
             this.groupBox10.Controls.Add(this.buttonSaveContainer);
             this.groupBox10.Controls.Add(this.buttonRemoveContainer);
             this.groupBox10.Controls.Add(this.buttonAddContainer);
-            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox10, resources.GetString("groupBox10.ToolTip"));
             // 
             // buttonEditContainerKeyFiles
             // 
             resources.ApplyResources(this.buttonEditContainerKeyFiles, "buttonEditContainerKeyFiles");
             this.buttonEditContainerKeyFiles.Image = global::TrueMount.Properties.Resources._1285602715_page_white_edit;
             this.buttonEditContainerKeyFiles.Name = "buttonEditContainerKeyFiles";
+            this.toolTipSettings.SetToolTip(this.buttonEditContainerKeyFiles, resources.GetString("buttonEditContainerKeyFiles.ToolTip"));
             this.buttonEditContainerKeyFiles.UseVisualStyleBackColor = true;
             this.buttonEditContainerKeyFiles.Click += new System.EventHandler(this.buttonEditContainerKeyFiles_Click);
             // 
@@ -890,6 +983,7 @@
             resources.ApplyResources(this.buttonSaveContainer, "buttonSaveContainer");
             this.buttonSaveContainer.Image = global::TrueMount.Properties.Resources._1285602621_095;
             this.buttonSaveContainer.Name = "buttonSaveContainer";
+            this.toolTipSettings.SetToolTip(this.buttonSaveContainer, resources.GetString("buttonSaveContainer.ToolTip"));
             this.buttonSaveContainer.UseVisualStyleBackColor = true;
             this.buttonSaveContainer.Click += new System.EventHandler(this.buttonSaveContainer_Click);
             // 
@@ -898,64 +992,72 @@
             resources.ApplyResources(this.buttonRemoveContainer, "buttonRemoveContainer");
             this.buttonRemoveContainer.Image = global::TrueMount.Properties.Resources._1285602519_delete;
             this.buttonRemoveContainer.Name = "buttonRemoveContainer";
+            this.toolTipSettings.SetToolTip(this.buttonRemoveContainer, resources.GetString("buttonRemoveContainer.ToolTip"));
             this.buttonRemoveContainer.UseVisualStyleBackColor = true;
             this.buttonRemoveContainer.Click += new System.EventHandler(this.buttonRemoveContainer_Click);
             // 
             // buttonAddContainer
             // 
-            this.buttonAddContainer.Image = global::TrueMount.Properties.Resources._1285602514_add_small;
             resources.ApplyResources(this.buttonAddContainer, "buttonAddContainer");
+            this.buttonAddContainer.Image = global::TrueMount.Properties.Resources._1285602514_add_small;
             this.buttonAddContainer.Name = "buttonAddContainer";
+            this.toolTipSettings.SetToolTip(this.buttonAddContainer, resources.GetString("buttonAddContainer.ToolTip"));
             this.buttonAddContainer.UseVisualStyleBackColor = true;
             this.buttonAddContainer.Click += new System.EventHandler(this.buttonAddContainer_Click);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.listBoxContainerFiles);
             resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.listBoxContainerFiles);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox5, resources.GetString("groupBox5.ToolTip"));
             // 
             // listBoxContainerFiles
             // 
-            this.listBoxContainerFiles.FormattingEnabled = true;
             resources.ApplyResources(this.listBoxContainerFiles, "listBoxContainerFiles");
+            this.listBoxContainerFiles.FormattingEnabled = true;
             this.listBoxContainerFiles.Name = "listBoxContainerFiles";
+            this.toolTipSettings.SetToolTip(this.listBoxContainerFiles, resources.GetString("listBoxContainerFiles.ToolTip"));
             this.listBoxContainerFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxContainerFiles_SelectedIndexChanged);
             // 
             // tabPageTrueCrypt
             // 
+            resources.ApplyResources(this.tabPageTrueCrypt, "tabPageTrueCrypt");
             this.tabPageTrueCrypt.Controls.Add(this.pictureBoxTrueCryptHeader);
             this.tabPageTrueCrypt.Controls.Add(this.groupBox2);
             this.tabPageTrueCrypt.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.tabPageTrueCrypt, "tabPageTrueCrypt");
             this.tabPageTrueCrypt.Name = "tabPageTrueCrypt";
+            this.toolTipSettings.SetToolTip(this.tabPageTrueCrypt, resources.GetString("tabPageTrueCrypt.ToolTip"));
             this.tabPageTrueCrypt.UseVisualStyleBackColor = true;
             // 
             // pictureBoxTrueCryptHeader
             // 
-            this.pictureBoxTrueCryptHeader.BackgroundImage = global::TrueMount.Properties.Resources.tc_header;
             resources.ApplyResources(this.pictureBoxTrueCryptHeader, "pictureBoxTrueCryptHeader");
+            this.pictureBoxTrueCryptHeader.BackgroundImage = global::TrueMount.Properties.Resources.tc_header;
             this.pictureBoxTrueCryptHeader.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxTrueCryptHeader.Name = "pictureBoxTrueCryptHeader";
             this.pictureBoxTrueCryptHeader.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.pictureBoxTrueCryptHeader, resources.GetString("pictureBoxTrueCryptHeader.ToolTip"));
             this.pictureBoxTrueCryptHeader.Click += new System.EventHandler(this.pictureBoxTrueCryptHeader_Click);
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.checkBoxCache);
             this.groupBox2.Controls.Add(this.checkBoxBackground);
             this.groupBox2.Controls.Add(this.checkBoxBeep);
             this.groupBox2.Controls.Add(this.checkBoxExplorer);
             this.groupBox2.Controls.Add(this.checkBoxSilent);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
             // 
             // checkBoxCache
             // 
             resources.ApplyResources(this.checkBoxCache, "checkBoxCache");
             this.checkBoxCache.Name = "checkBoxCache";
+            this.toolTipSettings.SetToolTip(this.checkBoxCache, resources.GetString("checkBoxCache.ToolTip"));
             this.checkBoxCache.UseVisualStyleBackColor = true;
             this.checkBoxCache.CheckedChanged += new System.EventHandler(this.checkBoxCache_CheckedChanged);
             // 
@@ -963,6 +1065,7 @@
             // 
             resources.ApplyResources(this.checkBoxBackground, "checkBoxBackground");
             this.checkBoxBackground.Name = "checkBoxBackground";
+            this.toolTipSettings.SetToolTip(this.checkBoxBackground, resources.GetString("checkBoxBackground.ToolTip"));
             this.checkBoxBackground.UseVisualStyleBackColor = true;
             this.checkBoxBackground.CheckedChanged += new System.EventHandler(this.checkBoxBackground_CheckedChanged);
             // 
@@ -970,6 +1073,7 @@
             // 
             resources.ApplyResources(this.checkBoxBeep, "checkBoxBeep");
             this.checkBoxBeep.Name = "checkBoxBeep";
+            this.toolTipSettings.SetToolTip(this.checkBoxBeep, resources.GetString("checkBoxBeep.ToolTip"));
             this.checkBoxBeep.UseVisualStyleBackColor = true;
             this.checkBoxBeep.CheckedChanged += new System.EventHandler(this.checkBoxBeep_CheckedChanged);
             // 
@@ -977,6 +1081,7 @@
             // 
             resources.ApplyResources(this.checkBoxExplorer, "checkBoxExplorer");
             this.checkBoxExplorer.Name = "checkBoxExplorer";
+            this.toolTipSettings.SetToolTip(this.checkBoxExplorer, resources.GetString("checkBoxExplorer.ToolTip"));
             this.checkBoxExplorer.UseVisualStyleBackColor = true;
             this.checkBoxExplorer.CheckedChanged += new System.EventHandler(this.checkBoxExplorer_CheckedChanged);
             // 
@@ -984,28 +1089,32 @@
             // 
             resources.ApplyResources(this.checkBoxSilent, "checkBoxSilent");
             this.checkBoxSilent.Name = "checkBoxSilent";
+            this.toolTipSettings.SetToolTip(this.checkBoxSilent, resources.GetString("checkBoxSilent.ToolTip"));
             this.checkBoxSilent.UseVisualStyleBackColor = true;
             this.checkBoxSilent.CheckedChanged += new System.EventHandler(this.checkBoxSilent_CheckedChanged);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.textBoxTrueCryptExec);
             this.groupBox1.Controls.Add(this.buttonSearchTrueCrypt);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
             // 
             // textBoxTrueCryptExec
             // 
-            this.textBoxTrueCryptExec.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.textBoxTrueCryptExec, "textBoxTrueCryptExec");
+            this.textBoxTrueCryptExec.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxTrueCryptExec.Name = "textBoxTrueCryptExec";
             this.textBoxTrueCryptExec.ReadOnly = true;
+            this.toolTipSettings.SetToolTip(this.textBoxTrueCryptExec, resources.GetString("textBoxTrueCryptExec.ToolTip"));
             // 
             // buttonSearchTrueCrypt
             // 
             resources.ApplyResources(this.buttonSearchTrueCrypt, "buttonSearchTrueCrypt");
             this.buttonSearchTrueCrypt.Name = "buttonSearchTrueCrypt";
+            this.toolTipSettings.SetToolTip(this.buttonSearchTrueCrypt, resources.GetString("buttonSearchTrueCrypt.ToolTip"));
             this.buttonSearchTrueCrypt.UseVisualStyleBackColor = true;
             this.buttonSearchTrueCrypt.Click += new System.EventHandler(this.buttonSearchTrueCrypt_Click);
             // 
@@ -1030,6 +1139,7 @@
             this.Name = "SettingsDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.toolTipSettings.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsDialog_FormClosing);
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
             this.tabControlSettings.ResumeLayout(false);
@@ -1039,6 +1149,8 @@
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBalloonTime)).EndInit();
             this.tabPageKeyDevice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1176,8 +1288,8 @@
         private System.Windows.Forms.CheckBox checkBoxConActive;
         private System.Windows.Forms.ListBox listBoxKeyDevices;
         private System.Windows.Forms.ListBox listBoxDisks;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelBalloon;
+        private System.Windows.Forms.Label labelBalloonTime;
         private System.Windows.Forms.NumericUpDown numericUpDownBalloonTime;
         private System.Windows.Forms.CheckBox checkBoxCheckUpdates;
         private System.Windows.Forms.GroupBox groupBox11;
@@ -1192,7 +1304,7 @@
         private System.Windows.Forms.CheckBox checkBoxConDismountTrigger;
         private System.Windows.Forms.CheckBox checkBoxFetchDiskPassword;
         private System.Windows.Forms.CheckBox checkBoxFetchConPassword;
-        private System.Windows.Forms.CheckBox checkBoxIgnoreKeyDevices;
+        private System.Windows.Forms.Panel panel1;
 
 
     }

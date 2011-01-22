@@ -183,8 +183,8 @@
   <data name="ErrGeneral" xml:space="preserve">
     <value>Error: {0}</value>
   </data>
-  <data name="ErrNoKeyDev" xml:space="preserve">
-    <value>Error: key device configuration incorrect/incomplete, check the settings!</value>
+  <data name="WarnNoKeyDev" xml:space="preserve">
+    <value>Warning: no key devices specified, auto-mount may not work!</value>
   </data>
   <data name="ErrPwFileNoExist" xml:space="preserve">
     <value>Error: password file {0} does not exist, skipped.</value>
@@ -307,7 +307,7 @@
     <value>New USB Device found.</value>
   </data>
   <data name="USBNotPw" xml:space="preserve">
-    <value>USB Device is not the password device, waiting.</value>
+    <value>Info: USB Device is not a password device.</value>
   </data>
   <data name="USBRemoved" xml:space="preserve">
     <value>USB Device removed.</value>

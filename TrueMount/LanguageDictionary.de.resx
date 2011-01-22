@@ -183,8 +183,8 @@
   <data name="ErrGeneral" xml:space="preserve">
     <value>Fehler: {0}</value>
   </data>
-  <data name="ErrNoKeyDev" xml:space="preserve">
-    <value>Fehler: kein Schlüssel-Gerät gefunden, prüfen Sie die Einstellungen!</value>
+  <data name="WarnNoKeyDev" xml:space="preserve">
+    <value>Warnung: kein Schlüssel-Gerät gefunden, automatisches Einbinden könnte nicht starten!</value>
   </data>
   <data name="ErrPwFileNoExist" xml:space="preserve">
     <value>Fehler: Passwortdatei {0} existiert nicht, übersprungen.</value>
@@ -307,7 +307,7 @@
     <value>Neues USB-Gerät gefunden.</value>
   </data>
   <data name="USBNotPw" xml:space="preserve">
-    <value>USB-Gerät ist kein Schlüssel-Gerät, warte.</value>
+    <value>Information: USB-Gerät ist kein Schlüssel-Gerät.</value>
   </data>
   <data name="USBRemoved" xml:space="preserve">
     <value>USB-Gerät entfernt.</value>

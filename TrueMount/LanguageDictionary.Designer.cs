@@ -340,15 +340,6 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error: key device configuration incorrect/incomplete, check the settings!.
-        /// </summary>
-        internal static string ErrNoKeyDev {
-            get {
-                return ResourceManager.GetString("ErrNoKeyDev", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Error: password file {0} does not exist, skipped..
         /// </summary>
         internal static string ErrPwFileNoExist {
@@ -916,7 +907,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to USB Device is not the password device, waiting..
+        ///   Looks up a localized string similar to Info: USB Device is not a password device..
         /// </summary>
         internal static string USBNotPw {
             get {
@@ -966,6 +957,15 @@ namespace TrueMount {
         internal static string WarnNoDisks {
             get {
                 return ResourceManager.GetString("WarnNoDisks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning: no key devices specified, auto-mount may not work!.
+        /// </summary>
+        internal static string WarnNoKeyDev {
+            get {
+                return ResourceManager.GetString("WarnNoKeyDev", resourceCulture);
             }
         }
         
