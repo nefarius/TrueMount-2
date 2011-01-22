@@ -449,11 +449,7 @@ namespace TrueMount.Forms
                 LogAppend("DevListenerIsRun");
 
             if (!config.IsKeyDeviceConfigOk)
-            {
-                // well, the config is crap
                 LogAppend("WarnNoKeyDev");
-                return;
-            }
 
             // no need for waiting if usb device is already online
             CheckOnlineDevices();
