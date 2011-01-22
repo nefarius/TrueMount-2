@@ -9,6 +9,7 @@ namespace TrueMount
     class TrueCryptConfig
     {
         public string ExecutablePath { get; set; }
+        public string LauncherPath { get; set; }
         public bool Background { get; set; }
         public bool Silent { get; set; }
         public bool Cache { get; set; }

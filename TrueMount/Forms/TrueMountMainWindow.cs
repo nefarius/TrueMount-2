@@ -875,8 +875,6 @@ namespace TrueMount.Forms
             else
                 LogAppend("NoKeyFiles");
 
-            // create new process
-            Process truecrypt = new Process();
             // if not exists, exit
             if (string.IsNullOrEmpty(config.TrueCrypt.ExecutablePath))
             {
@@ -892,6 +890,8 @@ namespace TrueMount.Forms
             else
                 LogAppend("TCPath", config.TrueCrypt.ExecutablePath);
 
+            // create new process
+            Process truecrypt = new Process();
             // set exec name
             truecrypt.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
             // set arguments
