@@ -31,8 +31,6 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 		}
 	}
 
-	return origMessageBoxW(NULL, L"Lulz", L"Hai", MB_ICONINFORMATION|MB_OK);
-
 	if(origMessageBoxW != NULL)
 		return origMessageBoxW(hWnd, lpText, L"TrueMount", uType);
 
