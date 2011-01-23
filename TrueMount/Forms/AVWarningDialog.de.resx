@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="linkLabelVirusChief.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 299</value>
+  </data>
   <data name="labelHeading.Size" type="System.Drawing.Size, System.Drawing">
     <value>349, 25</value>
   </data>
@@ -126,6 +129,15 @@
   </data>
   <data name="labelMessage.Text" xml:space="preserve">
     <value>Sie sind hier gelandet (möglicherweise mit klopfendem Herzen) weil Ihr Anti-Virus oder Firewall-System eine Warnmeldung ausgegeben hat, welche besagt, dass TCLauncher.exe infiziert sei. Ich versichere Ihnen, dass es sich um eine Falschmeldung handelt. Das Programm nutzt eine Technik, die Viren ebenfalls gerne benutzen (genannt "DLL-Injection"). Dies hilft mir, Fehlermeldungen von TrueCrypt zu TrueMount umzuleiten, welches entsprechend darauf reagieren kann. Leider gibt es zu diesem Zeitpunkt keine vernünftige Alternative, da das Entwicklerteam von TrueCrypt noch immer keine Programmierschnittstelle (API) zur Verfügung stellt, was mir sehr helfen würde. Ich musste mir also eine eigene Lösung ausdenken um den Komfort zu erhalten. Ich bedanke mich für Ihr Vertrauen in mich und mein Programm und wünsche noch einen schönen, verschlüsselten Tag :-)</value>
+  </data>
+  <data name="linkLabelVirusTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 299</value>
+  </data>
+  <data name="labelAdvice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 13</value>
+  </data>
+  <data name="labelAdvice.Text" xml:space="preserve">
+    <value>Begutachten Sie die Analyseergebnisse:</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Anti-Virus-Meldung</value>

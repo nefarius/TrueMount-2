@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
-    <value>pictureBox3</value>
+  <data name="&gt;&gt;labelMessage.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelHeading.Font" type="System.Drawing.Font, System.Drawing">
@@ -127,8 +127,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;labelHeading.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="pictureBoxSkull.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
   </data>
   <data name="&gt;&gt;labelMessage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -139,8 +142,15 @@
   <data name="labelHeading.Size" type="System.Drawing.Size, System.Drawing">
     <value>329, 25</value>
   </data>
-  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxSkull.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="labelAdvice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 13</value>
   </data>
   <data name="&gt;&gt;labelHeading.Name" xml:space="preserve">
     <value>labelHeading</value>
@@ -151,28 +161,33 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="labelAdvice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 299</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AVWarningDialog</value>
   </data>
-  <data name="&gt;&gt;labelHeading.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
+  <data name="pictureBoxSkull.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="labelAdvice.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxSkull.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="labelMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
   </data>
-  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelAdvice.Name" xml:space="preserve">
+    <value>labelAdvice</value>
   </data>
-  <data name="labelMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 247</value>
+  <data name="&gt;&gt;labelAdvice.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="linkLabelVirusChief.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;linkLabelVirusChief.Parent" xml:space="preserve">
     <value>$this</value>
@@ -184,19 +199,31 @@
     <value>linkLabelVirusChief</value>
   </data>
   <data name="&gt;&gt;labelHeading.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="labelMessage.Text" xml:space="preserve">
     <value>You landed here (with a racing heart maybe) because your Anti-Virus or Application Firewall system has raised a warning/alert, that a component called TCLauncher.exe is infected. I can assure you, it's a so called false-positive. The program uses a technique similar to that of a virus. It's called "DLL-Injection" (look it up on the internet, it's very interesting) and helps me to receive error messages from TrueCrypt which TrueMount can analyze and react appropriate. Sadly, there is no other way to achieve this at the moment because the TrueCrypt team canceled the development of the application programming interface (API) which would be a great help. So I had to build my own method to ensure the convenience of the tool. I highly appreciate your trust in me and my work and wish you a nice and encrypted day :-)</value>
   </data>
   <data name="&gt;&gt;linkLabelVirusChief.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
-  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
+  <data name="labelAdvice.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 247</value>
   </data>
   <data name="&gt;&gt;labelMessage.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxSkull.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxSkull.Name" xml:space="preserve">
+    <value>pictureBoxSkull</value>
+  </data>
+  <data name="pictureBoxSkull.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;labelHeading.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -204,41 +231,65 @@
   <data name="labelMessage.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 52</value>
   </data>
+  <data name="linkLabelVirusTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 299</value>
+  </data>
+  <data name="&gt;&gt;linkLabelVirusTotal.Name" xml:space="preserve">
+    <value>linkLabelVirusTotal</value>
+  </data>
   <data name="linkLabelVirusChief.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 13</value>
   </data>
-  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="labelAdvice.Text" xml:space="preserve">
+    <value>Have a look at the scanning results:</value>
   </data>
   <data name="labelHeading.Text" xml:space="preserve">
     <value>Don't panic, everything's fine! Really!</value>
   </data>
-  <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;labelMessage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labelHeading.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelHeading.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="labelMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
+  <data name="linkLabelVirusTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="&gt;&gt;linkLabelVirusTotal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelHeading.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxSkull.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelAdvice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="linkLabelVirusChief.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="labelMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;linkLabelVirusTotal.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="linkLabelVirusTotal.Text" xml:space="preserve">
+    <value>VirusTotal</value>
+  </data>
+  <data name="linkLabelVirusTotal.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="linkLabelVirusChief.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 299</value>
+  </data>
+  <data name="pictureBoxSkull.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="&gt;&gt;labelMessage.Name" xml:space="preserve">
     <value>labelMessage</value>
-  </data>
-  <data name="linkLabelVirusChief.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 299</value>
   </data>
   <data name="labelHeading.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 16</value>
@@ -246,13 +297,16 @@
   <data name="&gt;&gt;linkLabelVirusChief.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;labelAdvice.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Anti-Virus message</value>
   </data>
-  <data name="labelMessage.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;linkLabelVirusTotal.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="linkLabelVirusChief.AutoSize" type="System.Boolean, mscorlib">
+  <data name="linkLabelVirusTotal.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

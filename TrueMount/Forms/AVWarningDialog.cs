@@ -10,11 +10,10 @@ using System.Diagnostics;
 
 namespace TrueMount.Forms
 {
-    public partial class AVWarningDialog : Form, IMessageFilter
+    public partial class AVWarningDialog : Form
     {
         public AVWarningDialog()
         {
-            Application.AddMessageFilter(this);
             InitializeComponent();
         }
 
@@ -23,25 +22,26 @@ namespace TrueMount.Forms
             Process.Start("http://www.viruschief.com/report.html?report_id=b8707fa94dc79ed185a0686589a05465db774b2b");
         }
 
-        private void AVWarningDialog_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         public bool PreFilterMessage(ref Message m)
         {
-            if (m.Msg == 0x201)
+            if (m.HWnd == pictureBoxSkull.Handle ||
+                m.HWnd == labelHeading.Handle ||
+                m.HWnd == labelMessage.Handle ||
+                m.HWnd == labelAdvice.Handle)
             {
-                this.Close();
-                return true;
+                if (m.Msg == 0x201)
+                {
+                    this.Close();
+                    return true;
+                }
             }
 
             return false;
         }
 
-        private void AVWarningDialog_FormClosing(object sender, FormClosingEventArgs e)
+        private void linkLabelVirusTotal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Application.RemoveMessageFilter(this);
+            Process.Start("http://www.virustotal.com/file-scan/report.html?id=bf25c559d7647ce7af5fa8d5ddc6199e657521123370e6956d17ed636a1e2592-1295731804");
         }
     }
 }

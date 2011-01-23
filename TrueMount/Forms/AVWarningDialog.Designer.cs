@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AVWarningDialog));
             this.linkLabelVirusChief = new System.Windows.Forms.LinkLabel();
             this.labelHeading = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSkull = new System.Windows.Forms.PictureBox();
             this.labelMessage = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.linkLabelVirusTotal = new System.Windows.Forms.LinkLabel();
+            this.labelAdvice = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkull)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabelVirusChief
@@ -48,23 +50,37 @@
             resources.ApplyResources(this.labelHeading, "labelHeading");
             this.labelHeading.Name = "labelHeading";
             // 
-            // pictureBox3
+            // pictureBoxSkull
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Image = global::TrueMount.Properties.Resources._1295709941_head;
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            resources.ApplyResources(this.pictureBoxSkull, "pictureBoxSkull");
+            this.pictureBoxSkull.Image = global::TrueMount.Properties.Resources._1295709941_head;
+            this.pictureBoxSkull.Name = "pictureBoxSkull";
+            this.pictureBoxSkull.TabStop = false;
             // 
             // labelMessage
             // 
             resources.ApplyResources(this.labelMessage, "labelMessage");
             this.labelMessage.Name = "labelMessage";
             // 
+            // linkLabelVirusTotal
+            // 
+            resources.ApplyResources(this.linkLabelVirusTotal, "linkLabelVirusTotal");
+            this.linkLabelVirusTotal.Name = "linkLabelVirusTotal";
+            this.linkLabelVirusTotal.TabStop = true;
+            this.linkLabelVirusTotal.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelVirusTotal_LinkClicked);
+            // 
+            // labelAdvice
+            // 
+            resources.ApplyResources(this.labelAdvice, "labelAdvice");
+            this.labelAdvice.Name = "labelAdvice";
+            // 
             // AVWarningDialog
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.labelAdvice);
+            this.Controls.Add(this.linkLabelVirusTotal);
+            this.Controls.Add(this.pictureBoxSkull);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelHeading);
             this.Controls.Add(this.linkLabelVirusChief);
@@ -74,9 +90,7 @@
             this.MinimizeBox = false;
             this.Name = "AVWarningDialog";
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AVWarningDialog_FormClosing);
-            this.Click += new System.EventHandler(this.AVWarningDialog_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkull)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,7 +100,9 @@
 
         private System.Windows.Forms.LinkLabel linkLabelVirusChief;
         private System.Windows.Forms.Label labelHeading;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxSkull;
         private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.LinkLabel linkLabelVirusTotal;
+        private System.Windows.Forms.Label labelAdvice;
     }
 }
