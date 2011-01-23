@@ -133,6 +133,9 @@ namespace updater
                 updateProc.StartInfo.UseShellExecute = false;
                 updateProc.StartInfo.FileName = Path.Combine(this.updateSavePath, "updater.exe");
                 updateProc.StartInfo.Arguments = "patch";
+                // on Vista/7/2008 ask for admin permissions
+                if (Environment.OSVersion.Version.Major > 5)
+                    updateProc.StartInfo.Verb = "runas";
 
                 try
                 {
