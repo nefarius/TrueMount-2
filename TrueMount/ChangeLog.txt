@@ -1,4 +1,4 @@
-﻿2.7.18.79
+﻿2.7.18.79 (2.7.19.83)
   * Added new TrueCrypt-Launcher for better error handling
   * Removed unused settings switches on TrueCrypt page
   * Added new error messages and corrected old ones

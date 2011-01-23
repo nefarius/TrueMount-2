@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TrueMount.Forms
 {
-    partial class SettingsDialog : Form, IMessageFilter
+    partial class SettingsDialog : Form
     {
         #region Definitions
         public Configuration config = null;
@@ -30,7 +30,6 @@ namespace TrueMount.Forms
         /// </summary>
         public SettingsDialog(ref Configuration config)
         {
-            Application.AddMessageFilter(this);
             this.config = config;
 
             // new list ob available SystemDevices
@@ -123,7 +122,6 @@ namespace TrueMount.Forms
                 if (MessageBox.Show(langRes.GetString("MsgTWarnNotSaved"), langRes.GetString("MsgHWarnNotSaved"),
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                     e.Cancel = true;
-            Application.RemoveMessageFilter(this);
         }
 
         #endregion
@@ -771,22 +769,9 @@ namespace TrueMount.Forms
             finally { Environment.Exit(1); }
         }
 
-        private void panelAVMessageInfo_Click(object sender, EventArgs e)
+        private void buttonAVMessage_Click(object sender, EventArgs e)
         {
             new AVWarningDialog().ShowDialog();
-        }
-
-        public bool PreFilterMessage(ref Message m)
-        {
-            if(m.HWnd == pictureBoxSkull.Handle ||
-                m.HWnd == labelAttention.Handle ||
-                m.HWnd == labelAVMessage.Handle)
-            {
-                if (m.Msg == 0x201)
-                    panelAVMessageInfo_Click(this, null);
-            }
-
-            return false;
         }
 
         #endregion

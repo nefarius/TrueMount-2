@@ -132,10 +132,7 @@
             this.tabPageTrueCrypt = new System.Windows.Forms.TabPage();
             this.pictureBoxTrueCryptHeader = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panelAVMessageInfo = new System.Windows.Forms.Panel();
-            this.pictureBoxSkull = new System.Windows.Forms.PictureBox();
-            this.labelAVMessage = new System.Windows.Forms.Label();
-            this.labelAttention = new System.Windows.Forms.Label();
+            this.buttonAVMessage = new System.Windows.Forms.Button();
             this.checkBoxShowLauncherError = new System.Windows.Forms.CheckBox();
             this.checkBoxCache = new System.Windows.Forms.CheckBox();
             this.checkBoxBeep = new System.Windows.Forms.CheckBox();
@@ -174,8 +171,6 @@
             this.tabPageTrueCrypt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTrueCryptHeader)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.panelAVMessageInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkull)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1049,7 +1044,7 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Controls.Add(this.panelAVMessageInfo);
+            this.groupBox2.Controls.Add(this.buttonAVMessage);
             this.groupBox2.Controls.Add(this.checkBoxShowLauncherError);
             this.groupBox2.Controls.Add(this.checkBoxCache);
             this.groupBox2.Controls.Add(this.checkBoxBeep);
@@ -1058,40 +1053,16 @@
             this.groupBox2.TabStop = false;
             this.toolTipSettings.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
             // 
-            // panelAVMessageInfo
+            // buttonAVMessage
             // 
-            resources.ApplyResources(this.panelAVMessageInfo, "panelAVMessageInfo");
-            this.panelAVMessageInfo.BackColor = System.Drawing.Color.Black;
-            this.panelAVMessageInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAVMessageInfo.Controls.Add(this.pictureBoxSkull);
-            this.panelAVMessageInfo.Controls.Add(this.labelAVMessage);
-            this.panelAVMessageInfo.Controls.Add(this.labelAttention);
-            this.panelAVMessageInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelAVMessageInfo.Name = "panelAVMessageInfo";
-            this.toolTipSettings.SetToolTip(this.panelAVMessageInfo, resources.GetString("panelAVMessageInfo.ToolTip"));
-            this.panelAVMessageInfo.Click += new System.EventHandler(this.panelAVMessageInfo_Click);
-            // 
-            // pictureBoxSkull
-            // 
-            resources.ApplyResources(this.pictureBoxSkull, "pictureBoxSkull");
-            this.pictureBoxSkull.Image = global::TrueMount.Properties.Resources._1295709941_head;
-            this.pictureBoxSkull.Name = "pictureBoxSkull";
-            this.pictureBoxSkull.TabStop = false;
-            this.toolTipSettings.SetToolTip(this.pictureBoxSkull, resources.GetString("pictureBoxSkull.ToolTip"));
-            // 
-            // labelAVMessage
-            // 
-            resources.ApplyResources(this.labelAVMessage, "labelAVMessage");
-            this.labelAVMessage.ForeColor = System.Drawing.Color.White;
-            this.labelAVMessage.Name = "labelAVMessage";
-            this.toolTipSettings.SetToolTip(this.labelAVMessage, resources.GetString("labelAVMessage.ToolTip"));
-            // 
-            // labelAttention
-            // 
-            resources.ApplyResources(this.labelAttention, "labelAttention");
-            this.labelAttention.ForeColor = System.Drawing.Color.Red;
-            this.labelAttention.Name = "labelAttention";
-            this.toolTipSettings.SetToolTip(this.labelAttention, resources.GetString("labelAttention.ToolTip"));
+            resources.ApplyResources(this.buttonAVMessage, "buttonAVMessage");
+            this.buttonAVMessage.BackColor = System.Drawing.Color.Black;
+            this.buttonAVMessage.ForeColor = System.Drawing.Color.White;
+            this.buttonAVMessage.Image = global::TrueMount.Properties.Resources._1295709941_head;
+            this.buttonAVMessage.Name = "buttonAVMessage";
+            this.toolTipSettings.SetToolTip(this.buttonAVMessage, resources.GetString("buttonAVMessage.ToolTip"));
+            this.buttonAVMessage.UseVisualStyleBackColor = false;
+            this.buttonAVMessage.Click += new System.EventHandler(this.buttonAVMessage_Click);
             // 
             // checkBoxShowLauncherError
             // 
@@ -1216,9 +1187,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTrueCryptHeader)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panelAVMessageInfo.ResumeLayout(false);
-            this.panelAVMessageInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSkull)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -1339,10 +1307,7 @@
         private System.Windows.Forms.CheckBox checkBoxFetchConPassword;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxShowLauncherError;
-        private System.Windows.Forms.PictureBox pictureBoxSkull;
-        private System.Windows.Forms.Label labelAVMessage;
-        private System.Windows.Forms.Label labelAttention;
-        private System.Windows.Forms.Panel panelAVMessageInfo;
+        private System.Windows.Forms.Button buttonAVMessage;
 
 
     }
