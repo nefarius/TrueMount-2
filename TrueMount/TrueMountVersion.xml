@@ -4,5 +4,7 @@
   <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
     ● Updater now asks for admin rights to patch in system directories (like C:\Program Files\TrueMount)
+	
+	NOTE: IF IT DOES NOT WORK, RUN TRUEMOUNT AS ADMINISTRATOR!
   </changes>
 </truemount>
