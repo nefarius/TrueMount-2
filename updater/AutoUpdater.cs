@@ -299,7 +299,9 @@ namespace updater
 
         public static void WriteLog(String logLine)
         {
-            using (StreamWriter sWriter = new StreamWriter("updater.log", true))
+            string logFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +
+                "updater.log";
+            using (StreamWriter sWriter = new StreamWriter(logFile, true))
             {
                 sWriter.WriteLine(DateTime.Now.ToShortTimeString() +
                     " - " + logLine);

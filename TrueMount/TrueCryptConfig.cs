@@ -13,6 +13,7 @@ namespace TrueMount
         public bool Cache { get; set; }
         public bool Explorer { get; set; }
         public bool Beep { get; set; }
+        public bool ShowErrors { get; set; }
         public string CommandLineArguments
         {
             get
@@ -31,6 +32,7 @@ namespace TrueMount
         public TrueCryptConfig()
         {
             Cache = true;
+            ShowErrors = true;
         }
     }
 }

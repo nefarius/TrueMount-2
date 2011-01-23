@@ -1,4 +1,11 @@
-﻿2.6.17.68
+﻿2.7.18.79
+  * Added new TrueCrypt-Launcher for better error handling
+  * Removed unused settings switches on TrueCrypt page
+  * Added new error messages and corrected old ones
+  * Fixed 'Add' button in Container files tab staying deactivated on dialog cancelation
+  * Fixed updater storing log file in wrong directory
+  * Added Anti-Virus warning info box to TrueCrypt-tab
+2.6.17.68
   * Fixed not mounting new attached encrypted devices
   * Minor changes to mount program logic
   * Removed 'Ignore key devices switch' (no more necessary)

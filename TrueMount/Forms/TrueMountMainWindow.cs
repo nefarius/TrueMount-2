@@ -763,6 +763,7 @@ namespace TrueMount.Forms
         {
             String password = string.Empty;
             bool mountSuccess = false;
+            bool bShowPasswdDlg = false;
 
             // letter we want to assign
             LogAppend("DriveLetter", encMedia.DriveLetter);
@@ -793,27 +794,7 @@ namespace TrueMount.Forms
                     // return if we run out of options
                     if (!encMedia.FetchUserPassword)
                         return mountSuccess;
-                    else
-                    {
-                        LogAppend("InfoPasswordDialog");
-
-                        if (pwDlg == null)
-                            pwDlg = new PasswordDialog(encMedia.ToString());
-                        else
-                            pwDlg.VolumeLabel = encMedia.ToString();
-
-                        // launch a new password dialog and annoy the user
-                        if (pwDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                        {
-                            LogAppend("PasswordFetchOk");
-                            password = pwDlg.Password;
-                        }
-                        else
-                        {
-                            LogAppend("PasswordDialogCanceled");
-                            return mountSuccess;
-                        }
-                    }
+                    else bShowPasswdDlg = true;
                 }
             }
             else
@@ -821,25 +802,29 @@ namespace TrueMount.Forms
                 LogAppend("PasswordEmptyOk");
                 // it will work without a password, but if the user wants to talk to me...
                 if (encMedia.FetchUserPassword)
+                    bShowPasswdDlg = true;
+            }
+
+            // prompt password dialog to fetch password from user
+            if(bShowPasswdDlg)
+            {
+                LogAppend("InfoPasswordDialog");
+
+                if (pwDlg == null)
+                    pwDlg = new PasswordDialog(encMedia.ToString());
+                else
+                    pwDlg.VolumeLabel = encMedia.ToString();
+
+                // launch a new password dialog and annoy the user
+                if (pwDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    LogAppend("InfoPasswordDialog");
-
-                    if (pwDlg == null)
-                        pwDlg = new PasswordDialog(encMedia.ToString());
-                    else
-                        pwDlg.VolumeLabel = encMedia.ToString();
-
-                    // launch a new password dialog and annoy the user
-                    if (pwDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        LogAppend("PasswordFetchOk");
-                        password = pwDlg.Password;
-                    }
-                    else
-                    {
-                        LogAppend("PasswordDialogCanceled");
-                        return mountSuccess;
-                    }
+                    LogAppend("PasswordFetchOk");
+                    password = pwDlg.Password;
+                }
+                else
+                {
+                    LogAppend("PasswordDialogCanceled");
+                    return mountSuccess;
                 }
             }
 
@@ -923,33 +908,29 @@ namespace TrueMount.Forms
             Cursor.Current = Cursors.WaitCursor;
 
             // Wait for incoming message
-            bool ipcSuccess = true;
             using (NamedPipeServerStream npServer = new NamedPipeServerStream("TrueCryptMessage"))
             {
                 npServer.WaitForConnection();
                 using (StreamReader sReader = new StreamReader(npServer, Encoding.Unicode))
                 {
                     String input = sReader.ReadToEnd();
+
                     if (input != "OK")
                     {
                         LogAppend("ErrTrueCryptMsg", input);
-                        ipcSuccess = false;
+                        if(config.TrueCrypt.ShowErrors)
+                            MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
+                                langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        LogAppend("MountCanceled", encMedia.ToString());
+                        Cursor.Current = Cursors.Default;
+                        return mountSuccess;
                     }
                     else
                         LogAppend("InfoLauncherOk");
                 }
             }
 
-            // If not successful log/display error
-            if (!ipcSuccess)
-            {
-                MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
-                    langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                LogAppend("MountCanceled", encMedia.ToString());
-                Cursor.Current = Cursors.Default;
-                return mountSuccess;
-            }
             Cursor.Current = Cursors.Default;
 
             LogAppend("LogicalDiskOnline", encMedia.DriveLetter);
@@ -999,8 +980,9 @@ namespace TrueMount.Forms
             }
 
             Process tcUnmount = new Process();
-            tcUnmount.StartInfo.FileName = config.TrueCrypt.ExecutablePath;
-            tcUnmount.StartInfo.Arguments = "/q background";
+            tcUnmount.StartInfo.FileName = Configuration.LauncherLocation;
+            tcUnmount.StartInfo.Arguments = '"' + config.TrueCrypt.ExecutablePath +
+                "\" /q ";
 
             // force dismount?
             if (config.ForceUnmount)
@@ -1028,6 +1010,28 @@ namespace TrueMount.Forms
                 LogAppend("ErrGeneral", ioex.Message);
                 LogAppend("ErrCheckConfig");
                 return false;
+            }
+
+            // Wait for incoming message
+            using (NamedPipeServerStream npServer = new NamedPipeServerStream("TrueCryptMessage"))
+            {
+                npServer.WaitForConnection();
+                using (StreamReader sReader = new StreamReader(npServer, Encoding.Unicode))
+                {
+                    String input = sReader.ReadToEnd();
+                    if (input != "OK")
+                    {
+                        LogAppend("ErrTrueCryptMsg", input);
+
+                        if(config.TrueCrypt.ShowErrors)
+                            MessageBox.Show(string.Format(langRes.GetString("MsgTUmountFailed"), encMedia),
+                                langRes.GetString("MsgHUmountFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return false;
+                    }
+                    else
+                        LogAppend("InfoLauncherOk");
+                }
             }
 
             LogAppend("MsgDone");

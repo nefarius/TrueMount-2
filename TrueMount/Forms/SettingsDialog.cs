@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TrueMount.Forms
 {
-    partial class SettingsDialog : Form
+    partial class SettingsDialog : Form, IMessageFilter
     {
         #region Definitions
         public Configuration config = null;
@@ -30,6 +30,7 @@ namespace TrueMount.Forms
         /// </summary>
         public SettingsDialog(ref Configuration config)
         {
+            Application.AddMessageFilter(this);
             this.config = config;
 
             // new list ob available SystemDevices
@@ -89,6 +90,7 @@ namespace TrueMount.Forms
             checkBoxBeep.Checked = config.TrueCrypt.Beep;
             checkBoxCache.Checked = config.TrueCrypt.Cache;
             checkBoxExplorer.Checked = config.TrueCrypt.Explorer;
+            checkBoxShowLauncherError.Checked = config.TrueCrypt.ShowErrors;
 
             // read key devices and add them to the list
             listBoxKeyDevices.Items.AddRange(config.KeyDevices.ToArray());
@@ -121,6 +123,7 @@ namespace TrueMount.Forms
                 if (MessageBox.Show(langRes.GetString("MsgTWarnNotSaved"), langRes.GetString("MsgHWarnNotSaved"),
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                     e.Cancel = true;
+            Application.RemoveMessageFilter(this);
         }
 
         #endregion
@@ -540,6 +543,11 @@ namespace TrueMount.Forms
             Process.Start("http://www.truecrypt.org/");
         }
 
+        private void checkBoxShowLauncherError_CheckedChanged(object sender, EventArgs e)
+        {
+            config.TrueCrypt.ShowErrors = checkBoxShowLauncherError.Checked;
+        }
+
         #endregion
 
         #region Container Files Tab Events
@@ -761,6 +769,24 @@ namespace TrueMount.Forms
             }
             catch {/* who cares? */}
             finally { Environment.Exit(1); }
+        }
+
+        private void panelAVMessageInfo_Click(object sender, EventArgs e)
+        {
+            new AVWarningDialog().ShowDialog();
+        }
+
+        public bool PreFilterMessage(ref Message m)
+        {
+            if(m.HWnd == pictureBoxSkull.Handle ||
+                m.HWnd == labelAttention.Handle ||
+                m.HWnd == labelAVMessage.Handle)
+            {
+                if (m.Msg == 0x201)
+                    panelAVMessageInfo_Click(this, null);
+            }
+
+            return false;
         }
 
         #endregion

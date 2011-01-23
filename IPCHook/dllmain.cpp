@@ -45,9 +45,6 @@ BOOL APIENTRY DllMain(_In_ void * _HDllHandle, _In_ unsigned _Reason, _In_opt_ v
 	{
 	case DLL_PROCESS_ATTACH:
 		origMessageBoxW = nch.createHook(MessageBoxW, MessageBoxHook);
-
-		if(origMessageBoxW == NULL)
-			MessageBeep(1);
 		break;
 	case DLL_PROCESS_DETACH:
 		nch.removeHook(MessageBoxHook);

@@ -235,7 +235,7 @@
     <value>The chosen disk seems to be offline, please reopen this dialog!</value>
   </data>
   <data name="MsgTDiskTimeout" xml:space="preserve">
-    <value>The mount of {0} seems seems to have not worked! Please check the log output and your settings!</value>
+    <value>The mount of "{0}" has not worked! Please check the log output and your settings!</value>
   </data>
   <data name="MsgTInsranceInfo" xml:space="preserve">
     <value>There is already an instance of TrueMount running!</value>
@@ -428,5 +428,11 @@
   </data>
   <data name="InfoLauncherOk" xml:space="preserve">
     <value>Info: Laucher exited successfully.</value>
+  </data>
+  <data name="MsgHUmountFailed" xml:space="preserve">
+    <value>Unmount failed</value>
+  </data>
+  <data name="MsgTUmountFailed" xml:space="preserve">
+    <value>The dismount of "{0}" did not work, please check the message log why!</value>
   </data>
 </root>

@@ -547,6 +547,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unmount failed.
+        /// </summary>
+        internal static string MsgHUmountFailed {
+            get {
+                return ResourceManager.GetString("MsgHUmountFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incompatibility problem.
         /// </summary>
         internal static string MsgHUpdateIncompatible {
@@ -601,7 +610,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The mount of {0} seems seems to have not worked! Please check the log output and your settings!.
+        ///   Looks up a localized string similar to The mount of &quot;{0}&quot; has not worked! Please check the log output and your settings!.
         /// </summary>
         internal static string MsgTDiskTimeout {
             get {
@@ -669,6 +678,15 @@ namespace TrueMount {
         internal static string MsgTSaved {
             get {
                 return ResourceManager.GetString("MsgTSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The dismount of &quot;{0}&quot; did not work, please check the message log why!.
+        /// </summary>
+        internal static string MsgTUmountFailed {
+            get {
+                return ResourceManager.GetString("MsgTUmountFailed", resourceCulture);
             }
         }
         

@@ -121,8 +121,8 @@
   <data name="1277233011_window_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1277233011_window_list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1276786795_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1276786795_remove.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1286800325_unmount_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1286800325_unmount_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1276790510_gear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276790510_gear.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -132,9 +132,6 @@
   </data>
   <data name="1276771116_dialog-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276771116_dialog-close.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1277903227_Flash Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1277903227_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1285602715_page_white_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1285602715_page_white_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +151,11 @@
   <data name="1276790845_preferences-desktop-cryptography" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276790845_preferences-desktop-cryptography.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1286800325_unmount_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1286800325_unmount_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1287860743_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1287860743_info.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1276786795_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1276786795_remove.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1277233069_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1277233069_copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,6 +174,9 @@
   </data>
   <data name="1276786893_drive_disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1276786893_drive_disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1277903227_Flash Disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1277903227_Flash Disk.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tc_header" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tc_header.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -200,7 +203,7 @@
     <value>..\Resources\1276771048_Cloud Download On.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1287860743_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1287860743_info.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1295709941_head" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1295709941_head.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

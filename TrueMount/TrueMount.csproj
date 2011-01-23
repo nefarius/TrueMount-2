@@ -140,6 +140,12 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="EncryptedContainerFile.cs" />
     <Compile Include="EncryptedMedia.cs" />
+    <Compile Include="Forms\AVWarningDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AVWarningDialog.Designer.cs">
+      <DependentUpon>AVWarningDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KeyFilesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AVWarningDialog.de.resx">
+      <DependentUpon>AVWarningDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AVWarningDialog.resx">
+      <DependentUpon>AVWarningDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KeyFilesDialog.de.resx">
       <DependentUpon>KeyFilesDialog.cs</DependentUpon>
@@ -259,6 +271,7 @@
     <Content Include="1276686629_preferences-desktop-cryptography.ico" />
     <None Include="Resources\1286800325_unmount_overlay.png" />
     <None Include="Resources\1287860743_info.png" />
+    <None Include="Resources\1295709941_head.ico" />
     <Content Include="TrueMountVersion.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -341,7 +354,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>7z.exe a -tzip -mx9 "$(SolutionDir)$(TargetName)_latest.zip" "$(SolutionDir)$(ConfigurationName)\*"</PostBuildEvent>
+    <PostBuildEvent>7z.exe a -tzip -mx9 "$(SolutionDir)$(TargetName)_latest.zip" "$(SolutionDir)$(ConfigurationName)\*" -x!.svn</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
