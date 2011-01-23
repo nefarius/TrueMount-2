@@ -9,7 +9,7 @@ BOOL FileExists(LPCTSTR fileName);
 VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit = FALSE);
 DWORD InjectDll(DWORD dwProcessId, LPCTSTR dllName);
 DWORD EjectDll(DWORD dwProcessId, LPCTSTR dllName);
-BOOL CreateAndInjectDll(LPCTSTR lpProcessName, LPTSTR lpArgs, LPCTSTR dllName);
+BOOL CreateAndInjectDll(LPCTSTR lpProcessName, LPTSTR lpArgs, LPCTSTR dllName, DWORD dwWait);
 HANDLE CreateInvisible(LPCTSTR lpProcName, LPTSTR lpArgs, LPDWORD dwPid);
 BOOL WaitAndInjectDll(LPCTSTR lpModuleBaseName, LPCTSTR dllName);
 BOOL MultiByteToUnicode(LPCSTR multiByteStr, LPWSTR unicodeStr, DWORD size);
