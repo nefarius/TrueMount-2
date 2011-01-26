@@ -130,12 +130,14 @@ namespace updater
 
                 // execute new downloaded version with "patch" flag
                 Process updateProc = new Process();
-                updateProc.StartInfo.UseShellExecute = false;
                 updateProc.StartInfo.FileName = Path.Combine(this.updateSavePath, "updater.exe");
                 updateProc.StartInfo.Arguments = "patch";
                 // on Vista/7/2008 ask for admin permissions
-                if (Environment.OSVersion.Version.Major > 5)
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    updateProc.StartInfo.UseShellExecute = true;
                     updateProc.StartInfo.Verb = "runas";
+                }
 
                 try
                 {
