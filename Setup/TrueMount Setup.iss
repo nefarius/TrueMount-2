@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppID={{98BFC619-6202-49CA-BEA6-D26F786FAC7D}
 AppName=TrueMount
-AppVersion=2.6.16.57
+AppVersion=2.7.19.88
 AppVerName=TrueMount 2
 AppPublisher=Nefarius
 AppPublisherURL=http://nefarius.darkhosters.net/windows/truemount2
@@ -39,13 +39,8 @@ Name: "german"; MessagesFile: "compiler:Languages\German.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\TrueMount.exe"; DestDir: {app}; Flags: ignoreversion; 
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\ICSharpCode.SharpZipLib.dll"; DestDir: {app}; Flags: ignoreversion; 
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\de\*"; DestDir: {app}\de; Flags: ignoreversion recursesubdirs createallsubdirs; 
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\en\*"; DestDir: {app}\en; Flags: ignoreversion recursesubdirs createallsubdirs; 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\updater.exe"; DestDir: {app}; 
-Source: "M:\Development\C#\TrueMount 2\TrueMount\bin\Release\TrueMount.exe.config"; DestDir: {app}; 
+DestDir: {app}; Source: "M:\Development\C#\TrueMount 2\Release\*"; Excludes: ".svn"; Flags: recursesubdirs; 
 
 [Icons]
 Name: "{group}\TrueMount"; Filename: "{app}\TrueMount.exe"
@@ -53,3 +48,5 @@ Name: "{commondesktop}\TrueMount"; Filename: "{app}\TrueMount.exe"; Tasks: deskt
 
 [Run]
 Filename: "{app}\TrueMount.exe"; Description: "{cm:LaunchProgram,TrueMount}"; Flags: nowait postinstall skipifsilent
+
+[Dirs]
