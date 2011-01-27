@@ -123,6 +123,12 @@
   <data name="DownloadProgress" xml:space="preserve">
     <value>Heruntergeladen: {0}%</value>
   </data>
+  <data name="MsgHErrDirData" xml:space="preserve">
+    <value>Interner Fehler</value>
+  </data>
+  <data name="MsgHErrWritePerm" xml:space="preserve">
+    <value>Keine Schreibrechte</value>
+  </data>
   <data name="MsgHNoNewVersion" xml:space="preserve">
     <value>Keine neue Version</value>
   </data>
@@ -134,6 +140,12 @@
   </data>
   <data name="MsgHUpdateFail" xml:space="preserve">
     <value>Aktualisierung gescheitert</value>
+  </data>
+  <data name="MsgTErrDirData" xml:space="preserve">
+    <value>Entschuldigung, aber ich konnte leider wichtige Informationen nicht empfangen, bitte später noch mal versuchen oder den Entwickler kontaktieren!</value>
+  </data>
+  <data name="MsgTErrWritePerm" xml:space="preserve">
+    <value>Entschuldigung, aber ich konnte nicht nach "{0}" schreiben, bitte starte mich nochmal als Administrator oder prüfe die Ordner-Rechte!</value>
   </data>
   <data name="MsgTNoNewVersion" xml:space="preserve">
     <value>Keine neue Version verfügbar zur Zeit.</value>

@@ -5,11 +5,17 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using System.Security.Permissions;
+using System.Resources;
+using System.Reflection;
+using System.Security;
 
 namespace updater
 {
     static class Program
     {
+        private static ResourceManager langRes;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,6 +24,8 @@ namespace updater
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // loa languages
+            langRes = new ResourceManager("updater.LanguageDictionary", Assembly.GetExecutingAssembly());
 
             // parse argument line
             foreach (string item in args)
@@ -32,7 +40,7 @@ namespace updater
                             // get important directories from shared memory
                             using (NamedPipeClientStream inPipe = new NamedPipeClientStream("TrueMountUpdater"))
                             {
-                                // wait 3 secounds (must be enough)
+                                // wait 3 seconds (must be enough)
                                 inPipe.Connect(3000);
 
                                 // read directory information
@@ -43,10 +51,29 @@ namespace updater
                                 }
                             }
 
+                            if (string.IsNullOrEmpty(srcDir) || string.IsNullOrEmpty(dstDir))
+                            {
+                                MessageBox.Show(langRes.GetString("MsgTErrDirData"), langRes.GetString("MsgHErrDirData"),
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return 2;
+                            }
+
                             // wait till the server updater process closed himself
                             while (Process.GetProcessesByName("updater").Count() > 1) Thread.Sleep(1000);
-                            // patch the current version
-                            AutoUpdater.CopyFolder(srcDir, dstDir);
+
+                            try
+                            {
+                                // patch the current version
+                                AutoUpdater.CopyFolder(srcDir, dstDir);
+                            }
+                            catch
+                            {
+                                MessageBox.Show(string.Format(langRes.GetString("MsgTErrWritePerm"), dstDir), 
+                                    langRes.GetString("MsgHErrWritePerm"),
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return 2;
+                            }
+
                             // launch the new version of truemount
                             Process.Start(Path.Combine(dstDir, "TrueMount.exe"));
                         }

@@ -6,6 +6,8 @@ using System.IO.Pipes;
 using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
+using System.Security.Permissions;
+using System.Security;
 
 namespace updater
 {

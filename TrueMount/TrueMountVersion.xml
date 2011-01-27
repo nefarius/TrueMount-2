@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.7.19.92</version>
+  <version>2.7.19.94</version>
   <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
-    ● Fixed the f*ckin' updater not launching the UAC dialog on Vista/7 REALLY NOW!!1^1!
+    ● Ok, you will laugh at me BUT NOW I THINK I FIXED THIS UAC-CR*P!!^! FOR REAL!!
     ● Updated the Setup to the lastest version
 
     NOTE: THE CHANGES APPLY _AFTER_ THE UPDATE, YOU MAY HAVE TO RUN THE PROGRAM AS ADMINISTRATOR!

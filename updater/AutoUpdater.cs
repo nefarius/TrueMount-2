@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using System.Xml;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
@@ -265,29 +264,21 @@ namespace updater
         /// <param name="destFolder">The target directory.</param>
         public static void CopyFolder(string sourceFolder, string destFolder)
         {
-            try
-            {
-                if (!Directory.Exists(destFolder))
-                    Directory.CreateDirectory(destFolder);
-                string[] files = Directory.GetFiles(sourceFolder);
-                foreach (string file in files)
-                {
-                    string name = Path.GetFileName(file);
-                    string dest = Path.Combine(destFolder, name);
-                    File.Copy(file, dest, true);
-                }
+            if (!Directory.Exists(destFolder))
+                Directory.CreateDirectory(destFolder);
 
-                string[] folders = Directory.GetDirectories(sourceFolder);
-                foreach (string folder in folders)
-                {
-                    string name = Path.GetFileName(folder);
-                    string dest = Path.Combine(destFolder, name);
-                    CopyFolder(folder, dest);
-                }
-            }
-            catch (Exception ex)
+            foreach (string file in Directory.GetFiles(sourceFolder))
             {
-                WriteLog(ex);
+                string name = Path.GetFileName(file);
+                string dest = Path.Combine(destFolder, name);
+                File.Copy(file, dest, true);
+            }
+
+            foreach (string folder in Directory.GetDirectories(sourceFolder))
+            {
+                string name = Path.GetFileName(folder);
+                string dest = Path.Combine(destFolder, name);
+                CopyFolder(folder, dest);
             }
         }
 

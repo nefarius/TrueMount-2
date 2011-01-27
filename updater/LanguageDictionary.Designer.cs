@@ -79,6 +79,24 @@ namespace updater {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internal error.
+        /// </summary>
+        internal static string MsgHErrDirData {
+            get {
+                return ResourceManager.GetString("MsgHErrDirData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No write permissions.
+        /// </summary>
+        internal static string MsgHErrWritePerm {
+            get {
+                return ResourceManager.GetString("MsgHErrWritePerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No new version.
         /// </summary>
         internal static string MsgHNoNewVersion {
@@ -111,6 +129,24 @@ namespace updater {
         internal static string MsgHUpdateFail {
             get {
                 return ResourceManager.GetString("MsgHUpdateFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, but I could not receive important patch info, please try again later or contact the developer!.
+        /// </summary>
+        internal static string MsgTErrDirData {
+            get {
+                return ResourceManager.GetString("MsgTErrDirData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, but I can not write to &quot;{0}&quot;, please re-run me as Administrator or check the permissions of the directory!.
+        /// </summary>
+        internal static string MsgTErrWritePerm {
+            get {
+                return ResourceManager.GetString("MsgTErrWritePerm", resourceCulture);
             }
         }
         

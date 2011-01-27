@@ -123,6 +123,12 @@
   <data name="DownloadProgress" xml:space="preserve">
     <value>Downloaded: {0}%</value>
   </data>
+  <data name="MsgHErrDirData" xml:space="preserve">
+    <value>Internal error</value>
+  </data>
+  <data name="MsgHErrWritePerm" xml:space="preserve">
+    <value>No write permissions</value>
+  </data>
   <data name="MsgHNoNewVersion" xml:space="preserve">
     <value>No new version</value>
   </data>
@@ -134,6 +140,12 @@
   </data>
   <data name="MsgHUpdateFail" xml:space="preserve">
     <value>Update error</value>
+  </data>
+  <data name="MsgTErrDirData" xml:space="preserve">
+    <value>Sorry, but I could not receive important patch info, please try again later or contact the developer!</value>
+  </data>
+  <data name="MsgTErrWritePerm" xml:space="preserve">
+    <value>Sorry, but I can not write to "{0}", please re-run me as Administrator or check the permissions of the directory!</value>
   </data>
   <data name="MsgTNoNewVersion" xml:space="preserve">
     <value>No new version available at time.</value>
