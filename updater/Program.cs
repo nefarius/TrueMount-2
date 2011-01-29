@@ -24,7 +24,7 @@ namespace updater
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // loa languages
+            // load languages
             langRes = new ResourceManager("updater.LanguageDictionary", Assembly.GetExecutingAssembly());
 
             // parse argument line
