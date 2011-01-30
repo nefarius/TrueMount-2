@@ -290,8 +290,10 @@ namespace updater
 
         public static void WriteLog(String logLine)
         {
-            string logFile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +
-                "updater.log";
+            string appDataDir = 
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), 
+                "TrueMount");
+            string logFile = Path.Combine(appDataDir, "updater.log");
             using (StreamWriter sWriter = new StreamWriter(logFile, true))
             {
                 sWriter.WriteLine(DateTime.Now.ToShortTimeString() +
