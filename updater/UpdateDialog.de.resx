@@ -130,13 +130,13 @@
   <data name="buttonCancelUpdate.Text" xml:space="preserve">
     <value>Jetzt nicht aktualisieren</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 4</value>
+  <data name="labelUpdateMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 26</value>
+  <data name="labelUpdateMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 18</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="labelUpdateMessage.Text" xml:space="preserve">
     <value>Eine neue Version von TrueMount ist verfügbar!</value>
   </data>
   <data name="linkLabelViewChanges.Size" type="System.Drawing.Size, System.Drawing">

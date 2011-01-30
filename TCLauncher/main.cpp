@@ -1,7 +1,6 @@
 #include <Windows.h>
 #include <tchar.h>
 
-//#define _NOINJECT
 
 VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit = TRUE);
 
@@ -22,12 +21,26 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	int iLength = lpPathEnd - lpPathBegin;
 	_tcsncpy_s(szTrueCryptPath, sizeof(szTrueCryptPath), lpPathBegin, iLength);
 #ifdef _DEBUG
-	MessageBox(NULL, lpPathEnd + 5, L"TCArgs", MB_ICONINFORMATION|MB_OK);
+	MessageBox(NULL, lpPathEnd + 1, L"TCArgs", MB_ICONINFORMATION|MB_OK);
 #endif
 
 	// Get absolute DLL location
 	GetModuleFileName(NULL, szDllPath, MAX_PATH);
 	_tcscpy_s(_tcsrchr(szDllPath, '\\') + 1, sizeof(szDllPath), szDllName);
+
+	// Get Operating System Version
+	OSVERSIONINFO osVer;
+	ZeroMemory(&osVer, sizeof(osVer));
+	osVer.dwOSVersionInfoSize = sizeof(osVer);
+	if(!GetVersionEx(&osVer))
+		ErrorExit(_T("GetVersionEx"));
+
+#ifdef _DEBUG
+	if(osVer.dwMajorVersion == 5)
+		MessageBox(NULL, _T("Windows XP"), _T("OS"), MB_ICONINFORMATION|MB_OK);
+	else if(osVer.dwMajorVersion == 6)
+		MessageBox(NULL, _T("Windows Vista/7"), _T("OS"), MB_ICONINFORMATION|MB_OK);
+#endif
 
 	// Define and clean process information
 	STARTUPINFO lpStartupInfo;
@@ -35,14 +48,19 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	lpStartupInfo.cb = sizeof(lpStartupInfo);
 	PROCESS_INFORMATION lpProcInfo;
 	ZeroMemory(&lpProcInfo, sizeof(lpProcInfo));
+	DWORD dwCreationFlags = DETACHED_PROCESS;
 
-	// Fire up TrueCrypt in suspended mode
+	// Avoid Windows XP thread bug
+	if(osVer.dwMajorVersion >= 6)
+		dwCreationFlags |= CREATE_SUSPENDED;
+
+	// Fire up TrueCrypt
 	if(!CreateProcess(szTrueCryptPath,
 		lpPathEnd + 1,
 		NULL,
 		NULL,
 		FALSE,
-		CREATE_SUSPENDED|DETACHED_PROCESS,
+		dwCreationFlags,
 		NULL,
 		NULL,
 		&lpStartupInfo,
@@ -51,7 +69,6 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 		ErrorExit(_T("CreateProcess"));
 	}
 
-#ifndef _NOINJECT
 	// Get address of kernel32.dll
 	HMODULE hKernel32 = GetModuleHandle(_T("Kernel32"));
 	if(NULL == hKernel32)
@@ -78,9 +95,18 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	if(0 == WriteProcessMemory(hProcess, pLibRemote, (void*)szDllPath, sizeof(szDllPath), NULL))
 		ErrorExit(_T("WriteProcessMemory"));
 
+	PTHREAD_START_ROUTINE pfnThreadRtm;
+#ifdef _UNICODE
+	// Get address of LoadLibraryW() function
+	pfnThreadRtm = (PTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryW");
+#else
+	// Get address of LoadLibraryA() function
+	pfnThreadRtm = (PTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryA");
+#endif
+
 	// Launch new Thread in target process and load DLL
 	HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0,	
-		(LPTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryW"), pLibRemote, 0, NULL);
+		pfnThreadRtm, pLibRemote, 0, NULL);
 
 	DWORD hLibModule = 0;
 	if( hThread != NULL )
@@ -98,12 +124,13 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 		ErrorExit(_T("CreateRemoteThread"));
 
 	CloseHandle(hProcess);
-#endif
 
-	// Resume main thread
-	if(ResumeThread(lpProcInfo.hThread) == (DWORD)-1)
-		ErrorExit(_T("ResumeThread"));
+	// Resume main thread (only on Vista/7)
+	if(osVer.dwMajorVersion >= 6)
+		if(ResumeThread(lpProcInfo.hThread) == (DWORD)-1)
+			ErrorExit(_T("ResumeThread"));
 	
+	// Wait till process exited
 	WaitForSingleObject(lpProcInfo.hProcess, INFINITE);
 	// Cleanup
 	CloseHandle(lpProcInfo.hProcess);

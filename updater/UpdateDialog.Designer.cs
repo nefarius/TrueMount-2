@@ -35,7 +35,7 @@
             this.buttonPerformUpdate = new System.Windows.Forms.Button();
             this.buttonCancelUpdate = new System.Windows.Forms.Button();
             this.panelUpdateQuestion = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelUpdateMessage = new System.Windows.Forms.Label();
             this.linkLabelViewChanges = new System.Windows.Forms.LinkLabel();
             this.panelProgress = new System.Windows.Forms.Panel();
             this.panelChanges = new System.Windows.Forms.Panel();
@@ -71,25 +71,25 @@
             // 
             // buttonCancelUpdate
             // 
-            this.buttonCancelUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.buttonCancelUpdate, "buttonCancelUpdate");
+            this.buttonCancelUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancelUpdate.Name = "buttonCancelUpdate";
             this.buttonCancelUpdate.UseVisualStyleBackColor = true;
             this.buttonCancelUpdate.Click += new System.EventHandler(this.buttonCancelUpdate_Click);
             // 
             // panelUpdateQuestion
             // 
-            this.panelUpdateQuestion.Controls.Add(this.label1);
+            resources.ApplyResources(this.panelUpdateQuestion, "panelUpdateQuestion");
+            this.panelUpdateQuestion.Controls.Add(this.labelUpdateMessage);
             this.panelUpdateQuestion.Controls.Add(this.linkLabelViewChanges);
             this.panelUpdateQuestion.Controls.Add(this.buttonPerformUpdate);
             this.panelUpdateQuestion.Controls.Add(this.buttonCancelUpdate);
-            resources.ApplyResources(this.panelUpdateQuestion, "panelUpdateQuestion");
             this.panelUpdateQuestion.Name = "panelUpdateQuestion";
             // 
-            // label1
+            // labelUpdateMessage
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.labelUpdateMessage, "labelUpdateMessage");
+            this.labelUpdateMessage.Name = "labelUpdateMessage";
             // 
             // linkLabelViewChanges
             // 
@@ -100,16 +100,16 @@
             // 
             // panelProgress
             // 
+            resources.ApplyResources(this.panelProgress, "panelProgress");
             this.panelProgress.Controls.Add(this.progressBarDownload);
             this.panelProgress.Controls.Add(this.labelCurrentAction);
-            resources.ApplyResources(this.panelProgress, "panelProgress");
             this.panelProgress.Name = "panelProgress";
             // 
             // panelChanges
             // 
+            resources.ApplyResources(this.panelChanges, "panelChanges");
             this.panelChanges.Controls.Add(this.labelChangeLog);
             this.panelChanges.Controls.Add(this.richTextBoxChanges);
-            resources.ApplyResources(this.panelChanges, "panelChanges");
             this.panelChanges.Name = "panelChanges";
             // 
             // labelChangeLog
@@ -119,8 +119,8 @@
             // 
             // richTextBoxChanges
             // 
-            this.richTextBoxChanges.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.richTextBoxChanges, "richTextBoxChanges");
+            this.richTextBoxChanges.BackColor = System.Drawing.Color.White;
             this.richTextBoxChanges.Name = "richTextBoxChanges";
             this.richTextBoxChanges.ReadOnly = true;
             // 
@@ -155,7 +155,7 @@
         private System.Windows.Forms.Button buttonCancelUpdate;
         private System.Windows.Forms.Panel panelUpdateQuestion;
         private System.Windows.Forms.LinkLabel linkLabelViewChanges;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUpdateMessage;
         private System.Windows.Forms.Panel panelProgress;
         private System.Windows.Forms.Panel panelChanges;
         private System.Windows.Forms.RichTextBox richTextBoxChanges;

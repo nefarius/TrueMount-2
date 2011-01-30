@@ -175,6 +175,9 @@
   <data name="contextMenuStripSysTray.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 202</value>
   </data>
+  <data name="contextMenuStripSysTray.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="notifyIconSysTray.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAAAIABoBAAAVgAAACAgAAAAACAAqBAAAL4EAAAwMAAAAAAgAKglAABmFQAAQEAAAAAA
@@ -1841,17 +1844,26 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="contextMenuStripClipboard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 26</value>
-  </data>
   <data name="copyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
   </data>
   <data name="copyToolStripMenuItem.Text" xml:space="preserve">
     <value>Kopieren</value>
   </data>
+  <data name="contextMenuStripClipboard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 26</value>
+  </data>
+  <data name="contextMenuStripClipboard.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="richTextBoxLog.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Meldungen</value>
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="linkLabelNefarius.ToolTip" xml:space="preserve">
     <value>Guggt mal auf meine Webseite für mehr tolles Zeug! :)</value>
@@ -1865,14 +1877,8 @@
   <data name="label2.Text" xml:space="preserve">
     <value>TrueMount - komfortable Sicherheit</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 25</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Test-Version</value>
-  </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value>Dies ist eine Testversion, Fehler könnten auftreten!</value>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="buttonStopWorker.Location" type="System.Drawing.Point, System.Drawing">
     <value>125, 19</value>
@@ -1931,6 +1937,12 @@
   <data name="buttonClose.ToolTip" xml:space="preserve">
     <value>Schließe das Programm</value>
   </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Test-Version</value>
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value>Dies ist eine Testversion, Fehler könnten auftreten!</value>
+  </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 359</value>
   </data>
@@ -1939,6 +1951,9 @@
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Aktionen</value>
+  </data>
+  <data name="groupBox3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3608,6 +3623,9 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>NoControl</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -786,6 +786,9 @@ namespace TrueMount.Forms
                     StreamReader pwFileStream = new StreamReader(encMedia.PasswordFile, System.Text.Encoding.UTF8);
                     password = pwFileStream.ReadLine();
                     pwFileStream.Close();
+#if DEBUG
+                    LogAppend(null, "Password: {0}", password);
+#endif
                     LogAppend("PasswordReadOk");
                 }
                 else
@@ -820,6 +823,9 @@ namespace TrueMount.Forms
                 {
                     LogAppend("PasswordFetchOk");
                     password = pwDlg.Password;
+#if DEBUG
+                    LogAppend(null, "Password: {0}", password);
+#endif
                 }
                 else
                 {
@@ -842,12 +848,18 @@ namespace TrueMount.Forms
                 " /p \"" + password + "\"";
             // unset password (it's now in the argument line)
             password = null;
+#if DEBUG
+            LogAppend(null, "Full argument line: {0}", tcArgsReady);
+#endif
 
             // add specified mount options to argument line
             if (!string.IsNullOrEmpty(encMedia.MountOptions))
             {
                 LogAppend("AddMountOpts", encMedia.MountOptions);
                 tcArgsReady += " " + encMedia.MountOptions;
+#if DEBUG
+                LogAppend(null, "Full argument line: {0}", tcArgsReady);
+#endif
             }
             else
                 LogAppend("NoMountOpts");
@@ -857,6 +869,9 @@ namespace TrueMount.Forms
             {
                 LogAppend("AddKeyFiles", encMedia.KeyFiles.Count.ToString());
                 tcArgsReady += " " + encMedia.KeyFilesArgumentLine;
+#if DEBUG
+                LogAppend(null, "Full argument line: {0}", tcArgsReady);
+#endif
             }
             else
                 LogAppend("NoKeyFiles");
@@ -883,8 +898,11 @@ namespace TrueMount.Forms
             // set arguments
             tcLauncher.StartInfo.Arguments = '"' + config.TrueCrypt.ExecutablePath + 
                 "\" " + tcArgsReady;
-            // no need for shell
+            // use CreateProcess()
             tcLauncher.StartInfo.UseShellExecute = false;
+#if DEBUG
+            LogAppend(null, "StartInfo.Arguments: {0}", tcLauncher.StartInfo.Arguments);
+#endif
 
             // arrr, fire the canon! - well, try it...
             try
@@ -914,6 +932,9 @@ namespace TrueMount.Forms
                 using (StreamReader sReader = new StreamReader(npServer, Encoding.Unicode))
                 {
                     String input = sReader.ReadToEnd();
+#if DEBUG
+                    LogAppend(null, "Pipe: {0}", input);
+#endif
 
                     if (input != "OK")
                     {
@@ -1114,7 +1135,7 @@ namespace TrueMount.Forms
         /// Log messages to textbox and consider language.
         /// </summary>
         /// <param name="convVar">Alias name for text saved in resource files.</param>
-        /// <param name="text">Values getting inserted to message throu string.Format.</param>
+        /// <param name="text">Values getting inserted to message through string.Format.</param>
         private void LogAppend(String convVar, params string[] text)
         {
             // thread-safe delegate call
@@ -1131,7 +1152,7 @@ namespace TrueMount.Forms
                 String logLine = DateTime.Now.ToLongTimeString() + " - ";
 
                 if (string.IsNullOrEmpty(convVar) && text.Count() > 0)
-                    logLine += text.First();
+                    logLine += string.Format(text.FirstOrDefault(), text.LastOrDefault());
                 else
                     if (text.Count() == 0)
                         logLine += langRes.GetString(convVar.Trim(), culture);

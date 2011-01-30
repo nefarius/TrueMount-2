@@ -134,7 +134,7 @@
     <value>232, 142</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
-    <value>Dieses Programm befindet sich derzeit noch in der Testphase d.h. es ist mit plötzlichen Abstürzen, Fehlverhalten oder fehlenden Funktionen zu rechnen. Wenn Sie von einer früheren Version aktualisiert haben und merkwürdiges bzw. fehlerhaftes Verhalten auftritt, sollten Sie auf das Knöpfchen drücken (entschuldigung):</value>
+    <value>Dieses Programm befindet sich derzeit noch in der Testphase d.h. es ist mit Abstürzen, Fehlverhalten oder fehlenden Funktionen zu rechnen. Wenn Sie merkwürdiges bzw. fehlerhaftes Verhalten feststellen, sollten Sie auf das Knöpfchen drücken:</value>
   </data>
   <data name="label17.ToolTip" xml:space="preserve">
     <value />
