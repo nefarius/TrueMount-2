@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <tchar.h>
 
-//#define _TEST
+//#define _NOINJECT
 
 VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit = TRUE);
 
@@ -21,6 +21,9 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	LPTSTR lpPathEnd = _tcschr(lpPathBegin, _T('"'));
 	int iLength = lpPathEnd - lpPathBegin;
 	_tcsncpy_s(szTrueCryptPath, sizeof(szTrueCryptPath), lpPathBegin, iLength);
+#ifdef _DEBUG
+	MessageBox(NULL, lpPathEnd + 5, L"TCArgs", MB_ICONINFORMATION|MB_OK);
+#endif
 
 	// Get absolute DLL location
 	GetModuleFileName(NULL, szDllPath, MAX_PATH);
@@ -39,7 +42,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 		NULL,
 		NULL,
 		FALSE,
-		CREATE_SUSPENDED,
+		CREATE_SUSPENDED|DETACHED_PROCESS,
 		NULL,
 		NULL,
 		&lpStartupInfo,
@@ -48,7 +51,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 		ErrorExit(_T("CreateProcess"));
 	}
 
-#ifndef _TEST
+#ifndef _NOINJECT
 	// Get address of kernel32.dll
 	HMODULE hKernel32 = GetModuleHandle(_T("Kernel32"));
 	if(NULL == hKernel32)
@@ -75,16 +78,9 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	if(0 == WriteProcessMemory(hProcess, pLibRemote, (void*)szDllPath, sizeof(szDllPath), NULL))
 		ErrorExit(_T("WriteProcessMemory"));
 
-	// Get address of LoadLibraryW() function
-	PTHREAD_START_ROUTINE pfnThreadRtm = (PTHREAD_START_ROUTINE)
-		GetProcAddress(hKernel32, "LoadLibraryW");
-
-	if(NULL == pfnThreadRtm)
-		ErrorExit(_T("GetProcAddress"));
-
 	// Launch new Thread in target process and load DLL
 	HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0,	
-		pfnThreadRtm, pLibRemote, 0, NULL);
+		(LPTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryW"), pLibRemote, 0, NULL);
 
 	DWORD hLibModule = 0;
 	if( hThread != NULL )
@@ -107,7 +103,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	// Resume main thread
 	if(ResumeThread(lpProcInfo.hThread) == (DWORD)-1)
 		ErrorExit(_T("ResumeThread"));
-
+	
 	WaitForSingleObject(lpProcInfo.hProcess, INFINITE);
 	// Cleanup
 	CloseHandle(lpProcInfo.hProcess);
