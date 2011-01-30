@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.7.19.94</version>
+  <version>2.7.20.100</version>
   <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
-    ● Ok, you will laugh at me BUT NOW I THINK I FIXED THIS UAC-CR*P!!^! FOR REAL!!
-    ● Updated the Setup to the lastest version
-
-    NOTE: THE CHANGES APPLY _AFTER_ THE UPDATE, YOU MAY HAVE TO RUN THE PROGRAM AS ADMINISTRATOR!
+    ● Fixed font problems with older Windows versions
+    ● Fixed TrueCrypt-Launcher not working under Windows XP
+    ● Enhanced error handling
+    ● Minor bugfixes
   </changes>
 </truemount>
