@@ -63,14 +63,14 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxKeyDevices = new System.Windows.Forms.ListBox();
             this.panelKeyDevice = new System.Windows.Forms.Panel();
+            this.labelKeyDevPartition = new System.Windows.Forms.Label();
+            this.labelKeyDevSignature = new System.Windows.Forms.Label();
+            this.labelKeyDevCaption = new System.Windows.Forms.Label();
             this.checkBoxKeyDeviceActive = new System.Windows.Forms.CheckBox();
-            this.textBoxUSBSignature = new System.Windows.Forms.TextBox();
             this.buttonDeleteKeyDevice = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxUSBCaption = new System.Windows.Forms.TextBox();
-            this.textBoxUSBPartition = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPageDiskDrives = new System.Windows.Forms.TabPage();
             this.listBoxDisks = new System.Windows.Forms.ListBox();
@@ -467,17 +467,36 @@
             // 
             resources.ApplyResources(this.panelKeyDevice, "panelKeyDevice");
             this.panelKeyDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelKeyDevice.Controls.Add(this.labelKeyDevPartition);
+            this.panelKeyDevice.Controls.Add(this.labelKeyDevSignature);
+            this.panelKeyDevice.Controls.Add(this.labelKeyDevCaption);
             this.panelKeyDevice.Controls.Add(this.checkBoxKeyDeviceActive);
-            this.panelKeyDevice.Controls.Add(this.textBoxUSBSignature);
             this.panelKeyDevice.Controls.Add(this.buttonDeleteKeyDevice);
             this.panelKeyDevice.Controls.Add(this.label3);
             this.panelKeyDevice.Controls.Add(this.label2);
             this.panelKeyDevice.Controls.Add(this.label1);
-            this.panelKeyDevice.Controls.Add(this.textBoxUSBCaption);
-            this.panelKeyDevice.Controls.Add(this.textBoxUSBPartition);
             this.panelKeyDevice.Controls.Add(this.pictureBox2);
             this.panelKeyDevice.Name = "panelKeyDevice";
             this.toolTipSettings.SetToolTip(this.panelKeyDevice, resources.GetString("panelKeyDevice.ToolTip"));
+            // 
+            // labelKeyDevPartition
+            // 
+            resources.ApplyResources(this.labelKeyDevPartition, "labelKeyDevPartition");
+            this.labelKeyDevPartition.Name = "labelKeyDevPartition";
+            this.toolTipSettings.SetToolTip(this.labelKeyDevPartition, resources.GetString("labelKeyDevPartition.ToolTip"));
+            // 
+            // labelKeyDevSignature
+            // 
+            resources.ApplyResources(this.labelKeyDevSignature, "labelKeyDevSignature");
+            this.labelKeyDevSignature.Name = "labelKeyDevSignature";
+            this.toolTipSettings.SetToolTip(this.labelKeyDevSignature, resources.GetString("labelKeyDevSignature.ToolTip"));
+            // 
+            // labelKeyDevCaption
+            // 
+            resources.ApplyResources(this.labelKeyDevCaption, "labelKeyDevCaption");
+            this.labelKeyDevCaption.AutoEllipsis = true;
+            this.labelKeyDevCaption.Name = "labelKeyDevCaption";
+            this.toolTipSettings.SetToolTip(this.labelKeyDevCaption, resources.GetString("labelKeyDevCaption.ToolTip"));
             // 
             // checkBoxKeyDeviceActive
             // 
@@ -488,14 +507,6 @@
             this.toolTipSettings.SetToolTip(this.checkBoxKeyDeviceActive, resources.GetString("checkBoxKeyDeviceActive.ToolTip"));
             this.checkBoxKeyDeviceActive.UseVisualStyleBackColor = true;
             this.checkBoxKeyDeviceActive.CheckedChanged += new System.EventHandler(this.checkBoxKeyDeviceActive_CheckedChanged);
-            // 
-            // textBoxUSBSignature
-            // 
-            resources.ApplyResources(this.textBoxUSBSignature, "textBoxUSBSignature");
-            this.textBoxUSBSignature.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxUSBSignature.Name = "textBoxUSBSignature";
-            this.textBoxUSBSignature.ReadOnly = true;
-            this.toolTipSettings.SetToolTip(this.textBoxUSBSignature, resources.GetString("textBoxUSBSignature.ToolTip"));
             // 
             // buttonDeleteKeyDevice
             // 
@@ -522,22 +533,6 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             this.toolTipSettings.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
-            // 
-            // textBoxUSBCaption
-            // 
-            resources.ApplyResources(this.textBoxUSBCaption, "textBoxUSBCaption");
-            this.textBoxUSBCaption.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxUSBCaption.Name = "textBoxUSBCaption";
-            this.textBoxUSBCaption.ReadOnly = true;
-            this.toolTipSettings.SetToolTip(this.textBoxUSBCaption, resources.GetString("textBoxUSBCaption.ToolTip"));
-            // 
-            // textBoxUSBPartition
-            // 
-            resources.ApplyResources(this.textBoxUSBPartition, "textBoxUSBPartition");
-            this.textBoxUSBPartition.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxUSBPartition.Name = "textBoxUSBPartition";
-            this.textBoxUSBPartition.ReadOnly = true;
-            this.toolTipSettings.SetToolTip(this.textBoxUSBPartition, resources.GetString("textBoxUSBPartition.ToolTip"));
             // 
             // pictureBox2
             // 
@@ -1240,11 +1235,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxUSBCaption;
-        private System.Windows.Forms.TextBox textBoxUSBPartition;
         private System.Windows.Forms.Button buttonDeleteKeyDevice;
         private System.Windows.Forms.Button buttonDeleteDiskDrive;
-        private System.Windows.Forms.TextBox textBoxUSBSignature;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxKeyDeviceActive;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1308,6 +1300,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox checkBoxShowLauncherError;
         private System.Windows.Forms.Button buttonAVMessage;
+        private System.Windows.Forms.Label labelKeyDevCaption;
+        private System.Windows.Forms.Label labelKeyDevPartition;
+        private System.Windows.Forms.Label labelKeyDevSignature;
 
 
     }

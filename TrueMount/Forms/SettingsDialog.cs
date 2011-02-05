@@ -243,9 +243,9 @@ namespace TrueMount.Forms
                 config.KeyDevices.Count >= listBoxKeyDevices.Items.Count)
             {
                 UsbKeyDevice keyDevice = config.KeyDevices[listBoxKeyDevices.SelectedIndex];
-                textBoxUSBCaption.Text = keyDevice.Caption;
-                textBoxUSBSignature.Text = keyDevice.Signature.ToString();
-                textBoxUSBPartition.Text = keyDevice.PartitionIndex.ToString();
+                labelKeyDevCaption.Text = keyDevice.Caption;
+                labelKeyDevSignature.Text = keyDevice.Signature.ToString();
+                labelKeyDevPartition.Text = keyDevice.PartitionIndex.ToString();
                 checkBoxKeyDeviceActive.Checked = keyDevice.IsActive;
                 panelKeyDevice.Visible = true;
                 return;
@@ -259,9 +259,9 @@ namespace TrueMount.Forms
             }
 
             // if nothing to do, reset components and return
-            textBoxUSBCaption.Text = null;
-            textBoxUSBSignature.Text = null;
-            textBoxUSBPartition.Text = null;
+            labelKeyDevCaption.Text = string.Empty;
+            labelKeyDevSignature.Text = string.Empty;
+            labelKeyDevPartition.Text = string.Empty;
             panelKeyDevice.Visible = false;
         }
 
