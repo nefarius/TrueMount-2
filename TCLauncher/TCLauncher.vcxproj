@@ -50,7 +50,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -67,6 +68,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -77,8 +80,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NInjectLib\GenericInjector.cpp" />
+    <ClCompile Include="NInjectLib\IATModifier.cpp" />
+    <ClCompile Include="NInjectLib\InjectLib.cpp" />
+    <ClCompile Include="NInjectLib\Process.cpp" />
+    <ClCompile Include="NInjectLib\RemoteLibCall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NInjectLib\GenericInjector.h" />
+    <ClInclude Include="NInjectLib\IATModifier.h" />
+    <ClInclude Include="NInjectLib\InjectLib.h" />
+    <ClInclude Include="NInjectLib\Process.h" />
+    <ClInclude Include="NInjectLib\RemoteLibCall.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

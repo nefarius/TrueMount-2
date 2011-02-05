@@ -1,4 +1,5 @@
 ﻿  * Minor design changes in Key Device settings tab
+  * Fixed mount process not being aborted if no password was found
 
 2.7.18.79 (2.7.19.83)
   * Added new TrueCrypt-Launcher for better error handling

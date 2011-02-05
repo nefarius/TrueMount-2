@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.7.20.101</version>
+  <version>2.7.21.103</version>
   <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
-    ● Fixed permission problem and wrong updater log path
+    ● Fixed race condition in DLL-Injector, mount process now works under Windows XP
+    ● Minor design changes
+    ● Improved error handling
   </changes>
 </truemount>

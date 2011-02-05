@@ -435,4 +435,7 @@
   <data name="MsgTUmountFailed" xml:space="preserve">
     <value>The dismount of "{0}" did not work, please check the message log why!</value>
   </data>
+  <data name="ErrNoPassword" xml:space="preserve">
+    <value>Error: no password found, mount process aborted!</value>
+  </data>
 </root>

@@ -441,4 +441,7 @@
   <data name="MsgTUmountFailed" xml:space="preserve">
     <value>Das Auswerfen von "{0}" hat nicht funktioniert, bitte prüfen Sie im Nachrichtenfenster warum!</value>
   </data>
+  <data name="ErrNoPassword" xml:space="preserve">
+    <value>Fehler: kein Passwort gefunden, breche Einbinden ab!</value>
+  </data>
 </root>

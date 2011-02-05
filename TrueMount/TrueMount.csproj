@@ -358,7 +358,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>7z.exe a -tzip -mx9 "$(SolutionDir)$(TargetName)_latest.zip" "$(SolutionDir)$(ConfigurationName)\*" -x!.svn</PreBuildEvent>
+    <PreBuildEvent>7z.exe a -tzip -mx9 "$(SolutionDir)$(TargetName)_latest.zip" "$(SolutionDir)$(ConfigurationName)\*" -x!.svn -x!*.exp -x!*.lib</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

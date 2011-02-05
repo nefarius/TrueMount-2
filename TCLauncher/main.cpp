@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include <tchar.h>
-
+#include <string>
+using namespace std;
+#include "NInjectLib/IATModifier.h"
 
 VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit = TRUE);
 
@@ -25,8 +27,15 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 #endif
 
 	// Get absolute DLL location
-	GetModuleFileName(NULL, szDllPath, MAX_PATH);
+	GetModuleFileName(hInstance, szDllPath, MAX_PATH);
 	_tcscpy_s(_tcsrchr(szDllPath, '\\') + 1, sizeof(szDllPath), szDllName);
+	wstring wsDllPath(szDllPath);
+	string strDllPath(wsDllPath.begin(), wsDllPath.end());
+
+#ifdef _DEBUG
+	MessageBox(NULL, szTrueCryptPath, _T("TC"), MB_ICONINFORMATION|MB_OK);
+	MessageBoxA(NULL, strDllPath.c_str(), NULL, MB_OK|MB_ICONINFORMATION);
+#endif
 
 	// Get Operating System Version
 	OSVERSIONINFO osVer;
@@ -48,88 +57,42 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	lpStartupInfo.cb = sizeof(lpStartupInfo);
 	PROCESS_INFORMATION lpProcInfo;
 	ZeroMemory(&lpProcInfo, sizeof(lpProcInfo));
-	DWORD dwCreationFlags = DETACHED_PROCESS;
-
-	// Avoid Windows XP thread bug
-	if(osVer.dwMajorVersion >= 6)
-		dwCreationFlags |= CREATE_SUSPENDED;
 
 	// Fire up TrueCrypt
-	if(!CreateProcess(szTrueCryptPath,
+	if(CreateProcess(szTrueCryptPath,
 		lpPathEnd + 1,
 		NULL,
 		NULL,
 		FALSE,
-		dwCreationFlags,
+		CREATE_SUSPENDED,
 		NULL,
 		NULL,
 		&lpStartupInfo,
 		&lpProcInfo))
 	{
-		ErrorExit(_T("CreateProcess"));
-	}
-
-	// Get address of kernel32.dll
-	HMODULE hKernel32 = GetModuleHandle(_T("Kernel32"));
-	if(NULL == hKernel32)
-		return FALSE;
-
-	// Open target process with required permissions
-	HANDLE hProcess = OpenProcess(
-		PROCESS_CREATE_THREAD | 
-		PROCESS_QUERY_INFORMATION | 
-		PROCESS_VM_OPERATION | 
-		PROCESS_VM_WRITE | 
-		PROCESS_VM_READ,
-		FALSE, lpProcInfo.dwProcessId);
-
-	if(NULL == hProcess)
-		ErrorExit(_T("OpenProcess"));
-
-	// Allocate memory in the remote process for DLL path
-	LPVOID pLibRemote = VirtualAllocEx(hProcess, NULL, sizeof(szDllPath), MEM_COMMIT, PAGE_READWRITE);
-	if( pLibRemote == NULL )
-		ErrorExit(_T("VirtualAllocEx"));
-
-	// Write szLibPath to the allocated memory
-	if(0 == WriteProcessMemory(hProcess, pLibRemote, (void*)szDllPath, sizeof(szDllPath), NULL))
-		ErrorExit(_T("WriteProcessMemory"));
-
-	PTHREAD_START_ROUTINE pfnThreadRtm;
-#ifdef _UNICODE
-	// Get address of LoadLibraryW() function
-	pfnThreadRtm = (PTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryW");
-#else
-	// Get address of LoadLibraryA() function
-	pfnThreadRtm = (PTHREAD_START_ROUTINE)GetProcAddress(hKernel32, "LoadLibraryA");
+		try 
+		{
+			Process process(lpProcInfo.dwProcessId);
+			IATModifier iatModifier(process);
+			// retrieve image base address so IATModifier is able to find the import directory
+			iatModifier.setImageBase(process.getImageBase(lpProcInfo.hThread));
+			// modify import directory so our injected dll is loaded first
+			iatModifier.writeIAT(strDllPath);
+			ResumeThread(lpProcInfo.hThread);
+		}
+		catch (std::exception& e)
+		{
+#ifdef _DEBUG
+			MessageBox(NULL, _T("Injection failed!"), _T("Fail"), MB_ICONERROR|MB_OK);
 #endif
-
-	// Launch new Thread in target process and load DLL
-	HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0,	
-		pfnThreadRtm, pLibRemote, 0, NULL);
-
-	DWORD hLibModule = 0;
-	if( hThread != NULL )
-	{	
-		WaitForSingleObject( hThread, INFINITE );
-
-		// Get handle of loaded module
-		GetExitCodeThread( hThread, &hLibModule );
-		if (hLibModule == NULL)
-			ErrorExit(_T("LoadLibraryW in remote Thread"));
-		CloseHandle( hThread );
-		VirtualFreeEx(hProcess, pLibRemote, sizeof(szDllPath), MEM_RELEASE);
+			ResumeThread(lpProcInfo.hThread);
+			CloseHandle(lpProcInfo.hThread);
+			CloseHandle(lpProcInfo.hProcess);
+		}
 	}
 	else
-		ErrorExit(_T("CreateRemoteThread"));
+		ErrorExit(_T("CreateProcess"));
 
-	CloseHandle(hProcess);
-
-	// Resume main thread (only on Vista/7)
-	if(osVer.dwMajorVersion >= 6)
-		if(ResumeThread(lpProcInfo.hThread) == (DWORD)-1)
-			ErrorExit(_T("ResumeThread"));
-	
 	// Wait till process exited
 	WaitForSingleObject(lpProcInfo.hProcess, INFINITE);
 	// Cleanup

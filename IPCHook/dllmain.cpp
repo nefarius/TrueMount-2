@@ -1,9 +1,12 @@
 #include <Windows.h>
-#include "NCodeHookInstantiation.h"
+#include "NCodeHook/NCodeHookInstantiation.h"
 #include <string>
 using namespace std;
 
-#pragma comment(lib, "distorm.lib")
+#pragma comment(lib, "NCodeHook/distorm.lib")
+
+// Dummy export
+__declspec(dllexport) void dummyExport() {}
 
 // Pointer to original function
 typedef int (WINAPI *MessageBoxFPtr)(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType);

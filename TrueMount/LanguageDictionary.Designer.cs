@@ -340,6 +340,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: no password found, mount process aborted!.
+        /// </summary>
+        internal static string ErrNoPassword {
+            get {
+                return ResourceManager.GetString("ErrNoPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error: password file {0} does not exist, skipped..
         /// </summary>
         internal static string ErrPwFileNoExist {
