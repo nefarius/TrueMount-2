@@ -117,43 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonDeleteConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 172</value>
-  </data>
-  <data name="buttonDeleteConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 29</value>
-  </data>
-  <data name="buttonDeleteConfig.Text" xml:space="preserve">
-    <value>&gt; Lösche Konfigurationsdatei &lt;</value>
-  </data>
-  <data name="buttonDeleteConfig.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 142</value>
-  </data>
-  <data name="label17.Text" xml:space="preserve">
-    <value>Dieses Programm befindet sich derzeit noch in der Testphase d.h. es ist mit Abstürzen, Fehlverhalten oder fehlenden Funktionen zu rechnen. Wenn Sie merkwürdiges bzw. fehlerhaftes Verhalten feststellen, sollten Sie auf das Knöpfchen drücken:</value>
-  </data>
-  <data name="label17.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 98</value>
-  </data>
-  <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 212</value>
-  </data>
-  <data name="groupBox11.Text" xml:space="preserve">
-    <value>Test-Hinweise!</value>
-  </data>
-  <data name="groupBox11.ToolTip" xml:space="preserve">
+  <data name="pictureBox3.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="label14.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>244, 46</value>
   </data>
@@ -934,6 +904,10 @@
   </data>
   <data name="tabControlSettings.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

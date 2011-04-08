@@ -32,9 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialog));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPageApplication = new System.Windows.Forms.TabPage();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.buttonDeleteConfig = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -145,7 +143,7 @@
             this.toolTipSettings = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlSettings.SuspendLayout();
             this.tabPageApplication.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBoxLanguage.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -189,7 +187,7 @@
             // tabPageApplication
             // 
             resources.ApplyResources(this.tabPageApplication, "tabPageApplication");
-            this.tabPageApplication.Controls.Add(this.groupBox11);
+            this.tabPageApplication.Controls.Add(this.pictureBox3);
             this.tabPageApplication.Controls.Add(this.label14);
             this.tabPageApplication.Controls.Add(this.groupBoxLanguage);
             this.tabPageApplication.Controls.Add(this.groupBox9);
@@ -197,30 +195,13 @@
             this.toolTipSettings.SetToolTip(this.tabPageApplication, resources.GetString("tabPageApplication.ToolTip"));
             this.tabPageApplication.UseVisualStyleBackColor = true;
             // 
-            // groupBox11
+            // pictureBox3
             // 
-            resources.ApplyResources(this.groupBox11, "groupBox11");
-            this.groupBox11.Controls.Add(this.buttonDeleteConfig);
-            this.groupBox11.Controls.Add(this.label17);
-            this.groupBox11.ForeColor = System.Drawing.Color.Maroon;
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.TabStop = false;
-            this.toolTipSettings.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
-            // 
-            // buttonDeleteConfig
-            // 
-            resources.ApplyResources(this.buttonDeleteConfig, "buttonDeleteConfig");
-            this.buttonDeleteConfig.Name = "buttonDeleteConfig";
-            this.toolTipSettings.SetToolTip(this.buttonDeleteConfig, resources.GetString("buttonDeleteConfig.ToolTip"));
-            this.buttonDeleteConfig.UseVisualStyleBackColor = true;
-            this.buttonDeleteConfig.Click += new System.EventHandler(this.buttonDeleteConfig_Click);
-            // 
-            // label17
-            // 
-            resources.ApplyResources(this.label17, "label17");
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Name = "label17";
-            this.toolTipSettings.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Image = global::TrueMount.Properties.Resources._1302295229_security_high;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.pictureBox3, resources.GetString("pictureBox3.ToolTip"));
             // 
             // label14
             // 
@@ -1143,7 +1124,7 @@
             this.tabControlSettings.ResumeLayout(false);
             this.tabPageApplication.ResumeLayout(false);
             this.tabPageApplication.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBoxLanguage.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -1285,9 +1266,6 @@
         private System.Windows.Forms.Label labelBalloonTime;
         private System.Windows.Forms.NumericUpDown numericUpDownBalloonTime;
         private System.Windows.Forms.CheckBox checkBoxCheckUpdates;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button buttonDeleteConfig;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelDiskCaption;
         private System.Windows.Forms.Label labelDiskSignature;
         private System.Windows.Forms.Label labelDiskPartition;
@@ -1303,6 +1281,7 @@
         private System.Windows.Forms.Label labelKeyDevCaption;
         private System.Windows.Forms.Label labelKeyDevPartition;
         private System.Windows.Forms.Label labelKeyDevSignature;
+        private System.Windows.Forms.PictureBox pictureBox3;
 
 
     }

@@ -758,17 +758,6 @@ namespace TrueMount.Forms
                 comboBoxDiskDrives.SelectedIndex = 0;
         }
 
-        private void buttonDeleteConfig_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (File.Exists(Configuration.ConfigurationFile))
-                    File.Delete(Configuration.ConfigurationFile);
-            }
-            catch {/* who cares? */}
-            finally { Environment.Exit(1); }
-        }
-
         private void buttonAVMessage_Click(object sender, EventArgs e)
         {
             new AVWarningDialog().ShowDialog();

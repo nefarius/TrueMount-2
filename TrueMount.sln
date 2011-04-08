@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueMount", "TrueMount\TrueMount.csproj", "{04BBBEA6-7E46-46FB-9B77-BC4AE3406315}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F94B00D-4BB6-41D1-BDE6-E45A44097697} = {1F94B00D-4BB6-41D1-BDE6-E45A44097697}
+		{950E790E-1385-46D7-A7DE-20EB6B47AB45} = {950E790E-1385-46D7-A7DE-20EB6B47AB45}
+		{C6FD22A7-AAAA-41D7-9B62-E4FB3D53A994} = {C6FD22A7-AAAA-41D7-9B62-E4FB3D53A994}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "updater", "updater\updater.csproj", "{1F94B00D-4BB6-41D1-BDE6-E45A44097697}"
 EndProject
@@ -10,6 +15,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IPCHook", "IPCHook\IPCHook.vcxproj", "{C6FD22A7-AAAA-41D7-9B62-E4FB3D53A994}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCLauncher", "TCLauncher\TCLauncher.vcxproj", "{950E790E-1385-46D7-A7DE-20EB6B47AB45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6FD22A7-AAAA-41D7-9B62-E4FB3D53A994} = {C6FD22A7-AAAA-41D7-9B62-E4FB3D53A994}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution

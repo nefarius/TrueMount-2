@@ -1,7 +1,7 @@
+#define WIN32_LEAN_AND_MEAN
+
 #include <Windows.h>
 #include "NCodeHook/NCodeHookInstantiation.h"
-#include <string>
-using namespace std;
 
 #pragma comment(lib, "NCodeHook/distorm.lib")
 
@@ -22,7 +22,7 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 #ifdef _DEBUG
 	origMessageBoxW(NULL, L"Hooked", NULL, MB_ICONINFORMATION|MB_OK);
 #endif
-	wstring buffer(lpText);
+
 	HANDLE npipe;
 
 	// Send test of message box back to parent process
@@ -34,7 +34,7 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 		if( npipe != INVALID_HANDLE_VALUE )
 		{
 			DWORD dwRead;
-			WriteFile(npipe, (LPCVOID)&buffer[0], sizeof(wchar_t) * buffer.size(), &dwRead, NULL);
+			WriteFile(npipe, (LPCVOID)lpText, wcslen(lpText) * sizeof(TCHAR), &dwRead, NULL);
 			CloseHandle(npipe);
 		}
 	}

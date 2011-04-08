@@ -249,6 +249,13 @@ namespace TrueMount.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1302295229_security_high {
+            get {
+                object obj = ResourceManager.GetObject("1302295229_security-high", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap spalsh {
             get {
                 object obj = ResourceManager.GetObject("spalsh", resourceCulture);

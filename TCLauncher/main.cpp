@@ -1,36 +1,35 @@
+#define WIN32_LEAN_AND_MEAN
+
 #include <Windows.h>
-#include <tchar.h>
 #include <string>
 using namespace std;
 #include "NInjectLib/IATModifier.h"
 
 VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit = TRUE);
 
-int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in LPWSTR lpCmdLine, __in int nShowCmd )
+int WINAPI WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, __in LPSTR lpCmdLine, __in int nShowCmd )
 {
 	// Without arguments no work
-	if(_tcslen(lpCmdLine) <= 0)
+	if(strlen(lpCmdLine) <= 0)
 		return ERROR_BAD_ARGUMENTS;
 
 	// The name and path of the IPC Hook DLL
-	LPTSTR szDllName = _T("IPCHook.dll");
-	TCHAR szDllPath[MAX_PATH];
+	LPSTR szDllName = "IPCHook.dll";
+	CHAR szDllPath[MAX_PATH];
 
 	// Extract the path to TrueCrypt
 	TCHAR szTrueCryptPath[MAX_PATH];
-	LPTSTR lpPathBegin = _tcschr(lpCmdLine, _T('"')) + 1;
-	LPTSTR lpPathEnd = _tcschr(lpPathBegin, _T('"'));
+	LPTSTR lpPathBegin = strchr(lpCmdLine, '"') + 1;
+	LPTSTR lpPathEnd = strchr(lpPathBegin, '"');
 	int iLength = lpPathEnd - lpPathBegin;
-	_tcsncpy_s(szTrueCryptPath, sizeof(szTrueCryptPath), lpPathBegin, iLength);
+	strncpy_s(szTrueCryptPath, sizeof(szTrueCryptPath), lpPathBegin, iLength);
 #ifdef _DEBUG
-	MessageBox(NULL, lpPathEnd + 1, L"TCArgs", MB_ICONINFORMATION|MB_OK);
+	MessageBox(NULL, lpPathEnd + 1, "TCArgs", MB_ICONINFORMATION|MB_OK);
 #endif
 
 	// Get absolute DLL location
 	GetModuleFileName(hInstance, szDllPath, MAX_PATH);
-	_tcscpy_s(_tcsrchr(szDllPath, '\\') + 1, sizeof(szDllPath), szDllName);
-	wstring wsDllPath(szDllPath);
-	string strDllPath(wsDllPath.begin(), wsDllPath.end());
+	strcpy_s(strrchr(szDllPath, '\\') + 1, sizeof(szDllPath), szDllName);
 
 #ifdef _DEBUG
 	MessageBox(NULL, szTrueCryptPath, _T("TC"), MB_ICONINFORMATION|MB_OK);
@@ -42,7 +41,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 	ZeroMemory(&osVer, sizeof(osVer));
 	osVer.dwOSVersionInfoSize = sizeof(osVer);
 	if(!GetVersionEx(&osVer))
-		ErrorExit(_T("GetVersionEx"));
+		ErrorExit("GetVersionEx");
 
 #ifdef _DEBUG
 	if(osVer.dwMajorVersion == 5)
@@ -77,7 +76,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 			// retrieve image base address so IATModifier is able to find the import directory
 			iatModifier.setImageBase(process.getImageBase(lpProcInfo.hThread));
 			// modify import directory so our injected dll is loaded first
-			iatModifier.writeIAT(strDllPath);
+			iatModifier.writeIAT(szDllPath);
 			ResumeThread(lpProcInfo.hThread);
 		}
 		catch (std::exception& e)
@@ -91,7 +90,7 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 		}
 	}
 	else
-		ErrorExit(_T("CreateProcess"));
+		ErrorExit("CreateProcess");
 
 	// Wait till process exited
 	WaitForSingleObject(lpProcInfo.hProcess, INFINITE);
@@ -101,25 +100,25 @@ int WINAPI _tWinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance
 
 	// Send an OK message back home
 	HANDLE npipe;
-	if( WaitNamedPipe(L"\\\\.\\pipe\\TrueCryptMessage", 3000) )
+	if( WaitNamedPipe("\\\\.\\pipe\\TrueCryptMessage", 3000) )
 	{
-		npipe = CreateFile(L"\\\\.\\pipe\\TrueCryptMessage",
+		npipe = CreateFile("\\\\.\\pipe\\TrueCryptMessage",
 			GENERIC_READ | GENERIC_WRITE,
 			0, NULL, OPEN_EXISTING, 0, NULL);
 		if( npipe != INVALID_HANDLE_VALUE )
 		{
 			DWORD dwRead;
-			WriteFile(npipe, (LPCVOID)_T("OK"), sizeof(TCHAR) * 2, &dwRead, NULL);
+			WriteFile(npipe, (LPCVOID)"OK", sizeof(CHAR) * 2, &dwRead, NULL);
 			CloseHandle(npipe);
 		}
 		else
-			ErrorExit(_T("CreatePipe"));
+			ErrorExit("CreatePipe");
 	}
 
 	return ERROR_SUCCESS;
 }
 
-VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit)
+VOID ErrorExit(LPSTR lpszFunction, BOOL bExit)
 {
 	// Retrieve the system error message for the last-error code
 	LPVOID lpMsgBuf;
@@ -138,12 +137,12 @@ VOID ErrorExit(LPTSTR lpszFunction, BOOL bExit)
 
 	// Display the error message and exit the process
 	lpDisplayBuf = (LPVOID)LocalAlloc(LMEM_ZEROINIT, 
-		(lstrlen((LPCTSTR)lpMsgBuf) + lstrlen((LPCTSTR)lpszFunction) + 40) * sizeof(TCHAR));
-	_stprintf_s((LPTSTR)lpDisplayBuf, 
-		LocalSize(lpDisplayBuf) / sizeof(TCHAR), 
-		TEXT("%s failed with error %d: %s"), 
+		(lstrlen((LPCSTR)lpMsgBuf) + lstrlen((LPCSTR)lpszFunction) + 40) * sizeof(CHAR));
+	sprintf_s((LPSTR)lpDisplayBuf, 
+		LocalSize(lpDisplayBuf) / sizeof(CHAR), 
+		"%s failed with error %d: %s", 
 		lpszFunction, dw, lpMsgBuf); 
-	MessageBox(NULL, (LPCTSTR)lpDisplayBuf, TEXT("Error"), MB_OK|MB_ICONERROR); 
+	MessageBox(NULL, (LPCSTR)lpDisplayBuf, "Error", MB_OK|MB_ICONERROR); 
 
 	// Clean up
 	LocalFree(lpMsgBuf);
