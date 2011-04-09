@@ -108,7 +108,7 @@ int WINAPI WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, 
 		if( npipe != INVALID_HANDLE_VALUE )
 		{
 			DWORD dwRead;
-			WriteFile(npipe, (LPCVOID)"OK", sizeof(CHAR) * 2, &dwRead, NULL);
+			WriteFile(npipe, (LPCVOID)L"OK", sizeof(WCHAR) * 2, &dwRead, NULL);
 			CloseHandle(npipe);
 		}
 		else
