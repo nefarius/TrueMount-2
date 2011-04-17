@@ -31,24 +31,12 @@ int WINAPI WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, 
 	GetModuleFileName(hInstance, szDllPath, MAX_PATH);
 	strcpy_s(strrchr(szDllPath, '\\') + 1, sizeof(szDllPath), szDllName);
 
-#ifdef _DEBUG
-	MessageBox(NULL, szTrueCryptPath, _T("TC"), MB_ICONINFORMATION|MB_OK);
-	MessageBoxA(NULL, strDllPath.c_str(), NULL, MB_OK|MB_ICONINFORMATION);
-#endif
-
 	// Get Operating System Version
 	OSVERSIONINFO osVer;
 	ZeroMemory(&osVer, sizeof(osVer));
 	osVer.dwOSVersionInfoSize = sizeof(osVer);
 	if(!GetVersionEx(&osVer))
 		ErrorExit("GetVersionEx");
-
-#ifdef _DEBUG
-	if(osVer.dwMajorVersion == 5)
-		MessageBox(NULL, _T("Windows XP"), _T("OS"), MB_ICONINFORMATION|MB_OK);
-	else if(osVer.dwMajorVersion == 6)
-		MessageBox(NULL, _T("Windows Vista/7"), _T("OS"), MB_ICONINFORMATION|MB_OK);
-#endif
 
 	// Define and clean process information
 	STARTUPINFO lpStartupInfo;
@@ -82,7 +70,7 @@ int WINAPI WinMain( __in HINSTANCE hInstance, __in_opt HINSTANCE hPrevInstance, 
 		catch (std::exception& e)
 		{
 #ifdef _DEBUG
-			MessageBox(NULL, _T("Injection failed!"), _T("Fail"), MB_ICONERROR|MB_OK);
+			MessageBox(NULL, "Injection failed!", "Fail", MB_ICONERROR|MB_OK);
 #endif
 			ResumeThread(lpProcInfo.hThread);
 			CloseHandle(lpProcInfo.hThread);

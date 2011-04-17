@@ -406,21 +406,6 @@
   <data name="tabPageKeyDevice.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="listBoxDisks.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 6</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 13</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Gespeicherte Partitionen</value>
-  </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label7.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -448,43 +433,13 @@
   <data name="groupBoxLocalDiskDrives.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxFetchDiskPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 147</value>
-  </data>
-  <data name="checkBoxFetchDiskPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 17</value>
-  </data>
-  <data name="checkBoxFetchDiskPassword.Text" xml:space="preserve">
-    <value>Erfrage Passwort</value>
-  </data>
-  <data name="checkBoxFetchDiskPassword.ToolTip" xml:space="preserve">
+  <data name="radioButton3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 17</value>
-  </data>
-  <data name="checkBoxDiskDismountTrigger.Text" xml:space="preserve">
-    <value>Auswerfen, wenn Schlüsselgerät entfernt wird</value>
-  </data>
-  <data name="checkBoxDiskDismountTrigger.ToolTip" xml:space="preserve">
+  <data name="radioButton2.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 124</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 17</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Text" xml:space="preserve">
-    <value>Öffne Explorer nach Einbinden</value>
-  </data>
-  <data name="checkBoxDiskOpenExplorer.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="buttonEditDiskKeyFiles.Text" xml:space="preserve">
-    <value>Editiere Schlüsseldateien...</value>
-  </data>
-  <data name="buttonEditDiskKeyFiles.ToolTip" xml:space="preserve">
+  <data name="radioButton1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="comboBoxDiskDriveLetter.Location" type="System.Drawing.Point, System.Drawing">
@@ -493,28 +448,73 @@
   <data name="comboBoxDiskDriveLetter.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="buttonSaveDisk.Text" xml:space="preserve">
-    <value>Speichern</value>
-  </data>
-  <data name="buttonSaveDisk.ToolTip" xml:space="preserve">
+  <data name="groupBox15.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 125</value>
-  </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 13</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>Laufwerksbuchstabe:</value>
-  </data>
-  <data name="label12.ToolTip" xml:space="preserve">
+  <data name="labelDiskPartition.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="buttonDeleteDiskDrive.Text" xml:space="preserve">
-    <value>Entfernen</value>
+  <data name="labelDiskSignature.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="buttonDeleteDiskDrive.ToolTip" xml:space="preserve">
+  <data name="labelDiskCaption.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 13</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="label9.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Signatur</value>
+  </data>
+  <data name="label10.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label11.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Laufwerksinformationen</value>
+  </data>
+  <data name="groupBox7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textBoxDiskPasswordFile.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonSearchPasswordFile.Text" xml:space="preserve">
+    <value>Suche Passwort-Datei...</value>
+  </data>
+  <data name="buttonSearchPasswordFile.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Pfad zur Passwort-Datei</value>
+  </data>
+  <data name="groupBox8.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkBoxDiskActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 23</value>
+  </data>
+  <data name="checkBoxDiskActive.Text" xml:space="preserve">
+    <value>Aktiviert</value>
+  </data>
+  <data name="checkBoxDiskActive.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonEditDiskKeyFiles.Text" xml:space="preserve">
+    <value>Editiere Schlüsseldateien...</value>
+  </data>
+  <data name="buttonEditDiskKeyFiles.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="checkBoxDiskSm.Location" type="System.Drawing.Point, System.Drawing">
@@ -574,67 +574,61 @@
   <data name="groupBox6.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
+  <data name="buttonDeleteDiskDrive.Text" xml:space="preserve">
+    <value>Entfernen</value>
   </data>
-  <data name="checkBoxDiskActive.Text" xml:space="preserve">
-    <value>Aktiviert</value>
-  </data>
-  <data name="checkBoxDiskActive.ToolTip" xml:space="preserve">
+  <data name="buttonDeleteDiskDrive.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="labelDiskPartition.ToolTip" xml:space="preserve">
+  <data name="buttonSaveDisk.Text" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="buttonSaveDisk.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="labelDiskSignature.ToolTip" xml:space="preserve">
+  <data name="checkBoxFetchDiskPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>258, 147</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 17</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.Text" xml:space="preserve">
+    <value>Erfrage Passwort</value>
+  </data>
+  <data name="checkBoxFetchDiskPassword.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="labelDiskCaption.ToolTip" xml:space="preserve">
+  <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 124</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.Text" xml:space="preserve">
+    <value>Öffne Explorer nach Einbinden</value>
+  </data>
+  <data name="checkBoxDiskOpenExplorer.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 13</value>
+  <data name="checkBoxDiskDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 17</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Titel</value>
+  <data name="checkBoxDiskDismountTrigger.Text" xml:space="preserve">
+    <value>Auswerfen, wenn Schlüsselgerät entfernt wird</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
+  <data name="checkBoxDiskDismountTrigger.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 13</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>Signatur</value>
-  </data>
-  <data name="label10.ToolTip" xml:space="preserve">
+  <data name="groupBox14.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label11.ToolTip" xml:space="preserve">
+  <data name="groupBoxDiskDetails.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Laufwerksinformationen</value>
-  </data>
-  <data name="groupBox7.ToolTip" xml:space="preserve">
+  <data name="listBoxDisks.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="textBoxDiskPasswordFile.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="buttonSearchPasswordFile.Text" xml:space="preserve">
-    <value>Suche Passwort-Datei...</value>
-  </data>
-  <data name="buttonSearchPasswordFile.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Pfad zur Passwort-Datei</value>
-  </data>
-  <data name="groupBox8.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="panelDisks.ToolTip" xml:space="preserve">
+  <data name="groupBox11.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="tabPageDiskDrives.Text" xml:space="preserve">
@@ -907,7 +901,7 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

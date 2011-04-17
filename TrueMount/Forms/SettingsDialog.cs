@@ -344,7 +344,7 @@ namespace TrueMount.Forms
             diskKeyFilesList.Add(new List<string>());
 
             editInProgress = true;
-            panelDisks.Visible = true;
+            groupBoxDiskDetails.Visible = true;
             listBoxDisks.Enabled = true;
             Cursor.Current = Cursors.Default;
         }
@@ -435,7 +435,7 @@ namespace TrueMount.Forms
             listBoxDisks.Items.Remove(listBoxDisks.SelectedItem);
 
             editInProgress = false;
-            panelDisks.Visible = false; // first!
+            groupBoxDiskDetails.Visible = false; // first!
             groupBoxLocalDiskDrives.Enabled = true;
             listBoxDisks.Enabled = true;
         }
@@ -493,7 +493,7 @@ namespace TrueMount.Forms
                 }
 
                 // after everything is filled with data, make panel visible
-                panelDisks.Visible = true;
+                groupBoxDiskDetails.Visible = true;
             }
         }
 
