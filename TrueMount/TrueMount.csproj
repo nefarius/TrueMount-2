@@ -273,6 +273,7 @@
     <None Include="Resources\1287860743_info.png" />
     <None Include="Resources\1295709941_head.ico" />
     <None Include="Resources\1302295229_security-high.png" />
+    <None Include="Resources\1303056267_add1-.png" />
     <Content Include="TrueMountVersion.xml">
       <SubType>Designer</SubType>
     </Content>

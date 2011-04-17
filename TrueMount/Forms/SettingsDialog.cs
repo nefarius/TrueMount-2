@@ -8,6 +8,7 @@ using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace TrueMount.Forms
 {
@@ -336,16 +337,25 @@ namespace TrueMount.Forms
             checkBoxDiskOpenExplorer.Checked = false;
             checkBoxFetchDiskPassword.Checked = false;
 
+            string diskTitle = labelDiskCaption.Text + ", Partition: " + labelDiskPartition.Text;
+
             // new disk, new node in tree
-            listBoxDisks.Items.Add(comboBoxDiskDrives.Text);
-            listBoxDisks.SelectedItem = comboBoxDiskDrives.Text;
+            listBoxDisks.Items.Add(diskTitle);
+            listBoxDisks.SelectedItem = diskTitle;
 
             // new key files list
             diskKeyFilesList.Add(new List<string>());
 
+            // unsaved content will raise a save dialog box
             editInProgress = true;
+            // panel to add disks must be hidden
+            panelLocalDiskDrives.Visible = false;
+            // enable disk details area and make visible
+            groupBoxDiskDetails.Text = diskTitle;
             groupBoxDiskDetails.Visible = true;
-            listBoxDisks.Enabled = true;
+            groupBoxDiskDetails.Enabled = true;
+            // restore old color
+            tabPageDiskDrives.BackColor = Color.Transparent;
             Cursor.Current = Cursors.Default;
         }
 
@@ -413,9 +423,10 @@ namespace TrueMount.Forms
             MessageBox.Show(langRes.GetString("MsgTSaved"), langRes.GetString("MsgHSaved"),
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            // we saved the content, no warn dialog on close needed
             editInProgress = false;
-            groupBoxLocalDiskDrives.Enabled = true;
-            listBoxDisks.Enabled = true;
+            groupBoxExistingDisks.Enabled = true;
+            pictureBoxAddDisk.Enabled = true;
         }
 
         /// <summary>
@@ -493,8 +504,36 @@ namespace TrueMount.Forms
                 }
 
                 // after everything is filled with data, make panel visible
+                groupBoxDiskDetails.Text = encDiskPartition.ToString();
                 groupBoxDiskDetails.Visible = true;
             }
+        }
+
+        private void pictureBoxAddDisk_Click(object sender, EventArgs e)
+        {
+            // gray out background
+            tabPageDiskDrives.BackColor = Color.LightGray;
+            // disable list of existing disks to prevent events
+            groupBoxExistingDisks.Enabled = false;
+            // disable disk details area
+            groupBoxDiskDetails.Enabled = false;
+            // disable Add Disk button
+            pictureBoxAddDisk.Enabled = false;
+            // make disk panel visible and bring it to front
+            panelLocalDiskDrives.Visible = true;
+            panelLocalDiskDrives.BringToFront();
+        }
+
+        private void linkLabelAddDiskCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pictureBoxAddDisk.Enabled = true;
+            // restore old color
+            tabPageDiskDrives.BackColor = Color.Transparent;
+            // panel to add disks must be hidden
+            panelLocalDiskDrives.Visible = false;
+            // enable disk details area and make visible
+            groupBoxDiskDetails.Enabled = true;
+            groupBoxExistingDisks.Enabled = true;
         }
 
         #endregion

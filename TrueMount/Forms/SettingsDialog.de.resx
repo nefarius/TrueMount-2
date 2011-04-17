@@ -123,10 +123,6 @@
   <data name="label14.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 46</value>
-  </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Eine Änderung der Sprache wird erst nach einem Neustart der Anwendung in Kraft treten!</value>
   </data>
@@ -142,6 +138,7 @@
   <data name="groupBoxLanguage.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelBalloon.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 13</value>
   </data>
@@ -151,29 +148,14 @@
   <data name="labelBalloon.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="labelBalloonTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 8</value>
-  </data>
   <data name="labelBalloonTime.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="numericUpDownBalloonTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 6</value>
   </data>
   <data name="numericUpDownBalloonTime.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 232</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 33</value>
-  </data>
   <data name="panel1.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxCheckUpdates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 271</value>
   </data>
   <data name="checkBoxCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 17</value>
@@ -184,9 +166,6 @@
   <data name="checkBoxCheckUpdates.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDisableBalloons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 209</value>
-  </data>
   <data name="checkBoxDisableBalloons.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 17</value>
   </data>
@@ -195,9 +174,6 @@
   </data>
   <data name="checkBoxDisableBalloons.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxForceUnmountAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 163</value>
   </data>
   <data name="checkBoxForceUnmountAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>269, 17</value>
@@ -208,9 +184,6 @@
   <data name="checkBoxForceUnmountAll.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxWarnUnmountAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 186</value>
-  </data>
   <data name="checkBoxWarnUnmountAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>276, 17</value>
   </data>
@@ -219,9 +192,6 @@
   </data>
   <data name="checkBoxWarnUnmountAll.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxIgnoreDriveLetters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 140</value>
   </data>
   <data name="checkBoxIgnoreDriveLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 17</value>
@@ -232,17 +202,11 @@
   <data name="checkBoxIgnoreDriveLetters.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxWindowsStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 25</value>
-  </data>
   <data name="checkBoxWindowsStartup.Text" xml:space="preserve">
     <value>Starte TrueMount mit Windows</value>
   </data>
   <data name="checkBoxWindowsStartup.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxOneInstance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 117</value>
   </data>
   <data name="checkBoxOneInstance.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 17</value>
@@ -253,9 +217,6 @@
   <data name="checkBoxOneInstance.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxAutostart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 48</value>
-  </data>
   <data name="checkBoxAutostart.Size" type="System.Drawing.Size, System.Drawing">
     <value>255, 17</value>
   </data>
@@ -265,9 +226,6 @@
   <data name="checkBoxAutostart.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxSplashScreen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 94</value>
-  </data>
   <data name="checkBoxSplashScreen.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 17</value>
   </data>
@@ -276,9 +234,6 @@
   </data>
   <data name="checkBoxSplashScreen.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 71</value>
   </data>
   <data name="checkBoxHidden.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 17</value>
@@ -305,7 +260,7 @@
     <value />
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 58</value>
+    <value>427, 63</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Eine Liste der gefundenen logischen Laufwerke. Ein Schlüssel-Gerät darf nicht selbst verschlüsselt sein und muss einen Laufwerksbuchstaben besitzen. Sollte Ihr Gerät nicht aufscheinen, schließen Sie es an und öffnen den Dialog erneut. Klicken Sie auf 'Hinzufügen' um das Laufwerk als Schlüssel-Gerät zu verwenden.</value>
@@ -364,9 +319,6 @@
   <data name="label3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 45</value>
-  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
   </data>
@@ -375,9 +327,6 @@
   </data>
   <data name="label2.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>43, 19</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
@@ -406,47 +355,20 @@
   <data name="tabPageKeyDevice.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label7.ToolTip" xml:space="preserve">
+  <data name="radioButtonDiskDLRandom.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Festplatte</value>
-  </data>
-  <data name="label6.ToolTip" xml:space="preserve">
+  <data name="radioButtonDiskDLFree.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="comboBoxDiskPartitions.ToolTip" xml:space="preserve">
+  <data name="radioButtonDiskDLFixed.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="comboBoxDiskDrives.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="buttonAddDisk.Text" xml:space="preserve">
-    <value>Hinzufügen</value>
-  </data>
-  <data name="buttonAddDisk.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBoxLocalDiskDrives.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="radioButton3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="radioButton2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="radioButton1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="comboBoxDiskDriveLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 122</value>
   </data>
   <data name="comboBoxDiskDriveLetter.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="groupBox15.Text" xml:space="preserve">
+    <value>Laufwerksbuchstabe</value>
   </data>
   <data name="groupBox15.ToolTip" xml:space="preserve">
     <value />
@@ -502,23 +424,20 @@
   <data name="groupBox8.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 23</value>
-  </data>
   <data name="checkBoxDiskActive.Text" xml:space="preserve">
-    <value>Aktiviert</value>
+    <value>Aktiviert    </value>
   </data>
   <data name="checkBoxDiskActive.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="buttonEditDiskKeyFiles.Text" xml:space="preserve">
-    <value>Editiere Schlüsseldateien...</value>
+    <value>Schlüsseldateien...</value>
+  </data>
+  <data name="buttonEditDiskKeyFiles.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="buttonEditDiskKeyFiles.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxDiskSm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 42</value>
   </data>
   <data name="checkBoxDiskSm.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
@@ -529,9 +448,6 @@
   <data name="checkBoxDiskSm.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskTs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 42</value>
-  </data>
   <data name="checkBoxDiskTs.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 17</value>
   </data>
@@ -540,9 +456,6 @@
   </data>
   <data name="checkBoxDiskTs.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxDiskRm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 19</value>
   </data>
   <data name="checkBoxDiskRm.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
@@ -553,20 +466,14 @@
   <data name="checkBoxDiskRm.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxDiskRo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 19</value>
-  </data>
   <data name="checkBoxDiskRo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 17</value>
+    <value>92, 17</value>
   </data>
   <data name="checkBoxDiskRo.Text" xml:space="preserve">
-    <value>schreibgeschützt</value>
+    <value>schreibgesch.</value>
   </data>
   <data name="checkBoxDiskRo.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 64</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
@@ -587,7 +494,7 @@
     <value />
   </data>
   <data name="checkBoxFetchDiskPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 147</value>
+    <value>9, 87</value>
   </data>
   <data name="checkBoxFetchDiskPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 17</value>
@@ -597,9 +504,6 @@
   </data>
   <data name="checkBoxFetchDiskPassword.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxDiskOpenExplorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 124</value>
   </data>
   <data name="checkBoxDiskOpenExplorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 17</value>
@@ -611,13 +515,17 @@
     <value />
   </data>
   <data name="checkBoxDiskDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 17</value>
+    <value>180, 30</value>
   </data>
   <data name="checkBoxDiskDismountTrigger.Text" xml:space="preserve">
-    <value>Auswerfen, wenn Schlüsselgerät entfernt wird</value>
+    <value>Auswerfen, wenn Schlüsselgerät
+entfernt wird</value>
   </data>
   <data name="checkBoxDiskDismountTrigger.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="groupBox14.Text" xml:space="preserve">
+    <value>Mount-Aktionen</value>
   </data>
   <data name="groupBox14.ToolTip" xml:space="preserve">
     <value />
@@ -625,10 +533,52 @@
   <data name="groupBoxDiskDetails.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="pictureBoxAddDisk.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="listBoxDisks.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox11.ToolTip" xml:space="preserve">
+  <data name="groupBoxExistingDisks.Text" xml:space="preserve">
+    <value>Vorhandene Laufwerke</value>
+  </data>
+  <data name="groupBoxExistingDisks.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelAdvice.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="linkLabelAddDiskCancel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label7.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Festplatte</value>
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="comboBoxDiskPartitions.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="comboBoxDiskDrives.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonAddDisk.Text" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="buttonAddDisk.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBoxLocalDiskDrives.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="panelLocalDiskDrives.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="tabPageDiskDrives.Text" xml:space="preserve">
@@ -637,25 +587,37 @@
   <data name="tabPageDiskDrives.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxFetchConPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 100</value>
+  <data name="radioButtonConDLRandom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 17</value>
   </data>
-  <data name="checkBoxFetchConPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 17</value>
+  <data name="radioButtonConDLRandom.Text" xml:space="preserve">
+    <value>Zufälliger freier</value>
   </data>
-  <data name="checkBoxFetchConPassword.Text" xml:space="preserve">
-    <value>Erfrage Passwort</value>
-  </data>
-  <data name="checkBoxFetchConPassword.ToolTip" xml:space="preserve">
+  <data name="radioButtonConDLRandom.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxConDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 17</value>
+  <data name="radioButtonConDLFree.Text" xml:space="preserve">
+    <value>Nächster freier</value>
   </data>
-  <data name="checkBoxConDismountTrigger.Text" xml:space="preserve">
-    <value>Auswerfen, wenn Schlüsselgerät entfernt wird</value>
+  <data name="radioButtonConDLFree.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="checkBoxConDismountTrigger.ToolTip" xml:space="preserve">
+  <data name="comboBoxConLetter.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioButtonConDLFixed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 17</value>
+  </data>
+  <data name="radioButtonConDLFixed.Text" xml:space="preserve">
+    <value>Fest:</value>
+  </data>
+  <data name="radioButtonConDLFixed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox16.Text" xml:space="preserve">
+    <value>Laufwerksbuchstabe</value>
+  </data>
+  <data name="groupBox16.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="checkBoxOpenConExplorer.Size" type="System.Drawing.Size, System.Drawing">
@@ -667,42 +629,36 @@
   <data name="checkBoxOpenConExplorer.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="comboBoxConLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 72</value>
+  <data name="checkBoxFetchConPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 77</value>
   </data>
-  <data name="comboBoxConLetter.ToolTip" xml:space="preserve">
+  <data name="checkBoxFetchConPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 17</value>
+  </data>
+  <data name="checkBoxFetchConPassword.Text" xml:space="preserve">
+    <value>Erfrage Passwort</value>
+  </data>
+  <data name="checkBoxFetchConPassword.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 77</value>
+  <data name="checkBoxConDismountTrigger.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 30</value>
   </data>
-  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 13</value>
+  <data name="checkBoxConDismountTrigger.Text" xml:space="preserve">
+    <value>Auswerfen, wenn Schlüsselgerät
+entfernt wird</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label16.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>Laufwerksbuchstabe:</value>
-  </data>
-  <data name="label16.ToolTip" xml:space="preserve">
+  <data name="checkBoxConDismountTrigger.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxConActive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>340, 122</value>
-  </data>
-  <data name="checkBoxConActive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 42</value>
+  <data name="groupBox11.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkBoxConActive.Text" xml:space="preserve">
-    <value>Aktiviert</value>
+    <value>Aktiviert    </value>
   </data>
   <data name="checkBoxConActive.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxConSm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 18</value>
   </data>
   <data name="checkBoxConSm.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
@@ -713,9 +669,6 @@
   <data name="checkBoxConSm.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="checkBoxConTs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 18</value>
-  </data>
   <data name="checkBoxConTs.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 17</value>
   </data>
@@ -724,9 +677,6 @@
   </data>
   <data name="checkBoxConTs.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="checkBoxConRm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 18</value>
   </data>
   <data name="checkBoxConRm.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
@@ -746,9 +696,6 @@
   <data name="checkBoxConRo.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 42</value>
-  </data>
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Mount-Optionen</value>
   </data>
@@ -763,9 +710,6 @@
   </data>
   <data name="buttonSearchConPassword.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="groupBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 49</value>
   </data>
   <data name="groupBox13.Text" xml:space="preserve">
     <value>Pfad zur Passwort-Datei</value>
@@ -898,10 +842,6 @@
   </data>
   <data name="tabControlSettings.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TrueMount - Einstellungen</value>

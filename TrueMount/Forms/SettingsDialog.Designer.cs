@@ -71,17 +71,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPageDiskDrives = new System.Windows.Forms.TabPage();
-            this.groupBoxLocalDiskDrives = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxDiskPartitions = new System.Windows.Forms.ComboBox();
-            this.comboBoxDiskDrives = new System.Windows.Forms.ComboBox();
-            this.buttonAddDisk = new System.Windows.Forms.Button();
             this.groupBoxDiskDetails = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonDiskDLRandom = new System.Windows.Forms.RadioButton();
+            this.radioButtonDiskDLFree = new System.Windows.Forms.RadioButton();
+            this.radioButtonDiskDLFixed = new System.Windows.Forms.RadioButton();
             this.comboBoxDiskDriveLetter = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.labelDiskPartition = new System.Windows.Forms.Label();
@@ -106,15 +100,29 @@
             this.checkBoxFetchDiskPassword = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskOpenExplorer = new System.Windows.Forms.CheckBox();
             this.checkBoxDiskDismountTrigger = new System.Windows.Forms.CheckBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxAddDisk = new System.Windows.Forms.PictureBox();
+            this.groupBoxExistingDisks = new System.Windows.Forms.GroupBox();
             this.listBoxDisks = new System.Windows.Forms.ListBox();
+            this.labelAdvice = new System.Windows.Forms.Label();
+            this.panelLocalDiskDrives = new System.Windows.Forms.Panel();
+            this.linkLabelAddDiskCancel = new System.Windows.Forms.LinkLabel();
+            this.groupBoxLocalDiskDrives = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxDiskPartitions = new System.Windows.Forms.ComboBox();
+            this.comboBoxDiskDrives = new System.Windows.Forms.ComboBox();
+            this.buttonAddDisk = new System.Windows.Forms.Button();
             this.tabPageContainerFiles = new System.Windows.Forms.TabPage();
             this.groupBoxConSettings = new System.Windows.Forms.GroupBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.radioButtonConDLRandom = new System.Windows.Forms.RadioButton();
+            this.radioButtonConDLFree = new System.Windows.Forms.RadioButton();
+            this.comboBoxConLetter = new System.Windows.Forms.ComboBox();
+            this.radioButtonConDLFixed = new System.Windows.Forms.RadioButton();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOpenConExplorer = new System.Windows.Forms.CheckBox();
             this.checkBoxFetchConPassword = new System.Windows.Forms.CheckBox();
             this.checkBoxConDismountTrigger = new System.Windows.Forms.CheckBox();
-            this.checkBoxOpenConExplorer = new System.Windows.Forms.CheckBox();
-            this.comboBoxConLetter = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.checkBoxConActive = new System.Windows.Forms.CheckBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.checkBoxConSm = new System.Windows.Forms.CheckBox();
@@ -159,16 +167,20 @@
             this.panelKeyDevice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPageDiskDrives.SuspendLayout();
-            this.groupBoxLocalDiskDrives.SuspendLayout();
             this.groupBoxDiskDetails.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox14.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDisk)).BeginInit();
+            this.groupBoxExistingDisks.SuspendLayout();
+            this.panelLocalDiskDrives.SuspendLayout();
+            this.groupBoxLocalDiskDrives.SuspendLayout();
             this.tabPageContainerFiles.SuspendLayout();
             this.groupBoxConSettings.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -533,61 +545,14 @@
             // tabPageDiskDrives
             // 
             resources.ApplyResources(this.tabPageDiskDrives, "tabPageDiskDrives");
-            this.tabPageDiskDrives.Controls.Add(this.groupBoxLocalDiskDrives);
             this.tabPageDiskDrives.Controls.Add(this.groupBoxDiskDetails);
-            this.tabPageDiskDrives.Controls.Add(this.groupBox11);
+            this.tabPageDiskDrives.Controls.Add(this.pictureBoxAddDisk);
+            this.tabPageDiskDrives.Controls.Add(this.groupBoxExistingDisks);
+            this.tabPageDiskDrives.Controls.Add(this.labelAdvice);
+            this.tabPageDiskDrives.Controls.Add(this.panelLocalDiskDrives);
             this.tabPageDiskDrives.Name = "tabPageDiskDrives";
             this.toolTipSettings.SetToolTip(this.tabPageDiskDrives, resources.GetString("tabPageDiskDrives.ToolTip"));
             this.tabPageDiskDrives.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxLocalDiskDrives
-            // 
-            resources.ApplyResources(this.groupBoxLocalDiskDrives, "groupBoxLocalDiskDrives");
-            this.groupBoxLocalDiskDrives.Controls.Add(this.label7);
-            this.groupBoxLocalDiskDrives.Controls.Add(this.label6);
-            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskPartitions);
-            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskDrives);
-            this.groupBoxLocalDiskDrives.Controls.Add(this.buttonAddDisk);
-            this.groupBoxLocalDiskDrives.Name = "groupBoxLocalDiskDrives";
-            this.groupBoxLocalDiskDrives.TabStop = false;
-            this.toolTipSettings.SetToolTip(this.groupBoxLocalDiskDrives, resources.GetString("groupBoxLocalDiskDrives.ToolTip"));
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            this.toolTipSettings.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            this.toolTipSettings.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // comboBoxDiskPartitions
-            // 
-            resources.ApplyResources(this.comboBoxDiskPartitions, "comboBoxDiskPartitions");
-            this.comboBoxDiskPartitions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDiskPartitions.FormattingEnabled = true;
-            this.comboBoxDiskPartitions.Name = "comboBoxDiskPartitions";
-            this.toolTipSettings.SetToolTip(this.comboBoxDiskPartitions, resources.GetString("comboBoxDiskPartitions.ToolTip"));
-            // 
-            // comboBoxDiskDrives
-            // 
-            resources.ApplyResources(this.comboBoxDiskDrives, "comboBoxDiskDrives");
-            this.comboBoxDiskDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDiskDrives.FormattingEnabled = true;
-            this.comboBoxDiskDrives.Name = "comboBoxDiskDrives";
-            this.toolTipSettings.SetToolTip(this.comboBoxDiskDrives, resources.GetString("comboBoxDiskDrives.ToolTip"));
-            this.comboBoxDiskDrives.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiskDrives_SelectedIndexChanged);
-            // 
-            // buttonAddDisk
-            // 
-            resources.ApplyResources(this.buttonAddDisk, "buttonAddDisk");
-            this.buttonAddDisk.Name = "buttonAddDisk";
-            this.toolTipSettings.SetToolTip(this.buttonAddDisk, resources.GetString("buttonAddDisk.ToolTip"));
-            this.buttonAddDisk.UseVisualStyleBackColor = true;
-            this.buttonAddDisk.Click += new System.EventHandler(this.buttonAddDisk_Click);
             // 
             // groupBoxDiskDetails
             // 
@@ -608,37 +573,37 @@
             // groupBox15
             // 
             resources.ApplyResources(this.groupBox15, "groupBox15");
-            this.groupBox15.Controls.Add(this.radioButton3);
-            this.groupBox15.Controls.Add(this.radioButton2);
-            this.groupBox15.Controls.Add(this.radioButton1);
+            this.groupBox15.Controls.Add(this.radioButtonDiskDLRandom);
+            this.groupBox15.Controls.Add(this.radioButtonDiskDLFree);
+            this.groupBox15.Controls.Add(this.radioButtonDiskDLFixed);
             this.groupBox15.Controls.Add(this.comboBoxDiskDriveLetter);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.TabStop = false;
             this.toolTipSettings.SetToolTip(this.groupBox15, resources.GetString("groupBox15.ToolTip"));
             // 
-            // radioButton3
+            // radioButtonDiskDLRandom
             // 
-            resources.ApplyResources(this.radioButton3, "radioButton3");
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.TabStop = true;
-            this.toolTipSettings.SetToolTip(this.radioButton3, resources.GetString("radioButton3.ToolTip"));
-            this.radioButton3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.radioButtonDiskDLRandom, "radioButtonDiskDLRandom");
+            this.radioButtonDiskDLRandom.Name = "radioButtonDiskDLRandom";
+            this.radioButtonDiskDLRandom.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonDiskDLRandom, resources.GetString("radioButtonDiskDLRandom.ToolTip"));
+            this.radioButtonDiskDLRandom.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonDiskDLFree
             // 
-            resources.ApplyResources(this.radioButton2, "radioButton2");
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.TabStop = true;
-            this.toolTipSettings.SetToolTip(this.radioButton2, resources.GetString("radioButton2.ToolTip"));
-            this.radioButton2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.radioButtonDiskDLFree, "radioButtonDiskDLFree");
+            this.radioButtonDiskDLFree.Name = "radioButtonDiskDLFree";
+            this.radioButtonDiskDLFree.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonDiskDLFree, resources.GetString("radioButtonDiskDLFree.ToolTip"));
+            this.radioButtonDiskDLFree.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonDiskDLFixed
             // 
-            resources.ApplyResources(this.radioButton1, "radioButton1");
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.TabStop = true;
-            this.toolTipSettings.SetToolTip(this.radioButton1, resources.GetString("radioButton1.ToolTip"));
-            this.radioButton1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.radioButtonDiskDLFixed, "radioButtonDiskDLFixed");
+            this.radioButtonDiskDLFixed.Name = "radioButtonDiskDLFixed";
+            this.radioButtonDiskDLFixed.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonDiskDLFixed, resources.GetString("radioButtonDiskDLFixed.ToolTip"));
+            this.radioButtonDiskDLFixed.UseVisualStyleBackColor = true;
             // 
             // comboBoxDiskDriveLetter
             // 
@@ -730,6 +695,7 @@
             resources.ApplyResources(this.checkBoxDiskActive, "checkBoxDiskActive");
             this.checkBoxDiskActive.Checked = true;
             this.checkBoxDiskActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDiskActive.Image = global::TrueMount.Properties.Resources._1285602206_switch;
             this.checkBoxDiskActive.Name = "checkBoxDiskActive";
             this.toolTipSettings.SetToolTip(this.checkBoxDiskActive, resources.GetString("checkBoxDiskActive.ToolTip"));
             this.checkBoxDiskActive.UseVisualStyleBackColor = true;
@@ -737,6 +703,7 @@
             // buttonEditDiskKeyFiles
             // 
             resources.ApplyResources(this.buttonEditDiskKeyFiles, "buttonEditDiskKeyFiles");
+            this.buttonEditDiskKeyFiles.Image = global::TrueMount.Properties.Resources._1285602715_page_white_edit;
             this.buttonEditDiskKeyFiles.Name = "buttonEditDiskKeyFiles";
             this.toolTipSettings.SetToolTip(this.buttonEditDiskKeyFiles, resources.GetString("buttonEditDiskKeyFiles.ToolTip"));
             this.buttonEditDiskKeyFiles.UseVisualStyleBackColor = true;
@@ -784,6 +751,7 @@
             // buttonDeleteDiskDrive
             // 
             resources.ApplyResources(this.buttonDeleteDiskDrive, "buttonDeleteDiskDrive");
+            this.buttonDeleteDiskDrive.Image = global::TrueMount.Properties.Resources._1285602519_delete;
             this.buttonDeleteDiskDrive.Name = "buttonDeleteDiskDrive";
             this.toolTipSettings.SetToolTip(this.buttonDeleteDiskDrive, resources.GetString("buttonDeleteDiskDrive.ToolTip"));
             this.buttonDeleteDiskDrive.UseVisualStyleBackColor = true;
@@ -792,6 +760,7 @@
             // buttonSaveDisk
             // 
             resources.ApplyResources(this.buttonSaveDisk, "buttonSaveDisk");
+            this.buttonSaveDisk.Image = global::TrueMount.Properties.Resources._1285602621_095;
             this.buttonSaveDisk.Name = "buttonSaveDisk";
             this.toolTipSettings.SetToolTip(this.buttonSaveDisk, resources.GetString("buttonSaveDisk.ToolTip"));
             this.buttonSaveDisk.UseVisualStyleBackColor = true;
@@ -828,13 +797,23 @@
             this.toolTipSettings.SetToolTip(this.checkBoxDiskDismountTrigger, resources.GetString("checkBoxDiskDismountTrigger.ToolTip"));
             this.checkBoxDiskDismountTrigger.UseVisualStyleBackColor = true;
             // 
-            // groupBox11
+            // pictureBoxAddDisk
             // 
-            resources.ApplyResources(this.groupBox11, "groupBox11");
-            this.groupBox11.Controls.Add(this.listBoxDisks);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.TabStop = false;
-            this.toolTipSettings.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
+            resources.ApplyResources(this.pictureBoxAddDisk, "pictureBoxAddDisk");
+            this.pictureBoxAddDisk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxAddDisk.Image = global::TrueMount.Properties.Resources._1303056267_add1_;
+            this.pictureBoxAddDisk.Name = "pictureBoxAddDisk";
+            this.pictureBoxAddDisk.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.pictureBoxAddDisk, resources.GetString("pictureBoxAddDisk.ToolTip"));
+            this.pictureBoxAddDisk.Click += new System.EventHandler(this.pictureBoxAddDisk_Click);
+            // 
+            // groupBoxExistingDisks
+            // 
+            resources.ApplyResources(this.groupBoxExistingDisks, "groupBoxExistingDisks");
+            this.groupBoxExistingDisks.Controls.Add(this.listBoxDisks);
+            this.groupBoxExistingDisks.Name = "groupBoxExistingDisks";
+            this.groupBoxExistingDisks.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBoxExistingDisks, resources.GetString("groupBoxExistingDisks.ToolTip"));
             // 
             // listBoxDisks
             // 
@@ -843,6 +822,81 @@
             this.listBoxDisks.Name = "listBoxDisks";
             this.toolTipSettings.SetToolTip(this.listBoxDisks, resources.GetString("listBoxDisks.ToolTip"));
             this.listBoxDisks.SelectedIndexChanged += new System.EventHandler(this.listBoxDisks_SelectedIndexChanged);
+            // 
+            // labelAdvice
+            // 
+            resources.ApplyResources(this.labelAdvice, "labelAdvice");
+            this.labelAdvice.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelAdvice.Name = "labelAdvice";
+            this.toolTipSettings.SetToolTip(this.labelAdvice, resources.GetString("labelAdvice.ToolTip"));
+            // 
+            // panelLocalDiskDrives
+            // 
+            resources.ApplyResources(this.panelLocalDiskDrives, "panelLocalDiskDrives");
+            this.panelLocalDiskDrives.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panelLocalDiskDrives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLocalDiskDrives.Controls.Add(this.linkLabelAddDiskCancel);
+            this.panelLocalDiskDrives.Controls.Add(this.groupBoxLocalDiskDrives);
+            this.panelLocalDiskDrives.Name = "panelLocalDiskDrives";
+            this.toolTipSettings.SetToolTip(this.panelLocalDiskDrives, resources.GetString("panelLocalDiskDrives.ToolTip"));
+            // 
+            // linkLabelAddDiskCancel
+            // 
+            resources.ApplyResources(this.linkLabelAddDiskCancel, "linkLabelAddDiskCancel");
+            this.linkLabelAddDiskCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabelAddDiskCancel.Name = "linkLabelAddDiskCancel";
+            this.linkLabelAddDiskCancel.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.linkLabelAddDiskCancel, resources.GetString("linkLabelAddDiskCancel.ToolTip"));
+            this.linkLabelAddDiskCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAddDiskCancel_LinkClicked);
+            // 
+            // groupBoxLocalDiskDrives
+            // 
+            resources.ApplyResources(this.groupBoxLocalDiskDrives, "groupBoxLocalDiskDrives");
+            this.groupBoxLocalDiskDrives.Controls.Add(this.label7);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.label6);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskPartitions);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.comboBoxDiskDrives);
+            this.groupBoxLocalDiskDrives.Controls.Add(this.buttonAddDisk);
+            this.groupBoxLocalDiskDrives.Name = "groupBoxLocalDiskDrives";
+            this.groupBoxLocalDiskDrives.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBoxLocalDiskDrives, resources.GetString("groupBoxLocalDiskDrives.ToolTip"));
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            this.toolTipSettings.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            this.toolTipSettings.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            // 
+            // comboBoxDiskPartitions
+            // 
+            resources.ApplyResources(this.comboBoxDiskPartitions, "comboBoxDiskPartitions");
+            this.comboBoxDiskPartitions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDiskPartitions.FormattingEnabled = true;
+            this.comboBoxDiskPartitions.Name = "comboBoxDiskPartitions";
+            this.toolTipSettings.SetToolTip(this.comboBoxDiskPartitions, resources.GetString("comboBoxDiskPartitions.ToolTip"));
+            // 
+            // comboBoxDiskDrives
+            // 
+            resources.ApplyResources(this.comboBoxDiskDrives, "comboBoxDiskDrives");
+            this.comboBoxDiskDrives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDiskDrives.FormattingEnabled = true;
+            this.comboBoxDiskDrives.Name = "comboBoxDiskDrives";
+            this.toolTipSettings.SetToolTip(this.comboBoxDiskDrives, resources.GetString("comboBoxDiskDrives.ToolTip"));
+            this.comboBoxDiskDrives.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiskDrives_SelectedIndexChanged);
+            // 
+            // buttonAddDisk
+            // 
+            resources.ApplyResources(this.buttonAddDisk, "buttonAddDisk");
+            this.buttonAddDisk.Name = "buttonAddDisk";
+            this.toolTipSettings.SetToolTip(this.buttonAddDisk, resources.GetString("buttonAddDisk.ToolTip"));
+            this.buttonAddDisk.UseVisualStyleBackColor = true;
+            this.buttonAddDisk.Click += new System.EventHandler(this.buttonAddDisk_Click);
             // 
             // tabPageContainerFiles
             // 
@@ -857,17 +911,74 @@
             // groupBoxConSettings
             // 
             resources.ApplyResources(this.groupBoxConSettings, "groupBoxConSettings");
-            this.groupBoxConSettings.Controls.Add(this.checkBoxFetchConPassword);
-            this.groupBoxConSettings.Controls.Add(this.checkBoxConDismountTrigger);
-            this.groupBoxConSettings.Controls.Add(this.checkBoxOpenConExplorer);
-            this.groupBoxConSettings.Controls.Add(this.comboBoxConLetter);
-            this.groupBoxConSettings.Controls.Add(this.label16);
+            this.groupBoxConSettings.Controls.Add(this.groupBox16);
+            this.groupBoxConSettings.Controls.Add(this.groupBox11);
             this.groupBoxConSettings.Controls.Add(this.checkBoxConActive);
             this.groupBoxConSettings.Controls.Add(this.groupBox12);
             this.groupBoxConSettings.Controls.Add(this.groupBox13);
             this.groupBoxConSettings.Name = "groupBoxConSettings";
             this.groupBoxConSettings.TabStop = false;
             this.toolTipSettings.SetToolTip(this.groupBoxConSettings, resources.GetString("groupBoxConSettings.ToolTip"));
+            // 
+            // groupBox16
+            // 
+            resources.ApplyResources(this.groupBox16, "groupBox16");
+            this.groupBox16.Controls.Add(this.radioButtonConDLRandom);
+            this.groupBox16.Controls.Add(this.radioButtonConDLFree);
+            this.groupBox16.Controls.Add(this.comboBoxConLetter);
+            this.groupBox16.Controls.Add(this.radioButtonConDLFixed);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox16, resources.GetString("groupBox16.ToolTip"));
+            // 
+            // radioButtonConDLRandom
+            // 
+            resources.ApplyResources(this.radioButtonConDLRandom, "radioButtonConDLRandom");
+            this.radioButtonConDLRandom.Name = "radioButtonConDLRandom";
+            this.radioButtonConDLRandom.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonConDLRandom, resources.GetString("radioButtonConDLRandom.ToolTip"));
+            this.radioButtonConDLRandom.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonConDLFree
+            // 
+            resources.ApplyResources(this.radioButtonConDLFree, "radioButtonConDLFree");
+            this.radioButtonConDLFree.Name = "radioButtonConDLFree";
+            this.radioButtonConDLFree.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonConDLFree, resources.GetString("radioButtonConDLFree.ToolTip"));
+            this.radioButtonConDLFree.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxConLetter
+            // 
+            resources.ApplyResources(this.comboBoxConLetter, "comboBoxConLetter");
+            this.comboBoxConLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConLetter.FormattingEnabled = true;
+            this.comboBoxConLetter.Name = "comboBoxConLetter";
+            this.toolTipSettings.SetToolTip(this.comboBoxConLetter, resources.GetString("comboBoxConLetter.ToolTip"));
+            // 
+            // radioButtonConDLFixed
+            // 
+            resources.ApplyResources(this.radioButtonConDLFixed, "radioButtonConDLFixed");
+            this.radioButtonConDLFixed.Name = "radioButtonConDLFixed";
+            this.radioButtonConDLFixed.TabStop = true;
+            this.toolTipSettings.SetToolTip(this.radioButtonConDLFixed, resources.GetString("radioButtonConDLFixed.ToolTip"));
+            this.radioButtonConDLFixed.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            resources.ApplyResources(this.groupBox11, "groupBox11");
+            this.groupBox11.Controls.Add(this.checkBoxOpenConExplorer);
+            this.groupBox11.Controls.Add(this.checkBoxFetchConPassword);
+            this.groupBox11.Controls.Add(this.checkBoxConDismountTrigger);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.TabStop = false;
+            this.toolTipSettings.SetToolTip(this.groupBox11, resources.GetString("groupBox11.ToolTip"));
+            // 
+            // checkBoxOpenConExplorer
+            // 
+            resources.ApplyResources(this.checkBoxOpenConExplorer, "checkBoxOpenConExplorer");
+            this.checkBoxOpenConExplorer.Name = "checkBoxOpenConExplorer";
+            this.toolTipSettings.SetToolTip(this.checkBoxOpenConExplorer, resources.GetString("checkBoxOpenConExplorer.ToolTip"));
+            this.checkBoxOpenConExplorer.UseVisualStyleBackColor = true;
             // 
             // checkBoxFetchConPassword
             // 
@@ -882,27 +993,6 @@
             this.checkBoxConDismountTrigger.Name = "checkBoxConDismountTrigger";
             this.toolTipSettings.SetToolTip(this.checkBoxConDismountTrigger, resources.GetString("checkBoxConDismountTrigger.ToolTip"));
             this.checkBoxConDismountTrigger.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxOpenConExplorer
-            // 
-            resources.ApplyResources(this.checkBoxOpenConExplorer, "checkBoxOpenConExplorer");
-            this.checkBoxOpenConExplorer.Name = "checkBoxOpenConExplorer";
-            this.toolTipSettings.SetToolTip(this.checkBoxOpenConExplorer, resources.GetString("checkBoxOpenConExplorer.ToolTip"));
-            this.checkBoxOpenConExplorer.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxConLetter
-            // 
-            resources.ApplyResources(this.comboBoxConLetter, "comboBoxConLetter");
-            this.comboBoxConLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxConLetter.FormattingEnabled = true;
-            this.comboBoxConLetter.Name = "comboBoxConLetter";
-            this.toolTipSettings.SetToolTip(this.comboBoxConLetter, resources.GetString("comboBoxConLetter.ToolTip"));
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            this.toolTipSettings.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // checkBoxConActive
             // 
@@ -1183,10 +1273,8 @@
             this.panelKeyDevice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPageDiskDrives.ResumeLayout(false);
-            this.groupBoxLocalDiskDrives.ResumeLayout(false);
-            this.groupBoxLocalDiskDrives.PerformLayout();
+            this.tabPageDiskDrives.PerformLayout();
             this.groupBoxDiskDetails.ResumeLayout(false);
-            this.groupBoxDiskDetails.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -1197,10 +1285,18 @@
             this.groupBox6.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddDisk)).EndInit();
+            this.groupBoxExistingDisks.ResumeLayout(false);
+            this.panelLocalDiskDrives.ResumeLayout(false);
+            this.panelLocalDiskDrives.PerformLayout();
+            this.groupBoxLocalDiskDrives.ResumeLayout(false);
+            this.groupBoxLocalDiskDrives.PerformLayout();
             this.tabPageContainerFiles.ResumeLayout(false);
             this.groupBoxConSettings.ResumeLayout(false);
-            this.groupBoxConSettings.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox13.ResumeLayout(false);
@@ -1303,7 +1399,6 @@
         private System.Windows.Forms.Button buttonEditContainerKeyFiles;
         private System.Windows.Forms.CheckBox checkBoxOpenConExplorer;
         private System.Windows.Forms.ComboBox comboBoxConLetter;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox checkBoxConActive;
         private System.Windows.Forms.ListBox listBoxKeyDevices;
         private System.Windows.Forms.ListBox listBoxDisks;
@@ -1327,13 +1422,22 @@
         private System.Windows.Forms.Label labelKeyDevPartition;
         private System.Windows.Forms.Label labelKeyDevSignature;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox groupBoxExistingDisks;
         private System.Windows.Forms.GroupBox groupBoxDiskDetails;
         private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButtonDiskDLRandom;
+        private System.Windows.Forms.RadioButton radioButtonDiskDLFree;
+        private System.Windows.Forms.RadioButton radioButtonDiskDLFixed;
         private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.PictureBox pictureBoxAddDisk;
+        private System.Windows.Forms.Panel panelLocalDiskDrives;
+        private System.Windows.Forms.Label labelAdvice;
+        private System.Windows.Forms.LinkLabel linkLabelAddDiskCancel;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.RadioButton radioButtonConDLRandom;
+        private System.Windows.Forms.RadioButton radioButtonConDLFree;
+        private System.Windows.Forms.RadioButton radioButtonConDLFixed;
+        private System.Windows.Forms.GroupBox groupBox11;
 
 
     }
