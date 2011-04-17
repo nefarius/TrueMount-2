@@ -77,22 +77,7 @@ namespace TrueMount.Forms
 #if DEBUG
             this.Text += " - DEBUG Mode";
 #endif
-        }
 
-        /// <summary>
-        /// Reads some startup configurtion and spawns the listening thread.
-        /// </summary>
-        private void TrueMountMainWindow_Load(object sender, EventArgs e)
-        {
-#if DEBUG
-            // add some test code here to be executed on the very beginning
-            /*
-            PasswordDialog pwDlg = new PasswordDialog("U.N. Owen VAULT-TEC enc. Device o9000TB");
-            if (pwDlg.ShowDialog() == DialogResult.OK)
-                MessageBox.Show(pwDlg.Password);
-            Environment.Exit(0);
-             * */
-#endif
             // show splash screen
             if (config.ShowSplashScreen)
                 splashScreen.Show();
@@ -117,7 +102,7 @@ namespace TrueMount.Forms
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
                 notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
 #if DEBUG
-                notifyIconSysTray.BalloonTipText+=" - DEBUG Mode";
+                notifyIconSysTray.BalloonTipText += " - DEBUG Mode";
 #endif
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
@@ -724,7 +709,7 @@ namespace TrueMount.Forms
         /// Mount a specific container file.
         /// </summary>
         /// <param name="containerFile">The container file to mount.</param>
-        /// <returns>Returns true on successfull mount, else false.</returns>
+        /// <returns>Returns true on successful mount, else false.</returns>
         private bool MountContainerFile(EncryptedContainerFile containerFile)
         {
             bool mountSuccess = false;
@@ -756,22 +741,37 @@ namespace TrueMount.Forms
         /// <summary>
         /// Mounts a specific media.
         /// </summary>
-        /// <param name="encMedia">The ecnrypted media to mount.</param>
+        /// <param name="encMedia">The encrypted media to mount.</param>
         /// <param name="encVolume">The device path or file name to mount.</param>
-        /// <returns>Returns true on successfull mount, else false.</returns>
+        /// <returns>Returns true on successful mount, else false.</returns>
         private bool MountEncryptedMedia(EncryptedMedia encMedia, String encVolume)
         {
             String password = string.Empty;
             bool mountSuccess = false;
             bool bShowPasswdDlg = false;
 
+            // gather drive letter
+            string driveLetter = string.Empty;
+            if (!string.IsNullOrEmpty(encMedia.DriveLetter))
+                // use defined fixed letter
+                driveLetter = encMedia.DriveLetter;
+            else
+            {
+                // use next free letter
+                if (encMedia.NextFreeLetter)
+                    driveLetter = SystemDevices.FreeDriveLetters.FirstOrDefault();
+                // use random free letter
+                if (encMedia.RandomFreeLetter)
+                    driveLetter = SystemDevices.RandomFreeDriveLetter;
+            }
+
             // letter we want to assign
-            LogAppend("DriveLetter", encMedia.DriveLetter);
+            LogAppend("DriveLetter", driveLetter);
 
             // local drive letter must not be assigned!
-            if (SystemDevices.GetLogicalDisk(encMedia.DriveLetter) != null)
+            if (SystemDevices.GetLogicalDisk(driveLetter) != null)
             {
-                LogAppend("ErrLetterInUse", encMedia.DriveLetter);
+                LogAppend("ErrLetterInUse", driveLetter);
                 return mountSuccess;
             }
 
@@ -843,7 +843,7 @@ namespace TrueMount.Forms
 
             // fill in the attributes we got above
             String tcArgsReady = config.TrueCrypt.CommandLineArguments +
-                "/l" + encMedia.DriveLetter +
+                "/l" + driveLetter +
                 " /v \"" + encVolume + "\"" +
                 " /p \"" + password + "\"";
             // unset password (it's now in the argument line)

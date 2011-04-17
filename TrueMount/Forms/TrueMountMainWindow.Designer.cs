@@ -276,7 +276,6 @@
             this.MaximizeBox = false;
             this.Name = "TrueMountMainWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrueMountMainWindow_FormClosing);
-            this.Load += new System.EventHandler(this.TrueMountMainWindow_Load);
             this.contextMenuStripSysTray.ResumeLayout(false);
             this.contextMenuStripClipboard.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

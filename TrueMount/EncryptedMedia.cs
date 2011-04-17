@@ -13,6 +13,8 @@ namespace TrueMount
         public string PasswordFile { get; set; }
         public List<String> KeyFiles { get; set; }
         public string DriveLetter { get; set; }
+        public bool NextFreeLetter { get; set; }
+        public bool RandomFreeLetter { get; set; }
         public bool Readonly { get; set; }
         public bool Removable { get; set; }
         public bool Timestamp { get; set; }

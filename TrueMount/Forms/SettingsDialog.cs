@@ -403,7 +403,6 @@ namespace TrueMount.Forms
 
             // save all the params in the new object
             newEncDiskPartition.PasswordFile = textBoxDiskPasswordFile.Text;
-            newEncDiskPartition.DriveLetter = comboBoxDiskDriveLetter.Text;
             newEncDiskPartition.IsActive = checkBoxDiskActive.Checked;
             newEncDiskPartition.OpenExplorer = checkBoxDiskOpenExplorer.Checked;
             newEncDiskPartition.Readonly = checkBoxDiskRo.Checked;
@@ -413,6 +412,14 @@ namespace TrueMount.Forms
             newEncDiskPartition.KeyFiles = diskKeyFilesList[listBoxDisks.SelectedIndex];
             newEncDiskPartition.TriggerDismount = checkBoxDiskDismountTrigger.Checked;
             newEncDiskPartition.FetchUserPassword = checkBoxFetchDiskPassword.Checked;
+            if(radioButtonDiskDLFixed.Checked)
+                newEncDiskPartition.DriveLetter = comboBoxDiskDriveLetter.Text;
+            else
+            {
+                newEncDiskPartition.DriveLetter = string.Empty;
+                newEncDiskPartition.NextFreeLetter = radioButtonDiskDLFree.Checked;
+                newEncDiskPartition.RandomFreeLetter = radioButtonDiskDLRandom.Checked;
+            }
 
             // replace the disk with the new settings
             if (config.EncryptedDiskPartitions.Contains(newEncDiskPartition))
@@ -495,12 +502,19 @@ namespace TrueMount.Forms
                 checkBoxDiskDismountTrigger.Checked = encDiskPartition.TriggerDismount;
                 checkBoxFetchDiskPassword.Checked = encDiskPartition.FetchUserPassword;
 
-                if (encDiskPartition.DriveLetter != null)
+                // decide if a fixed letter is assigned or free/random is checked
+                if (!string.IsNullOrEmpty(encDiskPartition.DriveLetter))
                 {
                     // if the letter of the drive is not in the list, add it an first position
                     if (!comboBoxDiskDriveLetter.Items.Contains(encDiskPartition.DriveLetter))
                         comboBoxDiskDriveLetter.Items.Insert(0, encDiskPartition.DriveLetter);
                     comboBoxDiskDriveLetter.SelectedItem = encDiskPartition.DriveLetter;
+                    radioButtonDiskDLFixed.Checked = true;
+                }
+                else
+                {
+                    radioButtonDiskDLFree.Checked = encDiskPartition.NextFreeLetter;
+                    radioButtonDiskDLRandom.Checked = encDiskPartition.RandomFreeLetter;                        
                 }
 
                 // after everything is filled with data, make panel visible
@@ -521,6 +535,7 @@ namespace TrueMount.Forms
             pictureBoxAddDisk.Enabled = false;
             // make disk panel visible and bring it to front
             panelLocalDiskDrives.Visible = true;
+            panelLocalDiskDrives.Enabled = true;
             panelLocalDiskDrives.BringToFront();
         }
 
@@ -534,6 +549,14 @@ namespace TrueMount.Forms
             // enable disk details area and make visible
             groupBoxDiskDetails.Enabled = true;
             groupBoxExistingDisks.Enabled = true;
+        }
+
+        private void radioButtonDiskDLFixed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonDiskDLFixed.Checked)
+                comboBoxDiskDriveLetter.Enabled = true;
+            else
+                comboBoxDiskDriveLetter.Enabled = false;
         }
 
         #endregion
@@ -649,26 +672,32 @@ namespace TrueMount.Forms
                 config.EncryptedContainerFiles.Count >= listBoxContainerFiles.Items.Count &&
                 listBoxContainerFiles.SelectedIndex != -1)
             {
-                EncryptedContainerFile encContainerFiles =
+                EncryptedContainerFile encContainerFile =
                     config.EncryptedContainerFiles[listBoxContainerFiles.SelectedIndex];
 
                 // fill up informations
-                textBoxConPasswordFile.Text = encContainerFiles.PasswordFile;
-                checkBoxConActive.Checked = encContainerFiles.IsActive;
-                checkBoxOpenConExplorer.Checked = encContainerFiles.OpenExplorer;
-                checkBoxConRo.Checked = encContainerFiles.Readonly;
-                checkBoxConRm.Checked = encContainerFiles.Removable;
-                checkBoxConTs.Checked = encContainerFiles.Timestamp;
-                checkBoxConSm.Checked = encContainerFiles.System;
-                checkBoxConDismountTrigger.Checked = encContainerFiles.TriggerDismount;
-                checkBoxFetchConPassword.Checked = encContainerFiles.FetchUserPassword;
+                textBoxConPasswordFile.Text = encContainerFile.PasswordFile;
+                checkBoxConActive.Checked = encContainerFile.IsActive;
+                checkBoxOpenConExplorer.Checked = encContainerFile.OpenExplorer;
+                checkBoxConRo.Checked = encContainerFile.Readonly;
+                checkBoxConRm.Checked = encContainerFile.Removable;
+                checkBoxConTs.Checked = encContainerFile.Timestamp;
+                checkBoxConSm.Checked = encContainerFile.System;
+                checkBoxConDismountTrigger.Checked = encContainerFile.TriggerDismount;
+                checkBoxFetchConPassword.Checked = encContainerFile.FetchUserPassword;
 
-                if (encContainerFiles.DriveLetter != null)
+                if (encContainerFile.DriveLetter != null)
                 {
                     // if the letter of the drive is not in the list, add it an first position
-                    if (!comboBoxConLetter.Items.Contains(encContainerFiles.DriveLetter))
-                        comboBoxConLetter.Items.Insert(0, encContainerFiles.DriveLetter);
-                    comboBoxConLetter.SelectedItem = encContainerFiles.DriveLetter;
+                    if (!comboBoxConLetter.Items.Contains(encContainerFile.DriveLetter))
+                        comboBoxConLetter.Items.Insert(0, encContainerFile.DriveLetter);
+                    comboBoxConLetter.SelectedItem = encContainerFile.DriveLetter;
+                    radioButtonConDLFixed.Checked = true;
+                }
+                else
+                {
+                    radioButtonConDLFree.Checked = encContainerFile.NextFreeLetter;
+                    radioButtonConDLRandom.Checked = encContainerFile.RandomFreeLetter;
                 }
 
                 groupBoxConSettings.Enabled = true;
@@ -704,7 +733,6 @@ namespace TrueMount.Forms
             EncryptedContainerFile newContainerFile =
                 new EncryptedContainerFile(listBoxContainerFiles.SelectedItem.ToString());
 
-            newContainerFile.DriveLetter = comboBoxConLetter.Text;
             newContainerFile.IsActive = checkBoxConActive.Checked;
             newContainerFile.KeyFiles = containerKeyFilesList[listBoxContainerFiles.SelectedIndex];
             newContainerFile.OpenExplorer = checkBoxOpenConExplorer.Checked;
@@ -715,6 +743,14 @@ namespace TrueMount.Forms
             newContainerFile.Timestamp = checkBoxConTs.Checked;
             newContainerFile.TriggerDismount = checkBoxConDismountTrigger.Checked;
             newContainerFile.FetchUserPassword = checkBoxFetchConPassword.Checked;
+            if (radioButtonConDLFixed.Checked)
+                newContainerFile.DriveLetter = comboBoxDiskDriveLetter.Text;
+            else
+            {
+                newContainerFile.DriveLetter = string.Empty;
+                newContainerFile.NextFreeLetter = radioButtonConDLFree.Checked;
+                newContainerFile.RandomFreeLetter = radioButtonConDLRandom.Checked;
+            }
 
             if (config.EncryptedContainerFiles.Contains(newContainerFile))
                 config.EncryptedContainerFiles[config.EncryptedContainerFiles.IndexOf(newContainerFile)] = newContainerFile;
@@ -737,6 +773,14 @@ namespace TrueMount.Forms
             if (kfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 containerKeyFilesList[listBoxContainerFiles.SelectedIndex] = kfd.KeyFiles;
             kfd = null;
+        }
+
+        private void radioButtonConDLFixed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonConDLFixed.Checked)
+                comboBoxConLetter.Enabled = true;
+            else
+                comboBoxConLetter.Enabled = false;
         }
 
         #endregion

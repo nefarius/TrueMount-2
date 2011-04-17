@@ -585,13 +585,13 @@
             // 
             resources.ApplyResources(this.radioButtonDiskDLRandom, "radioButtonDiskDLRandom");
             this.radioButtonDiskDLRandom.Name = "radioButtonDiskDLRandom";
-            this.radioButtonDiskDLRandom.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonDiskDLRandom, resources.GetString("radioButtonDiskDLRandom.ToolTip"));
             this.radioButtonDiskDLRandom.UseVisualStyleBackColor = true;
             // 
             // radioButtonDiskDLFree
             // 
             resources.ApplyResources(this.radioButtonDiskDLFree, "radioButtonDiskDLFree");
+            this.radioButtonDiskDLFree.Checked = true;
             this.radioButtonDiskDLFree.Name = "radioButtonDiskDLFree";
             this.radioButtonDiskDLFree.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonDiskDLFree, resources.GetString("radioButtonDiskDLFree.ToolTip"));
@@ -601,9 +601,9 @@
             // 
             resources.ApplyResources(this.radioButtonDiskDLFixed, "radioButtonDiskDLFixed");
             this.radioButtonDiskDLFixed.Name = "radioButtonDiskDLFixed";
-            this.radioButtonDiskDLFixed.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonDiskDLFixed, resources.GetString("radioButtonDiskDLFixed.ToolTip"));
             this.radioButtonDiskDLFixed.UseVisualStyleBackColor = true;
+            this.radioButtonDiskDLFixed.CheckedChanged += new System.EventHandler(this.radioButtonDiskDLFixed_CheckedChanged);
             // 
             // comboBoxDiskDriveLetter
             // 
@@ -935,13 +935,13 @@
             // 
             resources.ApplyResources(this.radioButtonConDLRandom, "radioButtonConDLRandom");
             this.radioButtonConDLRandom.Name = "radioButtonConDLRandom";
-            this.radioButtonConDLRandom.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonConDLRandom, resources.GetString("radioButtonConDLRandom.ToolTip"));
             this.radioButtonConDLRandom.UseVisualStyleBackColor = true;
             // 
             // radioButtonConDLFree
             // 
             resources.ApplyResources(this.radioButtonConDLFree, "radioButtonConDLFree");
+            this.radioButtonConDLFree.Checked = true;
             this.radioButtonConDLFree.Name = "radioButtonConDLFree";
             this.radioButtonConDLFree.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonConDLFree, resources.GetString("radioButtonConDLFree.ToolTip"));
@@ -959,9 +959,9 @@
             // 
             resources.ApplyResources(this.radioButtonConDLFixed, "radioButtonConDLFixed");
             this.radioButtonConDLFixed.Name = "radioButtonConDLFixed";
-            this.radioButtonConDLFixed.TabStop = true;
             this.toolTipSettings.SetToolTip(this.radioButtonConDLFixed, resources.GetString("radioButtonConDLFixed.ToolTip"));
             this.radioButtonConDLFixed.UseVisualStyleBackColor = true;
+            this.radioButtonConDLFixed.CheckedChanged += new System.EventHandler(this.radioButtonConDLFixed_CheckedChanged);
             // 
             // groupBox11
             // 

@@ -328,5 +328,15 @@ namespace TrueMount
                 return alphabet;
             }
         }
+
+        public static string RandomFreeDriveLetter
+        {
+            get
+            {
+                Random r = new Random();
+                List<string> dLetters = FreeDriveLetters;
+                return dLetters[r.Next(dLetters.Count)];
+            }
+        }
     }
 }
