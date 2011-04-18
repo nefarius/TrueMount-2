@@ -40,7 +40,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-DestDir: {app}; Source: "M:\Development\C#\TrueMount 2\Release\*"; Excludes: ".svn"; Flags: recursesubdirs; 
+DestDir: {app}; Source: "M:\Development\C#\TrueMount 2\Release\*"; Excludes: ".svn,*.exp,*.lib"; Flags: recursesubdirs; 
 
 [Icons]
 Name: "{group}\TrueMount"; Filename: "{app}\TrueMount.exe"
