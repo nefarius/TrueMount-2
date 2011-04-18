@@ -117,6 +117,16 @@ namespace TrueMount.Forms
         /// <param name="e"></param>
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(config.WarnOnExit)
+            {
+                if (MessageBox.Show(langRes.GetString("MsgTWarnExit"), langRes.GetString("MsgHWarnExit"),
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
             config.ApplicationLocation = Configuration.CurrentApplicationLocation;
             Configuration.SaveConfiguration(config);
             StopDeviceListener();
@@ -141,7 +151,7 @@ namespace TrueMount.Forms
                     langRes.GetString("CBoxPartition") +
                     item.PartitionIndex +
                     langRes.GetString("CBoxLetter") +
-                    item.DriveLetter);
+                    item.DriveletterMasked);
                 menuItemEncDisk.Name = index++.ToString();
                 menuItemEncDisk.Image = Properties.Resources._1276786893_drive_disk;
                 menuItemEncDisk.Click += new EventHandler(menuItemEncDisk_Click);
@@ -154,7 +164,7 @@ namespace TrueMount.Forms
             {
                 ToolStripMenuItem menuItemConFile = new ToolStripMenuItem(item.FileName +
                     langRes.GetString("CBoxLetter") +
-                    item.DriveLetter);
+                    item.DriveletterMasked);
                 menuItemConFile.Name = index++.ToString();
                 menuItemConFile.Image = Properties.Resources._1276786893_drive_disk;
                 menuItemConFile.Click += new EventHandler(menuItemEncDisk_Click);
@@ -184,7 +194,7 @@ namespace TrueMount.Forms
                 ToolStripMenuItem menuItemMedia =
                     new ToolStripMenuItem(encMedia.ToString() +
                         langRes.GetString("CBoxLetter") +
-                        encMedia.DriveLetter);
+                        encMedia.DriveLetterCurrent);
                 // set icon
                 menuItemMedia.Image = Properties.Resources._1276786893_drive_disk;
                 // register event handler
@@ -268,13 +278,13 @@ namespace TrueMount.Forms
         /// <param name="encMedia">The mounted media.</param>
         private void MountBalloonTip(EncryptedMedia encMedia)
         {
-            // display ballon tip on success
+            // display balloon tip on success
             if (!config.DisableBalloons)
             {
                 notifyIconSysTray.BalloonTipTitle = langRes.GetString("NewVolumeMounted");
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
                 notifyIconSysTray.BalloonTipText =
-                    string.Format(langRes.GetString("BalloonVolMounted"), encMedia, encMedia.DriveLetter);
+                    string.Format(langRes.GetString("BalloonVolMounted"), encMedia, encMedia.DriveLetterCurrent);
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
         }
@@ -285,13 +295,13 @@ namespace TrueMount.Forms
         /// <param name="encMedia">The dismounted media.</param>
         private void UnmountBalloonTip(EncryptedMedia encMedia)
         {
-            // display ballon tip on success
+            // display balloon tip on success
             if (!config.DisableBalloons)
             {
                 notifyIconSysTray.BalloonTipTitle = langRes.GetString("VolumeDismounted");
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
                 notifyIconSysTray.BalloonTipText =
-                    string.Format(langRes.GetString("BalloonVolumeDismounted"), encMedia, encMedia.DriveLetter);
+                    string.Format(langRes.GetString("BalloonVolumeDismounted"), encMedia, encMedia.DriveLetterCurrent);
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
         }
@@ -473,7 +483,8 @@ namespace TrueMount.Forms
         /// </summary>
         private void notifyIconSysTray_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ShowMainWindow();
+            if (splashScreen == null)
+                ShowMainWindow();
         }
 
         /// <summary>
@@ -751,27 +762,15 @@ namespace TrueMount.Forms
             bool bShowPasswdDlg = false;
 
             // gather drive letter
-            string driveLetter = string.Empty;
-            if (!string.IsNullOrEmpty(encMedia.DriveLetter))
-                // use defined fixed letter
-                driveLetter = encMedia.DriveLetter;
-            else
-            {
-                // use next free letter
-                if (encMedia.NextFreeLetter)
-                    driveLetter = SystemDevices.FreeDriveLetters.FirstOrDefault();
-                // use random free letter
-                if (encMedia.RandomFreeLetter)
-                    driveLetter = SystemDevices.RandomFreeDriveLetter;
-            }
+            encMedia.DriveLetterCurrent = encMedia.DynamicDriveLetter;
 
             // letter we want to assign
-            LogAppend("DriveLetter", driveLetter);
+            LogAppend("DriveLetter", encMedia.DriveLetterCurrent);
 
             // local drive letter must not be assigned!
-            if (SystemDevices.GetLogicalDisk(driveLetter) != null)
+            if (SystemDevices.GetLogicalDisk(encMedia.DriveLetterCurrent) != null)
             {
-                LogAppend("ErrLetterInUse", driveLetter);
+                LogAppend("ErrLetterInUse", encMedia.DriveLetterCurrent);
                 return mountSuccess;
             }
 
@@ -843,7 +842,7 @@ namespace TrueMount.Forms
 
             // fill in the attributes we got above
             String tcArgsReady = config.TrueCrypt.CommandLineArguments +
-                "/l" + driveLetter +
+                "/l" + encMedia.DriveLetterCurrent +
                 " /v \"" + encVolume + "\"" +
                 " /p \"" + password + "\"";
             // unset password (it's now in the argument line)
@@ -904,7 +903,7 @@ namespace TrueMount.Forms
             LogAppend(null, "StartInfo.Arguments: {0}", tcLauncher.StartInfo.Arguments);
 #endif
 
-            // arrr, fire the canon! - well, try it...
+            // arr, fire the canon! - well, try it...
             try
             {
                 LogAppend("StartProcess");
@@ -954,19 +953,19 @@ namespace TrueMount.Forms
 
             Cursor.Current = Cursors.Default;
 
-            LogAppend("LogicalDiskOnline", encMedia.DriveLetter);
-            // mount was successfull
+            LogAppend("LogicalDiskOnline", encMedia.DriveLetterCurrent);
+            // mount was successful
             mountSuccess = true;
-            // display balloon tip on successfull mount
+            // display balloon tip on successful mount
             MountBalloonTip(encMedia);
 
             // if set, open device content in windows explorer
             if (encMedia.OpenExplorer)
             {
-                LogAppend("OpenExplorer", encMedia.DriveLetter);
+                LogAppend("OpenExplorer", encMedia.DriveLetterCurrent);
                 try
                 {
-                    Process.Start("explorer.exe", encMedia.DriveLetter + @":\");
+                    Process.Start("explorer.exe", encMedia.DriveLetterCurrent + @":\");
                 }
                 catch (Exception eex)
                 {
@@ -976,7 +975,7 @@ namespace TrueMount.Forms
                 }
             }
 
-            // add the current mounted media to the dismount systray list
+            // add the current mounted media to the dismount sys tray list
             AddMountedMedia(encMedia);
 
             return mountSuccess;
@@ -1018,8 +1017,8 @@ namespace TrueMount.Forms
             }
             else
             {
-                tcUnmount.StartInfo.Arguments += encMedia.DriveLetter;
-                LogAppend("UnmountMedia", encMedia.DriveLetter);
+                tcUnmount.StartInfo.Arguments += encMedia.DriveLetterCurrent;
+                LogAppend("UnmountMedia", encMedia.DriveLetterCurrent);
             }
 
             try
@@ -1129,6 +1128,8 @@ namespace TrueMount.Forms
 
             if (!config.StartSilent && !config.FirstStart)
                 ShowMainWindow();
+
+            splashScreen = null;
         }
 
         /// <summary>

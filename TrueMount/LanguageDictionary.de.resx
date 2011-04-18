@@ -444,4 +444,10 @@
   <data name="ErrNoPassword" xml:space="preserve">
     <value>Fehler: kein Passwort gefunden, breche Einbinden ab!</value>
   </data>
+  <data name="MsgHWarnExit" xml:space="preserve">
+    <value>Wirklich beenden?</value>
+  </data>
+  <data name="MsgTWarnExit" xml:space="preserve">
+    <value>Sie sind dabei TrueMount zu beenden, ohne müssen Sie noch eingebundene Laufwerke manuell mit TrueCrypt trennen! Wirklich beenden?</value>
+  </data>
 </root>

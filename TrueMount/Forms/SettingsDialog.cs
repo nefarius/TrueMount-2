@@ -72,6 +72,7 @@ namespace TrueMount.Forms
             checkBoxDisableBalloons.Checked = config.DisableBalloons;
             numericUpDownBalloonTime.Value = config.BalloonTimePeriod;
             checkBoxCheckUpdates.Checked = config.CheckForUpdates;
+            checkBoxWarnOnExit.Checked = config.WarnOnExit;
 
             // load available languages
             if (config.Language != null)
@@ -198,6 +199,11 @@ namespace TrueMount.Forms
         private void checkBoxCheckUpdates_CheckedChanged(object sender, EventArgs e)
         {
             config.CheckForUpdates = checkBoxCheckUpdates.Checked;
+        }
+
+        private void checkBoxWarnOnExit_CheckedChanged(object sender, EventArgs e)
+        {
+            config.WarnOnExit = checkBoxWarnOnExit.Checked;
         }
 
         #endregion

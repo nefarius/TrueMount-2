@@ -38,6 +38,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.checkBoxWarnOnExit = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelBalloon = new System.Windows.Forms.Label();
             this.labelBalloonTime = new System.Windows.Forms.Label();
@@ -258,6 +259,7 @@
             // groupBox9
             // 
             resources.ApplyResources(this.groupBox9, "groupBox9");
+            this.groupBox9.Controls.Add(this.checkBoxWarnOnExit);
             this.groupBox9.Controls.Add(this.panel1);
             this.groupBox9.Controls.Add(this.checkBoxCheckUpdates);
             this.groupBox9.Controls.Add(this.checkBoxDisableBalloons);
@@ -272,6 +274,14 @@
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.TabStop = false;
             this.toolTipSettings.SetToolTip(this.groupBox9, resources.GetString("groupBox9.ToolTip"));
+            // 
+            // checkBoxWarnOnExit
+            // 
+            resources.ApplyResources(this.checkBoxWarnOnExit, "checkBoxWarnOnExit");
+            this.checkBoxWarnOnExit.Name = "checkBoxWarnOnExit";
+            this.toolTipSettings.SetToolTip(this.checkBoxWarnOnExit, resources.GetString("checkBoxWarnOnExit.ToolTip"));
+            this.checkBoxWarnOnExit.UseVisualStyleBackColor = true;
+            this.checkBoxWarnOnExit.CheckedChanged += new System.EventHandler(this.checkBoxWarnOnExit_CheckedChanged);
             // 
             // panel1
             // 
@@ -1438,6 +1448,7 @@
         private System.Windows.Forms.RadioButton radioButtonConDLFree;
         private System.Windows.Forms.RadioButton radioButtonConDLFixed;
         private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.CheckBox checkBoxWarnOnExit;
 
 
     }

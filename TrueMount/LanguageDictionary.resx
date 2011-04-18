@@ -438,4 +438,10 @@
   <data name="ErrNoPassword" xml:space="preserve">
     <value>Error: no password found, mount process aborted!</value>
   </data>
+  <data name="MsgHWarnExit" xml:space="preserve">
+    <value>Really wanna quit?</value>
+  </data>
+  <data name="MsgTWarnExit" xml:space="preserve">
+    <value>You are about to close TrueMount, any mounted devices have to be unmounted with TrueCrypt manually! Really wanna quit?</value>
+  </data>
 </root>

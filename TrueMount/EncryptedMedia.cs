@@ -21,6 +21,33 @@ namespace TrueMount
         public bool System { get; set; }
         public bool TriggerDismount { get; set; }
         public bool FetchUserPassword { get; set; }
+        public string DynamicDriveLetter
+        {
+            get
+            {
+                if (NextFreeLetter)
+                    return SystemDevices.FreeDriveLetters.FirstOrDefault();
+                if (RandomFreeLetter)
+                    return SystemDevices.RandomFreeDriveLetter;
+                if (!string.IsNullOrEmpty(DriveLetter))
+                    return DriveLetter;
+
+                return string.Empty;
+            }
+        }
+        public string DriveLetterCurrent { get; set; }
+        public string DriveletterMasked
+        {
+            get
+            {
+                if (NextFreeLetter || RandomFreeLetter)
+                    return "?";
+                if (!string.IsNullOrEmpty(DriveLetter))
+                    return DriveLetter;
+
+                return "?";
+            }
+        }
 
         public string KeyFilesArgumentLine
         {

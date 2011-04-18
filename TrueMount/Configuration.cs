@@ -33,6 +33,7 @@ namespace TrueMount
         public int BalloonTimePeriod { get; set; }
         public string ApplicationLocation { get; set; }
         public bool CheckForUpdates { get; set; }
+        public bool WarnOnExit { get; set; }
 
         private const string RUN_LOCATION = @"Software\Microsoft\Windows\CurrentVersion\Run";
         private const string VALUE_NAME = "TrueMount by Nefarius";
@@ -53,6 +54,7 @@ namespace TrueMount
             FirstStart = true;
             ApplicationLocation = CurrentApplicationLocation;
             CheckForUpdates = true;
+            WarnOnExit = true;
         }
 
         /// <summary>

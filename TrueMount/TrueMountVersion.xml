@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.8.23.111</version>
+  <version>2.8.24.112</version>
   <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
   <changes>
-    ● Added new drive letter abilities: choose a fixed letter, the next free letter or a random free letter!
-    ● Major design changes in Settings dialog according to new configuration switches
-    ● Fixed a few minor startup bugs
-    ● Adjusted languages
+    ● Fixed a few bugs caused by last added drive letter features
+    ● Added optional warning message on program shutdown
+    ● Added missing language elemets
+    ● Fixed bug in sys tray event which made it possible to open the main window to early
   </changes>
 </truemount>
