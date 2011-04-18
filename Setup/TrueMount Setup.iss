@@ -7,17 +7,17 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppID={{98BFC619-6202-49CA-BEA6-D26F786FAC7D}
 AppName=TrueMount
-AppVersion=2.7.19.88
+AppVersion=2.8.24.112
 AppVerName=TrueMount 2
 AppPublisher=Nefarius
-AppPublisherURL=http://nefarius.darkhosters.net/windows/truemount2
-AppSupportURL=http://nefarius.darkhosters.net/windows/truemount2
-AppUpdatesURL=http://nefarius.darkhosters.net/windows/truemount2
+AppPublisherURL=http://nefarius.at/windows/truemount2
+AppSupportURL=http://nefarius.at/windows/truemount2
+AppUpdatesURL=http://nefarius.at/windows/truemount2
 DefaultDirName={pf}\TrueMount
 DefaultGroupName=TrueMount
 AllowNoIcons=false
 OutputDir=M:\Development\C#\TrueMount 2
-OutputBaseFilename=setup
+OutputBaseFilename=TrueMount 2 Setup
 Compression=lzma/Max
 SolidCompression=false
 WizardImageFile="M:\Development\C#\TrueMount 2\Setup\SetupImage.bmp"
