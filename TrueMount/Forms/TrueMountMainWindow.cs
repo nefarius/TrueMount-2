@@ -46,7 +46,17 @@ namespace TrueMount.Forms
             langRes = Configuration.LanguageDictionary;
 
             // open or create configuration objects
-            this.config = Configuration.OpenConfiguration();
+            try
+            {
+                this.config = Configuration.OpenConfiguration();
+            }
+            catch(IOException)
+            {
+                MessageBox.Show(string.Format(langRes.GetString("MsgTConfReadFail"), Configuration.ConfigurationFile), 
+                    langRes.GetString("MsgHConfReadFail"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
 
             // init new empty list of online key devices
             onlineKeyDevices = new List<string>();
@@ -61,7 +71,7 @@ namespace TrueMount.Forms
             // create all controls
             InitializeComponent();
 
-            // Hide windows if silent os splash start selected
+            // Hide windows if silent or splash start selected
             if(config.StartSilent || config.ShowSplashScreen)
             {
                 this.WindowState = FormWindowState.Minimized;

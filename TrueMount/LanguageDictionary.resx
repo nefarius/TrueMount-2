@@ -444,4 +444,10 @@
   <data name="MsgTWarnExit" xml:space="preserve">
     <value>You are about to close TrueMount, any mounted devices have to be unmounted with TrueCrypt manually! Really wanna quit?</value>
   </data>
+  <data name="MsgHConfReadFail" xml:space="preserve">
+    <value>Configuration file not accessible</value>
+  </data>
+  <data name="MsgTConfReadFail" xml:space="preserve">
+    <value>The configuration file "{0}" could not be opened! This is a fatal error, shutting down program...</value>
+  </data>
 </root>

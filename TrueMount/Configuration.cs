@@ -9,6 +9,7 @@ using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
 using TrueMount.Forms;
+using System.Runtime.Serialization;
 
 namespace TrueMount
 {
@@ -78,7 +79,7 @@ namespace TrueMount
 
         public static string LauncherLocation
         {
-            get { return CurrentApplicationPath + Path.DirectorySeparatorChar + "TCLauncher.exe"; }
+            get { return Path.Combine(CurrentApplicationPath, "TCLauncher.exe"); }
         }
 
         /// <summary>
@@ -250,16 +251,30 @@ namespace TrueMount
         public static Configuration OpenConfiguration()
         {
             Configuration stored = new Configuration();
+
             if (File.Exists(ConfigurationFile))
             {
-                FileStream fsFetch = new FileStream(ConfigurationFile, FileMode.Open);
-                BinaryFormatter binFormat = new BinaryFormatter();
-                try { stored = (Configuration)binFormat.Deserialize(fsFetch); }
-                catch { return stored; }
-                fsFetch.Close();
+                FileStream fsFetch = null;
+                try
+                {
+                    fsFetch = new FileStream(ConfigurationFile, FileMode.Open);
+                    BinaryFormatter binFormat = new BinaryFormatter();
+                    stored = (Configuration)binFormat.Deserialize(fsFetch);
+                }
+                catch (SerializationException)
+                {
+                    return stored;
+                }
+                finally
+                {
+                    if (fsFetch != null)
+                        fsFetch.Close();
+                }
+
                 // compatibility workaround: initiates every null reference to avoid crashes
                 stored.InitReferences();
             }
+
             return stored;
         }
 
@@ -267,7 +282,7 @@ namespace TrueMount
         /// Tries to start an updater instance and waits for its response.
         /// </summary>
         /// <param name="silent">Set true if you want to suppress dialogs.</param>
-        /// <returns>Returns true on successfull update, else false.</returns>
+        /// <returns>Returns true on successful update, else false.</returns>
         public bool InvokeUpdateProcess(bool silent = false)
         {
             string lastAppStartPath = Path.GetDirectoryName(this.ApplicationLocation);

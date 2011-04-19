@@ -450,4 +450,10 @@
   <data name="MsgTWarnExit" xml:space="preserve">
     <value>Sie sind dabei TrueMount zu beenden, ohne müssen Sie noch eingebundene Laufwerke manuell mit TrueCrypt trennen! Wirklich beenden?</value>
   </data>
+  <data name="MsgHConfReadFail" xml:space="preserve">
+    <value>Konfigurationsdatei nicht verfügbar</value>
+  </data>
+  <data name="MsgTConfReadFail" xml:space="preserve">
+    <value>Die Konfigurationsdatei "{0}" konnte nicht göffnet werden! Dies ist ein schwerer Fehler, beende Programm...</value>
+  </data>
 </root>

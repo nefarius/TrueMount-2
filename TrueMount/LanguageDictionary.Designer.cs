@@ -448,6 +448,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration file not accessible.
+        /// </summary>
+        internal static string MsgHConfReadFail {
+            get {
+                return ResourceManager.GetString("MsgHConfReadFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicate detected.
         /// </summary>
         internal static string MsgHDevDouble {
@@ -597,6 +606,15 @@ namespace TrueMount {
         internal static string MsgHWarnUmount {
             get {
                 return ResourceManager.GetString("MsgHWarnUmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The configuration file &quot;{0}&quot; could not be opened! This is a fatal error, shutting down program....
+        /// </summary>
+        internal static string MsgTConfReadFail {
+            get {
+                return ResourceManager.GetString("MsgTConfReadFail", resourceCulture);
             }
         }
         
