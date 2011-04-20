@@ -126,6 +126,9 @@
   <data name="MsgHErrDirData" xml:space="preserve">
     <value>Interner Fehler</value>
   </data>
+  <data name="MsgHErrFetchInfo" xml:space="preserve">
+    <value>Konnte Aktualisierungsinformationen nicht laden</value>
+  </data>
   <data name="MsgHErrWritePerm" xml:space="preserve">
     <value>Keine Schreibrechte</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="MsgTErrDirData" xml:space="preserve">
     <value>Entschuldigung, aber ich konnte leider wichtige Informationen nicht empfangen, bitte später noch mal versuchen oder den Entwickler kontaktieren!</value>
+  </data>
+  <data name="MsgTErrFetchInfo" xml:space="preserve">
+    <value>Konnte Aktualisierungsinformationen nicht laden. Möglicherweise ist der Server nicht erreichbar oder Sie sind nicht mit dem Internet verbunden.</value>
   </data>
   <data name="MsgTErrWritePerm" xml:space="preserve">
     <value>Entschuldigung, aber ich konnte nicht nach "{0}" schreiben, bitte starte mich nochmal als Administrator oder prüfe die Ordner-Rechte!</value>

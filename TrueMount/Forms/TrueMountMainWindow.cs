@@ -4,13 +4,13 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Management;
 using System.Resources;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.IO.Pipes;
-using System.Text;
 
 namespace TrueMount.Forms
 {
@@ -82,15 +82,12 @@ namespace TrueMount.Forms
                     splashScreen = new SplashScreen();
                     splashScreen.OnSplashFinished += new SplashScreen.OnSplashFinishedEventHandler(splashScreen_OnSplashFinished);
                     contextMenuStripSysTray.Enabled = false;
+                    splashScreen.Show();
                 }
             }
 #if DEBUG
             this.Text += " - DEBUG Mode";
 #endif
-
-            // show splash screen
-            if (config.ShowSplashScreen)
-                splashScreen.Show();
 
             // are we allowed to start the listener on our own?
             if (config.AutostartService)
@@ -105,17 +102,20 @@ namespace TrueMount.Forms
             // register the event handler
             this.RegisterDeviceRemoveHandler();
 
+#if DEBUG
             if (!config.DisableBalloons)
             {
+
                 // final start notification
                 notifyIconSysTray.BalloonTipTitle = config.ApplicationName;
                 notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Info;
                 notifyIconSysTray.BalloonTipText = "TrueMount " + Application.ProductVersion;
-#if DEBUG
+
                 notifyIconSysTray.BalloonTipText += " - DEBUG Mode";
-#endif
+
                 notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
             }
+#endif
 
             BuildMountMenu();
         }
@@ -218,7 +218,7 @@ namespace TrueMount.Forms
         }
 
         /// <summary>
-        /// Event after an encrapted unmount media item has been leftclicked.
+        /// Event after an encrypted unmount media item has been left clicked.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -244,7 +244,7 @@ namespace TrueMount.Forms
         }
 
         /// <summary>
-        /// Event after an encrypted mount media item has been leftclicked.
+        /// Event after an encrypted mount media item has been left clicked.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -283,7 +283,7 @@ namespace TrueMount.Forms
 
         #region Balloon tips actions
         /// <summary>
-        /// Displayes a balloon tip on mount success.
+        /// Displays a balloon tip on mount success.
         /// </summary>
         /// <param name="encMedia">The mounted media.</param>
         private void MountBalloonTip(EncryptedMedia encMedia)
@@ -300,7 +300,7 @@ namespace TrueMount.Forms
         }
 
         /// <summary>
-        /// Displays a balloon top on successfull dismount.
+        /// Displays a balloon top on successful dismount.
         /// </summary>
         /// <param name="encMedia">The dismounted media.</param>
         private void UnmountBalloonTip(EncryptedMedia encMedia)
@@ -319,7 +319,7 @@ namespace TrueMount.Forms
 
         #region Show and hide main window
         /// <summary>
-        /// Maximize and unhide main window in taskbar.
+        /// Maximize and unhide main window in task bar.
         /// </summary>
         private void ShowMainWindow()
         {
@@ -329,7 +329,7 @@ namespace TrueMount.Forms
         }
 
         /// <summary>
-        /// Minimize and hide main window in taskbar.
+        /// Minimize and hide main window in task bar.
         /// </summary>
         private void HideMainWindow()
         {
@@ -664,7 +664,7 @@ namespace TrueMount.Forms
         /// Mount a specific encrypted partition.
         /// </summary>
         /// <param name="encDiskPartition">The encrypted partition to mount.</param>
-        /// <returns>Returns true on successfull mount, else false.</returns>
+        /// <returns>Returns true on successful mount, else false.</returns>
         private bool MountPartition(EncryptedDiskPartition encDiskPartition)
         {
             bool mountSuccess = false;
@@ -949,8 +949,17 @@ namespace TrueMount.Forms
                     {
                         LogAppend("ErrTrueCryptMsg", input);
                         if(config.TrueCrypt.ShowErrors)
-                            MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia),
-                                langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        {
+#if DEBUG
+                            MessageBox.Show(string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia, input),
+                                                            langRes.GetString("MsgHDiskTimeout"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+#endif
+
+                            notifyIconSysTray.BalloonTipTitle = langRes.GetString("MsgHDiskTimeout");
+                            notifyIconSysTray.BalloonTipIcon = ToolTipIcon.Warning;
+                            notifyIconSysTray.BalloonTipText = string.Format(langRes.GetString("MsgTDiskTimeout"), encMedia, input);
+                            notifyIconSysTray.ShowBalloonTip(config.BalloonTimePeriod);
+                        }
 
                         LogAppend("MountCanceled", encMedia.ToString());
                         Cursor.Current = Cursors.Default;

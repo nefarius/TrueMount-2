@@ -192,66 +192,59 @@ namespace updater
         public bool DownloadVersionInfo()
         {
             XmlTextReader xmlReader = null;
-            try
+
+            var request = (HttpWebRequest)WebRequest.Create(updateInfoURL);
+            request.UserAgent = userAgent;
+            using (var response = request.GetResponse())
+            using (var responseStream = response.GetResponseStream())
+            using (xmlReader = new XmlTextReader(responseStream))
             {
-                var request = (HttpWebRequest)WebRequest.Create(updateInfoURL);
-                request.UserAgent = userAgent;
-                using (var response = request.GetResponse())
-                using (var responseStream = response.GetResponseStream())
-                using (xmlReader = new XmlTextReader(responseStream))
+                // simply (and easily) skip the junk at the beginning
+                xmlReader.MoveToContent();
+                // internal - as the XmlTextReader moves only
+                // forward, we save current xml element name
+                // in elementName variable. When we parse a
+                // text node, we refer to elementName to check
+                // what was the node name
+                string elementName = string.Empty;
+                // we check if the xml starts with a proper
+                // "truemount" element node
+                if ((xmlReader.NodeType == XmlNodeType.Element) &&
+                    (xmlReader.Name == "truemount"))
                 {
-                    // simply (and easily) skip the junk at the beginning
-                    xmlReader.MoveToContent();
-                    // internal - as the XmlTextReader moves only
-                    // forward, we save current xml element name
-                    // in elementName variable. When we parse a
-                    // text node, we refer to elementName to check
-                    // what was the node name
-                    string elementName = string.Empty;
-                    // we check if the xml starts with a proper
-                    // "truemount" element node
-                    if ((xmlReader.NodeType == XmlNodeType.Element) &&
-                        (xmlReader.Name == "truemount"))
+                    while (xmlReader.Read())
                     {
-                        while (xmlReader.Read())
+                        // when we find an element node,
+                        // we remember its name
+                        if (xmlReader.NodeType == XmlNodeType.Element)
+                            elementName = xmlReader.Name;
+                        else
                         {
-                            // when we find an element node,
-                            // we remember its name
-                            if (xmlReader.NodeType == XmlNodeType.Element)
-                                elementName = xmlReader.Name;
-                            else
+                            // for text nodes...
+                            if ((xmlReader.NodeType == XmlNodeType.Text) &&
+                                (xmlReader.HasValue))
                             {
-                                // for text nodes...
-                                if ((xmlReader.NodeType == XmlNodeType.Text) &&
-                                    (xmlReader.HasValue))
+                                // we check what the name of the node was
+                                switch (elementName)
                                 {
-                                    // we check what the name of the node was
-                                    switch (elementName)
-                                    {
-                                        case "version":
-                                            // thats why we keep the version info
-                                            // in xxx.xxx.xxx.xxx format
-                                            // the Version class does the
-                                            // parsing for us
-                                            NewVersion = new Version(xmlReader.Value);
-                                            break;
-                                        case "url":
-                                            zipUrl = xmlReader.Value;
-                                            break;
-                                        case "changes":
-                                            changes = xmlReader.Value;
-                                            break;
-                                    }
+                                    case "version":
+                                        // thats why we keep the version info
+                                        // in xxx.xxx.xxx.xxx format
+                                        // the Version class does the
+                                        // parsing for us
+                                        NewVersion = new Version(xmlReader.Value);
+                                        break;
+                                    case "url":
+                                        zipUrl = xmlReader.Value;
+                                        break;
+                                    case "changes":
+                                        changes = xmlReader.Value;
+                                        break;
                                 }
                             }
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                WriteLog(ex);
-                return false;
             }
 
             return true;

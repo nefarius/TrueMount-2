@@ -235,7 +235,7 @@
     <value>The chosen disk seems to be offline, please reopen this dialog!</value>
   </data>
   <data name="MsgTDiskTimeout" xml:space="preserve">
-    <value>The mount of "{0}" has not worked! Please check the log output and your settings!</value>
+    <value>The mount of "{0}" may have failed, TrueCrypt responded: "{1}". If necessary please check the log output and your settings.</value>
   </data>
   <data name="MsgTInsranceInfo" xml:space="preserve">
     <value>There is already an instance of TrueMount running!</value>

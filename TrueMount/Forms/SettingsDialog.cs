@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Management;
 using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace TrueMount.Forms
 {
@@ -118,6 +117,11 @@ namespace TrueMount.Forms
             Cursor.Current = Cursors.Default;
         }
 
+        /// <summary>
+        /// Gets called on form closing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (editInProgress)
@@ -143,6 +147,7 @@ namespace TrueMount.Forms
                 config.UnSetAutoStart();
         }
 
+        #region Checkbox (un)set events
         private void checkBoxAutostart_CheckedChanged(object sender, EventArgs e)
         {
             config.AutostartService = checkBoxAutostart.Checked;
@@ -205,11 +210,17 @@ namespace TrueMount.Forms
         {
             config.WarnOnExit = checkBoxWarnOnExit.Checked;
         }
+        #endregion
 
         #endregion
 
         #region Key Devices Tab Events
 
+        /// <summary>
+        /// Adds a new key device.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddKeyDevice_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -243,6 +254,11 @@ namespace TrueMount.Forms
             Cursor.Current = Cursors.Default;
         }
 
+        /// <summary>
+        /// Gets called on key device selection change.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxKeyDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxKeyDevices.SelectedIndex != -1 &&
@@ -289,6 +305,11 @@ namespace TrueMount.Forms
             }
         }
 
+        /// <summary>
+        /// Activates key device.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxKeyDeviceActive_CheckedChanged(object sender, EventArgs e)
         {
             config.KeyDevices[listBoxKeyDevices.SelectedIndex].IsActive = checkBoxKeyDeviceActive.Checked;
@@ -464,6 +485,11 @@ namespace TrueMount.Forms
             listBoxDisks.Enabled = true;
         }
 
+        /// <summary>
+        /// Opens key files edit dialog.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEditDiskKeyFiles_Click(object sender, EventArgs e)
         {
             KeyFilesDialog kfd = new KeyFilesDialog();
@@ -473,6 +499,11 @@ namespace TrueMount.Forms
             kfd = null;
         }
 
+        /// <summary>
+        /// Gets called on selected disk change.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxDisks_SelectedIndexChanged(object sender, EventArgs e)
         {
             // re-create the list of available drive letters
@@ -794,7 +825,7 @@ namespace TrueMount.Forms
         #region Helper Methods
 
         /// <summary>
-        /// Builds the device lists (the most evil code I ever wrote :/)
+        /// Builds the device lists.
         /// </summary>
         private void BuildDeviceList()
         {

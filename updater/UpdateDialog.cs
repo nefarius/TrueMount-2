@@ -66,13 +66,24 @@ namespace updater
             }
 
             // if no new version is available, inform the user (or not) and exit
-            if (!updater.NewVersionAvailable)
+            try
             {
-                if (!silent)
+                if (!updater.NewVersionAvailable)
                 {
-                    MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!silent)
+                    {
+                        MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                    this.Close();
                 }
+            }
+            catch
+            {
+                MessageBox.Show(langRes.GetString("MsgTErrFetchInfo"), langRes.GetString("MsgHErrFetchInfo"),
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 this.Close();
             }

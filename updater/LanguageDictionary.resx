@@ -126,6 +126,9 @@
   <data name="MsgHErrDirData" xml:space="preserve">
     <value>Internal error</value>
   </data>
+  <data name="MsgHErrFetchInfo" xml:space="preserve">
+    <value>Could not receive update info</value>
+  </data>
   <data name="MsgHErrWritePerm" xml:space="preserve">
     <value>No write permissions</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="MsgTErrDirData" xml:space="preserve">
     <value>Sorry, but I could not receive important patch info, please try again later or contact the developer!</value>
+  </data>
+  <data name="MsgTErrFetchInfo" xml:space="preserve">
+    <value>Could not receive update info. Maybe the server is down or you are not connected to the internet.</value>
   </data>
   <data name="MsgTErrWritePerm" xml:space="preserve">
     <value>Sorry, but I can not write to "{0}", please re-run me as Administrator or check the permissions of the directory!</value>

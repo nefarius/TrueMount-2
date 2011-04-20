@@ -54,7 +54,6 @@
             this.buttonStartWorker = new System.Windows.Forms.Button();
             this.buttonHide = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.contextMenuStripSysTray.SuspendLayout();
             this.contextMenuStripClipboard.SuspendLayout();
@@ -243,13 +242,6 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.DarkRed;
-            this.label3.Name = "label3";
-            this.toolTipMainWindow.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonStopWorker);
@@ -270,7 +262,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabelNefarius);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -312,7 +303,6 @@
         private System.Windows.Forms.ToolStripMenuItem mountDeviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unmountDeviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Label label3;
     }
 }
 

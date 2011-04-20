@@ -646,7 +646,7 @@ namespace TrueMount {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The mount of &quot;{0}&quot; has not worked! Please check the log output and your settings!.
+        ///   Looks up a localized string similar to The mount of &quot;{0}&quot; may have failed, TrueCrypt responded: &quot;{1}&quot;. If necessary please check the log output and your settings..
         /// </summary>
         internal static string MsgTDiskTimeout {
             get {

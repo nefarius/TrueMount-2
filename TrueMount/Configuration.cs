@@ -77,6 +77,9 @@ namespace TrueMount
                 ApplicationLocation = CurrentApplicationLocation;
         }
 
+        /// <summary>
+        /// Full path to TrueCrypt IPC launcher.
+        /// </summary>
         public static string LauncherLocation
         {
             get { return Path.Combine(CurrentApplicationPath, "TCLauncher.exe"); }
@@ -123,11 +126,11 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// URL to the projects webpage.
+        /// URL to the projects web page.
         /// </summary>
         public static string ProjectLocation
         {
-            get { return "http://nefarius.darkhosters.net/windows/truemount2#beta"; }
+            get { return "http://nefarius.at/windows/truemount2"; }
         }
 
         /// <summary>
@@ -175,7 +178,7 @@ namespace TrueMount
         }
 
         /// <summary>
-        /// The Name of the App.
+        /// The Name of the Application.
         /// </summary>
         public string ApplicationName
         {
@@ -324,6 +327,9 @@ namespace TrueMount
             return false;
         }
 
+        /// <summary>
+        /// Checks if one or more volumes need a password dialog.
+        /// </summary>
         public bool IsUserPasswordNeeded
         {
             get
