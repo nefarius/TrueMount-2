@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TrueMount")]
-[assembly: AssemblyDescription("Ad-On for TryCrypt to easily mount encrypted devices.")]
+[assembly: AssemblyDescription("Add-On for TryCrypt to easily mount encrypted devices.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Benjamin Höglinger")]
 [assembly: AssemblyProduct("TrueMount")]
@@ -33,6 +33,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.8.25.119")]
-[assembly: AssemblyFileVersion("2.8.25.119")]
+[assembly: AssemblyVersion("2.8.26.120")]
+[assembly: AssemblyFileVersion("2.8.26.120")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
