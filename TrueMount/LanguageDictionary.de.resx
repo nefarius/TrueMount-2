@@ -456,4 +456,7 @@
   <data name="MsgTConfReadFail" xml:space="preserve">
     <value>Die Konfigurationsdatei "{0}" konnte nicht göffnet werden! Dies ist ein schwerer Fehler, beende Programm...</value>
   </data>
+  <data name="InfoAlreadyMounted" xml:space="preserve">
+    <value>Information: das Volumen "{0}" ist bereits eingebunden.</value>
+  </data>
 </root>

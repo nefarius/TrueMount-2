@@ -75,14 +75,18 @@ namespace updater
                         MessageBox.Show(langRes.GetString("MsgTNoNewVersion"), langRes.GetString("MsgHNoNewVersion"),
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                     this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                     this.Close();
                 }
             }
             catch
             {
-                MessageBox.Show(langRes.GetString("MsgTErrFetchInfo"), langRes.GetString("MsgHErrFetchInfo"),
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(!silent)
+                {
+                    MessageBox.Show(langRes.GetString("MsgTErrFetchInfo"), langRes.GetString("MsgHErrFetchInfo"),
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
                 this.Close();

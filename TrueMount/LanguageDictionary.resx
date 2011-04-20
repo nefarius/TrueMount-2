@@ -450,4 +450,7 @@
   <data name="MsgTConfReadFail" xml:space="preserve">
     <value>The configuration file "{0}" could not be opened! This is a fatal error, shutting down program...</value>
   </data>
+  <data name="InfoAlreadyMounted" xml:space="preserve">
+    <value>Info: the volume "{0}" is already mounted.</value>
+  </data>
 </root>

@@ -394,6 +394,15 @@ namespace TrueMount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Info: the volume &quot;{0}&quot; is already mounted..
+        /// </summary>
+        internal static string InfoAlreadyMounted {
+            get {
+                return ResourceManager.GetString("InfoAlreadyMounted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Info: Laucher exited successfully..
         /// </summary>
         internal static string InfoLauncherOk {

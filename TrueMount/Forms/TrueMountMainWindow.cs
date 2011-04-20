@@ -771,6 +771,13 @@ namespace TrueMount.Forms
             bool mountSuccess = false;
             bool bShowPasswdDlg = false;
 
+            // if already mounted skip everything
+            if (mountedVolumes.Contains(encMedia))
+            {
+                LogAppend("InfoAlreadyMounted", encMedia.ToString());
+                return mountSuccess;
+            }
+
             // gather drive letter
             encMedia.DriveLetterCurrent = encMedia.DynamicDriveLetter;
 
