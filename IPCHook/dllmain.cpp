@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include "NCodeHook/NCodeHookInstantiation.h"
+#include <string>
 
 #pragma comment(lib, "NCodeHook/distorm.lib")
 
@@ -14,16 +15,14 @@ typedef int (WINAPI *MessageBoxFPtr)(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaptio
 // Definitions
 MessageBoxFPtr origMessageBoxW = NULL;
 NCodeHookIA32 nch;
-volatile BOOL bHooked = FALSE;
 
 // The fake function
 int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType)
 {
-#ifdef _DEBUG
-	origMessageBoxW(NULL, L"Hooked", NULL, MB_ICONINFORMATION|MB_OK);
-#endif
-
 	HANDLE npipe;
+	// Convert everything to UNICODE string
+	std::wstring text(lpText);
+	std::wstring caption(lpCaption);
 
 	// Send test of message box back to parent process
 	if( WaitNamedPipe(L"\\\\.\\pipe\\TrueCryptMessage", 3000) )
@@ -34,7 +33,25 @@ int WINAPI MessageBoxHook(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uTy
 		if( npipe != INVALID_HANDLE_VALUE )
 		{
 			DWORD dwRead;
-			WriteFile(npipe, (LPCVOID)lpText, wcslen(lpText) * sizeof(TCHAR), &dwRead, NULL);
+			// Send dialog box message text
+			WriteFile(npipe, 
+				(LPCVOID)&text[0], 
+				text.size() * sizeof(wchar_t), 
+				&dwRead, 
+				NULL);
+			// Send caption
+			WriteFile(npipe,
+				(LPCVOID)&caption[0],
+				caption.size() * sizeof(wchar_t),
+				&dwRead,
+				NULL);
+			// Send message box type
+			WriteFile(npipe,
+				(LPCVOID)&uType,
+				sizeof(UINT),
+				&dwRead,
+				NULL);
+
 			CloseHandle(npipe);
 		}
 	}
@@ -50,16 +67,10 @@ BOOL APIENTRY DllMain(_In_ void * _HDllHandle, _In_ unsigned _Reason, _In_opt_ v
 	switch(_Reason)
 	{
 	case DLL_PROCESS_ATTACH:
-#ifdef _DEBUG
-		MessageBox(NULL, L"HOOKED", L"MAIN", MB_ICONINFORMATION|MB_OK);
-#endif
 		origMessageBoxW = nch.createHook(MessageBoxW, MessageBoxHook);
 
 		if(origMessageBoxW == NULL)
 		{
-#ifdef _DEBUG
-			MessageBox(NULL, L"Hook went wrong!", L"CRAP", MB_ICONINFORMATION|MB_OK);
-#endif
 			HANDLE npipe;
 			LPWSTR lpMsg = L"ERROR_HOOK";
 			// Send fail message back to parent process
@@ -79,10 +90,6 @@ BOOL APIENTRY DllMain(_In_ void * _HDllHandle, _In_ unsigned _Reason, _In_opt_ v
 			// We can't do more, terminate
 			TerminateProcess(GetCurrentProcess(), ERROR_SUCCESS);
 		}
-
-#ifdef _DEBUG
-		origMessageBoxW(NULL, L"HOOKED2", L"RLY", MB_OK|MB_ICONINFORMATION);
-#endif
 		break;
 	case DLL_PROCESS_DETACH:
 		nch.removeHook(MessageBoxHook);
