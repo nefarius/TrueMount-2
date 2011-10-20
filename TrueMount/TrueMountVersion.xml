@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <truemount>
-  <version>2.8.27.122</version>
-  <url>https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount_latest.zip</url>
+  <version>2.8.28.35142</version>
+  <url>https://github.com/nefarius/TrueMount-2/raw/master/TrueMount_latest.zip</url>
   <changes>
-    ● Volumes mounted with dynamic drive letter are now skipped if already mounted
+    ● The application does now a clean and quiet closedown when the system shuts down or it gets killed by task manager.
+    ● The update location changed, you may have to allow TrueMount to connect to Github.com in your firewall.
   </changes>
 </truemount>
