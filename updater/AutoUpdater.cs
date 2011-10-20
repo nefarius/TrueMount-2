@@ -27,7 +27,7 @@ namespace updater
         // our xml document
         private string changes = string.Empty;
 #if !DEBUG
-        private static string updateInfoURL = "https://www.darkhosters.net/svn/truemount/TrueMount/TrueMount/TrueMountVersion.xml";
+        private static string updateInfoURL = "https://raw.github.com/nefarius/TrueMount-2/master/TrueMount/TrueMountVersion.xml";
 #else
         private static string updateInfoURL = "http://localhost/TrueMountVersion.xml";
 #endif
@@ -99,7 +99,7 @@ namespace updater
         {
             if (string.IsNullOrEmpty(downloadLocation))
                 throw new ArgumentNullException();
-            // without the url to the archive this can't do anything usefull
+            // without the url to the archive this can't do anything useful
             if (string.IsNullOrEmpty(this.zipUrl))
                 return false;
 
@@ -136,7 +136,7 @@ namespace updater
                     }
                 }
 
-                // extract every file in zip archiv
+                // extract every file in zip archive
                 foreach (ZipEntry zipEntry in zipFile)
                 {
                     // we don't need directories, they will be created
