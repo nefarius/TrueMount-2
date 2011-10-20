@@ -127,13 +127,18 @@ namespace TrueMount.Forms
         /// <param name="e"></param>
         private void TrueMountMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(config.WarnOnExit)
+            // doesn't show warn dialog when system shuts down
+            if(e.CloseReason != CloseReason.WindowsShutDown &&
+                e.CloseReason != CloseReason.TaskManagerClosing)
             {
-                if (MessageBox.Show(langRes.GetString("MsgTWarnExit"), langRes.GetString("MsgHWarnExit"),
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                if (config.WarnOnExit)
                 {
-                    e.Cancel = true;
-                    return;
+                    if (MessageBox.Show(langRes.GetString("MsgTWarnExit"), langRes.GetString("MsgHWarnExit"),
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
                 }
             }
 
